@@ -1,0 +1,188 @@
+.templates-login {
+    margin-left: 0px;
+}
+
+section.content-header.content-child {
+    padding: 0px;
+}
+
+th.category-th {
+    font-size: 16px;
+}
+
+td.stt-category span {
+    padding-left: 25px;
+}
+
+.categoryAdd strong {
+    color: red;
+    font-weight: 500;
+}
+
+.gennerError {
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+.color-fixpading {
+    padding-left: 0px;
+    adding-right: 0px;
+}
+
+.size-fixpading {
+    padding-right: 0px;
+}
+
+select.color_id {
+    width: 30%;
+    float: left;
+}
+
+.color-x {
+    float: left;
+    margin-left: 28px;
+}
+
+.color-element {
+    padding-bottom: 30px;
+}
+
+select.size_id {
+    width: 95%;
+    float: left;
+}
+
+.size-x {
+    float: left;
+    margin-left: 28px;
+}
+
+.size-element {
+    padding-bottom: 30px;
+}
+
+select.material_id {
+    width: 95%;
+    float: left;
+}
+
+.material-x {
+    float: left;
+    margin-left: 28px;
+}
+
+.material-element {
+    padding-bottom: 30px;
+}
+
+select.collection_id {
+    width: 95%;
+    float: left;
+}
+
+.collection-x {
+    float: left;
+    margin-left: 28px;
+}
+
+.collection-element {
+    padding-bottom: 30px;
+}
+
+.image-detail-element {
+    float: left;
+    margin-left: 15px;
+}
+
+img#imageMaterShow {
+    margin-left: 36%;
+}
+
+img#imageBanner {
+    margin-top: 15px;
+    width: 100%;
+}
+
+.productPagin {
+    text-align: center;
+}
+
+.product-input-search {
+    /*padding-left: 40px;*/
+}
+
+.imageProduct {
+    width: 100%;
+    height: 100%;
+}
+
+.imageProduct img {
+    width: 100%;
+}
+
+td.imageProductTd {
+    width: 7%;
+}
+
+span.colors_name_search {
+    color: red;
+}
+
+.imageColor {
+    float: left;
+    width: 40%;
+    margin-left: 29px;
+    margin-top: 3px;
+}
+
+.imageColor input {
+    float: left;
+}
+
+.imgaefloat {
+    margin-top: 12px;
+}
+
+.imageDetail {
+    float: left;
+    padding-left: 25px;
+}
+
+.imageDetail img {
+    margin-top: 12px;
+    width: 200px;
+    height: 260px;
+    display: block;
+}
+
+.imageMaterShowEdit {
+    width: 446px;
+    height: 591px;
+}
+
+.imageNewsEdit {
+    width: 567px;
+    height: 502px;
+}
+
+.btn.btn-danger.imageDetailDeledit {
+    margin-top: 15px;
+    margin-left: 66px;
+}
+
+.btn.btn-danger.imageColor {
+    width: 140px;
+    margin-top: 15px;
+    margin-left: 30px;
+}
+
+.colorDetail {
+    margin-top: 13px;
+    text-align: center;
+}
+
+#imageCategoryShow {
+    margin-top: 15px;
+    width: 346px;
+    height: 384px;
+}
