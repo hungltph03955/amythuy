@@ -39,6 +39,7 @@ class HomeController extends Controller
         $products = $this->product->getSearch($search, $p = 2);
         $imagesbanner = $this->imageBannerRepository->getAll();
 
+        // dd($products);
         return view('endUser.index')->with([
             'cates' => $cates,
             'products' => $products,
@@ -50,9 +51,9 @@ class HomeController extends Controller
     {
 
         $product = $this->product->show($id);
-        $product->views = $product->views + 1;
+        // $product->views = $product->views + 1;
         $cates = $this->categories->gets();
-        $product->save();
+        // $product->save();
 
         return view('homepage.show')->with([
             'product' => $product,
@@ -67,6 +68,11 @@ class HomeController extends Controller
         $products = $this->product->orderBy($type_sort);
         $html = view('homepage.separate', compact('products'))->render();
         return response()->json(compact('html'));
+    }
+
+    public function blog()
+    {
+        return view('homepage.blog');
     }
 
 

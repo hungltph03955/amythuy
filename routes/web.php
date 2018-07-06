@@ -113,10 +113,10 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
 
 Route::get('show/{id?}', 'HomePage\HomeController@show')->name('home.detail');
 Route::post('addCart/{id?}', 'HomePage\CartController@store')->name('home.cart');
-Route::get('listItem', 'HomePage\CartController@index');
+Route::get('cart', 'HomePage\CartController@index')->name('home.cart');
 Route::post('updateItem/{id?}', 'HomePage\CartController@update')->name('home.cart.update');
 Route::post('destroy/{id?}', 'HomePage\CartController@destroy')->name('home.cart.destroy');
-Route::get('questions', 'HomePage\HomeController@orderBy');
+Route::get('blog', 'HomePage\HomeController@blog');
 
 //-----------------------------------------------Order--------------------------------------
 Route::group(['prefix' => 'order'], function () {

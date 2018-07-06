@@ -1,186 +1,3 @@
-{{--<header id="section-header" class="header moto-section" data-widget="section" data-container="section">--}}
-{{--<div class="moto-widget moto-widget-row row-fixed moto-spacing-top-small moto-spacing-right-auto moto-spacing-bottom-small moto-spacing-left-auto"--}}
-{{--data-grid-type="sm" data-widget="row" data-spacing="sasa" style="">--}}
-{{--<div class="container-fluid">--}}
-{{--<div class="row" data-container="container">--}}
-{{--<div class="moto-widget moto-widget-row__column moto-cell col-sm-4 moto-spacing-top-auto moto-spacing-right-auto moto-spacing-bottom-auto moto-spacing-left-auto"--}}
-{{--style="" data-widget="row.column" data-container="container" data-spacing="aaaa">--}}
-{{--<div data-widget-id="wid__menu__5a7828ebdf3ef"--}}
-{{--class="moto-widget moto-widget-menu moto-preset-2 moto-align-left moto-align-center_mobile-h moto-spacing-top-small moto-spacing-right-auto moto-spacing-bottom-small moto-spacing-left-auto"--}}
-{{--data-preset="2" data-widget="menu">--}}
-{{--<a href="/store/product/marinated-oysters/#" class="moto-widget-menu-toggle-btn"><i--}}
-{{--class="moto-widget-menu-toggle-btn-icon fa fa-bars"></i></a>--}}
-{{--<ul class="moto-widget-menu-list moto-widget-menu-list_horizontal">--}}
-{{--<li class="moto-widget-menu-item">--}}
-{{--<a href="/" data-action="home_page"--}}
-{{--class="moto-widget-menu-link moto-widget-menu-link-level-1 moto-link">HOME</a>--}}
-{{--</li>--}}
-{{--<li class="moto-widget-menu-item">--}}
-{{--<a href="/blog/" data-action="blog.index"--}}
-{{--class="moto-widget-menu-link moto-widget-menu-link-level-1 moto-link">BLOG</a>--}}
-{{--</li>--}}
-{{--<li class="moto-widget-menu-item">--}}
-{{--<a href="/contact/" data-action="page"--}}
-{{--class="moto-widget-menu-link moto-widget-menu-link-level-1 moto-link">CONTACTS</a>--}}
-{{--</li>--}}
-{{--</ul>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--<div class="moto-widget moto-widget-row__column moto-cell col-sm-4 moto-spacing-top-auto moto-spacing-right-auto moto-spacing-bottom-auto moto-spacing-left-auto"--}}
-{{--style="" data-widget="row.column" data-container="container" data-spacing="aaaa">--}}
-
-{{--<div class="moto-widget moto-widget-text moto-preset-default moto-spacing-top-small moto-spacing-right-auto moto-spacing-bottom-small moto-spacing-left-auto"--}}
-{{--data-widget="text" data-preset="default" data-spacing="sasa" data-animation=""--}}
-{{--data-draggable-disabled="">--}}
-{{--<div class="moto-widget-text-content moto-widget-text-editable"><p--}}
-{{--style="text-align: center;" class="moto-text_system_2"><a target="_self"--}}
-{{--data-action="url"--}}
-{{--class="moto-link"--}}
-{{--href="callto:#"><span--}}
-{{--class="fa"></span>&nbsp; 800 1234 56 78</a></p></div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--<div class="moto-widget moto-widget-row__column moto-cell col-sm-4 moto-spacing-top-auto moto-spacing-right-auto moto-spacing-bottom-auto moto-spacing-left-auto"--}}
-{{--style="" data-widget="row.column" data-container="container" data-spacing="aaaa">--}}
-
-{{--<div data-widget-id="wid__store_cart_and_profile__5a7828ebe0817"--}}
-{{--class="moto-widget moto-widget-store_cart_and_profile moto-preset-default moto-align-right moto-align-center_mobile-h moto-spacing-top-small moto-spacing-right-auto moto-spacing-bottom-small moto-spacing-left-auto moto-widget-empty"--}}
-{{--data-widget="store_cart_and_profile">--}}
-{{--<ul class="moto-widget-store_cart_and_profile-container" data-store-cart-widget="">--}}
-{{--<li class="moto-widget-store_cart_and_profile-item">--}}
-{{--<a class="moto-widget-store_cart_and_profile-link" href="{{url('listItem')}}">--}}
-{{--<i class="fa fa-shopping-cart"></i>--}}
-{{--<span style="color: white;font-weight: 10px;"> <small--}}
-{{--id="cart">{{Cart::content()->count()}}</small> </span>--}}
-{{--</a>--}}
-{{--</li>--}}
-{{--<li class="moto-widget-store_cart_and_profile-item">--}}
-{{--<a class="moto-widget-store_cart_and_profile-link" ng-click="handleTargetPage()">--}}
-{{--<i class="fa fa-user"></i>--}}
-{{--<span ng-if="widget.customer"--}}
-{{--class="moto-widget-store_cart_and_profile-username moto-text_268">--}}
-{{--<span ng-bind="widget.customer.first_name"></span> --}}
-{{--<span ng-bind="widget.customer.last_name"></span>--}}
-{{--</span>--}}
-{{--</a>--}}
-{{--</li>--}}
-{{--<li class="moto-widget-store_cart_and_profile-item" ng-if="widget.customer">--}}
-{{--<a class="moto-widget-store_cart_and_profile-link" ng-click="logout()">--}}
-{{--<i class="fa fa-sign-out"></i>--}}
-{{--</a>--}}
-{{--</li>--}}
-{{--</ul>--}}
-
-
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--<div class="moto-widget moto-widget-container moto-container_header_566a9775" data-widget="container"--}}
-{{--data-container="container" data-css-name="moto-container_header_566a9775">--}}
-{{--<div class="moto-widget moto-widget-row row-fixed moto-justify-content_center moto-spacing-top-auto moto-spacing-right-auto moto-spacing-bottom-auto moto-spacing-left-auto"--}}
-{{--data-grid-type="sm" data-widget="row" data-spacing="aaaa" style="">--}}
-{{--<div class="container-fluid">--}}
-{{--<div class="row" data-container="container">--}}
-{{--<div class="moto-widget moto-widget-row__column moto-cell col-sm-3 moto-spacing-top-auto moto-spacing-right-auto moto-spacing-bottom-auto moto-spacing-left-auto"--}}
-{{--style="" data-widget="row.column" data-container="container" data-spacing="aaaa">--}}
-{{--<div class="moto-widget moto-widget-row row-gutter-0 moto-justify-content_center moto-spacing-top-small moto-spacing-right-auto moto-spacing-bottom-small moto-spacing-left-auto"--}}
-{{--data-grid-type="xs" data-widget="row" data-spacing="sasa" style="">--}}
-{{--<div class="container-fluid">--}}
-{{--<div class="row" data-container="container">--}}
-{{--<div class="moto-widget moto-widget-row__column moto-cell col-xs-2 moto-spacing-top-auto moto-spacing-right-auto moto-spacing-bottom-auto moto-spacing-left-auto"--}}
-{{--style="" data-widget="row.column" data-container="container"--}}
-{{--data-spacing="aaaa">--}}
-
-{{--<div data-widget-id="wid__image__5a7828ebe0cb8"--}}
-{{--class="moto-widget moto-widget-image moto-preset-default moto-align-left moto-spacing-top-auto moto-spacing-right-auto moto-spacing-bottom-auto moto-spacing-left-auto  "--}}
-{{--data-widget="image">--}}
-{{--<a class="moto-widget-image-link moto-link" href="/"--}}
-{{--data-action="home_page">--}}
-{{--<img data-src="./files/mt-1199_header_logo01.png"--}}
-{{--class="moto-widget-image-picture lazyload" data-id="1196"--}}
-{{--title="" alt="">--}}
-{{--</a>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--<div class="moto-widget moto-widget-row__column moto-cell col-xs-10 moto-spacing-top-auto moto-spacing-right-auto moto-spacing-bottom-auto moto-spacing-left-auto"--}}
-{{--style="" data-widget="row.column" data-container="container"--}}
-{{--data-spacing="aaaa">--}}
-
-{{--<div class="moto-widget moto-widget-text moto-preset-default moto-spacing-top-auto moto-spacing-right-auto moto-spacing-bottom-auto moto-spacing-left-small"--}}
-{{--data-widget="text" data-preset="default" data-spacing="aaas"--}}
-{{--data-animation="">--}}
-{{--<div class="moto-widget-text-content moto-widget-text-editable"><p--}}
-{{--class="moto-text_system_1"><a href="/" data-action="home_page"--}}
-{{--data-anchor="" class="moto-link">FOODER</a>--}}
-{{--</p></div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--<div class="moto-widget moto-widget-row__column moto-cell col-sm-6 moto-spacing-top-auto moto-spacing-right-auto moto-spacing-bottom-auto moto-spacing-left-auto"--}}
-{{--style="" data-widget="row.column" data-container="container" data-spacing="aaaa">--}}
-
-{{--<div data-widget-id="wid__menu__5a7828ebe138e"--}}
-{{--class="moto-widget moto-widget-menu moto-preset-default moto-align-center moto-align-center_mobile-h moto-spacing-top-auto moto-spacing-right-auto moto-spacing-bottom-auto moto-spacing-left-auto"--}}
-{{--data-preset="default" data-widget="menu">--}}
-{{--<a href="/store/product/marinated-oysters/#" class="moto-widget-menu-toggle-btn"><i--}}
-{{--class="moto-widget-menu-toggle-btn-icon fa fa-bars"></i></a>--}}
-{{--<ul class="moto-widget-menu-list moto-widget-menu-list_horizontal">--}}
-{{--@foreach($cates as $cate )--}}
-{{--<li class="moto-widget-menu-item">--}}
-{{--<a href="/category/{{$cate->slug}}/" data-action="store.category"--}}
-{{--class="moto-widget-menu-link moto-widget-menu-link-level-1 moto-link">{{$cate['name']}}</a>--}}
-{{--</li>--}}
-{{--@endforeach--}}
-{{--</ul>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--<div class="moto-widget moto-widget-row__column moto-cell col-sm-3 moto-spacing-top-auto moto-spacing-right-auto moto-spacing-bottom-auto moto-spacing-left-auto"--}}
-{{--style="" data-widget="row.column" data-container="container" data-spacing="aaaa">--}}
-
-{{--<div class="moto-widget moto-widget-row moto-spacing-top-auto moto-spacing-right-auto moto-spacing-bottom-auto moto-spacing-left-auto"--}}
-{{--data-grid-type="sm" data-widget="row" data-spacing="aaaa" style="">--}}
-{{--<div class="container-fluid">--}}
-{{--<div class="row" data-container="container">--}}
-{{--<div class="moto-widget moto-widget-row__column moto-cell col-sm-2 moto-spacing-top-auto moto-spacing-right-auto moto-spacing-bottom-auto moto-spacing-left-auto"--}}
-{{--style="" data-widget="row.column" data-container="container"--}}
-{{--data-spacing="aaaa">--}}
-
-{{--</div>--}}
-{{--<div class="moto-widget moto-widget-row__column moto-cell col-sm-10 moto-spacing-top-auto moto-spacing-right-auto moto-spacing-bottom-auto moto-spacing-left-auto"--}}
-{{--style="" data-widget="row.column" data-container="container"--}}
-{{--data-spacing="aaaa">--}}
-{{--<div data-widget-id="wid__store_search__5a7828ebe341b"--}}
-{{--class="moto-widget moto-widget-store_search moto-preset-default moto-spacing-top-small moto-spacing-right-auto moto-spacing-bottom-small moto-spacing-left-auto "--}}
-{{--data-preset="default" data-type="" data-widget="store_search">--}}
-{{--<div store-search-widget="">--}}
-{{--<form action="" method="GET"--}}
-{{--accept-charset="utf-8" class="search-form on">--}}
-{{--<label action="" method="get" class="search-form_label">--}}
-{{--<input type="text" class="search-form_input" name="s"--}}
-{{--placeholder="keyword"--}}
-{{--value="{{isset($s) ? $s : ''}}"><span--}}
-{{--class="search-form_liveout"></span>--}}
-{{--<span class="search-form_submit fa-search"></span>--}}
-{{--</label>--}}
-{{--</form>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</header>--}}
-
 <header class="header1">
     <!-- Header desktop -->
     <div class="container-menu-header">
@@ -215,36 +32,36 @@
                 <nav class="menu">
                     <ul class="main_menu">
                         <li>
-                            <a href="index.html">Home</a>
+                            <a href="/index">Home</a>
                             <ul class="sub_menu">
-                                <li><a href="index.html">Homepage V1</a></li>
-                                <li><a href="home-02.html">Homepage V2</a></li>
-                                <li><a href="home-03.html">Homepage V3</a></li>
+                                <li><a href="/index">Homepage V1</a></li>
+                                <li><a href="/index">Homepage V2</a></li>
+                                <li><a href="/index">Homepage V3</a></li>
                             </ul>
                         </li>
 
                         <li>
-                            <a href="product.html">Shop</a>
+                            <a href="/category/ao-dai">Shop</a>
                         </li>
 
                         <li class="sale-noti">
-                            <a href="product.html">Sale</a>
+                            <a href="/category/vay">Sale</a>
                         </li>
 
                         <li>
-                            <a href="cart.html">Features</a>
+                            <a href="/cart">Features</a>
                         </li>
 
                         <li>
-                            <a href="blog.html">Blog</a>
+                            <a href="/blog">Blog</a>
                         </li>
 
                         <li>
-                            <a href="about.html">About</a>
+                            <a href="/about">About</a>
                         </li>
 
                         <li>
-                            <a href="contact.html">Contact</a>
+                            <a href="/contact">Contact</a>
                         </li>
                     </ul>
                 </nav>
