@@ -1,0 +1,45 @@
+pre {
+    font-family: Montserrat-Regular;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #888888;
+    margin: 0px;
+}
+
+.endUserCategory ul {
+    background: rgba(255, 255, 255, 0.8);
+    list-style-type: none;
+    overflow: hidden;
+    width: 100%;
+    margin-left: 10px;
+}
+
+.endUserCategory ul li span {
+    color: #666666;
+    float: left;
+    width: 50px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 10px;
+    font-family: Montserrat-Regular;
+    font-size: 18px;
+}
+
+.endUserCategory ul li.active span {
+    color: red;
+}
+
+.endUserCategory ul li a {
+    color: #666666;
+    float: left;
+    width: 50px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 10px;
+    font-family: Montserrat-Regular;
+    font-size: 18px;
+}
+
+.endUserCategory ul li a:hover {
+    color: red;
+}

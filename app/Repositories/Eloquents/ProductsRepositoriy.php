@@ -42,10 +42,8 @@ class ProductsRepositoriy extends BaseRepository implements ProductsRepositoryIn
 
     public function getProductFromCategory($category_id, $s)
     {
-        // em đưa tạm paginate = 10 để code có thể chạy được,
-        // hiện tại em vẫn chưa tìm được cách đưa biến p từ view
-        // vào controller
-        return $this->model->where('category_id', $category_id)->search($s)->paginate($this->p);
+        $countproductFormcategory = 9;
+        return $this->model->where('category_id', $category_id)->search($s)->paginate($countproductFormcategory);
     }
 
     public function orderBy($params)

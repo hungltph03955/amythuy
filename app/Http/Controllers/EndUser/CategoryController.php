@@ -28,8 +28,7 @@ class CategoryController extends Controller
         if (empty($category->value('slug'))) {
             abort(404);
         }
-        $products = $this->productRepository
-            ->getProductFromCategory($category->value('id'), $s);
+        $products = $this->productRepository->getProductFromCategory($category->value('id'), $s);
         return view('endUser.category.show', [
             'slug' => $slug,
             'category' => $category,

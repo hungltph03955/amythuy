@@ -40,7 +40,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('endUser/vendor/noui/nouislider.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('endUser/vendor/daterangepicker/daterangepicker.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('endUser/vendor/noui/nouislider.min.css')}}">
-
+    <link rel="stylesheet" type="text/css" href="{{asset('endUser/css/style.css')}}">
     @stack('styles')
 </head>
 

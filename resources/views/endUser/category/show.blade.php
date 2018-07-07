@@ -129,14 +129,9 @@
                             @endforeach
                         @endif
                     </div>
-                    <!-- Pagination -->
                     <div class="pagination flex-m flex-w p-t-26">
-                        <div class="pagination-center">
-                            <a href="#"
-                               class="item-pagination pagination-float flex-c-m trans-0-4 active-pagination">1</a>
-                            <a href="#" class="item-pagination pagination-float flex-c-m trans-0-4">2</a>
-                            <a href="#" class="item-pagination pagination-float flex-c-m trans-0-4">3</a>
-                            <a href="#" class="item-pagination pagination-float flex-c-m trans-0-4">4</a>
+                        <div class="pagination-center endUserCategory">
+                            {{$products->links()}}
                         </div>
                     </div>
                 </div>

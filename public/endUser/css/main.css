@@ -587,6 +587,14 @@ button.btn-Order {
 
 /* dropdown option */
 .select2-container--open .select2-dropdown {
+    width: 92px;
+    z-index: 1251;
+    border: 1px solid #e5e5e5;
+    border-radius: 0px;
+    background-color: white;
+}
+
+#dropDownSelect1 .select2-container--open .select2-dropdown {
     width: 92px !important;
     z-index: 1251;
     border: 1px solid #e5e5e5;
