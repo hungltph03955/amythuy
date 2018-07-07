@@ -33,10 +33,16 @@
                     <ul class="main_menu">
                         <li>
                             <a href="/index">Home</a>
+                        </li>
+
+                        <li>
+                            <a href="">Categories</a>
                             <ul class="sub_menu">
-                                <li><a href="/index">Homepage V1</a></li>
-                                <li><a href="/index">Homepage V2</a></li>
-                                <li><a href="/index">Homepage V3</a></li>
+                                @if(isset($cates))
+                                    @foreach($cates as $cate )
+                                        <li><a href="/category/{{$cate->slug}}">{{$cate->name}}</a></li>
+                                    @endforeach
+                                @endif
                             </ul>
                         </li>
 
@@ -47,11 +53,6 @@
                         <li class="sale-noti">
                             <a href="/category/vay">Sale</a>
                         </li>
-
-                        <li>
-                            <a href="/cart">Features</a>
-                        </li>
-
                         <li>
                             <a href="/blog">Blog</a>
                         </li>

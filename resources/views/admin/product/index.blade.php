@@ -182,7 +182,6 @@
                                             @else
                                                 <img src="{{PATH_NO_IMAGE}}">
                                             @endif
-
                                         </div>
                                     </td>
                                     <td>{{ $product->price}} </td>

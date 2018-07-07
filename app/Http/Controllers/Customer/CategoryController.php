@@ -11,29 +11,28 @@ class CategoryController extends Controller
 {
     protected $categoriesRepository;
     protected $productRepository;
+
     public function __construct(
         CategoriesRepositoryInterface $categoryRepository,
         ProductsRepositoryInterface $productsRepository
-)
+    )
     {
         $this->categoriesRepository = $categoryRepository;
         $this->productRepository = $productsRepository;
     }
-    public function show(Request $request,$slug)
+
+    public function show(Request $request, $slug)
     {
         $s = $request->input('s');
         $category = $this->categoriesRepository->getSlug($slug);
-        if(empty($category->value('slug')))
-        {
+        if (empty($category->value('slug'))) {
             abort(404);
         }
         $products = $this->productRepository
-            ->getProductFromCategory($category->value('id'),$s);
-        $cates = $this->categoriesRepository->gets();
-        return view('customer.category.show',[
+            ->getProductFromCategory($category->value('id'), $s);
+        return view('customer.category.show', [
             'slug' => $slug,
             'category' => $category,
-            'cates' => $cates,
             'products' => $products,
             's' => $s,
         ]);

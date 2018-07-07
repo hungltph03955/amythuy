@@ -8,6 +8,7 @@ use App\Repositories\ProductsRepositoryInterface;
 use App\Repositories\CategoriesRepositoryInterface;
 use App\Models\Products;
 use App\Repositories\ImagesBannerRepositoryInterface;
+use App\Repositories\ImagesRepositoryInterface;
 
 class HomeController extends Controller
 {
@@ -15,16 +16,19 @@ class HomeController extends Controller
     protected $product;
     protected $categories;
     protected $imageBannerRepository;
+    protected $imagesRepository;
 
 
     public function __construct(
         ProductsRepositoryInterface $product,
         CategoriesRepositoryInterface $category,
+        ImagesRepositoryInterface $imagesRepository,
         ImagesBannerRepositoryInterface $imagesBannerRepository)
     {
         $this->product = $product;
         $this->categories = $category;
         $this->imageBannerRepository = $imagesBannerRepository;
+        $this->imagesRepository = $imagesRepository;
     }
 
     private function getDataInVar()
@@ -35,28 +39,22 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $search = $request->input('s');
-        $cates = $this->categories->gets();
         $products = $this->product->getSearch($search, $p = 2);
         $imagesbanner = $this->imageBannerRepository->getAll();
-
-        // dd($products);
         return view('endUser.index')->with([
-            'cates' => $cates,
             'products' => $products,
             'imagesbanner' => $imagesbanner
         ]);
     }
 
-    public function show(Request $request, $id)
+    public function show(Request $request, $slug, $id)
     {
-
         $product = $this->product->show($id);
-        // $product->views = $product->views + 1;
+        $imageProductDetail = $this->imagesRepository->getFileName($id);
         $cates = $this->categories->gets();
-        // $product->save();
-
         return view('homepage.show')->with([
             'product' => $product,
+            'productImageDetail' => $imageProductDetail,
             'cates' => $cates,
         ]);
     }

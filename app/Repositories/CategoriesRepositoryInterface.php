@@ -14,4 +14,6 @@ interface CategoriesRepositoryInterface extends BaseRepositoryInterface
     public function getSlug($slug);
 
     public function haveParentId($id);
+
+    public function getParentCategories();
 }

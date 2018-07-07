@@ -111,7 +111,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
 });
 
 
-Route::get('show/{id?}', 'HomePage\HomeController@show')->name('home.detail');
+Route::get('show/{slug?}/{id?}', 'HomePage\HomeController@show')->name('home.detail');
 Route::post('addCart/{id?}', 'HomePage\CartController@store')->name('home.cart');
 Route::get('cart', 'HomePage\CartController@index')->name('home.cart');
 Route::post('updateItem/{id?}', 'HomePage\CartController@update')->name('home.cart.update');

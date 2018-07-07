@@ -46,12 +46,13 @@
 
 <body class="animsition">
 <!-- Header -->
+
 @include('include.detail.header')
 @yield('content')
 @include('include.detail.footer')
 <!-- Back to top -->
 <div class="btn-back-to-top bg0-hov" id="myBtn">
-		<span class="symbol-btn-back-to-top">
+    <span class="symbol-btn-back-to-top">
 			<i class="fa fa-angle-double-up" aria-hidden="true"></i>
 		</span>
 </div>

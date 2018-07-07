@@ -16,8 +16,6 @@
     <p></p>
     <section class="content">
         <div class="row">
-
-
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
@@ -30,7 +28,6 @@
                     <div class="box-body table-responsive no-padding">
                         <table class="table table-hover">
                             <tr>
-                                <th class="category-th">Thứ tự</th>
                                 <th class="category-th">Tên</th>
                                 <th class="category-th">Trạng thái</th>
                                 <th class="category-th">Mô tả</th>
@@ -50,7 +47,6 @@
                             if ($val["parent_id"] == $parent) {
                             ?>
                             <tr>
-                                <td class="stt-category"><span>{{ $stt }}</span></td>
                                 <?php
                                 if ($str == "") {
                                 ?>

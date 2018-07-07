@@ -39,4 +39,10 @@ class CategoriesRepository extends BaseRepository implements CategoriesRepositor
     {
         return $this->model->where('parent_id', $id)->count();
     }
+
+    public function getParentCategories()
+    {
+        return $this->model->where('parent_id', 0)->get();
+    }
+
 }
