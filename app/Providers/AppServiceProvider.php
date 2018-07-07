@@ -20,7 +20,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
         view()->composer('layouts.endUser.homepage', function ($view) {
-            $cates = DB::table('categories')->where('parent_id', '=', 0)->get();
+            $cates = DB::table('categories')->where('parent_id', '=', 0)->where('deleted_at', '=', null)->get();
             $view->with('cates', $cates);
         });
     }
