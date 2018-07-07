@@ -41,11 +41,10 @@ class CartController extends Controller
     {
         $data = $request->all();
         $product = Products::find($data['id']);
-        // dd($product->id);
         $cartItem = \Cart::add([
             'id' => $product->id,
             'name' => $product->name,
-            'qty' => 1,
+            'qty' => isset($data['options']['quantity'])? $data['options']['quantity']: 1,
             'price' => $product->price,
             'options' => array('image' => $product->img),
 
@@ -53,7 +52,7 @@ class CartController extends Controller
         \Cart::associate($cartItem->rowId, \App\Models\Admin\Products::class);
 
         return response()->json([
-            'count' => count(\Cart::content()->groupBy('id'))
+            'count' => count(\Cart::content())
         ]);
 
     }

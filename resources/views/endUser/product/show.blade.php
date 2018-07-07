@@ -130,7 +130,7 @@
 
                             <div class="btn-addcart-product-detail size9 trans-0-4 m-t-10 m-b-10">
                                 <!-- Button -->
-                                <form method="POST" action="{{url('addCart')}}">
+                                <!-- <form method="POST" action="{{url('addCart')}}">
                                     <input type="hidden" name="id" value="{{$product->id}}">
                                     <input type="hidden" name="name" value="{{$product->name}}">
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -138,8 +138,9 @@
                                         <i class="fa fa-shopping-cart"></i>
                                         Add to cart
                                     </button>
-                                </form>
-                                <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4 btn-Order">
+                                </form> -->
+                                <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4 btn-Order btn-addcart-product" 
+                                    data-id="{{$product->id}}">
                                     Order
                                 </button>
                             </div>
