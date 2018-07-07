@@ -69,14 +69,16 @@
                         <div class="s-text15 w-size15 t-center">
                             Size
                         </div>
-
                         <div class="rs2-select2 rs3-select2 bo4 of-hidden w-size16">
                             <select class="selection-2" name="size">
                                 <option>Choose an option</option>
-                                <option>Size S</option>
-                                <option>Size M</option>
-                                <option>Size L</option>
-                                <option>Size XL</option>
+                                @if(isset($sizeCurrent))
+                                    @foreach($sizeCurrent as $sizeCurrentItem)
+                                        <option value="{{ $sizeCurrentItem->size_id }}">{{ $sizeCurrentItem->sizes_name }}</option>
+                                    @endforeach
+                                @else
+                                    <option>Choose an option</option>
+                                @endif
                             </select>
                         </div>
                     </div>
@@ -89,10 +91,13 @@
                         <div class="rs2-select2 rs3-select2 bo4 of-hidden w-size16">
                             <select class="selection-2" name="color">
                                 <option>Choose an option</option>
-                                <option>Gray</option>
-                                <option>Red</option>
-                                <option>Black</option>
-                                <option>Blue</option>
+                                @if(isset($colorCurrent))
+                                    @foreach($colorCurrent as $colorCurrentItem)
+                                        <option value="{{ $colorCurrentItem->colors_id }}">{{ $colorCurrentItem->colors_name }}</option>
+                                    @endforeach
+                                @else
+                                    <option>Choose an option</option>
+                                @endif
                             </select>
                         </div>
                     </div>
@@ -101,14 +106,16 @@
                         <div class="s-text15 w-size15 t-center">
                             Material
                         </div>
-
                         <div class="rs2-select2 rs3-select2 bo4 of-hidden w-size16">
                             <select class="selection-2" name="color">
                                 <option>Choose an option</option>
-                                <option>Gray</option>
-                                <option>Red</option>
-                                <option>Black</option>
-                                <option>Blue</option>
+                                @if(isset($materialCurrent))
+                                    @foreach($materialCurrent as $materialCurrentItem)
+                                        <option value="{{ $materialCurrentItem->materials_id }}">{{ $materialCurrentItem->materials_name}}</option>
+                                    @endforeach
+                                @else
+                                    <option>Choose an option</option>
+                                @endif
                             </select>
                         </div>
                     </div>
@@ -130,7 +137,7 @@
 
                             <div class="btn-addcart-product-detail size9 trans-0-4 m-t-10 m-b-10">
                                 <!-- Button -->
-                                <!-- <form method="POST" action="{{url('addCart')}}">
+                            <!-- <form method="POST" action="{{url('addCart')}}">
                                     <input type="hidden" name="id" value="{{$product->id}}">
                                     <input type="hidden" name="name" value="{{$product->name}}">
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -139,8 +146,8 @@
                                         Add to cart
                                     </button>
                                 </form> -->
-                                <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4 btn-Order btn-addcart-product" 
-                                    data-id="{{$product->id}}">
+                                <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4 btn-Order btn-addcart-product"
+                                        data-id="{{$product->id}}">
                                     Order
                                 </button>
                             </div>

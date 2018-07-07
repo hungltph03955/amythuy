@@ -50,7 +50,7 @@ class Dtb_product_materialRepository extends BaseRepository implements Dtb_produ
     public function getMaterialToEditProduct($productId)
     {
         if (isset($productId)) {
-            return $this->model->select('dtb_product_materials.*')->where('product_id', $productId)->get();
+            return $this->model->select('dtb_product_materials.*', 'materials.name as materials_name')->where('product_id', $productId)->join('materials', 'dtb_product_materials.material_id', '=', 'materials.id')->get();
         }
     }
 

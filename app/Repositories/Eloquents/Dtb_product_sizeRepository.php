@@ -49,7 +49,7 @@ class Dtb_product_sizeRepository extends BaseRepository implements Dtb_product_s
     public function getSizeToEditProduct($productId)
     {
         if (isset($productId)) {
-            return $this->model->select('dtb_product_sizes.*')->where('product_id', $productId)->get();
+            return $this->model->select('dtb_product_sizes.*', 'sizes.name as sizes_name')->where('product_id', $productId)->join('sizes', 'dtb_product_sizes.size_id', '=', 'sizes.id')->get();
         }
     }
 
