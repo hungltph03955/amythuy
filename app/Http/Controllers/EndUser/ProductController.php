@@ -10,9 +10,8 @@ use App\Models\Products;
 use App\Repositories\ImagesBannerRepositoryInterface;
 use App\Repositories\ImagesRepositoryInterface;
 
-class HomeController extends Controller
+class ProductController extends Controller
 {
-    //
     protected $product;
     protected $categories;
     protected $imageBannerRepository;
@@ -31,23 +30,17 @@ class HomeController extends Controller
         $this->imagesRepository = $imagesRepository;
     }
 
-    public function index(Request $request)
+    public function show(Request $request, $slug, $id)
     {
-        $search = $request->input('s');
-        $products = $this->product->getSearch($search, $p = 2);
-        $imagesbanner = $this->imageBannerRepository->getAll();
-        return view('endUser.home.index')->with([
-            'products' => $products,
-            'imagesbanner' => $imagesbanner
+        $product = $this->product->show($id);
+        $imageProductDetail = $this->imagesRepository->getFileName($id);
+        $cates = $this->categories->gets();
+        return view('endUser.product.show')->with([
+            'product' => $product,
+            'productImageDetail' => $imageProductDetail,
+            'cates' => $cates,
         ]);
     }
 
 
-    public function orderBy(Request $request)
-    {
-        $type_sort = $request->input('type');
-        $products = $this->product->orderBy($type_sort);
-        $html = view('endUser.separate.separate', compact('products'))->render();
-        return response()->json(compact('html'));
-    }
 }

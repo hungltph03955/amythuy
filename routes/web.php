@@ -111,12 +111,12 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
 });
 
 
-Route::get('product/{slug?}/{id?}', 'EndUser\HomeController@show')->name('home.detail');
+Route::get('product/{slug?}/{id?}', 'EndUser\ProductController@show')->name('home.detail');
 Route::post('addCart', 'EndUser\CartController@store')->name('home.cart');
 Route::get('cart', 'EndUser\CartController@index')->name('home.cart');
 Route::post('updateItem/{id?}', 'EndUser\CartController@update')->name('home.cart.update');
 Route::post('destroy/{id?}', 'EndUser\CartController@destroy')->name('home.cart.destroy');
-Route::get('blog', 'EndUser\HomeController@blog');
+Route::get('blog', 'EndUser\BlogController@blog');
 
 //-----------------------------------------------Order--------------------------------------
 Route::group(['prefix' => 'order'], function () {
