@@ -34,9 +34,8 @@
                         <li>
                             <a href="/index">Home</a>
                         </li>
-
-                        <li>
-                            <a href="">Categories</a>
+                        <li class="sale-noti">
+                            <a href="javascript:void(0)">Shop</a>
                             <ul class="sub_menu">
                                 @if(isset($cates))
                                     @foreach($cates as $cate )
@@ -47,10 +46,10 @@
                         </li>
 
                         <li>
-                            <a href="/category/ao-dai">Shop</a>
+                            <a href="/cart">Cart</a>
                         </li>
 
-                        <li class="sale-noti">
+                        <li>
                             <a href="/category/vay">Sale</a>
                         </li>
                         <li>

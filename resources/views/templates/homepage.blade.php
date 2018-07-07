@@ -59,6 +59,7 @@
 
 <!-- Container Selection1 -->
 <div id="dropDownSelect1"></div>
+<div id="dropDownSelect2"></div>
 
 <!--===============================================================================================-->
 <script type="text/javascript" src="{{asset('endUser/vendor/jquery/jquery-3.2.1.min.js')}}"></script>

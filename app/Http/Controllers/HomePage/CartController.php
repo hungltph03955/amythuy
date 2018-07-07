@@ -22,8 +22,8 @@ class CartController extends Controller
     {
         //
         $cates = $this->cates->gets();
-
-        return view('cart.index',compact('cates'));
+        $carts = \Cart::content();
+        return view('cart.index',compact('cates', 'carts'));
 
     }
 
@@ -37,11 +37,12 @@ class CartController extends Controller
     {
         $data = $request->all();
         $product = Products::find($data['id']);
+        // dd($product->id);
         $cartItem = \Cart::add([
-            'id'    => $data['id'], 
-            'name'  => $data['name'],
-            'qty'   =>isset($data['qty']) ? $data['qty']:1,
-            'price' => $data['price'],
+            'id'    => $product->id, 
+            'name'  => $product->name,
+            'qty'   => 1,
+            'price' => $product->price,
             'options' => array('image' => $product->img),
             
         ]);
