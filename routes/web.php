@@ -112,7 +112,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
 
 
 Route::get('product/{slug?}/{id?}', 'EndUser\ProductController@show')->name('home.detail');
-Route::post('addCart', 'EndUser\CartController@store')->name('home.cart');
+Route::post('addCart', 'EndUser\CartController@store')->name('cart.addCart');
 Route::get('cart', 'EndUser\CartController@index')->name('home.cart');
 Route::post('updateItem/{id?}', 'EndUser\CartController@update')->name('home.cart.update');
 Route::post('destroy/{id?}', 'EndUser\CartController@destroy')->name('home.cart.destroy');

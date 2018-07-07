@@ -9,7 +9,7 @@
     ===========================================================*/
     $('.btn-addcart-product').click(function () {
         var productId = $(this).data('id');
-        var options = {quantity: $('input[name="num-product"]').val()};
+        var options = { quantity: $('input[name="num-product"]').val() };
         addToCart(productId, options);
     });
 
@@ -24,17 +24,21 @@
 
 addToCart = (productId, options) => {
     console.log(options);
-       $.ajax({
-           url: $('#route-add-to-cart').val(),
-           method: "POST",
-           data : {
-               id: productId,
-               options : options
-            },
-            success : function(data){
-                $('.cart-count').html(data);
-            }
-        });
+    $.ajax({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        url: '/addCart',
+        method: "POST",
+        data: {
+            id: productId,
+            options: options
+        },
+        success: function (data) {
+            console.log(data);
+            $('.cart-count').html(data.count);
+        }
+    });
 }
 updateCart = (id, quantity, type) => {
     $.ajax({

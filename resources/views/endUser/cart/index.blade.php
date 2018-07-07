@@ -36,7 +36,7 @@
                                         </div>
                                     </td>
                                     <td class="column-2">{{$cart->name}}</td>
-                                    <td class="column-3">{{$cart->price}} {{ MONEY }}</td>
+                                    <td class="column-3">{{ MONEY }}{{$cart->price}}</td>
                                     <td class="column-4">
                                         <div class="flex-w bo5 of-hidden w-size17">
                                             <button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2">
@@ -45,14 +45,14 @@
 
                                             <input class="size8 m-text18 t-center num-product" type="number"
                                                    name="num-product1"
-                                                   value="1">
+                                                   value="{{$cart->qty}}">
 
                                             <button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2">
                                                 <i class="fs-12 fa fa-plus" aria-hidden="true"></i>
                                             </button>
                                         </div>
                                     </td>
-                                    <td class="column-5">{{$cart->price * $cart->qty}} {{ MONEY }}</td>
+                                    <td class="column-5">{{ MONEY }}{{$cart->price * $cart->qty}}</td>
                                 </tr>
                             @endforeach
                         </table>
