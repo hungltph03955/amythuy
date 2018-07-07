@@ -117,6 +117,7 @@
 </script>
 <!--===============================================================================================-->
 <script src="{{asset('endUser/js/main.js')}}"></script>
+<script src="{{asset('endUser/js/common.js')}}"></script>
 
 @stack('scripts')
 </body>
