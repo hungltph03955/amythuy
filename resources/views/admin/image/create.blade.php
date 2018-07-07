@@ -1,4 +1,4 @@
-{{--@extends('templates.master')--}}
+{{--@extends('layouts.admin.master')--}}
 
 {{--@section('content')--}}
     {{--@extends('error')--}}
@@ -53,7 +53,7 @@
     {{--</div>--}}
 
 {{--@endsection--}}
-@extends('templates.master')
+@extends('layouts.admin.master')
 @section('content')
 
         <!DOCTYPE html>

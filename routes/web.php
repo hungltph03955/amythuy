@@ -21,7 +21,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //-----------------------------------------HomePage----------------------------------------
 
-Route::get('', 'HomePage\HomeController@index')->name('homepage.index');
+Route::get('', 'EndUser\HomeController@index')->name('homepage.index');
 
 
 Route::get('/login', 'Admin\Auth\LoginController@showLoginForm')->name('getLogin');
@@ -111,24 +111,24 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
 });
 
 
-Route::get('product/{slug?}/{id?}', 'HomePage\HomeController@show')->name('home.detail');
-Route::post('addCart', 'HomePage\CartController@store')->name('home.cart');
-Route::get('cart', 'HomePage\CartController@index')->name('home.cart');
-Route::post('updateItem/{id?}', 'HomePage\CartController@update')->name('home.cart.update');
-Route::post('destroy/{id?}', 'HomePage\CartController@destroy')->name('home.cart.destroy');
-Route::get('blog', 'HomePage\HomeController@blog');
+Route::get('product/{slug?}/{id?}', 'EndUser\HomeController@show')->name('home.detail');
+Route::post('addCart', 'EndUser\CartController@store')->name('home.cart');
+Route::get('cart', 'EndUser\CartController@index')->name('home.cart');
+Route::post('updateItem/{id?}', 'EndUser\CartController@update')->name('home.cart.update');
+Route::post('destroy/{id?}', 'EndUser\CartController@destroy')->name('home.cart.destroy');
+Route::get('blog', 'EndUser\HomeController@blog');
 
 //-----------------------------------------------Order--------------------------------------
 Route::group(['prefix' => 'order'], function () {
-    Route::get('checkout', 'Order\OrderController@checkout')->name('order.checkout');
-    Route::post('infoCus', 'Order\OrderController@store')->name('order.infoCus');
-    Route::get('confirm', 'Order\OrderController@confirm')->name('order.confirm');
+    Route::get('checkout', 'EndUser\OrderController@checkout')->name('order.checkout');
+    Route::post('infoCus', 'EndUser\OrderController@store')->name('order.infoCus');
+    Route::get('confirm', 'EndUser\OrderController@confirm')->name('order.confirm');
 });
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/category/{slug}', 'Customer\CategoryController@show');
-Route::get('/about', 'Customer\AboutMeController@aboutMe');
-Route::get('/contact', 'Customer\AboutMeController@getContact');
-Route::post('/contact', 'Customer\AboutMeController@postContact');
+Route::get('/category/{slug}', 'EndUser\CategoryController@show');
+Route::get('/about', 'EndUser\AboutMeController@aboutMe');
+Route::get('/contact', 'EndUser\ContactController@getContact');
+Route::post('/contact', 'EndUser\ContactController@postContact');
 

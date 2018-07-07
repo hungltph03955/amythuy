@@ -1,4 +1,4 @@
-@extends('templates.master')
+@extends('layouts.admin.master')
 @section('content')
     @extends('error')
     <section class="content-header content-child">

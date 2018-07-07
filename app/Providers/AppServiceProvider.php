@@ -19,7 +19,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
-        view()->composer('templates.homepage', function ($view) {
+        view()->composer('layouts.endUser.homepage', function ($view) {
             $cates = DB::table('categories')->where('parent_id', '=', 0)->get();
             $view->with('cates', $cates);
         });

@@ -1,4 +1,4 @@
-@extends('templates.master')
+@extends('layouts.admin.master')
 @section('content')
     <section class="content-header content-child">
         <h1>Chỉnh Sửa danh mục sản phẩm
