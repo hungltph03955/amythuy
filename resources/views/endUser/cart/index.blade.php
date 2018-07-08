@@ -3,6 +3,14 @@
     CART
 @endsection
 @push('styles')
+    <style>
+        a.rl-checkout{
+            color: white;
+        }
+        a.rl-checkout:hover{
+            color: white;
+        }
+    </style>
 @endpush
 @section('content')
     <!-- Title Page -->
@@ -35,11 +43,11 @@
                                             @endif
                                         </div>
                                     </td>
-                                    <td class="column-2">{{$cart->name}}</td>
+                                    <td class="column-2"><a href="{{route('endUser.product.detail',['id'=> $cart->id, 'slug'=> $cart->options->slug])}}">{{$cart->name}}</a></td>
                                     <td class="column-3">{{ MONEY }}{{number_format((int)$cart->price,0)}}</td>
                                     <td class="column-4">
                                         <div class="flex-w bo5 of-hidden w-size17">
-                                            <button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2 cart-update" data-id="{{$cart->rowId}}" data-url="{{route('endUser.cart.update')}}">
+                                            <button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2 update-cart" data-id="{{$cart->rowId}}" data-url="{{route('endUser.cart.update')}}">
                                                 <i class="fs-12 fa fa-minus" aria-hidden="true"></i>
                                             </button>
 
@@ -47,7 +55,7 @@
                                                     name="num-product1"
                                                     value="{{$cart->qty}}">
 
-                                            <button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2 cart-update" data-id="{{$cart->rowId}}" data-url="{{route('endUser.cart.update')}}">
+                                            <button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2 update-cart" data-id="{{$cart->rowId}}" data-url="{{route('endUser.cart.update')}}">
                                                 <i class="fs-12 fa fa-plus" aria-hidden="true"></i>
                                             </button>
                                         </div>
@@ -58,6 +66,12 @@
                         </table>
                     </div>
                 </div>
+                <!-- <div class="flex-w flex-sb-m p-t-25 p-b-25 bo8 p-l-35 p-r-60 p-lr-15-sm">
+                    <div class="size10 trans-0-4 m-t-10 m-b-10 update-cart"> -->
+                        <!-- Button -->
+                        <!-- <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">Update Cart</button>
+                    </div>
+                </div> -->
 
                 <!-- Total -->
                 <div class="bo9 w-size18 p-l-40 p-r-40 p-t-30 p-b-38 m-t-30 m-r-0 m-l-auto p-lr-15-sm">
@@ -71,13 +85,15 @@
                     <div class="size15 trans-0-4">
                         <!-- Button -->
                         <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
-                            <a href="{{route('endUser.order.checkout')}}">Proceed to Checkout</a>
+                            <a class="rl-checkout" href="{{route('endUser.order.index')}}">Proceed to Checkout</a>
                         </button>
                     </div>
                 </div>
             @else
-            <div class="container-table-cart pos-relative">
-                <div class="wrap-table-shopping-cart bgwhite"><span>You do not have any products yet</span></div>
+            <div class="row">
+                <div class="col-md-12 p-b-30">
+                    <div class="alert alert-info center"><strong>You do not have any products yet</strong></div>
+                </div>
             </div>
             @endif
         </div>

@@ -118,7 +118,7 @@
                                             <div class="block2-overlay trans-0-4">
                                                 <div class="block2-btn-addcart w-size1 trans-0-4">
                                                     <!-- Button -->
-                                                    <a href="{{route('endUser.product.detail',['slug'=> $product->slug,'id'=> $product->id])}}"
+                                                    <a href="{{route('endUser.product.detail',['id'=> $product->id, 'slug'=> $product->slug])}}"
                                                        class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
                                                         view more
                                                     </a>

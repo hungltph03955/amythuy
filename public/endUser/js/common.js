@@ -25,31 +25,31 @@
         addToCart(productId, options);
     });
     //Update
-    $('.cart-update').on('click', function (e) {
+    $('.update-cart').on('click', function (e) {
         let rowId = $(this).data('id');
         let urlUpdate = $(this).data('url');
         let quantity = $(this).parent().find('input[name="num-product1"]').val();
-        if (confirm('Are you Ok?')) {
-            updateCart(rowId, quantity, urlUpdate, $(this));
-        }
-        return
+        updateCart(rowId, quantity, urlUpdate, $(this));
     });
 
     //Remove item
     $('.del-item').on('click', function () {
-        if (confirm('Are you Ok?')) {
-            let rowId = $(this).data('id');
-            let urlDelete = $(this).data('url');
-            $(".del-item").each(function() {
-                console.log($(this));
-                if($(this).data('id') === rowId){
-                    $(this).parents('.table-row').remove();
-                    $(this).parents('.header-cart-item').remove()
-                }
-            })
-            updateCart(rowId, 0, urlDelete, $(this));
-        }
-        return
+        swal({
+            title: "Are you sure?",
+            buttons: true
+        }).then((value) => {
+            if (value) {
+                let rowId = $(this).data('id');
+                let urlDelete = $(this).data('url');
+                $(".del-item").each(function () {
+                    if ($(this).data('id') === rowId) {
+                        $(this).parents('.table-row').remove();
+                        $(this).parents('.header-cart-item').remove()
+                    }
+                })
+                updateCart(rowId, 0, urlDelete, $(this));
+            }
+        });
     });
 })(jQuery);
 
@@ -63,6 +63,11 @@ addToCart = (productId, options) => {
         },
         success: function (data) {
             onSetCart(data);
+            var nameProduct = $('.product-detail-name').text();
+            swal(nameProduct, "is added to cart !", "success");
+        },
+        error: function(){
+            swal("", "Please try again !", "error");
         }
     });
 }
@@ -77,6 +82,10 @@ updateCart = (rowId, quantity, url, $this = null) => {
         },
         success: function (data) {
             onSetCart(data, $this);
+            swal("Cart updated !", { button: false });
+        },
+        error: function(){
+            swal("", "Please try again !", "error");
         }
     });
 }
@@ -88,4 +97,11 @@ onSetCart = (data, $this) => {
     }
     $('.cart-count').html(data.count);
     $('.cart-total>span, .header-cart-total>span').html(data.total);
+    if (data.count === 0) {
+        $('.header-cart-total').remove();
+    }
+}
+
+onSave = (message, type) => {
+    swal("", message, type);
 }

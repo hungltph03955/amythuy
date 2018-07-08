@@ -19,7 +19,6 @@
         </a>
         <a href="/show/{{$product->slug}}/{{$product->id}}" class="s-text16">
             {{$product->name}}
-            <i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
         </a>
     </div>
 

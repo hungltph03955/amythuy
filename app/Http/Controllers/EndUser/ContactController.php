@@ -2,44 +2,61 @@
 
 namespace App\Http\Controllers\EndUser;
 
-use App\Http\Requests\InformationRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Repositories\CategoriesRepositoryInterface;
 use App\Repositories\InformationRepositoryInterface;
+use Illuminate\Support\Facades\Validator;
+use Session;
 
 class ContactController extends Controller
 {
-    protected $categoryRepository;
     protected $informationRepository;
 
     public function __construct(
-        CategoriesRepositoryInterface $categoriesRepository,
         InformationRepositoryInterface $informationRepository
     )
     {
-        $this->categoryRepository = $categoriesRepository;
         $this->informationRepository = $informationRepository;
     }
 
-    public function getContact()
+    public function index()
     {
-        $information = $this->informationRepository->getBlankModel();
-        $cates = $this->categoryRepository->gets();
-        return view('endUser.contact.contact', [
-            'cates' => $cates,
-            'information' => $information
+        return view('endUser.contact.index');
+    }
+
+    /**
+     * Get a validator for an incoming registration request.
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => 'required',
+            'email' => 'required|email',
+            'message' => 'required'
         ]);
     }
 
-    public function postContact(InformationRequest $request)
+    public function store(Request $request)
     {
         $data = $request->all();
-        $store = $this->informationRepository->store($data);
-        if (empty($store)) {
-            return redirect()->back()->withErrors('Có lỗi khi thực hiện');
+        if ($this->validator($data)->fails()) {
+            return redirect()->route('endUser.contact.index')
+                        ->withErrors($this->validator($data))
+                        ->withInput();
         }
-        return redirect()->action('Customer\AboutMeController@getContact')->with('mess', 'Cảm ơn ý kiến phản hồi của bạn');
-
+        try{
+            $this->informationRepository->store($data);
+            Session::flash('message.level', 'success');
+            Session::flash('message.content', 'Thank for contacting us!');
+            return redirect()->route('endUser.contact.index');
+        }catch(Exception $e){
+            Session::flash('message.level', 'error');
+            Session::flash('message.content', 'Error!');
+            return redirect()->route('endUser.contact.index');
+            // echo $e->getMessage();
+        }
     }
 }

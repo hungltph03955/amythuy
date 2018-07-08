@@ -48,4 +48,30 @@ function listCate ($data,$parent = 0,$str="") {
 //    }
 //    echo "</ul>";
 //}
-?>
+
+
+/**
+ * Encodes a string.
+ * 
+ * @param string $string The string to encrypt.
+ * @param string $key[optional] The key to encrypt with.
+ * @return string
+ * @auth TuanVM
+ */
+function encodeString($string, $keyEncode="") {
+    //todo
+    return $string;
+}
+
+/**
+ * Decode a string.
+ * 
+ * @param string $string The string to encrypt.
+ * @param string $key[optional] The key to encrypt with.
+ * @return string
+ * @auth TuanVM
+ */
+function decodeString($string, $keyEncode="") {
+    //todo
+    return $string;
+}

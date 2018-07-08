@@ -1,9 +1,5 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: windd01
- * Date: 01/02/2018
- * Time: 10:33
  */
 
 namespace App\Repositories\Eloquents;
