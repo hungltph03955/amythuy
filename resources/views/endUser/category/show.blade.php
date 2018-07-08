@@ -27,69 +27,79 @@
                 <div class="col-sm-12 col-md-12 col-lg-12 p-b-50">
                     <!--  -->
                     <div class="flex-sb-m flex-w p-b-35">
-                        <div class="flex-w">
-                            <div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10 select-search">
-                                <select class="selection-2" name="sorting">
-                                    <option>Color</option>
-                                    <option>Popularity</option>
-                                    <option>Price: low to high</option>
-                                    <option>Price: high to low</option>
-                                </select>
+                        <form action="{{action('EndUser\CategoryController@show', $slug)}}" method="get"
+                              class="form-inline">
+                            <div class="flex-w">
+                                <div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10 select-search">
+                                    <select class="selection-2" name="searchCategory">
+                                        <option value="0">Category</option>
+                                        @if(isset($categoryChiled))
+                                            @foreach($categoryChiled as $categoryChiledItem)
+                                                <option value="{{ $categoryChiledItem->id }}" {{ $searchCategory == $categoryChiledItem->id ? 'selected="selected"' : '' }}>{{ $categoryChiledItem->name }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                <div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10 select-search">
+                                    <select class="selection-2" name="search_color_id">
+                                        <option value="0">Color</option>
+                                        @if(isset($color))
+                                            @foreach($color as $colorItem)
+                                                <option value="{{ $colorItem['id'] }}" {{ $searchColorProduct == $colorItem['id'] ? 'selected="selected"' : '' }}>{{ $colorItem['name'] }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                <div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10 select-search">
+                                    <select class="selection-2" name="search_size_id">
+                                        <option value="0">Size</option>
+                                        @if(isset($size))
+                                            @foreach($size as $sizeItem)
+                                                <option value="{{ $sizeItem['id'] }}" {{ $searchSizeProduct == $sizeItem['id'] ? 'selected="selected"' : '' }}>{{ $sizeItem['name'] }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                <div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10 select-search">
+                                    <select class="selection-2" name="search_collection_id">
+                                        <option value="0">Collection</option>
+                                        @if(isset($collection))
+                                            @foreach($collection as $collectionItem)
+                                                <option value="{{ $collectionItem['id'] }}" {{ $searchCollectionProduct == $collectionItem['id'] ? 'selected="selected"' : '' }}>{{ $collectionItem['name'] }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                <div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10 select-search">
+                                    <select class="selection-2" name="search_material_id">
+                                        <option value="0">Material</option>
+                                        @if(isset($material))
+                                            @foreach($material as $materialItem)
+                                                <option value="{{ $materialItem['id'] }}" {{ $searchMaterialProduct == $materialItem['id'] ? 'selected="selected"' : '' }}>{{ $materialItem['name'] }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                <div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10 select-search priceOptionCategory">
+                                    <select class="selection-2" name="search_price">
+                                        <option value="0">Price</option>
+                                        <option value="PriceLowToHigh" {{ $searchPriceProduct == "PriceLowToHigh" ? 'selected="selected"' : '' }}>
+                                            Price low to high
+                                        </option>
+                                        <option value="PriceHighToLow" {{ $searchPriceProduct == "PriceHighToLow" ? 'selected="selected"' : '' }}>
+                                            Price high to low
+                                        </option>
+                                    </select>
+                                </div>
                             </div>
-
-                            <div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10 select-search">
-                                <select class="selection-2" name="sorting">
-                                    <option>Size</option>
-                                    <option>$0.00 - $50.00</option>
-                                    <option>$50.00 - $100.00</option>
-                                    <option>$100.00 - $150.00</option>
-                                    <option>$150.00 - $200.00</option>
-                                    <option>$200.00+</option>
-                                </select>
-                            </div>
-
-                            <div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10 select-search">
-                                <select class="selection-2" name="sorting">
-                                    <option>Collection</option>
-                                    <option>$0.00 - $50.00</option>
-                                    <option>$50.00 - $100.00</option>
-                                    <option>$100.00 - $150.00</option>
-                                    <option>$150.00 - $200.00</option>
-                                    <option>$200.00+</option>
-                                </select>
-                            </div>
-
-                            <div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10 select-search">
-                                <select class="selection-2" name="sorting">
-                                    <option>Material</option>
-                                    <option>$0.00 - $50.00</option>
-                                    <option>$50.00 - $100.00</option>
-                                    <option>$100.00 - $150.00</option>
-                                    <option>$150.00 - $200.00</option>
-                                    <option>$200.00+</option>
-                                </select>
-                            </div>
-
-                            <div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10 select-search">
-                                <select class="selection-2" name="sorting">
-                                    <option>Price</option>
-                                    <option>$0.00 - $50.00</option>
-                                    <option>$50.00 - $100.00</option>
-                                    <option>$100.00 - $150.00</option>
-                                    <option>$150.00 - $200.00</option>
-                                    <option>$200.00+</option>
-                                </select>
-                            </div>
-
-
-                        </div>
-                        <span class="s-text8 p-t-5 p-b-5">
+                            <span class="s-text8 p-t-5 p-b-5">
                             <div class="w-size2 filter-toww-size2">
-                                <a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
+                                <button href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4 btnFilter">
                                     Filter
-                                </a>
+                                </button>
                             </div>
                         </span>
+                        </form>
                     </div>
                     <!-- Product -->
                     <div class="row">

@@ -32,12 +32,17 @@ class CategoriesRepository extends BaseRepository implements CategoriesRepositor
 
     public function getSlug($slug)
     {
-        return $this->model->where('slug', $slug);
+        return $this->model->where('slug', $slug)->first();
     }
 
     public function haveParentId($id)
     {
         return $this->model->where('parent_id', $id)->count();
+    }
+
+    public function getCategoryChiled($id)
+    {
+        return $this->model->where('parent_id', $id)->get();
     }
 
     public function getParentCategories()

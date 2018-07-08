@@ -14,7 +14,7 @@ interface ProductsRepositoryInterface extends BaseRepositoryInterface
 
     public function getSearch($s);
 
-    public function getProductFromCategory($category_id, $s);
+    public function FillterProductFromOption($category_id, $searchCategory, $searchColorProduct, $searchSizeProduct, $searchMaterialProduct, $searchCollectionProduct, $searchPriceProduct);
 
     public function searchCategory($searchCategory, $searchNameProduct, $searchColorProduct, $searchSizeProduct, $searchMaterialProduct, $searchCollectionProduct);
 
