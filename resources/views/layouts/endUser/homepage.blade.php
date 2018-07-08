@@ -79,31 +79,6 @@
 <script type="text/javascript" src="{{asset('endUser/js/slick-custom.js')}}"></script>
 <script type="text/javascript" src="{{asset('endUser/vendor/sweetalert/sweetalert.min.js')}}"></script>
 
-<script type="text/javascript" src="{{asset('endUser/vendor/noui/nouislider.min.js')}}"></script>
-<script type="text/javascript">
-    /*[ No ui ]
-    ===========================================================*/
-    var filterBar = document.getElementById('filter-bar');
-
-    noUiSlider.create(filterBar, {
-        start: [50, 200],
-        connect: true,
-        range: {
-            'min': 50,
-            'max': 200
-        }
-    });
-
-    var skipValues = [
-        document.getElementById('value-lower'),
-        document.getElementById('value-upper')
-    ];
-
-    filterBar.noUiSlider.on('update', function (values, handle) {
-        skipValues[handle].innerHTML = Math.round(values[handle]);
-    });
-</script>
-
 <script type="text/javascript">
     $(".selection-1").select2({
         minimumResultsForSearch: 20,

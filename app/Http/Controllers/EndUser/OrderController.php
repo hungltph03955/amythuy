@@ -78,7 +78,9 @@ class OrderController extends Controller
             Session::flash('message.level', 'success');
             Session::flash('message.content', 'Order has been created!');
         } catch(Exception $e){
-            echo $e->getMessage();
+            Session::flash('message.level', 'error');
+            Session::flash('message.content', 'Error!');
+            // echo $e->getMessage();
         }
         return redirect()->route('endUser.order.index');
     }

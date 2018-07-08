@@ -118,4 +118,9 @@ pre {
 /*===========Class error=========*/
 input.error{
     border: 1px red solid !important;
+    border-radius: 2px;
+}
+textarea.error{
+    border: 1px red solid !important;
+    border-radius: 2px;
 }

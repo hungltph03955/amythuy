@@ -8,7 +8,7 @@
         <div class="block block-two-col container">
             <div class="row">
                 @if(isset($carts) && count($carts) > 0)
-                    <div class="col-sm-6 col-xs-12 block-col-left">
+                    <div class="col-md-6 p-b-30 block-col-left">
                         <div class="block-billing-product">
                             <div class="block-title">Your Order</div>
                             <div class="block-content">
@@ -38,7 +38,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-xs-12 block-col-right">
+                    <div class="col-md-6 p-b-30 block-col-right">
                         <div class="block-billing">
                             <div class="block-title">Billing Address</div>
                             <div class="block-content">

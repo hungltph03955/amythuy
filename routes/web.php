@@ -128,6 +128,6 @@ Route::get('confirm.html', 'EndUser\OrderController@confirm')->name('endUser.ord
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('category/{slug}.html', 'EndUser\CategoryController@show')->name('endUser.category.detail');
 Route::get('about.html', 'EndUser\AboutMeController@aboutMe')->name('endUser.about.index');
-Route::get('contact.html', 'EndUser\ContactController@getContact')->name('endUser.contact.index');;
-Route::post('contact', 'EndUser\ContactController@postContact')->name('endUser.contact.addContract');
+Route::get('contact.html', 'EndUser\ContactController@index')->name('endUser.contact.index');;
+Route::post('contact', 'EndUser\ContactController@store')->name('endUser.contact.addContract');
 
