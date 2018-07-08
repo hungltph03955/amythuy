@@ -43,3 +43,79 @@ pre {
 .endUserCategory ul li a:hover {
     color: red;
 }
+
+/* Block Billing
+  ========================================================================== */
+
+.block-billing .block-title, .block-billing-product .block-title {
+    background: #e6e6e6;
+    text-align: center;
+    line-height: 45px;
+    text-transform: uppercase;
+}
+  
+.block-billing .block-content {
+    padding: 10px;
+    border: 1px solid #ebebeb;
+}
+
+.block-billing-product .block-content {
+    padding: 10px;
+    border: 1px solid #dfdfdf;
+}
+
+.block-info-address .block-content {
+    padding: 10px;
+}
+
+.block-info-address .block-content p {
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.block-info-address .block-content p:last-child {
+    margin-bottom: 0;
+}
+
+.block-info-address .block-content p .title {
+    margin-right: 5px;
+}
+
+.table-billing-product {
+    width: 100%;
+}
+
+.table-billing-product .table-width {
+    width: 67%;
+}
+.table-width>strong{
+    font-size: 15px;
+}
+
+.block-billing-product .table-billing-product>tbody>tr>td, 
+.block-billing-product .table-billing-product>tbody>tr>th,
+.block-billing-product .table-billing-product>tfoot>tr>td,
+.block-billing-product .table-billing-product>tfoot>tr>th,
+.block-billing-product .table-billing-product>thead>tr>td,
+.block-billing-product .table-billing-product>thead>tr>th {
+    padding: 12px;
+    vertical-align: top;
+    border-bottom: 1px solid #d8d8d8;
+}
+
+.block-billing-product .table-billing-product>thead>tr>th {
+    border-bottom: none;
+}
+
+.block-billing-product .table-billing-product>thead>tr {
+    background: #eaeaea;
+}
+
+.block-billing-product .table-billing-product>tbody>tr:last-child>td {
+    border-bottom: none;
+}
+
+/*===========Class error=========*/
+input.error{
+    border: 1px red solid !important;
+}

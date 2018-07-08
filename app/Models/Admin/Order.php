@@ -10,10 +10,9 @@ class Order extends Model
     use SoftDeletes;
     protected $fillable = [
         'customer_id',
-        'order_no',
+        'order_code',
         'total',
-        'is_delivered',
-        'is_cancel',
+        'status',
         'cancel_description'
     ];
     protected $dates = ['deleted_at'];
@@ -22,18 +21,17 @@ class Order extends Model
     {
         return $this->belongsTo(\App\Models\Admin\User::class,'customer_id','id');
     }
-     protected function generateNo()
+
+    protected function generateNo()
     {
         $var = '000';
+        $orderCode = 'HD'.date("ymd").'-'.str_pad(++$var,4,'0',STR_PAD_LEFT);
 
-        $order_no = 'HD'.date("ymd").'-'.str_pad(++$var,4,'0',STR_PAD_LEFT);
-
-        while (Order::whereId($order_no)->count() > 0) {
-            $order_no = 'HD'.date("ymd").'-'.str_pad(++$var,4,'0',STR_PAD_LEFT);
-
+        while (Order::whereId($orderCode)->count() > 0) {
+            $orderCode = 'HD'.date("ymd").'-'.str_pad(++$var,4,'0',STR_PAD_LEFT);
         }
 
-        return $order_no;
+        return $orderCode;
     }
 
     public function scopeSearch($query,$s)

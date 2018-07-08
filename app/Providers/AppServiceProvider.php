@@ -19,7 +19,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
-        view()->composer('layouts.endUser.homepage', function ($view) {
+        view()->composer(['layouts.endUser.homepage', 'endUser.order.index', 'endUser.cart.index'], function ($view) {
             $cates = DB::table('categories')->where('parent_id', '=', 0)->where('deleted_at', '=', null)->get();
             $carts = \Cart::content();
             $total = \Cart::total(0);

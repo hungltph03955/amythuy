@@ -113,21 +113,21 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
 
 //-----------------------------------------------End User--------------------------------------
 Auth::routes();
-Route::get('product/{slug?}/{id?}', 'EndUser\ProductController@show')->name('endUser.product.detail');
-Route::get('sale', 'EndUser\SaleController@index')->name('endUser.sale.index');
+Route::get('product/{id?}/{slug?}.html', 'EndUser\ProductController@show')->name('endUser.product.detail');
+Route::get('sale.html', 'EndUser\SaleController@index')->name('endUser.sale.index');
 Route::post('addCart', 'EndUser\CartController@store')->name('endUser.cart.addCart');
-Route::get('cart', 'EndUser\CartController@index')->name('endUser.cart.index');
+Route::get('cart.html', 'EndUser\CartController@index')->name('endUser.cart.index');
 Route::post('updateItem', 'EndUser\CartController@update')->name('endUser.cart.update');
 Route::post('destroy', 'EndUser\CartController@destroy')->name('endUser.cart.destroy');
-Route::get('blog', 'EndUser\BlogController@blog')->name('endUser.blog.index');
+Route::get('blog.html', 'EndUser\BlogController@blog')->name('endUser.blog.index');
 
-Route::get('checkout', 'EndUser\OrderController@checkout')->name('endUser.order.checkout');
-Route::post('infoCus', 'EndUser\OrderController@store')->name('endUser.order.infoCus');
-Route::get('confirm', 'EndUser\OrderController@confirm')->name('endUser.order.confirm');
+Route::get('order/checkout.html', 'EndUser\OrderController@index')->name('endUser.order.index');
+Route::post('order/store', 'EndUser\OrderController@store')->name('endUser.order.addOrder');
+Route::get('confirm.html', 'EndUser\OrderController@confirm')->name('endUser.order.confirm');
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/category/{slug}', 'EndUser\CategoryController@show')->name('endUser.category.detail');
-Route::get('/about', 'EndUser\AboutMeController@aboutMe')->name('endUser.about.index');
-Route::get('/contact', 'EndUser\ContactController@getContact')->name('endUser.contact.index');;
-Route::post('/contact', 'EndUser\ContactController@postContact')->name('endUser.contact.addContract');
+Route::get('category/{slug}.html', 'EndUser\CategoryController@show')->name('endUser.category.detail');
+Route::get('about.html', 'EndUser\AboutMeController@aboutMe')->name('endUser.about.index');
+Route::get('contact.html', 'EndUser\ContactController@getContact')->name('endUser.contact.index');;
+Route::post('contact', 'EndUser\ContactController@postContact')->name('endUser.contact.addContract');
 

@@ -118,6 +118,13 @@
 <!--===============================================================================================-->
 <script src="{{asset('endUser/js/main.js')}}"></script>
 <script src="{{asset('endUser/js/common.js')}}"></script>
+@if(Session::has('message.level'))
+    <script>
+        var message = '{{Session::get('message.content')}}';
+        var type = '{{Session::get('message.level')}}';
+        onSave(message, type)
+    </script>
+@endif
 
 @stack('scripts')
 </body>
