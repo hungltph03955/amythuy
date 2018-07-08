@@ -25,7 +25,7 @@
         addToCart(productId, options);
     });
     //Update
-    $('.btn-num-product-down, .btn-num-product-up').on('click', function (e) {
+    $('.cart-update').on('click', function (e) {
         let rowId = $(this).data('id');
         let urlUpdate = $(this).data('url');
         let quantity = $(this).parent().find('input[name="num-product1"]').val();

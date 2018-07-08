@@ -39,7 +39,7 @@
                                     <td class="column-3">{{ MONEY }}{{number_format((int)$cart->price,0)}}</td>
                                     <td class="column-4">
                                         <div class="flex-w bo5 of-hidden w-size17">
-                                            <button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2" data-id="{{$cart->rowId}}" data-url="{{route('endUser.cart.update')}}">
+                                            <button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2 cart-update" data-id="{{$cart->rowId}}" data-url="{{route('endUser.cart.update')}}">
                                                 <i class="fs-12 fa fa-minus" aria-hidden="true"></i>
                                             </button>
 
@@ -47,7 +47,7 @@
                                                     name="num-product1"
                                                     value="{{$cart->qty}}">
 
-                                            <button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2" data-id="{{$cart->rowId}}" data-url="{{route('endUser.cart.update')}}">
+                                            <button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2 cart-update" data-id="{{$cart->rowId}}" data-url="{{route('endUser.cart.update')}}">
                                                 <i class="fs-12 fa fa-plus" aria-hidden="true"></i>
                                             </button>
                                         </div>
@@ -70,7 +70,9 @@
                     </div>
                     <div class="size15 trans-0-4">
                         <!-- Button -->
-                        <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">Proceed to Checkout</button>
+                        <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
+                            <a href="{{route('endUser.order.checkout')}}">Proceed to Checkout</a>
+                        </button>
                     </div>
                 </div>
             @else

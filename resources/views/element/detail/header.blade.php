@@ -31,38 +31,22 @@
             <div class="wrap_menu">
                 <nav class="menu">
                     <ul class="main_menu">
-                        <li>
-                            <a href="/">Home</a>
-                        </li>
+                        <li><a href="/">Home</a></li>
                         <li class="sale-noti">
                             <a href="javascript:void(0)">Categories</a>
                             @if(isset($cates))
                                 <ul class="sub_menu">
                                     @foreach($cates as $cate )
-                                        <li><a href="{{route('endUser.contact.index')}}">{{$cate->name}}</a></li>
+                                        <li><a href="{{route('endUser.category.detail',[$cate->slug])}}">{{$cate->name}}</a></li>
                                     @endforeach
                                 </ul>
                             @endif
                         </li>
-
-                        <li>
-                            <a href="{{route('endUser.cart.index')}}">Cart</a>
-                        </li>
-
-                        <li>
-                            <a href="{{route('sale.index')}}">Sale</a>
-                        </li>
-                        <li>
-                            <a href="{{route('endUser.blog.index')}}">Blog</a>
-                        </li>
-
-                        <li>
-                            <a href="{{route('endUser.about.index')}}">About</a>
-                        </li>
-
-                        <li>
-                            <a href="{{route('endUser.contact.index')}}">Contact</a>
-                        </li>
+                        <li><a href="{{route('endUser.cart.index')}}">Cart</a></li>
+                        <li><a href="{{route('endUser.sale.index')}}">Sale</a></li>
+                        <li><a href="{{route('endUser.blog.index')}}">Blog</a></li>
+                        <li><a href="{{route('endUser.about.index')}}">About</a></li>
+                        <li><a href="{{route('endUser.contact.index')}}">Contact</a></li>
                     </ul>
                 </nav>
             </div>
@@ -224,7 +208,7 @@
                         @if(isset($cates))
                             <ul class="sub-menu">
                                 @foreach($cates as $cate )
-                                    <li><a href="{{route('endUser.cart.index',['slug', $cate->slug])}}">{{$cate->name}}</a></li>
+                                    <li><a href="{{route('endUser.category.detail',[$cate->slug])}}">{{$cate->name}}</a></li>
                                 @endforeach
                             </ul>
                         @endif
