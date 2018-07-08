@@ -22,10 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 //-----------------------------------------HomePage----------------------------------------
 
 Route::get('', 'EndUser\HomeController@index')->name('homepage.index');
-
-
 Route::get('/login', 'Admin\Auth\LoginController@showLoginForm')->name('getLogin');
-
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/login', 'Admin\Auth\LoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Admin\Auth\LoginController@login')->name('admin.login.submit');
@@ -126,7 +123,7 @@ Route::post('infoCus', 'EndUser\OrderController@store')->name('endUser.order.inf
 Route::get('confirm', 'EndUser\OrderController@confirm')->name('endUser.order.confirm');
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/category/{slug}', 'EndUser\CategoryController@show')->name('endUser.category.detail');
+Route::get('/category/{slug?}', 'EndUser\CategoryController@show')->name('endUser.category.detail');
 Route::get('/about', 'EndUser\AboutMeController@aboutMe')->name('endUser.about.index');
 Route::get('/contact', 'EndUser\ContactController@getContact')->name('endUser.contact.index');;
 Route::post('/contact', 'EndUser\ContactController@postContact')->name('endUser.contact.addContract');

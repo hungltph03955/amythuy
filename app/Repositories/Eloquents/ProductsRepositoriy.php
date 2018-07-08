@@ -40,19 +40,60 @@ class ProductsRepositoriy extends BaseRepository implements ProductsRepositoryIn
             ->paginate($p);
     }
 
-    public function getProductFromCategory($category_id, $s)
+    public function FillterProductFromOption($category_id, $searchCategory, $searchColorProduct, $searchSizeProduct, $searchMaterialProduct, $searchCollectionProduct, $searchPriceProduct)
     {
         $countproductFormcategory = 9;
-        return $this->model->where('category_id', $category_id)->search($s)->paginate($countproductFormcategory);
+        $arrayCategorychildren = DB::table('categories')->where('parent_id', '=', $category_id)->where('deleted_at', '=', null)->pluck('id');
+        $query = $this->model->select('products.*')->whereIn('category_id', $arrayCategorychildren);
+
+
+        if (!empty($searchCategory) && !empty(trim($searchCategory))) {
+            if ($searchCategory != 0) {
+                $searchCategoryTrim = trim($searchCategory);
+                $query = $query->where('category_id', $searchCategoryTrim);
+            }
+        }
+
+        if (!empty($searchColorProduct) && !empty(trim($searchColorProduct))) {
+            $searchColorProductTrim = trim($searchColorProduct);
+            $query = $query->join('dtb_product_colors', 'products.id', '=', 'dtb_product_colors.product_id')->where('color_id', '=', $searchColorProductTrim);
+        }
+
+        if (!empty($searchSizeProduct) && !empty(trim($searchSizeProduct))) {
+            $searchSizeProductTrim = trim($searchSizeProduct);
+            $query = $query->join('dtb_product_sizes', 'products.id', '=', 'dtb_product_sizes.product_id')->where('size_id', '=', $searchSizeProductTrim);
+        }
+
+        if (!empty($searchMaterialProduct) && !empty(trim($searchMaterialProduct))) {
+            $searchMaterialProductTrim = trim($searchMaterialProduct);
+            $query = $query->join('dtb_product_materials', 'products.id', '=', 'dtb_product_materials.product_id')->where('material_id', '=', $searchMaterialProductTrim);
+        }
+
+        if (!empty($searchCollectionProduct) && !empty(trim($searchCollectionProduct))) {
+            $searchCollectionProductTrim = trim($searchCollectionProduct);
+            $query = $query->join('dtb_product_collections', 'products.id', '=', 'dtb_product_collections.product_id')->where('collection_id', '=', $searchCollectionProductTrim);
+        }
+
+        if (!empty($searchPriceProduct) && !empty(trim($searchPriceProduct))) {
+            $searchPriceProductTrim = trim($searchPriceProduct);
+            if ($searchPriceProductTrim == "PriceLowToHigh") {
+                return $query->orderBy('price', 'ASC')->paginate($countproductFormcategory);
+            } else if ($searchPriceProductTrim == "PriceHighToLow") {
+                return $query->orderBy('price', 'DESC')->paginate($countproductFormcategory);
+            }
+        } else {
+            return $query->orderBy('id', 'DESC')->paginate($countproductFormcategory);
+        }
     }
 
-    public function orderBy($params)
+    public
+    function orderBy($params)
     {
-        // dd($params);
         return $this->model->sortable($params)->paginate($this->p);
     }
 
-    public function searchCategory($searchCategory, $searchNameProduct, $searchColorProduct, $searchSizeProduct, $searchMaterialProduct, $searchCollectionProduct)
+    public
+    function searchCategory($searchCategory, $searchNameProduct, $searchColorProduct, $searchSizeProduct, $searchMaterialProduct, $searchCollectionProduct)
     {
         $query = $this->model->select('products.*');
 
@@ -106,12 +147,14 @@ class ProductsRepositoriy extends BaseRepository implements ProductsRepositoryIn
         return $query->orderBy('id', 'DESC')->paginate($this->p);
     }
 
-    public function haveProduct($id)
+    public
+    function haveProduct($id)
     {
         return $this->model->where('category_id', $id)->count();
     }
 
-    public function getNameImage($id)
+    public
+    function getNameImage($id)
     {
         return $this->model->where('id', $id)->value('img');
 

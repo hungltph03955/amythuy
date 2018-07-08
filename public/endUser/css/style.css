@@ -43,3 +43,16 @@ pre {
 .endUserCategory ul li a:hover {
     color: red;
 }
+
+.priceOptionCategory {
+    width: 185px;
+}
+
+button.btnFilter {
+    font-family: Montserrat-Regular;
+    font-size: 14px;
+    color: #ffff;
+    height: 32px;
+    text-transform: uppercase;
+    background-color: #4A4A4A;
+}

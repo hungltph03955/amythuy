@@ -15,5 +15,7 @@ interface CategoriesRepositoryInterface extends BaseRepositoryInterface
 
     public function haveParentId($id);
 
+    public function getCategoryChiled($id);
+
     public function getParentCategories();
 }
