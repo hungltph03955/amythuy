@@ -50,12 +50,14 @@ class ProductController extends Controller
         $materialCurrent = $this->dtb_product_materialRepository->getMaterialToEditProduct($id);
         $imageProductDetail = $this->imagesRepository->getFileName($id);
         $cates = $this->categories->gets();
+        $productRelated = $this->product->getProductRelated($product->category_id);
         return view('endUser.product.show')->with([
             'product' => $product,
             'productImageDetail' => $imageProductDetail,
             'colorCurrent' => $colorCurrent,
             'materialCurrent' => $materialCurrent,
             'sizeCurrent' => $sizeCurrent,
+            'productRelated' => $productRelated,
             'cates' => $cates,
         ]);
     }

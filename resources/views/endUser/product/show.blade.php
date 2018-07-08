@@ -187,147 +187,41 @@
             <!-- Slide2 -->
             <div class="wrap-slick2">
                 <div class="slick2">
-                    <div class="p-l-15 p-r-15">
-                        <!-- Block2 -->
-                        <div class="block2">
-                            <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-                                <img src="{{asset('endUser/images/item-02.jpg')}}" alt="IMG-PRODUCT">
-
-                                <div class="block2-overlay trans-0-4">
-                                    <div class="block2-btn-addcart w-size1 trans-0-4">
-                                        <!-- Button -->
-                                        <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                                            View more
-                                        </button>
+                    @if(isset($productRelated))
+                        @foreach($productRelated as $productRelatedItem)
+                            <div class="p-l-15 p-r-15">
+                                <!-- Block2 -->
+                                <div class="block2">
+                                    <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
+                                        @if(file_exists( public_path().PATH_IMAGE_MASTER. $productRelatedItem->img))
+                                            <img src="{{PATH_IMAGE_MASTER. $productRelatedItem->img}}"
+                                                 alt="{{$productRelatedItem->name ? $productRelatedItem->name : ''}}">
+                                        @else
+                                            <img src="{{PATH_NO_IMAGE}}">
+                                        @endif
+                                        <div class="block2-overlay trans-0-4">
+                                            <div class="block2-btn-addcart w-size1 trans-0-4">
+                                                <!-- Button -->
+                                                <a href="{{route('endUser.product.detail',['slug'=> $productRelatedItem->slug,'id'=> $productRelatedItem->id])}}"
+                                                   class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+                                                    view more
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="block2-txt p-t-20">
+                                        <a href="product-detail.html"
+                                           class="block2-name dis-block s-text3 p-b-5 view-more-product">
+                                            {{$productRelatedItem->name ? $productRelatedItem->name : ''}}
+                                        </a>
+                                        <span class="block2-price m-text6 p-r-5 textprice">
+                                          {{$productRelatedItem->price ? $productRelatedItem->price : ''}} {{ MONEY }}
+                                        </span>
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="block2-txt p-t-20">
-                                <a href="product-detail.html"
-                                   class="block2-name dis-block s-text3 p-b-5 view-more-product">
-                                    Herschel supply co 25l
-                                </a>
-
-                                <span class="block2-price m-text6 p-r-5 textprice">
-									$75.00
-								</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-l-15 p-r-15">
-                        <!-- Block2 -->
-                        <div class="block2">
-                            <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-                                <img src="{{asset('endUser/images/item-02.jpg')}}" alt="IMG-PRODUCT">
-
-                                <div class="block2-overlay trans-0-4">
-                                    <div class="block2-btn-addcart w-size1 trans-0-4">
-                                        <!-- Button -->
-                                        <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                                            View more
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="block2-txt p-t-20">
-                                <a href="product-detail.html"
-                                   class="block2-name dis-block s-text3 p-b-5 view-more-product">
-                                    Herschel supply co 25l
-                                </a>
-
-                                <span class="block2-price m-text6 p-r-5 textprice">
-									$75.00
-								</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-l-15 p-r-15">
-                        <!-- Block2 -->
-                        <div class="block2">
-                            <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-                                <img src="{{asset('endUser/images/item-02.jpg')}}" alt="IMG-PRODUCT">
-
-                                <div class="block2-overlay trans-0-4">
-                                    <div class="block2-btn-addcart w-size1 trans-0-4">
-                                        <!-- Button -->
-                                        <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                                            View more
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="block2-txt p-t-20">
-                                <a href="product-detail.html"
-                                   class="block2-name dis-block s-text3 p-b-5 view-more-product">
-                                    Herschel supply co 25l
-                                </a>
-
-                                <span class="block2-price m-text6 p-r-5 textprice">
-									$75.00
-								</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-l-15 p-r-15">
-                        <!-- Block2 -->
-                        <div class="block2">
-                            <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-                                <img src="{{asset('endUser/images/item-02.jpg')}}" alt="IMG-PRODUCT">
-
-                                <div class="block2-overlay trans-0-4">
-                                    <div class="block2-btn-addcart w-size1 trans-0-4">
-                                        <!-- Button -->
-                                        <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                                            View more
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="block2-txt p-t-20">
-                                <a href="product-detail.html"
-                                   class="block2-name dis-block s-text3 p-b-5 view-more-product">
-                                    Herschel supply co 25l
-                                </a>
-
-                                <span class="block2-price m-text6 p-r-5 textprice">
-									$75.00
-								</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-l-15 p-r-15">
-                        <!-- Block2 -->
-                        <div class="block2">
-                            <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-                                <img src="{{asset('endUser/images/item-02.jpg')}}" alt="IMG-PRODUCT">
-
-                                <div class="block2-overlay trans-0-4">
-                                    <div class="block2-btn-addcart w-size1 trans-0-4">
-                                        <!-- Button -->
-                                        <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                                            View more
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="block2-txt p-t-20">
-                                <a href="product-detail.html"
-                                   class="block2-name dis-block s-text3 p-b-5 view-more-product">
-                                    Herschel supply co 25l
-                                </a>
-
-                                <span class="block2-price m-text6 p-r-5 textprice">
-									$75.00
-								</span>
-                            </div>
-                        </div>
-                    </div>
-
+                        @endforeach
+                    @endif
                 </div>
             </div>
 

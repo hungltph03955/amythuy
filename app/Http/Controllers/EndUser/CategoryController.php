@@ -55,9 +55,8 @@ class CategoryController extends Controller
         $size = $this->sizeRepository->getSizeToAddProduct();
         $material = $this->materialRepository->getMaterialToAddProduct();
         $collection = $this->collectionRepository->getCollectionToAddProduct();
-
         $products = $this->productRepository->FillterProductFromOption($category->id, $searchCategory, $searchColorProduct, $searchSizeProduct, $searchMaterialProduct, $searchCollectionProduct, $searchPriceProduct);
-
+        $countproducts = count($products);
         return view('endUser.category.show', [
             'slug' => $slug,
             'category' => $category,
@@ -73,6 +72,7 @@ class CategoryController extends Controller
             'searchMaterialProduct' => $searchMaterialProduct,
             'searchCollectionProduct' => $searchCollectionProduct,
             'searchPriceProduct' => $searchPriceProduct,
+            'countproducts' => $countproducts,
         ]);
     }
 }

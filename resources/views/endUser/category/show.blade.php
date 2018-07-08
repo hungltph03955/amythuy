@@ -15,7 +15,7 @@
         </div>
         <div class="Women-gach-float">
             <p class="m-text13 t-center">
-                ( 105 product )
+                ( {{ $countproducts }} product )
             </p>
         </div>
     </section>

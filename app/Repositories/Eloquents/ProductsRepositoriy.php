@@ -159,4 +159,10 @@ class ProductsRepositoriy extends BaseRepository implements ProductsRepositoryIn
         return $this->model->where('id', $id)->value('img');
 
     }
+
+    public function getProductRelated($categoryId)
+    {
+        return $this->model->where('category_id', $categoryId)->limit(10)->get();
+    }
+
 }
