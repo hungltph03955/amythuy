@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Customer;
+namespace App\Models\Admin;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -9,7 +9,8 @@ class Information extends Model
     protected $fillable = [
         'name',
         'email',
-        'detail',
+        'message',
+        'phone_number'
     ];
     public function scopeSearch($query,$s)
     {

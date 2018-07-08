@@ -7,7 +7,7 @@
  */
 
 namespace App\Repositories\Eloquents;
-use App\Models\Customer\Information;
+use App\Models\Admin\Information;
 use App\Repositories\InformationRepositoryInterface;
 
 

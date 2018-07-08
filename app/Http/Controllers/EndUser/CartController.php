@@ -25,10 +25,7 @@ class CartController extends Controller
     public function index()
     {
         //Show all carts
-        $cates = $this->cates->gets();
-        $carts = \Cart::content();
-        $total = \Cart::total(0);
-        return view('endUser.cart.index', compact('cates', 'carts', 'total'));
+        return view('endUser.cart.index');
 
     }
 
@@ -48,6 +45,7 @@ class CartController extends Controller
             'qty' => isset($data['options']['quantity'])? $data['options']['quantity']: 1,
             'price' => $product->price,
             'options' => array(
+                'slug' => $product->slug,
                 'image' => $product->img,
                 'size' => $data['options']['size'], 
                 'color'=> $data['options']['size'],

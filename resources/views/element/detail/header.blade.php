@@ -74,7 +74,8 @@
                                         </div>
 
                                         <div class="header-cart-item-txt">
-                                            <a href="#" class="header-cart-item-name">{{$cart->name}}</a>
+                                            <a href="{{route('endUser.product.detail',['id'=> $cart->id, 'slug'=> $cart->options->slug])}}" 
+                                                class="header-cart-item-name">{{$cart->name}}</a>
                                             <span class="header-cart-item-info">{{$cart->qty}} x {{ MONEY }}{{number_format($cart->price, 0)}}</span>
                                         </div>
                                     </li>
@@ -94,7 +95,7 @@
 
                             <div class="header-cart-wrapbtn">
                                 <!-- Button -->
-                                <a href="#" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+                                <a href="{{route('endUser.order.index')}}" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
                                     Check Out
                                 </a>
                             </div>
@@ -140,7 +141,8 @@
                                     </div>
 
                                     <div class="header-cart-item-txt">
-                                        <a href="#" class="header-cart-item-name">{{$cart->name}}</a>
+                                        <a href="{{route('endUser.product.detail',['id'=> $cart->id, 'slug'=> $cart->options->slug])}}" 
+                                            class="header-cart-item-name">{{$cart->name}}</a>
                                         <span class="header-cart-item-info">{{$cart->qty}} x {{ MONEY }}{{number_format($cart->price, 0)}}</span>
                                     </div>
                                 </li>
@@ -160,7 +162,7 @@
 
                             <div class="header-cart-wrapbtn">
                                 <!-- Button -->
-                                <a href="#" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+                                <a href="{{route('endUser.order.index')}}" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
                                     Check Out
                                 </a>
                             </div>

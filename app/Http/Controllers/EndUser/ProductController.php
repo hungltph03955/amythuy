@@ -42,7 +42,7 @@ class ProductController extends Controller
         $this->imagesRepository = $imagesRepository;
     }
 
-    public function show(Request $request, $slug, $id)
+    public function show(Request $request, $id, $slug)
     {
         $product = $this->product->show($id);
         $sizeCurrent = $this->dtb_product_sizeRepository->getSizeToEditProduct($id);

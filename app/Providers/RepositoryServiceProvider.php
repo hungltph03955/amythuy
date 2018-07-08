@@ -24,10 +24,6 @@ class RepositoryServiceProvider extends ServiceProvider
      */
     public function register()
     {
-//        $this->app->singleton(
-//            \App\Repositories\ShopsRepositoryInterface::class,
-//            \App\Repositories\Eloquents\ShopsRepository::class
-//        );
         $this->app->singleton(
             \App\Repositories\ProductsRepositoryInterface::class,
             \App\Repositories\Eloquents\ProductsRepositoriy::class
@@ -112,6 +108,10 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->singleton(
             \App\Repositories\NewRepositoryInterface::class,
             \App\Repositories\Eloquents\NewRepository::class
+        );
+        $this->app->singleton(
+            \App\Repositories\CustomerRepositoryInterface::class,
+            \App\Repositories\Eloquents\CustomerRepository::class
         );
     }
 }

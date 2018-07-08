@@ -3,6 +3,7 @@
     HOME
 @endsection
 @push('styles')
+@endpush
 @section('content')
     <!-- Slide1 -->
     @include('element.detail.slide')
