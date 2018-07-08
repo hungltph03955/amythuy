@@ -76,8 +76,6 @@
                                     @foreach($sizeCurrent as $sizeCurrentItem)
                                         <option value="{{ $sizeCurrentItem->size_id }}">{{ $sizeCurrentItem->sizes_name }}</option>
                                     @endforeach
-                                @else
-                                    <option>Choose an option</option>
                                 @endif
                             </select>
                         </div>
@@ -95,8 +93,6 @@
                                     @foreach($colorCurrent as $colorCurrentItem)
                                         <option value="{{ $colorCurrentItem->colors_id }}">{{ $colorCurrentItem->colors_name }}</option>
                                     @endforeach
-                                @else
-                                    <option>Choose an option</option>
                                 @endif
                             </select>
                         </div>
@@ -107,14 +103,12 @@
                             Material
                         </div>
                         <div class="rs2-select2 rs3-select2 bo4 of-hidden w-size16">
-                            <select class="selection-2" name="color">
+                            <select class="selection-2" name="material">
                                 <option>Choose an option</option>
                                 @if(isset($materialCurrent))
                                     @foreach($materialCurrent as $materialCurrentItem)
                                         <option value="{{ $materialCurrentItem->materials_id }}">{{ $materialCurrentItem->materials_name}}</option>
                                     @endforeach
-                                @else
-                                    <option>Choose an option</option>
                                 @endif
                             </select>
                         </div>

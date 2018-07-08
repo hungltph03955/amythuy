@@ -24,10 +24,11 @@ class CartController extends Controller
      */
     public function index()
     {
-        //
+        //Show all carts
         $cates = $this->cates->gets();
         $carts = \Cart::content();
-        return view('endUser.cart.index', compact('cates', 'carts'));
+        $total = \Cart::total(0);
+        return view('endUser.cart.index', compact('cates', 'carts', 'total'));
 
     }
 
@@ -46,26 +47,21 @@ class CartController extends Controller
             'name' => $product->name,
             'qty' => isset($data['options']['quantity'])? $data['options']['quantity']: 1,
             'price' => $product->price,
-            'options' => array('image' => $product->img),
+            'options' => array(
+                'image' => $product->img,
+                'size' => $data['options']['size'], 
+                'color'=> $data['options']['size'],
+                'material'=> $data['options']['material']
+            ),
 
         ]);
         \Cart::associate($cartItem->rowId, \App\Models\Admin\Products::class);
-
         return response()->json([
-            'count' => count(\Cart::content())
+            'carts' => $cartOb = \Cart::content(),
+            'count' => $cartOb->count(),
+            'total' => \Cart::total(0)
         ]);
 
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
@@ -75,22 +71,19 @@ class CartController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
-        $qty = $request->input('qty');
-        \Cart::update($id, [
-            'qty' => $qty
+        \Cart::update($request->input('rowId'), [
+            'qty' => $request->input('quantity')
         ]);
-        $product = \Cart::get($id);
-        $subtotalID = $product->subtotal();
-        $subtotal = \Cart::subtotal();
+        $subtotalId = \Cart::get($request->input('rowId'))->subtotal(0);
+        $total = \Cart::total(0);
         return response()->json([
-            'product' => $product,
-            'subtotalID' => $subtotalID,
-            'subtotal' => $subtotal
+            'carts' => $cartOb = \Cart::content(),
+            'count' => $cartOb->count(),
+            'subtotalId' => $subtotalId,
+            'total' => $total
         ]);
-
     }
 
     /**
@@ -99,13 +92,14 @@ class CartController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
-        $rowId = $id;
-        \Cart::remove($rowId);
+        //Remove cart
+        \Cart::remove($request->input('rowId'));
         return response()->json([
-            'success' => 'ok'
+            'carts' => $cartOb = \Cart::content(),
+            'count' => $cartOb->count(),
+            'total' => \Cart::total(0)
         ]);
     }
 }

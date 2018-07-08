@@ -6,7 +6,7 @@
 	<div class="col-md-3">
 		<div class="moto-widget-store-main_item moto-widget-store-image-block ">
 			<div class="moto-widget moto-widget-image moto-preset-5">
-				<a class="moto-widget-image-link link_pro"  data-id="{{$product['id']}}" href="{{route('home.detail',['id'=> $product['id']])}}">
+				<a class="moto-widget-image-link link_pro"  data-id="{{$product['id']}}" href="{{route('endUser.product.detail',['id'=> $product['id']])}}">
 					<img data-src="{{url($product->img)}}" class="moto-widget-image-picture lazyload">						</a>
 				</div>
 				<a href="https://template65055.motopreview.com/store/product/marinated-oysters/" class="moto-widget-store-main_item-title ">

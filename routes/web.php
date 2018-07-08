@@ -111,12 +111,13 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
 });
 
 
-Route::get('product/{slug?}/{id?}', 'EndUser\ProductController@show')->name('home.detail');
-Route::post('addCart', 'EndUser\CartController@store')->name('cart.addCart');
-Route::get('cart', 'EndUser\CartController@index')->name('home.cart');
-Route::post('updateItem/{id?}', 'EndUser\CartController@update')->name('home.cart.update');
-Route::post('destroy/{id?}', 'EndUser\CartController@destroy')->name('home.cart.destroy');
-Route::get('blog', 'EndUser\BlogController@blog');
+Route::get('product/{slug?}/{id?}', 'EndUser\ProductController@show')->name('endUser.product.detail');
+Route::get('sale', 'EndUser\SaleController@show')->name('endUser.sale.index');
+Route::post('addCart', 'EndUser\CartController@store')->name('endUser.cart.addCart');
+Route::get('cart', 'EndUser\CartController@index')->name('endUser.cart.index');
+Route::post('updateItem', 'EndUser\CartController@update')->name('endUser.cart.update');
+Route::post('destroy', 'EndUser\CartController@destroy')->name('endUser.cart.destroy');
+Route::get('blog', 'EndUser\BlogController@blog')->name('endUser.blog.index');
 
 //-----------------------------------------------Order--------------------------------------
 Route::group(['prefix' => 'order'], function () {
@@ -128,7 +129,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/category/{slug}', 'EndUser\CategoryController@show');
-Route::get('/about', 'EndUser\AboutMeController@aboutMe');
-Route::get('/contact', 'EndUser\ContactController@getContact');
-Route::post('/contact', 'EndUser\ContactController@postContact');
+Route::get('/about', 'EndUser\AboutMeController@aboutMe')->name('endUser.about.index');
+Route::get('/contact', 'EndUser\ContactController@getContact')->name('endUser.contact.index');;
+Route::post('/contact', 'EndUser\ContactController@postContact')->name('endUser.contact.addContract');
 

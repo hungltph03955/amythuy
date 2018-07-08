@@ -8,10 +8,10 @@
 			<div class="col-md-3">
 				<div class="moto-widget-store-main_item moto-widget-store-image-block ">
 					<div class="moto-widget moto-widget-image moto-preset-5">
-						<a class="moto-widget-image-link link_pro"  data-id="{{$product['id']}}" href="{{route('home.detail',['id'=> $product['id']])}}">
+						<a class="moto-widget-image-link link_pro"  data-id="{{$product['id']}}" href="{{route('endUser.product.detail',['id'=> $product['id']])}}">
 							<img data-src="{{url($product->img)}}" height="250" width="250" class="moto-widget-image-picture lazyload">						</a>
 						</div>
-						<a href="{{route('home.detail',['id'=> $product['id']])}}" class="moto-widget-store-main_item-title ">
+						<a href="{{route('endUser.product.detail',['id'=> $product['id']])}}" class="moto-widget-store-main_item-title ">
 							<span class="moto-text_220">{{$product['name']}}</span>
 						</a>
 						<div class="store-product-element-container">
