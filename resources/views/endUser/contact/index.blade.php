@@ -1,10 +1,13 @@
 @extends('layouts.endUser.homepage')
 @section('title')
-Contact
+Contact for us
 @endsection
 @section('content')
 <!-- Title Page -->
-@include('element.detail.title', ['title' => 'Contact'])
+@include('element.detail.title', [
+        'titleCat' => 'Contact',
+        'descriptionCat' => '',
+        'imgCat' => PATH_NO_IMAGE_CATEGORY])
 <!-- content page -->
 <section class="bgwhite p-t-66 p-b-60">
     <div class="container">

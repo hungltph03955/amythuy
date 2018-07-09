@@ -1,6 +1,6 @@
 @extends('layouts.endUser.homepage')
 @section('title')
-    Detail product
+{{$product->name}}
 @endsection
 @push('styles')
 @endpush
@@ -12,10 +12,12 @@
             Home
             <i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
         </a>
-        <a href="/category/{{$catesParent->slug}}.html" class="s-text16">
-            {{$catesParent->name}}
-            <i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
-        </a>
+        @if(isset($catesParent->name))
+            <a href="/category/{{$product->category->slug}}" class="s-text16">
+                {{$catesParent->name}}
+                <i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
+            </a>
+        @endif
         <a href="/category/{{$product->category->slug}}" class="s-text16">
             {{$product->category->name}}
             <i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
@@ -73,7 +75,7 @@
 
             <div class="w-size14 p-t-30 respon5">
                 <h4 class="product-detail-name m-text16 p-b-13">
-                    {{$product->name ? $product->name : ''}}
+                    {{$product->name}}
                 </h4>
 
                 <span class="m-text17">
@@ -157,8 +159,8 @@
                 </div>
 
                 <div class="p-b-45">
-                    <span class="s-text8 m-r-35">Categories: {{ $catesParent->name }}
-                        , {{$product->category->name}}</span>
+                    <span class="s-text8 m-r-35">Categories: {{ isset($catesParent->name)? $catesParent->name. ',': ''  }}
+                        {{$product->category->name}}</span>
                 </div>
             </div>
         </div>

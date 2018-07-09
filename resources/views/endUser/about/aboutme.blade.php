@@ -1,12 +1,15 @@
 @extends('layouts.endUser.homepage')
 @section('title')
-ABOUT
+About US
 @endsection
 @push('styles')
 @endpush
 @section('content')
 <!-- Title Page -->
-@include('element.detail.title', ['title' => 'About'])
+@include('element.detail.title', [
+        'titleCat' => 'About',
+        'descriptionCat' => '',
+        'imgCat' => PATH_NO_IMAGE_CATEGORY])
 
 <section class="bgwhite p-t-66 p-b-38">
     <div class="container">

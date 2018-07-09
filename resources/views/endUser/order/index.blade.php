@@ -1,6 +1,6 @@
 @extends('layouts.endUser.homepage')
 @section('title')
-Checkout
+Checkout Order
 @endsection
 @section('content')
 <!-- Checkout -->

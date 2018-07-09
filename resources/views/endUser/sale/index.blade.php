@@ -6,7 +6,10 @@ Sale
 @endpush
 @section('content')
 <!-- Title Page -->
-@include('element.detail.title', ['title' => 'Sale'])
+@include('element.detail.title', [
+        'titleCat' => 'Sale',
+        'descriptionCat' => '',
+        'imgCat' => PATH_NO_IMAGE_CATEGORY])
 
 <section class="bgwhite p-t-66 p-b-38">
     <div class="container">

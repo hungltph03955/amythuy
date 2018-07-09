@@ -1,6 +1,6 @@
 @extends('layouts.endUser.homepage')
 @section('title')
-CART
+Order Cart
 @endsection
 @push('styles')
 <style>
@@ -14,7 +14,10 @@ CART
 @endpush
 @section('content')
 <!-- Title Page -->
-@include('element.detail.title', ['title' => 'Cart'])
+@include('element.detail.title', [
+        'titleCat' => 'Cart',
+        'descriptionCat' => '',
+        'imgCat' => PATH_NO_IMAGE_CATEGORY])
 <!-- Cart -->
 <section class="cart bgwhite p-t-70 p-b-100">
     <div class="container">

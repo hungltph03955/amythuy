@@ -1,6 +1,6 @@
 @extends('layouts.endUser.homepage')
 @section('title')
-HOME
+Home
 @endsection
 @push('styles')
 @endpush

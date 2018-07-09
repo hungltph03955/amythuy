@@ -7,6 +7,7 @@ define('PATH_IMAGE_NEWS', '/upload/imageNews/');
 define('PATH_IMAGE_BANNER', '/upload/imageBanner/');
 define('PATH_IMAGE_CATEGORY', '/upload/imageCategory/');
 define('PATH_NO_IMAGE', '/public/image/noimage.png');
+define('PATH_NO_IMAGE_CATEGORY', '/endUser/images/bg-banner-01.jpg');
 define('MONEY', '$');
 define('LIMIT_PAGE_CATEGORY', 9);
 define('LIMIT_PAGE', 10);

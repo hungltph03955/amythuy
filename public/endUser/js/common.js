@@ -1,6 +1,6 @@
 /*
  * ---------------------------------------------------
- * @Auth: Spainno3
+ * @author: Spainno3
  * 1. Cart Manager
  */
 (function ($) {

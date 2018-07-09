@@ -1,16 +1,19 @@
 @extends('layouts.endUser.homepage')
 @section('title')
-    CATEGORIES
+{{$category->name}}
 @endsection
 @push('styles')
 @endpush
 @section('content')
     <!-- Title Page -->
-    @include('element.detail.title', ['title' => $category->value('name')])
+    @include('element.detail.title', [
+        'titleCat' => $category->name,
+        'descriptionCat' => $category->description,
+        'imgCat' => $category->img])
     <section class="p-t-50 p-b-40 flex-col-c-m Women-gach">
         <div class="Women-gach-float">
             <h2 class="l-text2 t-center">
-                {{$category->value('name')}}
+                {{$category->name}}
             </h2>
         </div>
         <div class="Women-gach-float">
