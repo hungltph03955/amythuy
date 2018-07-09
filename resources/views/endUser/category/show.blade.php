@@ -139,7 +139,15 @@ CATEGORIES
                 </div>
                 <div class="pagination flex-m flex-w p-t-26">
                     <div class="pagination-center endUserCategory">
-                        {{$products->links()}}
+                        {{$products->appends([
+                            'category'=> $searchCategory,
+                            'color'=> $searchColorProduct,
+                            'size'=> $searchSizeProduct,
+                            'collection'=> $searchCollectionProduct,
+                            'material'=> $searchMaterialProduct,
+                            'price'=> $searchPriceProduct
+                             ])
+                             ->links()}}
                     </div>
                 </div>
             </div>
