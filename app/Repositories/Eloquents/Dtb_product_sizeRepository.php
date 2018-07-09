@@ -1,9 +1,6 @@
 <?php
+
 /**
- * Created by PhpStorm.
- * User: windd01
- * Date: 01/02/2018
- * Time: 10:18
  */
 
 namespace App\Repositories\Eloquents;
@@ -15,20 +12,17 @@ use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use Psy\Exception\Exception;
 
-class Dtb_product_sizeRepository extends BaseRepository implements Dtb_product_sizeRepositoryInterface
-{
-    public function getBlankModel()
-    {
+class Dtb_product_sizeRepository extends BaseRepository implements Dtb_product_sizeRepositoryInterface {
+
+    public function getBlankModel() {
         return new Dtb_product_sizes();
     }
 
-    public function __construct(Dtb_product_sizes $dtb_product_sizes)
-    {
+    public function __construct(Dtb_product_sizes $dtb_product_sizes) {
         $this->model = $dtb_product_sizes;
     }
 
-    public function saveSizeIdAndProductId($productId, $requestDataSizeIdValue)
-    {
+    public function saveSizeIdAndProductId($productId, $requestDataSizeIdValue) {
         $dateNow = Carbon::now();
         if (isset($requestDataSizeIdValue)) {
             $productSize = new $this->model;
@@ -46,19 +40,19 @@ class Dtb_product_sizeRepository extends BaseRepository implements Dtb_product_s
         }
     }
 
-    public function getSizeToEditProduct($productId)
-    {
+    public function getSizeToEditProduct($productId) {
         if (isset($productId)) {
-            return $this->model->select('dtb_product_sizes.*', 'sizes.name as sizes_name')->where('product_id', $productId)->join('sizes', 'dtb_product_sizes.size_id', '=', 'sizes.id')->get();
+            return $this->model->select('dtb_product_sizes.*', 'sizes.name as sizes_name')
+                            ->where('product_id', $productId)
+                            ->join('sizes', 'dtb_product_sizes.size_id', '=', 'sizes.id')
+                            ->get();
         }
     }
 
-    public function deleteSizeIdEditProduct($productId)
-    {
+    public function deleteSizeIdEditProduct($productId) {
         if (isset($productId)) {
             return $this->model->where('product_id', $productId)->forceDelete();
         }
     }
-
 
 }

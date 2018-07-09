@@ -1,9 +1,6 @@
 <?php
+
 /**
- * Created by PhpStorm.
- * User: windd01
- * Date: 01/02/2018
- * Time: 10:18
  */
 
 namespace App\Repositories\Eloquents;
@@ -15,20 +12,17 @@ use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use Psy\Exception\Exception;
 
-class Dtb_product_colorRepository extends BaseRepository implements Dtb_product_colorRepositoryInterface
-{
-    public function getBlankModel()
-    {
+class Dtb_product_colorRepository extends BaseRepository implements Dtb_product_colorRepositoryInterface {
+
+    public function getBlankModel() {
         return new Dtb_product_colors();
     }
 
-    public function __construct(Dtb_product_colors $dtb_product_colors)
-    {
+    public function __construct(Dtb_product_colors $dtb_product_colors) {
         $this->model = $dtb_product_colors;
     }
 
-    public function saveColorIdAndProductId($productId, $requestDataColorIdValue, $fileNameImageColor)
-    {
+    public function saveColorIdAndProductId($productId, $requestDataColorIdValue, $fileNameImageColor) {
         $dateNow = Carbon::now();
         if (isset($requestDataColorIdValue)) {
             $productColor = new $this->model;
@@ -47,15 +41,17 @@ class Dtb_product_colorRepository extends BaseRepository implements Dtb_product_
         }
     }
 
-    public function getColorToAddProduct()
-    {
+    public function getColorToAddProduct() {
         return $this->model->select('id', 'name')->where('status', 0)->orderBy('id', 'DESC')->get()->toArray();
     }
 
-    public function getColorToEditProduct($id)
-    {
+    public function getColorToEditProduct($id) {
         if (isset($id)) {
-            return $this->model->select('dtb_product_colors.*', 'colors.name as colors_name', 'colors.id as colors_id')->where('product_id', $id)->join('colors', 'dtb_product_colors.color_id', '=', 'colors.id')->get();
+            return $this->model->select('dtb_product_colors.*', 'colors.name as colors_name', 'colors.id as colors_id')
+                    ->where('product_id', $id)
+                    ->join('colors', 'dtb_product_colors.color_id', '=', 'colors.id')
+                    ->get();
         }
     }
+
 }

@@ -1,9 +1,6 @@
 <?php
+
 /**
- * Created by PhpStorm.
- * User: windd01
- * Date: 01/02/2018
- * Time: 10:18
  */
 
 namespace App\Repositories\Eloquents;
@@ -15,21 +12,17 @@ use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use Psy\Exception\Exception;
 
+class Dtb_product_materialRepository extends BaseRepository implements Dtb_product_matterialRepositoryInterface {
 
-class Dtb_product_materialRepository extends BaseRepository implements Dtb_product_matterialRepositoryInterface
-{
-    public function getBlankModel()
-    {
+    public function getBlankModel() {
         return new Dtb_product_materials();
     }
 
-    public function __construct(Dtb_product_materials $dtb_product_materials)
-    {
+    public function __construct(Dtb_product_materials $dtb_product_materials) {
         $this->model = $dtb_product_materials;
     }
 
-    public function saveMaterialAndProductId($productId, $requestDataMaterialIdValue)
-    {
+    public function saveMaterialAndProductId($productId, $requestDataMaterialIdValue) {
         $dateNow = Carbon::now();
         if (isset($requestDataMaterialIdValue)) {
             $productMaterial = new $this->model;
@@ -47,15 +40,16 @@ class Dtb_product_materialRepository extends BaseRepository implements Dtb_produ
         }
     }
 
-    public function getMaterialToEditProduct($productId)
-    {
+    public function getMaterialToEditProduct($productId) {
         if (isset($productId)) {
-            return $this->model->select('dtb_product_materials.*', 'materials.name as materials_name')->where('product_id', $productId)->join('materials', 'dtb_product_materials.material_id', '=', 'materials.id')->get();
+            return $this->model->select('dtb_product_materials.*', 'materials.name as materials_name')
+                            ->where('product_id', $productId)
+                            ->join('materials', 'dtb_product_materials.material_id', '=', 'materials.id')
+                            ->get();
         }
     }
 
-    public function deleteMaterialIdEditProduct($productId)
-    {
+    public function deleteMaterialIdEditProduct($productId) {
         if (isset($productId)) {
             return $this->model->where('product_id', $productId)->forceDelete();
         }

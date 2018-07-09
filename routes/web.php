@@ -1,15 +1,15 @@
 <?php
 
 /*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-	| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+  |--------------------------------------------------------------------------
+  | Web Routes
+  |--------------------------------------------------------------------------
+  |
+  | Here is where you can register web routes for your application. These
+  | routes are loaded by the RouteServiceProvider within a group which
+  | contains the "web" middleware group. Now create something great!
+  |
+ */
 
 Route::get('/', function () {
     return view('welcome');
@@ -55,7 +55,8 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
         Route::get('add', ['as' => 'getColorAdd', 'uses' => 'Admin\ColorController@getColorAdd']);
         Route::post('add', ['as' => 'postColorAdd', 'uses' => 'Admin\ColorController@postColorAdd']);
         Route::get('delete/{id}', ['as' => 'getColorDel', 'uses' => 'Admin\ColorController@getColorDel'])->where('id', '[0-9]+');
-        Route::get('edit/{id}', ['as' => 'getColorEdit', 'uses' => 'Admin\ColorController@getColorEdit'])->where('id', '[0-9]+');;
+        Route::get('edit/{id}', ['as' => 'getColorEdit', 'uses' => 'Admin\ColorController@getColorEdit'])->where('id', '[0-9]+');
+        ;
         Route::post('edit/{id}', ['as' => 'postColorEdit', 'uses' => 'Admin\ColorController@postColorEdit']);
     });
 
@@ -64,7 +65,8 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
         Route::get('add', ['as' => 'getSizesAdd', 'uses' => 'Admin\SizeController@getSizesAdd']);
         Route::post('add', ['as' => 'postSizesAdd', 'uses' => 'Admin\SizeController@postSizesAdd']);
         Route::get('delete/{id}', ['as' => 'getSizesDel', 'uses' => 'Admin\SizeController@getSizesDel'])->where('id', '[0-9]+');
-        Route::get('edit/{id}', ['as' => 'getSizesEdit', 'uses' => 'Admin\SizeController@getSizesEdit'])->where('id', '[0-9]+');;
+        Route::get('edit/{id}', ['as' => 'getSizesEdit', 'uses' => 'Admin\SizeController@getSizesEdit'])->where('id', '[0-9]+');
+        ;
         Route::post('edit/{id}', ['as' => 'postSizesEdit', 'uses' => 'Admin\SizeController@postSizesEdit']);
     });
 
@@ -73,7 +75,8 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
         Route::get('add', ['as' => 'getCollectionsAdd', 'uses' => 'Admin\CollectionController@getCollectionsAdd']);
         Route::post('add', ['as' => 'postCollectionsAdd', 'uses' => 'Admin\CollectionController@postCollectionsAdd']);
         Route::get('delete/{id}', ['as' => 'getCollectionsDel', 'uses' => 'Admin\CollectionController@getCollectionsDel'])->where('id', '[0-9]+');
-        Route::get('edit/{id}', ['as' => 'getCollectionsEdit', 'uses' => 'Admin\CollectionController@getCollectionsEdit'])->where('id', '[0-9]+');;
+        Route::get('edit/{id}', ['as' => 'getCollectionsEdit', 'uses' => 'Admin\CollectionController@getCollectionsEdit'])->where('id', '[0-9]+');
+        ;
         Route::post('edit/{id}', ['as' => 'postCollectionsEdit', 'uses' => 'Admin\CollectionController@postCollectionsEdit']);
     });
 
@@ -83,7 +86,8 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
         Route::get('add', ['as' => 'getMaterialsAdd', 'uses' => 'Admin\MaterialController@getMaterialsAdd']);
         Route::post('add', ['as' => 'postMaterialsAdd', 'uses' => 'Admin\MaterialController@postMaterialsAdd']);
         Route::get('delete/{id}', ['as' => 'getMaterialsDel', 'uses' => 'Admin\MaterialController@getMaterialsDel'])->where('id', '[0-9]+');
-        Route::get('edit/{id}', ['as' => 'getMaterialsEdit', 'uses' => 'Admin\MaterialController@getMaterialsEdit'])->where('id', '[0-9]+');;
+        Route::get('edit/{id}', ['as' => 'getMaterialsEdit', 'uses' => 'Admin\MaterialController@getMaterialsEdit'])->where('id', '[0-9]+');
+        ;
         Route::post('edit/{id}', ['as' => 'postMaterialsEdit', 'uses' => 'Admin\MaterialController@postMaterialsEdit']);
     });
 
@@ -92,7 +96,8 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
         Route::get('add', ['as' => 'getNewsAdd', 'uses' => 'Admin\NewController@getNewsAdd']);
         Route::post('add', ['as' => 'postNewsAdd', 'uses' => 'Admin\NewController@postNewsAdd']);
         Route::get('delete/{id}', ['as' => 'getNewsDel', 'uses' => 'Admin\NewController@getNewsDel'])->where('id', '[0-9]+');
-        Route::get('edit/{id}', ['as' => 'getNewsEdit', 'uses' => 'Admin\NewController@getNewsEdit'])->where('id', '[0-9]+');;
+        Route::get('edit/{id}', ['as' => 'getNewsEdit', 'uses' => 'Admin\NewController@getNewsEdit'])->where('id', '[0-9]+');
+        ;
         Route::post('edit/{id}', ['as' => 'postNewsEdit', 'uses' => 'Admin\NewController@postNewsEdit']);
     });
 
@@ -101,10 +106,10 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
         Route::get('add', ['as' => 'getUsersAdd', 'uses' => 'Admin\UserController@getUsersAdd']);
         Route::post('add', ['as' => 'postUsersAdd', 'uses' => 'Admin\UserController@postUsersAdd']);
         Route::get('delete/{id}', ['as' => 'getUsersDel', 'uses' => 'Admin\UserController@getUsersDel'])->where('id', '[0-9]+');
-        Route::get('edit/{id}', ['as' => 'getUsersEdit', 'uses' => 'Admin\UserController@getUsersEdit'])->where('id', '[0-9]+');;
+        Route::get('edit/{id}', ['as' => 'getUsersEdit', 'uses' => 'Admin\UserController@getUsersEdit'])->where('id', '[0-9]+');
+        ;
         Route::post('edit/{id}', ['as' => 'postUsersEdit', 'uses' => 'Admin\UserController@postUsersEdit']);
     });
-
 });
 
 
@@ -125,6 +130,6 @@ Route::get('confirm.html', 'EndUser\OrderController@confirm')->name('endUser.ord
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('category/{slug}.html', 'EndUser\CategoryController@show')->name('endUser.category.detail');
 Route::get('about.html', 'EndUser\AboutMeController@aboutMe')->name('endUser.about.index');
-Route::get('contact.html', 'EndUser\ContactController@index')->name('endUser.contact.index');;
+Route::get('contact.html', 'EndUser\ContactController@index')->name('endUser.contact.index');
 Route::post('contact', 'EndUser\ContactController@store')->name('endUser.contact.addContract');
 

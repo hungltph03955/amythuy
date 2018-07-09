@@ -6,18 +6,14 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
 
+class AppServiceProvider extends ServiceProvider {
 
-class AppServiceProvider extends ServiceProvider
-{
     /**
      * Bootstrap any application services.
      *
      * @return void
      */
-
-
-    public function boot()
-    {
+    public function boot() {
         Schema::defaultStringLength(191);
         view()->composer(['layouts.endUser.homepage', 'endUser.order.index', 'endUser.cart.index'], function ($view) {
             $cates = DB::table('categories')->where('parent_id', '=', 0)->where('deleted_at', '=', null)->get();
@@ -32,12 +28,11 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public
-    function register()
-    {
+    public function register() {
 //        $this->app->singleton(
 //            \App\Repositories\ShopsRepositoryInterface::class,
 //            \App\Repositories\Eloquents\ShopsRepository::class
 //        );
     }
+
 }

@@ -1,8 +1,10 @@
 <?php
+
 /**
  */
-namespace App\Repositories;
-interface OrderDetailRepositoryInterface extends BaseRepositoryInterface
-{
 
+namespace App\Repositories;
+
+interface OrderDetailRepositoryInterface extends BaseRepositoryInterface {
+    
 }

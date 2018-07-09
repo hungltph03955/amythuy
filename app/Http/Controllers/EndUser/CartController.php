@@ -8,12 +8,11 @@ use App\Repositories\CategoriesRepositoryInterface;
 use App\Repositories\ProductsRepositoryInterface;
 use \App\Models\Admin\Products;
 
-class CartController extends Controller
-{
+class CartController extends Controller {
+
     protected $cates;
 
-    public function __construct(CategoriesRepositoryInterface $cates)
-    {
+    public function __construct(CategoriesRepositoryInterface $cates) {
         $this->cates = $cates;
     }
 
@@ -22,11 +21,9 @@ class CartController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index() {
         //Show all carts
         return view('endUser.cart.index');
-
     }
 
     /**
@@ -35,31 +32,27 @@ class CartController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         $data = $request->all();
         $product = Products::find($data['id']);
         $cartItem = \Cart::add([
-            'id' => $product->id,
-            'name' => $product->name,
-            'qty' => isset($data['options']['quantity'])? $data['options']['quantity']: 1,
-            'price' => $product->price,
-            'options' => array(
-                'slug' => $product->slug,
-                'image' => $product->img,
-                'size' => $data['options']['size'], 
-                'color'=> $data['options']['size'],
-                'material'=> $data['options']['material']
-            ),
-
-        ]);
+                    'id' => $product->id,
+                    'name' => $product->name,
+                    'qty' => isset($data['options']['quantity']) ? $data['options']['quantity'] : 1,
+                    'price' => $product->price,
+                    'options' => array(
+                        'slug' => $product->slug,
+                        'image' => $product->img,
+                        'size' => isset($data['options']['size']) ? $data['options']['size'] : 0,
+                        'color' => isset($data['options']['color']) ? $data['options']['color'] : 0,
+                        'material' => isset($data['options']['material']) ? $data['options']['material'] : 0
+        )]);
         \Cart::associate($cartItem->rowId, \App\Models\Admin\Products::class);
         return response()->json([
-            'carts' => $cartOb = \Cart::content(),
-            'count' => $cartOb->count(),
-            'total' => \Cart::total(0)
+                    'carts' => $cartOb = \Cart::content(),
+                    'count' => $cartOb->count(),
+                    'total' => \Cart::total(0)
         ]);
-
     }
 
     /**
@@ -69,18 +62,17 @@ class CartController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
-    {
+    public function update(Request $request) {
         \Cart::update($request->input('rowId'), [
             'qty' => $request->input('quantity')
         ]);
         $subtotalId = \Cart::get($request->input('rowId'))->subtotal(0);
         $total = \Cart::total(0);
         return response()->json([
-            'carts' => $cartOb = \Cart::content(),
-            'count' => $cartOb->count(),
-            'subtotalId' => $subtotalId,
-            'total' => $total
+                    'carts' => $cartOb = \Cart::content(),
+                    'count' => $cartOb->count(),
+                    'subtotalId' => $subtotalId,
+                    'total' => $total
         ]);
     }
 
@@ -90,14 +82,14 @@ class CartController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request)
-    {
+    public function destroy(Request $request) {
         //Remove cart
         \Cart::remove($request->input('rowId'));
         return response()->json([
-            'carts' => $cartOb = \Cart::content(),
-            'count' => $cartOb->count(),
-            'total' => \Cart::total(0)
+                    'carts' => $cartOb = \Cart::content(),
+                    'count' => $cartOb->count(),
+                    'total' => \Cart::total(0)
         ]);
     }
+
 }
