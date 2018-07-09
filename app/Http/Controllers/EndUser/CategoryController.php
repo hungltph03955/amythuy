@@ -11,7 +11,8 @@ use App\Repositories\SizeRepositoryInterface;
 use App\Repositories\CollectionRepositoryInterface;
 use App\Repositories\MaterialRepositoryInterface;
 
-class CategoryController extends Controller {
+class CategoryController extends Controller
+{
 
     protected $categoriesRepository;
     protected $productRepository;
@@ -21,8 +22,9 @@ class CategoryController extends Controller {
     protected $materialRepository;
 
     public function __construct(
-    CategoriesRepositoryInterface $categoryRepository, ColorRepositoryInterface $colorRepository, SizeRepositoryInterface $sizeRepository, CollectionRepositoryInterface $collectionRepository, MaterialRepositoryInterface $materialRepository, ProductsRepositoryInterface $productsRepository
-    ) {
+        CategoriesRepositoryInterface $categoryRepository, ColorRepositoryInterface $colorRepository, SizeRepositoryInterface $sizeRepository, CollectionRepositoryInterface $collectionRepository, MaterialRepositoryInterface $materialRepository, ProductsRepositoryInterface $productsRepository
+    )
+    {
         $this->categoriesRepository = $categoryRepository;
         $this->colorRepository = $colorRepository;
         $this->sizeRepository = $sizeRepository;
@@ -31,12 +33,13 @@ class CategoryController extends Controller {
         $this->productRepository = $productsRepository;
     }
 
-    public function show(Request $request, $slug) {
+    public function show(Request $request, $slug)
+    {
         $category = $this->categoriesRepository->getSlug($slug);
         if (empty($category)) {
             abort(404);
         }
-        
+
         $searchCategory = $request->input('category');
         $searchColorProduct = $request->input('color');
         $searchSizeProduct = $request->input('size');
@@ -59,10 +62,10 @@ class CategoryController extends Controller {
         $products = $this->productRepository->getProductByFilter($category->id, $options);
         $countproducts = $products->total();
         return view('endUser.category.show', compact(
-                        'slug', 'category', 'products', 'color', 'size', 'collection'
-                        , 'material', 'categoryChiled', 'searchCategory'
-                        , 'searchColorProduct', 'searchSizeProduct', 'searchMaterialProduct'
-                        , 'searchCollectionProduct', 'searchPriceProduct', 'countproducts'));
+            'slug', 'category', 'products', 'color', 'size', 'collection'
+            , 'material', 'categoryChiled', 'searchCategory'
+            , 'searchColorProduct', 'searchSizeProduct', 'searchMaterialProduct'
+            , 'searchCollectionProduct', 'searchPriceProduct', 'countproducts'));
     }
 
 }

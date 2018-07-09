@@ -5,7 +5,8 @@
 
 namespace App\Repositories;
 
-interface CategoriesRepositoryInterface extends BaseRepositoryInterface {
+interface CategoriesRepositoryInterface extends BaseRepositoryInterface
+{
 
     public function selectToArray();
 
@@ -16,4 +17,5 @@ interface CategoriesRepositoryInterface extends BaseRepositoryInterface {
     public function getCategoryChiled($id);
 
     public function getParentCategories();
+
 }
