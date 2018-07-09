@@ -1,3 +1,25 @@
+/* width */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #ccc6c6;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #ada3a3;
+}
+
 pre {
     font-family: Montserrat-Regular;
     font-size: 15px;
@@ -56,6 +78,7 @@ button.btnFilter {
     text-transform: uppercase;
     background-color: #4A4A4A;
 }
+
 /* Block Billing
   ========================================================================== */
 
@@ -100,39 +123,47 @@ button.btnFilter {
 .table-billing-product .table-width {
     width: 67%;
 }
-.table-width>strong{
+
+.table-width > strong {
     font-size: 15px;
 }
 
-.block-billing-product .table-billing-product>tbody>tr>td, 
-.block-billing-product .table-billing-product>tbody>tr>th,
-.block-billing-product .table-billing-product>tfoot>tr>td,
-.block-billing-product .table-billing-product>tfoot>tr>th,
-.block-billing-product .table-billing-product>thead>tr>td,
-.block-billing-product .table-billing-product>thead>tr>th {
+.block-billing-product .table-billing-product > tbody > tr > td,
+.block-billing-product .table-billing-product > tbody > tr > th,
+.block-billing-product .table-billing-product > tfoot > tr > td,
+.block-billing-product .table-billing-product > tfoot > tr > th,
+.block-billing-product .table-billing-product > thead > tr > td,
+.block-billing-product .table-billing-product > thead > tr > th {
     padding: 12px;
     vertical-align: top;
     border-bottom: 1px solid #d8d8d8;
 }
 
-.block-billing-product .table-billing-product>thead>tr>th {
+.block-billing-product .table-billing-product > thead > tr > th {
     border-bottom: none;
 }
 
-.block-billing-product .table-billing-product>thead>tr {
+.block-billing-product .table-billing-product > thead > tr {
     background: #eaeaea;
 }
 
-.block-billing-product .table-billing-product>tbody>tr:last-child>td {
+.block-billing-product .table-billing-product > tbody > tr:last-child > td {
     border-bottom: none;
 }
 
 /*===========Class error=========*/
-input.error{
+input.error {
     border: 1px red solid !important;
     border-radius: 2px;
 }
-textarea.error{
+
+textarea.error {
     border: 1px red solid !important;
     border-radius: 2px;
+}
+
+.wrap-slick3-dots {
+    height: 750px;
+    overflow-y: auto;
+    direction: rtl;
 }
