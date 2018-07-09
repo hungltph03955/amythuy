@@ -32,49 +32,45 @@ class ProductsRepositoriy extends BaseRepository implements ProductsRepositoryIn
                         ->paginate($p);
     }
 
-    public function FillterProductFromOption($category_id, $searchCategory, $searchColorProduct, $searchSizeProduct, $searchMaterialProduct, $searchCollectionProduct, $searchPriceProduct) {
-        $countproductFormcategory = 9;
-        $arrayCategorychildren = DB::table('categories')->where('parent_id', '=', $category_id)->where('deleted_at', '=', null)->pluck('id');
-        $query = $this->model->select('products.*')->whereIn('category_id', $arrayCategorychildren);
+    public function getProductByFilter($categoryId = 1, $options = []) {
+        $arrayCategories = DB::table('categories')->where('id', '=', $categoryId)
+                ->orWhere('parent_id', '=', $categoryId)
+                ->where('deleted_at', '=', null)
+                ->pluck('id');
+        $query = $this->model->select('products.*')->whereIn('category_id', $arrayCategories);
 
+        if (isset($options['searchCategory']) && !empty(trim($options['searchCategory']))) {
+            $query = $query->where('category_id', trim($searchCategory));
+        }
 
-        if (!empty($searchCategory) && !empty(trim($searchCategory))) {
-            if ($searchCategory != 0) {
-                $searchCategoryTrim = trim($searchCategory);
-                $query = $query->where('category_id', $searchCategoryTrim);
+        if (isset($options['searchColorProduct']) && !empty(trim($options['searchColorProduct']))) {
+            $query = $query->join('dtb_product_colors', 'products.id', '=', 'dtb_product_colors.product_id')
+                    ->where('color_id', '=', trim($options['searchColorProduct']));
+        }
+
+        if (isset($options['searchSizeProduct']) && !empty(trim($options['searchSizeProduct']))) {
+            $query = $query->join('dtb_product_sizes', 'products.id', '=', 'dtb_product_sizes.product_id')
+                    ->where('size_id', '=', trim($options['searchSizeProduct']));
+        }
+
+        if (isset($options['searchMaterialProduct']) && !empty(trim($options['searchMaterialProduct']))) {
+            $query = $query->join('dtb_product_materials', 'products.id', '=', 'dtb_product_materials.product_id')
+                    ->where('material_id', '=', trim($options['searchMaterialProduct']));
+        }
+
+        if (isset($options['searchCollectionProduct']) && !empty(trim($options['searchCollectionProduct']))) {
+            $query = $query->join('dtb_product_collections', 'products.id', '=', 'dtb_product_collections.product_id')
+                    ->where('collection_id', '=', trim($options['searchCollectionProduct']));
+        }
+
+        if (isset($options['searchPriceProduct']) && !empty(trim($options['searchPriceProduct']))) {
+            $order = 'ASC';
+            if (trim($options['searchPriceProduct']) == 2) {
+                $order = 'DESC';
             }
+            return $query->orderBy('price', $order)->paginate(LIMIT_PAGE);
         }
-
-        if (!empty($searchColorProduct) && !empty(trim($searchColorProduct))) {
-            $searchColorProductTrim = trim($searchColorProduct);
-            $query = $query->join('dtb_product_colors', 'products.id', '=', 'dtb_product_colors.product_id')->where('color_id', '=', $searchColorProductTrim);
-        }
-
-        if (!empty($searchSizeProduct) && !empty(trim($searchSizeProduct))) {
-            $searchSizeProductTrim = trim($searchSizeProduct);
-            $query = $query->join('dtb_product_sizes', 'products.id', '=', 'dtb_product_sizes.product_id')->where('size_id', '=', $searchSizeProductTrim);
-        }
-
-        if (!empty($searchMaterialProduct) && !empty(trim($searchMaterialProduct))) {
-            $searchMaterialProductTrim = trim($searchMaterialProduct);
-            $query = $query->join('dtb_product_materials', 'products.id', '=', 'dtb_product_materials.product_id')->where('material_id', '=', $searchMaterialProductTrim);
-        }
-
-        if (!empty($searchCollectionProduct) && !empty(trim($searchCollectionProduct))) {
-            $searchCollectionProductTrim = trim($searchCollectionProduct);
-            $query = $query->join('dtb_product_collections', 'products.id', '=', 'dtb_product_collections.product_id')->where('collection_id', '=', $searchCollectionProductTrim);
-        }
-
-        if (!empty($searchPriceProduct) && !empty(trim($searchPriceProduct))) {
-            $searchPriceProductTrim = trim($searchPriceProduct);
-            if ($searchPriceProductTrim == "PriceLowToHigh") {
-                return $query->orderBy('price', 'ASC')->paginate($countproductFormcategory);
-            } else if ($searchPriceProductTrim == "PriceHighToLow") {
-                return $query->orderBy('price', 'DESC')->paginate($countproductFormcategory);
-            }
-        } else {
-            return $query->orderBy('id', 'DESC')->paginate($countproductFormcategory);
-        }
+        return $query->orderBy('id', 'DESC')->paginate(LIMIT_PAGE);
     }
 
     public function orderBy($params) {

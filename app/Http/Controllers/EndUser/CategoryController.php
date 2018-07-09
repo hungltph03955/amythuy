@@ -21,12 +21,7 @@ class CategoryController extends Controller {
     protected $materialRepository;
 
     public function __construct(
-        CategoriesRepositoryInterface $categoryRepository, 
-        ColorRepositoryInterface $colorRepository, 
-        SizeRepositoryInterface $sizeRepository, 
-        CollectionRepositoryInterface $collectionRepository, 
-        MaterialRepositoryInterface $materialRepository, 
-        ProductsRepositoryInterface $productsRepository
+    CategoriesRepositoryInterface $categoryRepository, ColorRepositoryInterface $colorRepository, SizeRepositoryInterface $sizeRepository, CollectionRepositoryInterface $collectionRepository, MaterialRepositoryInterface $materialRepository, ProductsRepositoryInterface $productsRepository
     ) {
         $this->categoriesRepository = $categoryRepository;
         $this->colorRepository = $colorRepository;
@@ -37,40 +32,37 @@ class CategoryController extends Controller {
     }
 
     public function show(Request $request, $slug) {
-        $searchCategory = $request->input('searchCategory');
-        $searchColorProduct = $request->input('search_color_id');
-        $searchSizeProduct = $request->input('search_size_id');
-        $searchCollectionProduct = $request->input('search_collection_id');
-        $searchMaterialProduct = $request->input('search_material_id');
-        $searchPriceProduct = $request->input('search_price');
         $category = $this->categoriesRepository->getSlug($slug);
         if (empty($category)) {
             abort(404);
         }
+        
+        $searchCategory = $request->input('category');
+        $searchColorProduct = $request->input('color');
+        $searchSizeProduct = $request->input('size');
+        $searchCollectionProduct = $request->input('collection');
+        $searchMaterialProduct = $request->input('material');
+        $searchPriceProduct = $request->input('price');
+
         $categoryChiled = $this->categoriesRepository->getCategoryChiled($category->id);
         $color = $this->colorRepository->getColorToAddProduct();
         $size = $this->sizeRepository->getSizeToAddProduct();
         $material = $this->materialRepository->getMaterialToAddProduct();
         $collection = $this->collectionRepository->getCollectionToAddProduct();
-        $products = $this->productRepository->FillterProductFromOption($category->id, $searchCategory, $searchColorProduct, $searchSizeProduct, $searchMaterialProduct, $searchCollectionProduct, $searchPriceProduct);
-        $countproducts = count($products);
-        return view('endUser.category.show', [
-            'slug' => $slug,
-            'category' => $category,
-            'products' => $products,
-            'color' => $color,
-            'size' => $size,
-            'collection' => $collection,
-            'material' => $material,
-            'categoryChiled' => $categoryChiled,
+        $options = [
             'searchCategory' => $searchCategory,
             'searchColorProduct' => $searchColorProduct,
             'searchSizeProduct' => $searchSizeProduct,
             'searchMaterialProduct' => $searchMaterialProduct,
             'searchCollectionProduct' => $searchCollectionProduct,
-            'searchPriceProduct' => $searchPriceProduct,
-            'countproducts' => $countproducts,
-        ]);
+            'searchPriceProduct' => $searchPriceProduct];
+        $products = $this->productRepository->getProductByFilter($category->id, $options);
+        $countproducts = $products->total();
+        return view('endUser.category.show', compact(
+                        'slug', 'category', 'products', 'color', 'size', 'collection'
+                        , 'material', 'categoryChiled', 'searchCategory'
+                        , 'searchColorProduct', 'searchSizeProduct', 'searchMaterialProduct'
+                        , 'searchCollectionProduct', 'searchPriceProduct', 'countproducts'));
     }
 
 }
