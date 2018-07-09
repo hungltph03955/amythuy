@@ -3,8 +3,7 @@
     <div class="container-menu-header">
         <div class="topbar">
             <div class="topbar-child2">
-					<span class="topbar-email">
-					</span>
+                <span class="topbar-email"></span>
                 <div class="topbar-language rs1-select2">
                     <select class="selection-1" name="time">
                         <option>English</option>
@@ -35,11 +34,11 @@
                         <li class="sale-noti">
                             <a href="javascript:void(0)">Categories</a>
                             @if(isset($cates))
-                                <ul class="sub_menu">
-                                    @foreach($cates as $cate )
-                                        <li><a href="{{route('endUser.category.detail',[$cate->slug])}}">{{$cate->name}}</a></li>
-                                    @endforeach
-                                </ul>
+                            <ul class="sub_menu">
+                                @foreach($cates as $cate )
+                                    <li><a href="{{route('endUser.category.detail',[$cate->slug])}}">{{$cate->name}}</a></li>
+                                @endforeach
+                            </ul>
                             @endif
                         </li>
                         <li><a href="{{route('endUser.cart.index')}}">Cart</a></li>
@@ -63,22 +62,22 @@
                         @if(isset($carts) && count($carts) > 0)
                             <ul class="header-cart-wrapitem">
                                 @foreach($carts as $cart)
-                                    <li class="header-cart-item">
-                                        <div class="header-cart-item-img del-item" data-id="{{$cart->rowId}}" data-url="{{route('endUser.cart.destroy')}}">
-                                            @if(file_exists( public_path().PATH_IMAGE_MASTER. $cart->options->image))
-                                                <img src="{{PATH_IMAGE_MASTER. $cart->options->image}}"
-                                                    alt="{{$cart->name ? $cart->name : ''}}">
-                                            @else
-                                                <img src="{{PATH_NO_IMAGE}}">
-                                            @endif
-                                        </div>
+                                <li class="header-cart-item">
+                                    <div class="header-cart-item-img del-item" data-id="{{$cart->rowId}}" data-url="{{route('endUser.cart.destroy')}}">
+                                        @if(file_exists( public_path().PATH_IMAGE_MASTER. $cart->options->image))
+                                            <img src="{{PATH_IMAGE_MASTER. $cart->options->image}}"
+                                                 alt="{{$cart->name ? $cart->name : ''}}">
+                                        @else
+                                            <img src="{{PATH_NO_IMAGE}}">
+                                        @endif
+                                    </div>
 
-                                        <div class="header-cart-item-txt">
-                                            <a href="{{route('endUser.product.detail',['id'=> $cart->id, 'slug'=> $cart->options->slug])}}" 
-                                                class="header-cart-item-name">{{$cart->name}}</a>
-                                            <span class="header-cart-item-info">{{$cart->qty}} x {{ MONEY }}{{number_format($cart->price, 0)}}</span>
-                                        </div>
-                                    </li>
+                                    <div class="header-cart-item-txt">
+                                        <a href="{{route('endUser.product.detail',['id'=> $cart->id, 'slug'=> $cart->options->slug])}}" 
+                                           class="header-cart-item-name">{{$cart->name}}</a>
+                                        <span class="header-cart-item-info">{{$cart->qty}} x {{ MONEY }}{{number_format($cart->price, 0)}}</span>
+                                    </div>
+                                </li>
                                 @endforeach
                             </ul>
                             <div class="header-cart-total">
@@ -88,16 +87,11 @@
                         <div class="header-cart-buttons">
                             <div class="header-cart-wrapbtn">
                                 <!-- Button -->
-                                <a href="{{route('endUser.cart.index')}}" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-                                    View Cart
-                                </a>
+                                <a href="{{route('endUser.cart.index')}}" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">View Cart</a>
                             </div>
-
                             <div class="header-cart-wrapbtn">
                                 <!-- Button -->
-                                <a href="{{route('endUser.order.index')}}" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-                                    Check Out
-                                </a>
+                                <a href="{{route('endUser.order.index')}}" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">Check Out</a>
                             </div>
                         </div>
                     </div>
@@ -129,23 +123,23 @@
                         @if(isset($carts) && count($carts) > 0)
                             <ul class="header-cart-wrapitem">
                                 @foreach($carts as $cart)
-                                <li class="header-cart-item">
-                                    <div class="header-cart-item-img del-item" 
-                                        data-id="{{$cart->rowId}}" data-url="{{route('endUser.cart.destroy')}}">
-                                        @if(file_exists( public_path().PATH_IMAGE_MASTER. $cart->options->image))
-                                            <img src="{{PATH_IMAGE_MASTER. $cart->options->image}}"
-                                                alt="{{$cart->name ? $cart->name : ''}}">
-                                        @else
-                                            <img src="{{PATH_NO_IMAGE}}">
-                                        @endif
-                                    </div>
+                                    <li class="header-cart-item">
+                                        <div class="header-cart-item-img del-item" 
+                                             data-id="{{$cart->rowId}}" data-url="{{route('endUser.cart.destroy')}}">
+                                            @if(file_exists( public_path().PATH_IMAGE_MASTER. $cart->options->image))
+                                                <img src="{{PATH_IMAGE_MASTER. $cart->options->image}}"
+                                                     alt="{{$cart->name ? $cart->name : ''}}">
+                                            @else
+                                                <img src="{{PATH_NO_IMAGE}}">
+                                            @endif
+                                        </div>
 
-                                    <div class="header-cart-item-txt">
-                                        <a href="{{route('endUser.product.detail',['id'=> $cart->id, 'slug'=> $cart->options->slug])}}" 
-                                            class="header-cart-item-name">{{$cart->name}}</a>
-                                        <span class="header-cart-item-info">{{$cart->qty}} x {{ MONEY }}{{number_format($cart->price, 0)}}</span>
-                                    </div>
-                                </li>
+                                        <div class="header-cart-item-txt">
+                                            <a href="{{route('endUser.product.detail',['id'=> $cart->id, 'slug'=> $cart->options->slug])}}" 
+                                               class="header-cart-item-name">{{$cart->name}}</a>
+                                            <span class="header-cart-item-info">{{$cart->qty}} x {{ MONEY }}{{number_format($cart->price, 0)}}</span>
+                                        </div>
+                                    </li>
                                 @endforeach
                             </ul>
                             <div class="header-cart-total">
@@ -156,15 +150,12 @@
                         <div class="header-cart-buttons">
                             <div class="header-cart-wrapbtn">
                                 <!-- Button -->
-                                <a href="{{route('endUser.cart.index')}}" 
-                                    class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">View Cart</a>
+                                <a href="{{route('endUser.cart.index')}}" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">View Cart</a>
                             </div>
 
                             <div class="header-cart-wrapbtn">
                                 <!-- Button -->
-                                <a href="{{route('endUser.order.index')}}" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-                                    Check Out
-                                </a>
+                                <a href="{{route('endUser.order.index')}}" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">Check Out</a>
                             </div>
                         </div>
                     </div>
@@ -172,9 +163,9 @@
             </div>
 
             <div class="btn-show-menu-mobile hamburger hamburger--squeeze">
-					<span class="hamburger-box">
-						<span class="hamburger-inner"></span>
-					</span>
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
             </div>
         </div>
     </div>
@@ -207,13 +198,13 @@
                 <li class="item-menu-mobile"><a href="/">Home</a></li>
                 <li class="item-menu-mobile sale-noti">
                     <a href="javascript:void(0)">Categories</a>
-                        @if(isset($cates))
-                            <ul class="sub-menu">
-                                @foreach($cates as $cate )
-                                    <li><a href="{{route('endUser.category.detail',[$cate->slug])}}">{{$cate->name}}</a></li>
-                                @endforeach
-                            </ul>
-                        @endif
+                    @if(isset($cates))
+                        <ul class="sub-menu">
+                            @foreach($cates as $cate )
+                                <li><a href="{{route('endUser.category.detail',[$cate->slug])}}">{{$cate->name}}</a></li>
+                            @endforeach
+                        </ul>
+                    @endif
                     <i class="arrow-main-menu fa fa-angle-right" aria-hidden="true"></i>
                 </li>
                 <li class="item-menu-mobile"><a href="{{route('endUser.cart.index')}}">Cart</a></li>

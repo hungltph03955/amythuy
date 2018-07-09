@@ -12,7 +12,7 @@
     });
 
     /*[ 1. Cart ajax ]
-    ===========================================================*/
+     ===========================================================*/
     //Add cart
     $('.btn-addcart-product').click(function () {
         let productId = $(this).data('id');
@@ -66,7 +66,7 @@ addToCart = (productId, options) => {
             var nameProduct = $('.product-detail-name').text();
             swal(nameProduct, "is added to cart !", "success");
         },
-        error: function(){
+        error: function () {
             swal("", "Please try again !", "error");
         }
     });
@@ -82,9 +82,9 @@ updateCart = (rowId, quantity, url, $this = null) => {
         },
         success: function (data) {
             onSetCart(data, $this);
-            swal("Cart updated !", { button: false });
+            swal("Cart updated !", {button: false});
         },
-        error: function(){
+        error: function () {
             swal("", "Please try again !", "error");
         }
     });

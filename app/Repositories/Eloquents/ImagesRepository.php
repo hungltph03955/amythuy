@@ -1,9 +1,6 @@
 <?php
+
 /**
- * Created by PhpStorm.
- * User: windd01
- * Date: 01/02/2018
- * Time: 10:33
  */
 
 namespace App\Repositories\Eloquents;
@@ -13,20 +10,17 @@ use App\Repositories\ImagesRepositoryInterface;
 use Carbon\Carbon;
 use Psy\Exception\Exception;
 
-class ImagesRepository extends BaseRepository implements ImagesRepositoryInterface
-{
-    public function getBlankModel()
-    {
+class ImagesRepository extends BaseRepository implements ImagesRepositoryInterface {
+
+    public function getBlankModel() {
         return new Images();
     }
 
-    public function __construct(Images $images)
-    {
+    public function __construct(Images $images) {
         $this->model = $images;
     }
 
-    public function saveImageDetailAndProductId($productId, $fileNameImageDetail)
-    {
+    public function saveImageDetailAndProductId($productId, $fileNameImageDetail) {
         $dateNow = Carbon::now();
         if (isset($fileNameImageDetail)) {
             $productImageDetail = new $this->model;
@@ -43,10 +37,10 @@ class ImagesRepository extends BaseRepository implements ImagesRepositoryInterfa
         }
     }
 
-    public function getFileName($productId)
-    {
+    public function getFileName($productId) {
         if (isset($productId)) {
             return $this->model->where('product_id', $productId)->get();
         }
     }
+
 }

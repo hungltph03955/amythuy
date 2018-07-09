@@ -23,22 +23,18 @@
                         </a>
                     </li>
                     <li class="p-b-9">
-                        <a href="#" class="s-text7">
-                            Address
-                        </a>
+                        <a href="#" class="s-text7">Address</a>
                     </li>
                     <li class="p-b-9">
-                        <a href="#" class="s-text7">
-                            About us
-                        </a>
+                        <a href="#" class="s-text7">About us</a>
                     </li>
                 </ul>
             </dvi>
         </div>
         <div class="t-center s-text8 p-t-20">
-            © AmyThuy 2018. All rights reserved.<i class="fa fa-heart-o"
-                                                   aria-hidden="true"></i> Hotline: <a
-                    href="#" target="_blank"> +84 94 1000 586</a>
+            © AmyThuy 2018. All rights reserved.
+            <i class="fa fa-heart-o" aria-hidden="true"></i> Hotline: <a
+                href="#" target="_blank"> +84 94 1000 586</a>
         </div>
     </div>
 </footer>

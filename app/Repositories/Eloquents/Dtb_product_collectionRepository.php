@@ -1,9 +1,6 @@
 <?php
+
 /**
- * Created by PhpStorm.
- * User: windd01
- * Date: 01/02/2018
- * Time: 10:18
  */
 
 namespace App\Repositories\Eloquents;
@@ -15,20 +12,17 @@ use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use Psy\Exception\Exception;
 
-class Dtb_product_collectionRepository extends BaseRepository implements Dtb_product_collectionRepositoryInterface
-{
-    public function getBlankModel()
-    {
+class Dtb_product_collectionRepository extends BaseRepository implements Dtb_product_collectionRepositoryInterface {
+
+    public function getBlankModel() {
         return new Dtb_product_collections();
     }
 
-    public function __construct(Dtb_product_collections $dtb_product_collections)
-    {
+    public function __construct(Dtb_product_collections $dtb_product_collections) {
         $this->model = $dtb_product_collections;
     }
 
-    public function saveCollectionIdAndProductId($productId, $requestDataMaterialIdValue)
-    {
+    public function saveCollectionIdAndProductId($productId, $requestDataMaterialIdValue) {
         $dateNow = Carbon::now();
         if (isset($requestDataMaterialIdValue)) {
             $productCollection = new $this->model;
@@ -46,17 +40,18 @@ class Dtb_product_collectionRepository extends BaseRepository implements Dtb_pro
         }
     }
 
-    public function getCollectionToEditProduct($productId)
-    {
+    public function getCollectionToEditProduct($productId) {
         if (isset($productId)) {
-            return $this->model->select('dtb_product_collections.*')->where('product_id', $productId)->get();
+            return $this->model->select('dtb_product_collections.*')
+                            ->where('product_id', $productId)
+                            ->get();
         }
     }
 
-    public function deleteCollectionIdEditProduct($productId)
-    {
+    public function deleteCollectionIdEditProduct($productId) {
         if (isset($productId)) {
             return $this->model->where('product_id', $productId)->forceDelete();
         }
     }
+
 }

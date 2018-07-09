@@ -6,14 +6,13 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\CategoriesRepositoryInterface;
 use App\Repositories\ProductsRepositoryInterface;
-
 use App\Repositories\ColorRepositoryInterface;
 use App\Repositories\SizeRepositoryInterface;
 use App\Repositories\CollectionRepositoryInterface;
 use App\Repositories\MaterialRepositoryInterface;
 
-class CategoryController extends Controller
-{
+class CategoryController extends Controller {
+
     protected $categoriesRepository;
     protected $productRepository;
     protected $colorRepository;
@@ -22,14 +21,13 @@ class CategoryController extends Controller
     protected $materialRepository;
 
     public function __construct(
-        CategoriesRepositoryInterface $categoryRepository,
-        ColorRepositoryInterface $colorRepository,
-        SizeRepositoryInterface $sizeRepository,
-        CollectionRepositoryInterface $collectionRepository,
-        MaterialRepositoryInterface $materialRepository,
+        CategoriesRepositoryInterface $categoryRepository, 
+        ColorRepositoryInterface $colorRepository, 
+        SizeRepositoryInterface $sizeRepository, 
+        CollectionRepositoryInterface $collectionRepository, 
+        MaterialRepositoryInterface $materialRepository, 
         ProductsRepositoryInterface $productsRepository
-    )
-    {
+    ) {
         $this->categoriesRepository = $categoryRepository;
         $this->colorRepository = $colorRepository;
         $this->sizeRepository = $sizeRepository;
@@ -38,8 +36,7 @@ class CategoryController extends Controller
         $this->productRepository = $productsRepository;
     }
 
-    public function show(Request $request, $slug)
-    {
+    public function show(Request $request, $slug) {
         $searchCategory = $request->input('searchCategory');
         $searchColorProduct = $request->input('search_color_id');
         $searchSizeProduct = $request->input('search_size_id');
@@ -75,4 +72,5 @@ class CategoryController extends Controller
             'countproducts' => $countproducts,
         ]);
     }
+
 }
