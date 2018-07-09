@@ -16,16 +16,14 @@ class NewRepository extends BaseRepository implements NewRepositoryInterface {
         return new News();
     }
 
-    protected $p = 10;
-
     public function __construct(News $news) {
         $this->model = $news;
     }
 
     public function getAllNews() {
-        return $this->model->select('id', 'name', 'status', 'description', 'created_at', 'img', 'updated_at')
+        return $this->model->select('id', 'name', 'slug', 'status', 'description', 'created_at', 'img', 'updated_at')
                 ->orderBy('id', 'DESC')
-                ->get();
+                ->paginate(LIMIT_PAGE);
     }
 
 }

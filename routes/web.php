@@ -121,7 +121,8 @@ Route::post('addCart', 'EndUser\CartController@store')->name('endUser.cart.addCa
 Route::get('cart.html', 'EndUser\CartController@index')->name('endUser.cart.index');
 Route::post('updateItem', 'EndUser\CartController@update')->name('endUser.cart.update');
 Route::post('destroy', 'EndUser\CartController@destroy')->name('endUser.cart.destroy');
-Route::get('blog.html', 'EndUser\BlogController@blog')->name('endUser.blog.index');
+Route::get('blog.html', 'EndUser\BlogController@index')->name('endUser.blog.index');
+Route::get('blog/{id?}/{slug?}.html', 'EndUser\BlogController@show')->name('endUser.blog.detail');
 
 Route::get('order/checkout.html', 'EndUser\OrderController@index')->name('endUser.order.index');
 Route::post('order/store', 'EndUser\OrderController@store')->name('endUser.order.addOrder');

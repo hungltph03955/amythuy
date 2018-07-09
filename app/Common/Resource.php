@@ -56,7 +56,7 @@ function listCate ($data,$parent = 0,$str="") {
  * @param string $string The string to encrypt.
  * @param string $key[optional] The key to encrypt with.
  * @return string
- * @auth TuanVM
+ * @author Spainno3
  */
 function encodeString($string, $keyEncode="") {
     //todo
@@ -69,9 +69,33 @@ function encodeString($string, $keyEncode="") {
  * @param string $string The string to encrypt.
  * @param string $key[optional] The key to encrypt with.
  * @return string
- * @auth TuanVM
+ * @author Spainno3
  */
 function decodeString($string, $keyEncode="") {
     //todo
     return $string;
+}
+
+/**
+ * Cut string description.
+ * 
+ * @param string $string The string to cut.
+ * @param string $length.
+ * @return string
+ * @author Spainno3
+ */
+function strEntitie($str, $length = TEXT_DESCRIPTION) {
+    if(strlen($str) > $length ) {
+        return substr(_stripTags($str), 0, $length) . ' ...';
+    }
+    return _stripTags($str);
+}
+
+/**
+ * allow some tags <br><a> 
+ * @param string $allowedTags.
+ * @author: Spainno3
+ */
+function _stripTags($var, $allowedTags = '') {
+    return strip_tags($var, $allowedTags);
 }

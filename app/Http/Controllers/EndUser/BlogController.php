@@ -2,36 +2,39 @@
 
 namespace App\Http\Controllers\EndUser;
 
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Repositories\ProductsRepositoryInterface;
-use App\Repositories\CategoriesRepositoryInterface;
-use App\Models\Products;
-use App\Repositories\ImagesBannerRepositoryInterface;
-use App\Repositories\ImagesRepositoryInterface;
+use App\Repositories\NewRepositoryInterface;
 
 class BlogController extends Controller {
 
-    //
-    protected $product;
-    protected $categories;
-    protected $imageBannerRepository;
-    protected $imagesRepository;
+    protected $newRepository;
 
     public function __construct(
-    ProductsRepositoryInterface $product, CategoriesRepositoryInterface $category, ImagesRepositoryInterface $imagesRepository, ImagesBannerRepositoryInterface $imagesBannerRepository) {
-        $this->product = $product;
-        $this->categories = $category;
-        $this->imageBannerRepository = $imagesBannerRepository;
-        $this->imagesRepository = $imagesRepository;
+        NewRepositoryInterface $newRepository
+    ) {
+        $this->newRepository = $newRepository;
     }
 
-    private function getDataInVar() {
-        
+    public function index() {
+        $listNews = $this->newRepository->getAllNews();
+        if (empty($listNews)) {
+            return redirect()->back();
+        }
+        return view('endUser.blog.index', [
+            'listNews' => $listNews
+        ]);
     }
 
-    public function blog() {
-        return view('endUser.blog.blog');
+    public function show($id, $slug) {
+        $newsDetail = $this->newRepository->show($id);
+        if (empty($newsDetail)) {
+            return redirect('endUser.blog.index');
+        } else {
+            return view('endUser.blog.show', [
+                'newsDetail' => $newsDetail
+            ]);
+        }
     }
 
 }

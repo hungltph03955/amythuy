@@ -54,6 +54,7 @@ class NewController extends Controller
             'description',
             'status');
         $data['img'] = isset($fileName) ? $fileName : 'No Image';
+        $data['slug'] = str_slug($data['name']);
         $data['author'] = Auth::user()->id;
         $store = $this->newRepository->store($data);
         if (empty($store)) {
@@ -96,6 +97,7 @@ class NewController extends Controller
                 'description',
                 'status');
             $data['img'] = isset($fileName) ? $fileName : $newsDetail->img;
+            $data['slug'] = str_slug($data['name']);
             $data['author'] = Auth::user()->id;
             $update = $this->newRepository->update($data, $id);
             if ($update == false) {

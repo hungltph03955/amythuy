@@ -68,9 +68,9 @@ class ProductsRepositoriy extends BaseRepository implements ProductsRepositoryIn
             if (trim($options['searchPriceProduct']) == 2) {
                 $order = 'DESC';
             }
-            return $query->orderBy('price', $order)->paginate(LIMIT_PAGE);
+            return $query->orderBy('price', $order)->paginate(LIMIT_PAGE_CATEGORY);
         }
-        return $query->orderBy('id', 'DESC')->paginate(LIMIT_PAGE);
+        return $query->orderBy('id', 'DESC')->paginate(LIMIT_PAGE_CATEGORY);
     }
 
     public function orderBy($params) {
