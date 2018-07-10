@@ -6,7 +6,7 @@
 @endpush
 @section('content')
     <!-- Title Page -->
-    @include('element.detail.title', [
+    @include('element.section.title', [
         'titleCat' => $category->name,
         'descriptionCat' => $category->description,
         'imgCat' => $category->img])
@@ -128,13 +128,13 @@
                                             </div>
                                         </div>
                                         <div class="block2-txt p-t-20">
-                                            <a href="product-detail.html"
+                                            <a href="{{route('endUser.product.detail',['id'=> $product->id, 'slug'=> $product->slug])}}"
                                                class="block2-name dis-block s-text3 p-b-5 view-more-product">
                                                 {{$product->name ? $product->name : ''}}
                                             </a>
                                             <span class="block2-price m-text6 p-r-5 textprice">
                                                 {{number_format($product->price)  }} {{ MONEY }}
-                                </span>
+                                            </span>
                                         </div>
                                     </div>
                                 </div>

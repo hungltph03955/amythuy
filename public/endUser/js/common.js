@@ -63,12 +63,16 @@ addToCart = (productId, options) => {
             options: options
         },
         success: function (data) {
-            onSetCart(data);
             var nameProduct = $('.product-detail-name').text();
-            swal(nameProduct, "is added to cart !", "success");
+            swal(nameProduct, "is added to cart !", "success").then(() => {
+//                onSetCart(data);
+                location.reload();
+            });
         },
         error: function () {
-            swal("", "Please try again !", "error");
+            swal("", "Please try again !", "error").then(() => {
+                location.reload();
+            });
         }
     });
 }
@@ -82,11 +86,14 @@ updateCart = (rowId, quantity, url, $this = null) => {
             quantity: quantity
         },
         success: function (data) {
-            onSetCart(data, $this);
-            swal("Cart updated !", {button: false});
+            swal("Cart updated !", {button: 'OK'}).then(() => {
+                onSetCart(data, $this);
+            });
         },
         error: function () {
-            swal("", "Please try again !", "error");
+            swal("", "Please try again !", "error").then(() => {
+                location.reload();
+            });
         }
     });
 }
@@ -95,6 +102,13 @@ onSetCart = (data, $this) => {
     // $('.update-cart').empty();
     if ($this !== null && typeof (data.subtotalId) !== 'undefined' && data.subtotalId !== '0') {
         $this.parent().parent().next().find('span').html(data.subtotalId);
+        $.each(data.carts, function (key, value) {
+            $(".del-item").each(function () {
+                if ($(this).data('id') === value.rowId) {
+                    $(this).next().find('.header-cart-item-info>span').html(value.qty);
+                }
+            })
+        })
     }
     $('.cart-count').html(data.count);
     $('.cart-total>span, .header-cart-total>span').html(data.total);

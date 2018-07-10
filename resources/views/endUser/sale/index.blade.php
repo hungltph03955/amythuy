@@ -6,7 +6,7 @@ Sale
 @endpush
 @section('content')
 <!-- Title Page -->
-@include('element.detail.title', [
+@include('element.section.title', [
         'titleCat' => 'Sale',
         'descriptionCat' => '',
         'imgCat' => PATH_NO_IMAGE_CATEGORY])

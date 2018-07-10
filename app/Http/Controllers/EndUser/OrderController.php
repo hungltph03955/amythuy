@@ -58,7 +58,7 @@ class OrderController extends Controller {
             $customer = $this->customerRepository->store($data);
             $order = $this->orderRepository->store([
                 'customer_id' => $customer->id,
-                'order_code' => $this->orderRepository->generateNo(),
+                'order_code' => $this->orderRepository->generateOrderCode($customer->id),
                 'total' => \Cart::total(),
             ]);
             $this->orderDetailRepository->store([

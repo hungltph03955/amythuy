@@ -6,9 +6,9 @@ Home
 @endpush
 @section('content')
 <!-- Slide1 -->
-@include('element.detail.slide')
+@include('element.section.slide')
 <!-- Banner -->
-@include('element.detail.banner')
+@include('element.section.banner')
 <!-- New Product -->
 <section class="newproduct bgwhite p-t-45 p-b-105 category-mu-fixpading">
     <div class="container">
@@ -85,7 +85,7 @@ Home
     </div>
 </section>
 
-@include('element.detail.blog',[])
+@include('element.section.blog',[])
 <!-- Blog -->
 
 @endsection

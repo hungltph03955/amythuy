@@ -22,4 +22,7 @@ class OrderRepository extends BaseRepository implements OrderRepositoryInterface
         return Order::generateNo();
     }
 
+    public function generateOrderCode($id){
+        return sprintf('HD'.date("ymd")."-%'05d", $id);
+    }
 }

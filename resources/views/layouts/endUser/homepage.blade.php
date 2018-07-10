@@ -46,9 +46,9 @@
 <body class="animsition">
 <!-- Header -->
 
-@include('element.detail.header')
+@include('element.section.header')
 @yield('content')
-@include('element.detail.footer')
+@include('element.section.footer')
 <!-- Back to top -->
 <div class="btn-back-to-top bg0-hov" id="myBtn">
             <span class="symbol-btn-back-to-top">

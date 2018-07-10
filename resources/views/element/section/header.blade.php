@@ -56,7 +56,7 @@
                     <img src="{{asset('endUser/images/icons/icon-header-02.png')}}"
                          class="header-icon1 js-show-header-dropdown"
                          alt="ICON">
-                    <span class="header-icons-noti cart-count">{{count($carts)}}</span>
+                    <span class="header-icons-noti cart-count">{{$cartCount}}</span>
                     <!-- Header cart noti -->
                     <div class="header-cart header-dropdown">
                         @if(isset($carts) && count($carts) > 0)
@@ -75,7 +75,7 @@
                                     <div class="header-cart-item-txt">
                                         <a href="{{route('endUser.product.detail',['id'=> $cart->id, 'slug'=> $cart->options->slug])}}" 
                                            class="header-cart-item-name">{{$cart->name}}</a>
-                                        <span class="header-cart-item-info">{{$cart->qty}} x {{ MONEY }}{{number_format($cart->price, 0)}}</span>
+                                           <span class="header-cart-item-info"><span>{{$cart->qty}}</span> x {{ MONEY }}{{number_format($cart->price, 0)}}</span>
                                     </div>
                                 </li>
                                 @endforeach
@@ -116,7 +116,7 @@
                 <div class="header-wrapicon2">
                     <img src="{{asset('endUser/images/icons/icon-header-02.png')}}"
                          class="header-icon1 js-show-header-dropdown" alt="ICON">
-                    <span class="header-icons-noti cart-count">{{count($carts)}}</span>
+                    <span class="header-icons-noti cart-count">{{$cartCount}}</span>
 
                     <!-- Header cart noti -->
                     <div class="header-cart header-dropdown">

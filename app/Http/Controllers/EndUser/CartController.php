@@ -49,8 +49,8 @@ class CartController extends Controller {
         )]);
         \Cart::associate($cartItem->rowId, \App\Models\Admin\Products::class);
         return response()->json([
-                    'carts' => $cartOb = \Cart::content(),
-                    'count' => $cartOb->count(),
+                    'carts' => \Cart::content(),
+                    'count' => \Cart::count(),
                     'total' => \Cart::total(0)
         ]);
     }
@@ -69,8 +69,8 @@ class CartController extends Controller {
         $subtotalId = \Cart::get($request->input('rowId'))->subtotal(0);
         $total = \Cart::total(0);
         return response()->json([
-                    'carts' => $cartOb = \Cart::content(),
-                    'count' => $cartOb->count(),
+                    'carts' => \Cart::content(),
+                    'count' => \Cart::count(),
                     'subtotalId' => $subtotalId,
                     'total' => $total
         ]);
@@ -86,8 +86,8 @@ class CartController extends Controller {
         //Remove cart
         \Cart::remove($request->input('rowId'));
         return response()->json([
-                    'carts' => $cartOb = \Cart::content(),
-                    'count' => $cartOb->count(),
+                    'carts' => \Cart::content(),
+                    'count' => \Cart::count(),
                     'total' => \Cart::total(0)
         ]);
     }

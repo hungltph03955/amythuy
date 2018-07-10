@@ -14,7 +14,7 @@ Order Cart
 @endpush
 @section('content')
 <!-- Title Page -->
-@include('element.detail.title', [
+@include('element.section.title', [
         'titleCat' => 'Cart',
         'descriptionCat' => '',
         'imgCat' => PATH_NO_IMAGE_CATEGORY])

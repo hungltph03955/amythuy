@@ -150,9 +150,7 @@
 
                             <div class="btn-addcart-product-detail size9 trans-0-4 m-t-10 m-b-10">
                                 <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4 btn-Order btn-addcart-product"
-                                        data-id="{{$product->id}}">
-                                    Order
-                                </button>
+                                        data-id="{{$product->id}}">Add to Cart</button>
                             </div>
                         </div>
                     </div>

@@ -150,14 +150,14 @@ span.colors_name_search {
 
 .imageDetail img {
     margin-top: 12px;
-    width: 200px;
-    height: 260px;
+    max-width: 200px;
+    height: auto;
     display: block;
 }
 
 .imageMaterShowEdit {
-    width: 446px;
-    height: 591px;
+    max-width: 446px;
+    /*height: 591px;*/
 }
 
 .imageNewsEdit {

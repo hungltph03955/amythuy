@@ -18,8 +18,9 @@ class AppServiceProvider extends ServiceProvider {
         view()->composer(['layouts.endUser.homepage', 'endUser.order.index', 'endUser.cart.index'], function ($view) {
             $cates = DB::table('categories')->where('parent_id', '=', 0)->where('deleted_at', '=', null)->get();
             $carts = \Cart::content();
+            $cartCount = \Cart::count();
             $total = \Cart::total(0);
-            $view->with(compact('cates', 'carts', 'total'));
+            $view->with(compact('cates', 'carts', 'cartCount', 'total'));
         });
     }
 

@@ -17,7 +17,7 @@ class BlogController extends Controller {
     }
 
     public function index() {
-        $listNews = $this->newRepository->getAllNews();
+        $listNews = $this->newRepository->getNews();
         if (empty($listNews)) {
             return redirect()->back();
         }
