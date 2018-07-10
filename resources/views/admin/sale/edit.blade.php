@@ -14,7 +14,6 @@
                             <input name="_method" type="hidden" value="PATCH">
                             <div class="form-group">
                                 <label for="name" class="col-md-4 control-label">Name</label>
-
                                 <div class="col-md-6">
                                     <input type="text" class="form-control form-control-lg" id="lgFormGroupInput" placeholder="name" name="name" value="{{$sale->name}}">
 
@@ -23,15 +22,12 @@
 
                             <div class="form-group">
                                 <label for="product_id" class="col-md-4 control-label">Product</label>
-                                <br>
                                 <div class="col-md-6">
-
                                 <select id="product_id" class="selectpicker form-control col-md-6 "  name="product_id" data-live-search="true" title="Please select a country ...">
                                     @foreach ($products as $product)
                                         <option value="{{ $product->id }}"
                                                 {{ $product->id==$sale->product_id ? 'selected' : '' }}>{{$product->name}}</option>
                                     @endforeach
-
                                 </select>
                                 </div>
                             </div>

@@ -11,7 +11,7 @@ abstract class BaseRepository implements BaseRepositoryInterface {
 
     protected $model;
     // set default value for paginate
-    protected $p = 10;
+    protected $p = LIMIT_PAGE;
 
     public function __construct(Model $model) {
         $this->model = $model;

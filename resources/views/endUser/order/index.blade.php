@@ -24,14 +24,14 @@ Checkout Order
                                 <tr>
                                     <td>
                                         <p class="tb-commom"><strong>{{$cart->name}}</strong></p>
-                                        <p class="tb-commom">{{$cart->qty}} x {{ MONEY }}{{number_format((int)$cart->price,0)}}</p>        
+                                        <p class="tb-commom">{{$cart->qty}} x {{MONEY}}{{number_format((int)$cart->price,0)}}</p>        
                                     </td>
-                                    <td class="text-right"><strong>{{ MONEY }}{{number_format((int)$cart->subtotal, 0)}}</strong></td>
+                                    <td class="text-right"><strong>{{MONEY}}{{number_format((int)$cart->subtotal, 0)}}</strong></td>
                                 </tr>
                                 @endforeach
                                 <tr>
                                     <td><strong>Total</strong></td>
-                                    <td class="text-right"><strong>{{ MONEY }}{{$total}}</strong></td>
+                                    <td class="text-right"><strong>{{MONEY}}{{$total}}</strong></td>
                                 </tr>
                             </tbody>
                         </table>

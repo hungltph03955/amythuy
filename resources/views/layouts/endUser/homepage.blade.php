@@ -92,8 +92,8 @@
 @stack('scripts')
 @if(Session::has('message.level'))
     <script>
-        var message = '{{Session::get('message.content')}}';
-        var type = '{{Session::get('message.level')}}';
+        var message = "{{Session::get('message.content')}}";
+        var type = "{{Session::get('message.level')}}";
         onSave(message, type)
     </script>
 @endif

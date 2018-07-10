@@ -11,50 +11,52 @@ Sale
         'descriptionCat' => '',
         'imgCat' => asset('endUser/images/find-a-stylist.jpg')])
 
-<section class="bgwhite p-t-66 p-b-38">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 p-b-30">
-                <div class="hov-img-zoom">
-                    <img src="{{asset('endUser/images/8.png')}}" alt="IMG-ABOUT">
-                </div>
-            </div>
-
-            <div class="col-md-8 p-b-30">
-                <h3 class="m-text26 p-t-15 p-b-16">
-                    Our story
-                </h3>
-
-                <p class="p-b-28">
-                    Phasellus egestas nisi nisi, lobortis ultricies risus semper nec. Vestibulum pharetra ac ante ut
-                    pellentesque. Curabitur fringilla dolor quis lorem accumsan, vitae molestie urna dapibus.
-                    Pellentesque porta est ac neque bibendum viverra. Vivamus lobortis magna ut interdum laoreet.
-                    Donec
-                    gravida lorem elit, quis condimentum ex semper sit amet. Fusce eget ligula magna. Aliquam
-                    aliquam
-                    imperdiet sodales. Ut fringilla turpis in vehicula vehicula. Pellentesque congue ac orci ut
-                    gravida.
-                    Aliquam erat volutpat. Donec iaculis lectus a arcu facilisis, eu sodales lectus sagittis. Etiam
-                    pellentesque, magna vel dictum rutrum, neque justo eleifend elit, vel tincidunt erat arcu ut
-                    sem.
-                    Sed rutrum, turpis ut commodo efficitur, quam velit convallis ipsum, et maximus enim ligula ac
-                    ligula. Vivamus tristique vulputate ultricies. Sed vitae ultrices orci.
-                </p>
-
-                <div class="bo13 p-l-29 m-l-9 p-b-10">
-                    <p class="p-b-11">
-                        Creativity is just connecting things. When you ask creative people how they did something,
-                        they
-                        feel a little guilty because they didn't really do it, they just saw something. It seemed
-                        obvious to them after a while.
-                    </p>
-
-                    <span class="s-text7">
-                        - Steve Job’s
-                    </span>
+    <!-- Content page -->
+    <section class="bgwhite p-t-55 p-b-65">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12 p-b-50">
+                    <!-- Product -->
+                    <div class="row">
+                        @if(isset($productSales))
+                            @foreach($productSales as $productSale)
+                                <?php printf($productSale) ?>
+                                <div class="col-sm-6 col-md-6 col-lg-4 p-b-50">
+                                    <!-- Block2 -->
+                                    <div class="block2">
+                                        <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
+                                            @if(file_exists( public_path().PATH_IMAGE_MASTER. $productSale->img))
+                                                <img src="{{PATH_IMAGE_MASTER. $productSale->img}}"
+                                                     alt="{{$productSale->name ? $productSale->name : ''}}">
+                                            @else
+                                                <img src="{{PATH_NO_IMAGE}}">
+                                            @endif
+                                            <div class="block2-overlay trans-0-4">
+                                                <div class="block2-btn-addcart w-size1 trans-0-4">
+                                                    <!-- Button -->
+                                                    <a href="{{route('endUser.product.detail',['id'=> $productSale->id, 'slug'=> $productSale->slug])}}"
+                                                       class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+                                                        view more
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="block2-txt p-t-20">
+                                            <a href="{{route('endUser.product.detail',['id'=> $productSale->id, 'slug'=> $productSale->slug])}}"
+                                               class="block2-name dis-block s-text3 p-b-5 view-more-product">
+                                                {{$productSale->name ? $productSale->name : ''}}
+                                            </a>
+                                            <span class="block2-price m-text6 p-r-5 textprice">
+                                                {{MONEY}}{{number_format($productSale->price)  }}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 @endsection

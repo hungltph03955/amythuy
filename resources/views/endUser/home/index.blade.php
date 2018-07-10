@@ -6,7 +6,7 @@ Home
 @endpush
 @section('content')
 <!-- Slide1 -->
-@include('element.section.slide')
+@include('element.section.slide', ['imagesBanner' => $imagesBanner])
 <!-- Banner -->
 @include('element.section.banner')
 <!-- New Product -->
@@ -55,7 +55,7 @@ Home
     </div>
 </section>
 
-@include('element.section.blog',['news' => $news])
+@include('element.section.blog', ['news' => $news])
 <!-- Blog -->
 
 @endsection
