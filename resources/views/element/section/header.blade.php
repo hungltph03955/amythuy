@@ -75,7 +75,7 @@
                                     <div class="header-cart-item-txt">
                                         <a href="{{route('endUser.product.detail',['id'=> $cart->id, 'slug'=> $cart->options->slug])}}" 
                                            class="header-cart-item-name">{{$cart->name}}</a>
-                                           <span class="header-cart-item-info"><span>{{$cart->qty}}</span> x {{ MONEY }}{{number_format($cart->price, 0)}}</span>
+                                           <span class="header-cart-item-info"><span>{{$cart->qty}}</span> x {{MONEY}}{{number_format($cart->price, 0)}}</span>
                                     </div>
                                 </li>
                                 @endforeach
@@ -135,7 +135,7 @@
                                         <div class="header-cart-item-txt">
                                             <a href="{{route('endUser.product.detail',['id'=> $cart->id, 'slug'=> $cart->options->slug])}}" 
                                                class="header-cart-item-name">{{$cart->name}}</a>
-                                               <span class="header-cart-item-info"><span>{{$cart->qty}}</span> x {{ MONEY }}{{number_format($cart->price, 0)}}</span>
+                                               <span class="header-cart-item-info"><span>{{$cart->qty}}</span> x {{MONEY}}{{number_format($cart->price, 0)}}</span>
                                         </div>
                                     </li>
                                 @endforeach

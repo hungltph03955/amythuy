@@ -5,11 +5,18 @@
 @push('styles')
 @endpush
 @section('content')
+<?php 
+    if(file_exists(public_path().PATH_IMAGE_CATEGORY. $category->img)):
+        $imgCat = PATH_IMAGE_CATEGORY. $category->img;
+    else:
+        $imgCat = PATH_NO_IMAGE_CATEGORY;
+    endif
+?>
     <!-- Title Page -->
     @include('element.section.title', [
         'titleCat' => $category->name,
         'descriptionCat' => $category->description,
-        'imgCat' => $category->img])
+        'imgCat' => $imgCat])
     <section class="p-t-50 p-b-40 flex-col-c-m Women-gach">
         <div class="Women-gach-float">
             <h2 class="l-text2 t-center">
@@ -133,7 +140,7 @@
                                                 {{$product->name ? $product->name : ''}}
                                             </a>
                                             <span class="block2-price m-text6 p-r-5 textprice">
-                                                {{number_format($product->price)  }} {{ MONEY }}
+                                                {{MONEY}}{{number_format($product->price)  }}
                                             </span>
                                         </div>
                                     </div>

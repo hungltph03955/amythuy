@@ -7,7 +7,7 @@ Contact for us
 @include('element.section.title', [
         'titleCat' => 'Contact',
         'descriptionCat' => '',
-        'imgCat' => PATH_NO_IMAGE_CATEGORY])
+        'imgCat' => asset('endUser/images/find-a-stylist.jpg')])
 <!-- content page -->
 <section class="bgwhite p-t-66 p-b-60">
     <div class="container">

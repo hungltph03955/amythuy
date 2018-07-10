@@ -9,7 +9,7 @@ About US
 @include('element.section.title', [
         'titleCat' => 'About',
         'descriptionCat' => '',
-        'imgCat' => PATH_NO_IMAGE_CATEGORY])
+        'imgCat' => asset('endUser/images/find-a-stylist.jpg')])
 
 <section class="bgwhite p-t-66 p-b-38">
     <div class="container">

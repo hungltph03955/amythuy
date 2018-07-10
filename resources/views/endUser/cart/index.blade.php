@@ -7,7 +7,7 @@ Order Cart
 @include('element.section.title', [
         'titleCat' => 'Cart',
         'descriptionCat' => '',
-        'imgCat' => PATH_NO_IMAGE_CATEGORY])
+        'imgCat' => asset('endUser/images/find-a-stylist.jpg')])
 <!-- Cart -->
 <section class="cart bgwhite p-t-70 p-b-100">
     <div class="container">
@@ -37,7 +37,7 @@ Order Cart
                             </div>
                         </td>
                         <td class="column-2"><a href="{{route('endUser.product.detail',['id'=> $cart->id, 'slug'=> $cart->options->slug])}}">{{$cart->name}}</a></td>
-                        <td class="column-3">{{ MONEY }}{{number_format((int)$cart->price,0)}}</td>
+                        <td class="column-3">{{MONEY}}{{number_format((int)$cart->price,0)}}</td>
                         <td class="column-4">
                             <div class="flex-w bo5 of-hidden w-size17">
                                 <button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2 update-cart" data-id="{{$cart->rowId}}" data-url="{{route('endUser.cart.update')}}">
@@ -54,7 +54,7 @@ Order Cart
                             </div>
                         </td>
                         <td class="column-5">
-                            {{ MONEY }}<span>{{number_format((int)$cart->subtotal, 0)}}</span>
+                            {{MONEY}}<span>{{number_format((int)$cart->subtotal, 0)}}</span>
                         </td>
                     </tr>
                     @endforeach

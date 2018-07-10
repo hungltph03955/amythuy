@@ -78,9 +78,7 @@
                     {{$product->name}}
                 </h4>
 
-                <span class="m-text17">
-                {{ MONEY }}{{  number_format($product->price) }}
-            </span>
+                <span class="m-text17">{{MONEY}}{{number_format($product->price)}}</span>
                 <!--  -->
                 <div class="p-t-33 p-b-60">
                     <div class="flex-m flex-w p-b-10">
@@ -245,8 +243,8 @@
                                             {{$productRelatedItem->name ? $productRelatedItem->name : ''}}
                                         </a>
                                         <span class="block2-price m-text6 p-r-5 textprice">
-                                            {{  number_format($productRelatedItem->price)  }} {{ MONEY }}
-                            </span>
+                                            {{MONEY}}{{number_format($productRelatedItem->price)}}
+                                        </span>
                                     </div>
                                 </div>
                             </div>
