@@ -25,6 +25,15 @@ class ProductsRepositoriy extends BaseRepository implements ProductsRepositoryIn
         $this->model = $products;
     }
 
+    public function getFeaturedProducts()
+    {
+        return  $this->model->select('products.id', 'products.price', 'products.slug', 'products.name', 'products.img')
+            ->where('status', 0)
+            ->orderBy('updated_at', 'DESC')
+            ->limit(LIMIT_PAGE)
+            ->get();
+    }
+
     public function getSearch($s)
     {
         return $this->model->search($s)

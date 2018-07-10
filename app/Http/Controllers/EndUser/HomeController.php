@@ -5,38 +5,31 @@ namespace App\Http\Controllers\EndUser;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\ProductsRepositoryInterface;
-use App\Repositories\CategoriesRepositoryInterface;
-use App\Models\Products;
-use App\Repositories\ImagesBannerRepositoryInterface;
-use App\Repositories\ImagesRepositoryInterface;
+use App\Repositories\NewRepositoryInterface;
 
 class HomeController extends Controller {
 
     //
-    protected $product;
+    protected $productsRepository;
     protected $categories;
     protected $imageBannerRepository;
     protected $imagesRepository;
 
     public function __construct(
-        ProductsRepositoryInterface $product, 
-        CategoriesRepositoryInterface $category,
-        ImagesRepositoryInterface $imagesRepository,
-        ImagesBannerRepositoryInterface $imagesBannerRepository) {
-        $this->product = $product;
-        $this->categories = $category;
-        $this->imageBannerRepository = $imagesBannerRepository;
-        $this->imagesRepository = $imagesRepository;
+        ProductsRepositoryInterface $productsRepository, 
+        NewRepositoryInterface $newRepository) {
+        $this->productsRepository = $productsRepository;
+        $this->newRepository = $newRepository;
     }
 
     public function index(Request $request) {
         $search = $request->input('s');
-        $products = $this->product->getSearch($search, $p = 2);
-        $imagesbanner = $this->imageBannerRepository->getAll();
-        return view('endUser.home.index')->with([
-                    'products' => $products,
-                    'imagesbanner' => $imagesbanner
-        ]);
+        $products = $this->productsRepository->getFeaturedProducts(LIMIT_PAGE);
+        $news = $this->newRepository->getNews();
+        // dd($products);
+        return view('endUser.home.index')->with(
+            compact('products', 'news', 'imagesbanner')
+        );
     }
 
 }

@@ -160,10 +160,31 @@
                     <span class="s-text8 m-r-35">Categories: {{ isset($catesParent->name)? $catesParent->name. ',': ''  }}
                         {{$product->category->name}}</span>
                 </div>
+                <div class="wrap-dropdown-content bo6 p-t-15 p-b-14 active-dropdown-content">
+					<h5 class="js-toggle-dropdown-content flex-sb-m cs-pointer m-text19 color0-hov trans-0-4">
+						Description
+						<i class="down-mark fs-12 color1 fa fa-minus dis-none" aria-hidden="true"></i>
+						<i class="up-mark fs-12 color1 fa fa-plus" aria-hidden="true"></i>
+					</h5>
+
+					<div class="dropdown-content dis-none p-t-15 p-b-23">
+						<p class="s-text8">{!!$product->description!!}</div>
+				</div>
+                <div class="wrap-dropdown-content bo7 p-t-15 p-b-14">
+					<h5 class="js-toggle-dropdown-content flex-sb-m cs-pointer m-text19 color0-hov trans-0-4">
+						Additional information
+						<i class="down-mark fs-12 color1 fa fa-minus dis-none" aria-hidden="true"></i>
+						<i class="up-mark fs-12 color1 fa fa-plus" aria-hidden="true"></i>
+					</h5>
+
+					<div class="dropdown-content dis-none p-t-15 p-b-23" style="display: none;">
+						<p class="s-text8"></p>
+					</div>
+				</div>
             </div>
         </div>
     </div>
-    <section class="bgwhite p-t-60 p-b-25">
+    <!-- <section class="bgwhite p-t-60 p-b-25">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-lg-12 p-b-80 discount">
@@ -182,7 +203,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Relate Product -->
     <section class="relateproduct bgwhite p-t-45 p-b-138">
