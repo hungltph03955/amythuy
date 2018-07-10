@@ -81,7 +81,6 @@ Home
 
             </div>
         </div>
-
     </div>
 </section>
 
@@ -89,5 +88,3 @@ Home
 <!-- Blog -->
 
 @endsection
-@push('scripts')
-<script></script>

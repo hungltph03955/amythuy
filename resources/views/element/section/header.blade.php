@@ -111,8 +111,6 @@
         <div class="btn-show-menu">
             <!-- Header Icon mobile -->
             <div class="header-icons-mobile">
-                <span class="linedivide2"></span>
-
                 <div class="header-wrapicon2">
                     <img src="{{asset('endUser/images/icons/icon-header-02.png')}}"
                          class="header-icon1 js-show-header-dropdown" alt="ICON">
@@ -137,7 +135,7 @@
                                         <div class="header-cart-item-txt">
                                             <a href="{{route('endUser.product.detail',['id'=> $cart->id, 'slug'=> $cart->options->slug])}}" 
                                                class="header-cart-item-name">{{$cart->name}}</a>
-                                            <span class="header-cart-item-info">{{$cart->qty}} x {{ MONEY }}{{number_format($cart->price, 0)}}</span>
+                                               <span class="header-cart-item-info"><span>{{$cart->qty}}</span> x {{ MONEY }}{{number_format($cart->price, 0)}}</span>
                                         </div>
                                     </li>
                                 @endforeach

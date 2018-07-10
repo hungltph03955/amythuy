@@ -2,16 +2,6 @@
 @section('title')
 Order Cart
 @endsection
-@push('styles')
-<style>
-    a.rl-checkout{
-        color: white;
-    }
-    a.rl-checkout:hover{
-        color: white;
-    }
-</style>
-@endpush
 @section('content')
 <!-- Title Page -->
 @include('element.section.title', [
