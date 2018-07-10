@@ -11,4 +11,5 @@ define('PATH_NO_IMAGE_CATEGORY', '/endUser/images/bg-banner-01.jpg');
 define('MONEY', '$');
 define('LIMIT_PAGE_CATEGORY', 9);
 define('LIMIT_PAGE', 10);
+define('NEW_DATE', 7);
 define('TEXT_DESCRIPTION', 200);

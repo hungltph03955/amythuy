@@ -9,7 +9,7 @@
                 <div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto">
                     <!-- Block3 -->
                     <div class="block3">
-                        <a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
+                        <a href="{{route('endUser.blog.detail',['id'=> $new->id, 'slug'=> $new->slug])}}" class="block3-img dis-block hov-img-zoom">
                             @if(file_exists(public_path().PATH_IMAGE_NEWS. $new->img))
                                 <img src="{{PATH_IMAGE_NEWS. $new->img}}"
                                         alt="{{$new->name}}">

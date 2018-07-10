@@ -117,7 +117,7 @@
                                 <div class="col-sm-6 col-md-6 col-lg-4 p-b-50">
                                     <!-- Block2 -->
                                     <div class="block2">
-                                        <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
+                                        <div class="block2-img wrap-pic-w of-hidden pos-relative {{renderClass($product->updated_at, NEW_DATE)}}">
                                             @if(file_exists( public_path().PATH_IMAGE_MASTER. $product->img))
                                                 <img src="{{PATH_IMAGE_MASTER. $product->img}}"
                                                      alt="{{$product->name ? $product->name : ''}}">

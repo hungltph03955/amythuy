@@ -80,7 +80,7 @@ function decodeString($string, $keyEncode="") {
  * Cut string description.
  * 
  * @param string $string The string to cut.
- * @param string $length.
+ * @param int $length.
  * @return string
  * @author Spainno3
  */
@@ -92,10 +92,25 @@ function strEntitie($str, $length = TEXT_DESCRIPTION) {
 }
 
 /**
- * allow some tags <br><a> 
- * @param string $allowedTags.
+ * allow some tags  
+ * @param string $allowedTags ,ex: <br><a>
  * @author: Spainno3
  */
 function _stripTags($var, $allowedTags = '') {
     return strip_tags($var, $allowedTags);
+}
+
+/**
+ * renderClass 
+ * @param date $startD.
+ * @param int $diff.
+ * @author: Spainno3
+ */
+function renderClass($startD, $diff) {
+    $now = new DateTime(date('Y-m-d'));
+    $startDate = new DateTime(date('Y-m-d', strtotime($startD)));
+    $diffDate = $now->diff($startDate);
+    if($diffDate->days <= $diff) 
+        return 'block2-labelnew';
+    return '';
 }

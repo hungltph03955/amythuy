@@ -27,7 +27,7 @@ class ProductsRepositoriy extends BaseRepository implements ProductsRepositoryIn
 
     public function getFeaturedProducts()
     {
-        return  $this->model->select('products.id', 'products.price', 'products.slug', 'products.name', 'products.img')
+        return  $this->model->select('products.id', 'products.price', 'products.slug', 'products.name', 'products.img', 'products.updated_at')
             ->where('status', 0)
             ->orderBy('updated_at', 'DESC')
             ->limit(LIMIT_PAGE)

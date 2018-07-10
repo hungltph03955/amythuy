@@ -25,7 +25,7 @@
                         <div class="item-slick2 p-l-15 p-r-15">
                             <!-- Block2 -->
                             <div class="block2 col-sm-12 col-md-12 col-lg-12 m-l-r-auto">
-                                <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
+                                <div class="block2-img wrap-pic-w of-hidden pos-relative {{renderClass($product->updated_at, NEW_DATE)}}">
                                     @if(file_exists( public_path().PATH_IMAGE_MASTER. $product->img))
                                         <img src="{{PATH_IMAGE_MASTER. $product->img}}"
                                              alt="{{$product->name ? $product->name : ''}}">
