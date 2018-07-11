@@ -219,7 +219,7 @@
                     <i class="arrow-main-menu fa fa-angle-right" aria-hidden="true"></i>
                 </li>
                 <li class="item-menu-mobile"><a href="{{route('endUser.cart.index')}}">Cart</a></li>
-                {{--<li class="item-menu-mobile"><a href="{{route('endUser.sale.index')}}">Sale</a></li>--}}
+                <li class="item-menu-mobile"><a href="{{route('endUser.sale.index')}}">Sale</a></li>
                 <li class="item-menu-mobile"><a href="{{route('endUser.blog.index')}}">Blog</a></li>
                 <li class="item-menu-mobile"><a href="{{route('endUser.about.index')}}">About</a></li>
                 <li class="item-menu-mobile"><a href="{{route('endUser.contact.index')}}">Contact</a></li>
