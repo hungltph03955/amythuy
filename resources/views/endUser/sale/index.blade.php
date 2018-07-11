@@ -48,8 +48,11 @@ Sale
                                                class="block2-name dis-block s-text3 p-b-5 view-more-product">
                                                 {{isset($productSale->product->name) ? $productSale->product->name : ''}}
                                             </a>
-                                            <span class="block2-price m-text6 p-r-5 textprice">
+                                            <span class="block2-oldprice m-text7 p-r-5">
                                                 {{MONEY}}{{isset($productSale->product->price) ? number_format($productSale->product->price) : ''}}
+                                            </span>
+                                            <span class="block2-price m-text6 p-r-5 textprice">
+                                                {{MONEY}}{{$productSale->sale_price}}
                                             </span>
                                         </div>
                                     </div>
