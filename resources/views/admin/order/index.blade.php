@@ -1,67 +1,91 @@
 @extends('layouts.admin.master')
-
 @section('content')
     @extends('error')
 
-    <div class="container">
+    <section class="content-header content-child">
+        <h1> Danh đơn hàng
+            <small>(Danh sách)</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i>Quản trị hệ thống</a></li>
+            <li><a href="#">Danh sách đơn hàng</a></li>
+            <li class="active"><a href="#">Danh sách</a></li>
+        </ol>
+        <p></p>
+    </section>
+    <p></p>
+    <section class="content">
         <div class="row">
-            <div class="col-md-12 col-md-offset-0">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        Order List
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Danh sách</h3>
                     </div>
-                    <form action="{{route('order.index')}}" method="get" class="form-inline">
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="search" placeholder="keyword" value="{{isset($s) ? $s : ''}}">
-                        </div>
-                        <div class="form-group">
-                            <button class="btn btn-primary" type="submit">Search</button>
-                        </div>
-                    </form>
                     <div class="box-body">
-
+                        <a class="btn btn-success" href="{{ action('Admin\ProductController@create') }}">
+                            thêm mới đo</a>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
                         <table class="table table-bordered table-hover dataTable">
+                            <thead>
                             <tr>
-                                <th>Id</th>
-                                <th>Customer Name</th>
-                                <th>Order Detail</th>
-                                <th>Total</th>
-                                <th>Delivered</th>
-                                <th>Cancel</th>
-                                <th>Cancel Description</th>
+                                <th>Thứ tự</th>
+                                <th>Tên khách hàng</th>
+                                <th>Mã đơn hàng</th>
+                                <th>Tổng tiền</th>
+                                <th>Trạng thái</th>
+                                <th>Thông tin</th>
                                 <th>Action</th>
                             </tr>
+                            </thead>
+                            <tbody>
+                            <?php $stt = 0 ?>
                             @foreach ($orders as $order)
                                 <tr>
                                     <td>{{ $order->id }}</td>
                                     <td>{{ $order->customer->name }}</td>
-                                    <td>{{ $order->order_no}}</td>
+                                    <td>{{ $order->order_code}}</td>
+                                    <td>
+                                        @if($order->order_status === 0)
+                                            <span class="label label-danger">{{ 'Đơn hàng mới' }}</span>
+                                        @elseif($order->order_status === 1)
+                                            {{ 'Đơn hàng đang giao' }}
+                                        @elseif($order->order_status === 2)
+                                            {{ 'Đơn hàng đã được giao' }}
+                                        @elseif($order->order_status === 3)
+                                            {{ 'Đơn hàng đã hủy' }}
+                                        @elseif($order->order_status === 4)
+                                            {{ 'Hết hàng' }}
+                                        @endif
+                                    </td>
                                     <td>{{ $order->total}}</td>
-                                    <?php
-                                        if($order->is_delivered == 0){
-                                    ?>
-                                    <td>No</td>
-                                    <?php }else{ ?>
-                                    <td>Yes</td>
-                                    <?php } ?>
-
-                                    <?php
-                                    if($order->is_cancel == 0){
-                                    ?>
-                                    <td>No</td>
-                                    <?php }else{ ?>
-                                    <td>Yes</td>
-                                    <?php } ?>
                                     <td>{{$order->cancel_description}}</td>
-                                    <td href="{!! action('Admin\CustomerController@show', $order->id) !!}" class="btn btn-primary">Show</td>
+                                    <td href="{!! action('Admin\CustomerController@show', $order->id) !!}"
+                                        class="btn btn-primary">Show
+                                    </td>
                                 </tr>
                             @endforeach
-                            {!! $orders->appends(['search' => $search])->links() !!}
+                            </tbody>
                         </table>
+                        <div class="productPagin">
+                            {!! $orders->appends(['search' => $search])->links() !!}
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
+    </section>
+    <script>
+        function ConfirmDelete() {
+            var x = confirm("Bạn có chắc chắc muốn xóa đơn hàng này?");
+            if (x)
+                return true;
+            else
+                return false;
+        }
+    </script>
 @endsection
+
+
+

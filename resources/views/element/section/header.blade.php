@@ -29,23 +29,30 @@
             <!-- Menu -->
             <div class="wrap_menu">
                 <nav class="menu">
-                    <ul class="main_menu">
-                        <li><a href="/">Home</a></li>
-                        <li class="sale-noti">
+                    <ul class="main_menu" id="main_menu_active">
+                        <li class="noActive   {{ request()->is('/') ? 'sale-noti ' : '' }}"><a href="/">Home</a>
+                        </li>
+                        <li class="noActive {{ request()->is('category/*') ? 'sale-noti ' : '' }}">
                             <a href="javascript:void(0)">Categories</a>
                             @if(isset($cates))
-                            <ul class="sub_menu">
-                                @foreach($cates as $cate )
-                                    <li><a href="{{route('endUser.category.detail',[$cate->slug])}}">{{$cate->name}}</a></li>
-                                @endforeach
-                            </ul>
+                                <ul class="sub_menu">
+                                    @foreach($cates as $cate )
+                                        <li class="noActive {{ request()->is('category/'.$cate->slug.'.html') ? 'sale-noti ' : '' }}">
+                                            <a href="{{route('endUser.category.detail',[$cate->slug])}}">{{$cate->name}}</a>
+                                        </li>
+                                    @endforeach
+                                </ul>
                             @endif
                         </li>
-                        <li><a href="{{route('endUser.cart.index')}}">Cart</a></li>
+                        <li class="noActive {{ request()->is('cart.html') ? 'sale-noti ' : '' }}"><a
+                                    href="{{route('endUser.cart.index')}}">Cart</a></li>
                         {{--<li><a href="{{route('endUser.sale.index')}}">Sale</a></li>--}}
-                        <li><a href="{{route('endUser.blog.index')}}">Blog</a></li>
-                        <li><a href="{{route('endUser.about.index')}}">About</a></li>
-                        <li><a href="{{route('endUser.contact.index')}}">Contact</a></li>
+                        <li class="noActive  {{ request()->is('blog.html') ? 'sale-noti ' : '' }}"><a
+                                    href="{{route('endUser.blog.index')}}">Blog</a></li>
+                        <li class="noActive {{ request()->is('about.html') ? 'sale-noti ' : '' }}"><a
+                                    href="{{route('endUser.about.index')}}">About</a></li>
+                        <li class="noActive {{ request()->is('contact.html') ? 'sale-noti ' : '' }}"><a
+                                    href="{{route('endUser.contact.index')}}">Contact</a></li>
                     </ul>
                 </nav>
             </div>
@@ -62,22 +69,23 @@
                         @if(isset($carts) && count($carts) > 0)
                             <ul class="header-cart-wrapitem">
                                 @foreach($carts as $cart)
-                                <li class="header-cart-item">
-                                    <div class="header-cart-item-img del-item" data-id="{{$cart->rowId}}" data-url="{{route('endUser.cart.destroy')}}">
-                                        @if(file_exists( public_path().PATH_IMAGE_MASTER. $cart->options->image))
-                                            <img src="{{PATH_IMAGE_MASTER. $cart->options->image}}"
-                                                 alt="{{$cart->name ? $cart->name : ''}}">
-                                        @else
-                                            <img src="{{PATH_NO_IMAGE}}">
-                                        @endif
-                                    </div>
+                                    <li class="header-cart-item">
+                                        <div class="header-cart-item-img del-item" data-id="{{$cart->rowId}}"
+                                             data-url="{{route('endUser.cart.destroy')}}">
+                                            @if(file_exists( public_path().PATH_IMAGE_MASTER. $cart->options->image))
+                                                <img src="{{PATH_IMAGE_MASTER. $cart->options->image}}"
+                                                     alt="{{$cart->name ? $cart->name : ''}}">
+                                            @else
+                                                <img src="{{PATH_NO_IMAGE}}">
+                                            @endif
+                                        </div>
 
-                                    <div class="header-cart-item-txt">
-                                        <a href="{{route('endUser.product.detail',['id'=> $cart->id, 'slug'=> $cart->options->slug])}}" 
-                                           class="header-cart-item-name">{{$cart->name}}</a>
-                                           <span class="header-cart-item-info"><span>{{$cart->qty}}</span> x {{MONEY}}{{number_format($cart->price, 0)}}</span>
-                                    </div>
-                                </li>
+                                        <div class="header-cart-item-txt">
+                                            <a href="{{route('endUser.product.detail',['id'=> $cart->id, 'slug'=> $cart->options->slug])}}"
+                                               class="header-cart-item-name">{{$cart->name}}</a>
+                                            <span class="header-cart-item-info"><span>{{$cart->qty}}</span> x {{MONEY}}{{number_format($cart->price, 0)}}</span>
+                                        </div>
+                                    </li>
                                 @endforeach
                             </ul>
                             <div class="header-cart-total">
@@ -87,11 +95,13 @@
                         <div class="header-cart-buttons">
                             <div class="header-cart-wrapbtn">
                                 <!-- Button -->
-                                <a href="{{route('endUser.cart.index')}}" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">View Cart</a>
+                                <a href="{{route('endUser.cart.index')}}"
+                                   class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">View Cart</a>
                             </div>
                             <div class="header-cart-wrapbtn">
                                 <!-- Button -->
-                                <a href="{{route('endUser.order.index')}}" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">Check Out</a>
+                                <a href="{{route('endUser.order.index')}}"
+                                   class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">Check Out</a>
                             </div>
                         </div>
                     </div>
@@ -122,7 +132,7 @@
                             <ul class="header-cart-wrapitem">
                                 @foreach($carts as $cart)
                                     <li class="header-cart-item">
-                                        <div class="header-cart-item-img del-item" 
+                                        <div class="header-cart-item-img del-item"
                                              data-id="{{$cart->rowId}}" data-url="{{route('endUser.cart.destroy')}}">
                                             @if(file_exists( public_path().PATH_IMAGE_MASTER. $cart->options->image))
                                                 <img src="{{PATH_IMAGE_MASTER. $cart->options->image}}"
@@ -133,9 +143,9 @@
                                         </div>
 
                                         <div class="header-cart-item-txt">
-                                            <a href="{{route('endUser.product.detail',['id'=> $cart->id, 'slug'=> $cart->options->slug])}}" 
+                                            <a href="{{route('endUser.product.detail',['id'=> $cart->id, 'slug'=> $cart->options->slug])}}"
                                                class="header-cart-item-name">{{$cart->name}}</a>
-                                               <span class="header-cart-item-info"><span>{{$cart->qty}}</span> x {{MONEY}}{{number_format($cart->price, 0)}}</span>
+                                            <span class="header-cart-item-info"><span>{{$cart->qty}}</span> x {{MONEY}}{{number_format($cart->price, 0)}}</span>
                                         </div>
                                     </li>
                                 @endforeach
@@ -148,12 +158,14 @@
                         <div class="header-cart-buttons">
                             <div class="header-cart-wrapbtn">
                                 <!-- Button -->
-                                <a href="{{route('endUser.cart.index')}}" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">View Cart</a>
+                                <a href="{{route('endUser.cart.index')}}"
+                                   class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">View Cart</a>
                             </div>
 
                             <div class="header-cart-wrapbtn">
                                 <!-- Button -->
-                                <a href="{{route('endUser.order.index')}}" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">Check Out</a>
+                                <a href="{{route('endUser.order.index')}}"
+                                   class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">Check Out</a>
                             </div>
                         </div>
                     </div>
@@ -199,7 +211,8 @@
                     @if(isset($cates))
                         <ul class="sub-menu">
                             @foreach($cates as $cate )
-                                <li><a href="{{route('endUser.category.detail',[$cate->slug])}}">{{$cate->name}}</a></li>
+                                <li><a href="{{route('endUser.category.detail',[$cate->slug])}}">{{$cate->name}}</a>
+                                </li>
                             @endforeach
                         </ul>
                     @endif

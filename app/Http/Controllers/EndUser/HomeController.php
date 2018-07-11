@@ -10,7 +10,6 @@ use App\Repositories\ImagesBannerRepositoryInterface;
 class HomeController extends Controller
 {
 
-    //
     protected $productsRepository;
     protected $newRepository;
 
