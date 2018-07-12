@@ -21,10 +21,6 @@
                     <div class="box-header">
                         <h3 class="box-title">Danh sách</h3>
                     </div>
-                    <div class="box-body">
-                        <a class="btn btn-success" href="{{ action('Admin\ProductController@create') }}">
-                            thêm mới đo</a>
-                    </div>
                     <!-- /.box-header -->
                     <div class="box-body">
                         <table class="table table-bordered table-hover dataTable">
@@ -33,10 +29,10 @@
                                 <th>Thứ tự</th>
                                 <th>Tên khách hàng</th>
                                 <th>Mã đơn hàng</th>
-                                <th>Tổng tiền</th>
                                 <th>Trạng thái</th>
-                                <th>Thông tin</th>
-                                <th>Action</th>
+                                <th>Tổng tiền</th>
+                                <th>Mô tả</th>
+                                <th>Thao tác</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -59,10 +55,11 @@
                                             {{ 'Hết hàng' }}
                                         @endif
                                     </td>
-                                    <td>{{ $order->total}}</td>
+                                    <td>{{MONEY}} {{ $order->total }}</td>
                                     <td>{{$order->cancel_description}}</td>
-                                    <td href="{!! action('Admin\CustomerController@show', $order->id) !!}"
-                                        class="btn btn-primary">Show
+                                    <td>
+                                        <a href="{!! action('Admin\OrderDetailController@show', $order->id) !!}"
+                                           class="btn btn-primary">Show</a>
                                     </td>
                                 </tr>
                             @endforeach

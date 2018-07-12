@@ -9,29 +9,43 @@ use App\Models\Admin\Sizes;
 use App\Repositories\SizeRepositoryInterface;
 use Illuminate\Support\Facades\DB;
 
-class SizeRepository extends BaseRepository implements SizeRepositoryInterface {
+class SizeRepository extends BaseRepository implements SizeRepositoryInterface
+{
 
-    public function getBlankModel() {
+    public function getBlankModel()
+    {
         return new Sizes();
     }
 
-    public function __construct(Sizes $sizes) {
+    public function __construct(Sizes $sizes)
+    {
         $this->model = $sizes;
     }
 
-    public function selectToArray() {
+    public function selectToArray()
+    {
         return $this->model->select('id', 'name', 'status', 'description', 'created_at', 'updated_at')
-                        ->orderBy('id', 'DESC')
-                        ->get()
-                        ->toArray();
+            ->orderBy('id', 'DESC')
+            ->get()
+            ->toArray();
     }
 
-    public function getSizeToAddProduct() {
+    public function getSizeToAddProduct()
+    {
         return $this->model->select('id', 'name')
-                        ->where('status', 0)
-                        ->orderBy('id', 'DESC')
-                        ->get()
-                        ->toArray();
+            ->where('status', 0)
+            ->orderBy('id', 'DESC')
+            ->get()
+            ->toArray();
+    }
+
+    public function getSizeName($id)
+    {
+        if ($id != 0 && $id != "Choose an option" && $id != "") {
+            $size = $this->model->select('name')
+                ->where('id', $id)->first();
+            return $size->name;
+        }
     }
 
 }

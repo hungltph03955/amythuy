@@ -127,7 +127,7 @@
             {{--<li><a href="{{url('admin/customer')}}"><i class="fa fa-circle-o"></i> Customer</a></li>--}}
             {{--<li><a href="{{url('admin/information')}}"><i class="fa fa-circle-o"></i> Information</a></li>--}}
             {{--<li><a href="{{url('admin/order')}}"><i class="fa fa-circle-o"></i> Order</a></li>--}}
-            {{--<li><a href="{{url('admin/order-detail')}}"><i class="fa fa-circle-o"></i> Order Detail</a></li>--}}
+
             {{--<li><a href="{{url('admin/imagebanner')}}"><i class="fa fa-circle-o"></i> Image Banner </a></li>--}}
 
 

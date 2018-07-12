@@ -5,6 +5,7 @@
 
 namespace App\Repositories;
 
-interface OrderDetailRepositoryInterface extends BaseRepositoryInterface {
-    
+interface OrderDetailRepositoryInterface extends BaseRepositoryInterface
+{
+    public function getDetailOder($orderId);
 }
