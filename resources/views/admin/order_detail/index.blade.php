@@ -34,33 +34,104 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($arrayProductOrderHaveName as $arrayProductOrderItem)
-                                <tr>
-                                    <td>{{ $arrayProductOrderItem['name']}} </td>
-                                    <td>{{MONEY}} {{number_format($arrayProductOrderItem['price'])}} </td>
-                                    <td>{{ $arrayProductOrderItem['qty']}} </td>
-                                    <td>{{MONEY}} {{number_format($arrayProductOrderItem['subtotal'])}} </td>
-                                    <td>
-                                        Size
-                                        : {{ $arrayProductOrderItem['options']['sizeName'] ? $arrayProductOrderItem['options']['sizeName'] : null  }}
-                                        <br>
-                                        Color
-                                        : {{ $arrayProductOrderItem['options']['colorName'] ? $arrayProductOrderItem['options']['colorName'] : null  }}
-                                        <br>
-                                        Material
-                                        : {{ $arrayProductOrderItem['options']['materialName'] ? $arrayProductOrderItem['options']['materialName'] : null  }}
-                                    </td>
-                                    <td class="imageProductTd">
-                                        <div class="imageProduct">
-                                            @if(file_exists( public_path().PATH_IMAGE_MASTER. $arrayProductOrderItem['options']['image']))
-                                                <img src="{{PATH_IMAGE_MASTER. $arrayProductOrderItem['options']['image']}}">
-                                            @else
-                                                <img src="{{PATH_NO_IMAGE}}">
+                            @if(isset($arrayProductOrderHaveName))
+                                @foreach($arrayProductOrderHaveName as $arrayProductOrderItem)
+                                    <tr>
+                                        <td>{{ $arrayProductOrderItem['name']}} </td>
+                                        <td>{{MONEY}} {{number_format($arrayProductOrderItem['price'])}} </td>
+                                        <td>{{ $arrayProductOrderItem['qty']}} </td>
+                                        <td>{{MONEY}} {{number_format($arrayProductOrderItem['subtotal'])}} </td>
+                                        <td>
+                                            Size
+                                            : {{ $arrayProductOrderItem['options']['sizeName'] ? $arrayProductOrderItem['options']['sizeName'] : null  }}
+                                            <br>
+                                            Color
+                                            : {{ $arrayProductOrderItem['options']['colorName'] ? $arrayProductOrderItem['options']['colorName'] : null  }}
+                                            <br>
+                                            Material
+                                            : {{ $arrayProductOrderItem['options']['materialName'] ? $arrayProductOrderItem['options']['materialName'] : null  }}
+                                        </td>
+                                        <td class="imageProductTd">
+                                            <div class="imageProduct">
+                                                @if(file_exists( public_path().PATH_IMAGE_MASTER. $arrayProductOrderItem['options']['image']))
+                                                    <img src="{{PATH_IMAGE_MASTER. $arrayProductOrderItem['options']['image']}}">
+                                                @else
+                                                    <img src="{{PATH_NO_IMAGE}}">
+                                                @endif
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            @endif
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                    <div class="box-body">
+                        <table class="table table-bordered table-hover dataTable">
+                            <thead>
+                            <tr>
+                                <th>Tổng số lương sản phẩm</th>
+                                <th>Tổng tiền</th>
+                                <th>khách hàng</th>
+                                <th>Số điện thoại</th>
+                                <th>Email</th>
+                                <th>Trạng thái đơn hàng</th>
+                                <th>Chuyển đổi trạng thái đơn hàng</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>{{ $orderDetails->quantity }} Sản phẩm</td>
+                                <td>{{MONEY}} {{ $orderDetails->total }} </td>
+                                <td>{{  $order->customer->name  ?  $order->customer->name : ''  }}</td>
+                                <td>{{ $order->customer->phone_number ? $order->customer->phone_number : '' }}</td>
+                                <td>{{ $order->customer->email ? $order->customer->email : '' }}
+                                    <a style="margin-left: 20px" class="btn btn-primary"
+                                       href="mailto:{{$order->customer->email}}">Send Email</a>
+                                </td>
+                                <th>
+                                    @if($order->order_status === 0)
+                                        <span class="label label-danger">{{ 'Đơn hàng mới' }}</span>
+                                    @elseif($order->order_status === 1)
+                                        <span class="label label-warning">{{ 'Đơn hàng đang được giao' }}</span>
+                                    @elseif($order->order_status === 2)
+                                        <span class="label label-success">{{ 'Đơn hàng đã được giao' }}</span>
+                                    @elseif($order->order_status === 3)
+                                        <span class="label label-default">{{ 'Đơn hàng đã hủy' }}</span>
+                                    @elseif($order->order_status === 4)
+                                        <span class="label label-default">{{ 'Hết hàng' }}</span>
+                                    @endif
+                                </th>
+                                <th>
+                                    @foreach($arraStatusOrder as $arraStatusOrderItem)
+                                        @if($arraStatusOrderItem != $order->order_status)
+                                            @if($arraStatusOrderItem === 0)
+                                                <a href="{!! action('Admin\OrderController@changeStatus', [$order->id,$arraStatusOrderItem]) !!}"
+                                                   class="label label-danger"
+                                                   onclick="return ConfirmDelete()">{{ 'Đơn hàng mới' }}</a>
+                                            @elseif($arraStatusOrderItem === 1)
+                                                <a href="{!! action('Admin\OrderController@changeStatus', [$order->id,$arraStatusOrderItem]) !!}"
+                                                   class="label label-warning"
+                                                   onclick="return ConfirmDelete()">{{ 'Đơn hàng đang được giao' }}</a>
+                                            @elseif($arraStatusOrderItem === 2)
+                                                <a href="{!! action('Admin\OrderController@changeStatus', [$order->id,$arraStatusOrderItem]) !!}"
+                                                   class="label label-success"
+                                                   onclick="return ConfirmDelete()">{{ 'Đơn hàng đã được giao' }}</a>
+                                            @elseif($arraStatusOrderItem === 3)
+                                                <a href="{!! action('Admin\OrderController@changeStatus', [$order->id,$arraStatusOrderItem]) !!}"
+                                                   class="label label-default"
+                                                   onclick="return ConfirmDelete()">{{ 'Đơn hàng đã hủy' }}</a>
+                                            @elseif($arraStatusOrderItem === 4)
+                                                <a href="{!! action('Admin\OrderController@changeStatus', [$order->id,$arraStatusOrderItem]) !!}"
+                                                   class="label label-default"
+                                                   onclick="return ConfirmDelete()">{{ 'Hết hàng' }}</a>
                                             @endif
-                                        </div>
-                                    </td>
-                                </tr>
-                            @endforeach
+                                        @endif
+                                    @endforeach
+                                </th>
+                            </tr>
                             </tbody>
                         </table>
                     </div>
@@ -68,51 +139,13 @@
             </div>
         </div>
     </section>
-
-
-
-    {{--<div class="container">--}}
-    {{--<div class="row">--}}
-    {{--<div class="col-md-12 col-md-offset-0">--}}
-    {{--<div class="panel panel-default">--}}
-    {{--<div class="panel-heading">--}}
-    {{--Order Detail List--}}
-    {{--</div>--}}
-    {{--<form action="{{route('order-detail.index')}}" method="get" class="form-inline">--}}
-    {{--<div class="form-group">--}}
-    {{--<input type="text" class="form-control" name="s" placeholder="keyword" value="{{isset($s) ? $s : ''}}">--}}
-    {{--</div>--}}
-    {{--<div class="form-group">--}}
-    {{--<button class="btn btn-primary" type="submit">Search</button>--}}
-    {{--</div>--}}
-    {{--</form>--}}
-    {{--<div class="box-body">--}}
-
-    {{--<table class="table table-bordered table-hover dataTable">--}}
-    {{--<tr>--}}
-    {{--<th>Id</th>--}}
-    {{--<th>Order Detail</th>--}}
-    {{--<th>Product</th>--}}
-    {{--<th>Quantity</th>--}}
-    {{--<th>Total</th>--}}
-    {{--<th>Action</th>--}}
-    {{--</tr>--}}
-    {{--@foreach ($orderDetails as $detail)--}}
-    {{--<tr>--}}
-    {{--<td>{{ $detail->id }}</td>--}}
-    {{--<td><a href="order/{{$detail->order_id}}/edit">{{ $detail->order->id }}</a></td>--}}
-    {{--<td><a href="product/{{$detail->product_id}}/edit">{{ $detail->product->name }}</a>--}}
-    {{--</td>--}}
-    {{--<td>{{ $detail->quantity}}</td>--}}
-    {{--<td>{{ $detail->total}}</td>--}}
-    {{--<td href="{!! action('Admin\CustomerController@show', $order->id) !!}" class="btn btn-primary">Show</td>--}}
-    {{--</tr>--}}
-    {{--@endforeach--}}
-    {{--</table>--}}
-    {{--</div>--}}
-    {{--</div>--}}
-    {{--</div>--}}
-    {{--</div>--}}
-    {{--</div>--}}
-
+    <script>
+        function ConfirmDelete() {
+            var x = confirm("Bạn có chắc chắc muốn chuyển đổi đơn hàng này?");
+            if (x)
+                return true;
+            else
+                return false;
+        }
+    </script>
 @endsection

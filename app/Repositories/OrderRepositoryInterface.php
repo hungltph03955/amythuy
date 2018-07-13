@@ -12,5 +12,7 @@ interface OrderRepositoryInterface extends BaseRepositoryInterface
 
     public function getSearch($s);
 
+    public function updateStatus($data, $id);
+
     public function generateOrderCode($id);
 }

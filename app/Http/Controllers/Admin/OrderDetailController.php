@@ -8,6 +8,7 @@ use App\Repositories\OrderDetailRepositoryInterface;
 use App\Repositories\SizeRepositoryInterface;
 use App\Repositories\ColorRepositoryInterface;
 use App\Repositories\MaterialRepositoryInterface;
+use App\Repositories\OrderRepositoryInterface;
 
 class OrderDetailController extends Controller
 {
@@ -15,22 +16,27 @@ class OrderDetailController extends Controller
     protected $sizeRepository;
     protected $colorRepository;
     protected $materialRepository;
+    protected $orderRepository;
 
     public function __construct(
         OrderDetailRepositoryInterface $orderDetailRepository,
         SizeRepositoryInterface $sizeRepository,
         ColorRepositoryInterface $colorRepository,
+        OrderRepositoryInterface $orderRepository,
         MaterialRepositoryInterface $materialRepository)
     {
         $this->orderDetailRepository = $orderDetailRepository;
         $this->sizeRepository = $sizeRepository;
         $this->colorRepository = $colorRepository;
         $this->materialRepository = $materialRepository;
+        $this->orderRepository = $orderRepository;
     }
 
     public
     function show($orderId)
     {
+
+        $order = $this->orderRepository->show($orderId);
         $orderDetails = $this->orderDetailRepository->getDetailOder($orderId);
         if (!isset($orderDetails)) {
             return redirect()->back()->with('mess', 'Đơn hàng này không tồn tại');
@@ -52,9 +58,15 @@ class OrderDetailController extends Controller
             }
             array_push($arrayProductOrderHaveName, $arrayProductOrderItem);
         }
+
+        $arraStatusOrder = [0, 1, 2, 3, 4];
+        $coutArraStatusOrder = count($arraStatusOrder);
         return view('admin.order_detail.index',
             [
                 'orderDetails' => $orderDetails,
+                'arraStatusOrder' => $arraStatusOrder,
+                'coutArraStatusOrder' => $coutArraStatusOrder,
+                'order' => $order,
                 'arrayProductOrderHaveName' => $arrayProductOrderHaveName
             ]);
     }

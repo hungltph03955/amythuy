@@ -7,6 +7,7 @@ namespace App\Repositories\Eloquents;
 
 use App\Models\Admin\Order;
 use App\Repositories\OrderRepositoryInterface;
+use Psy\Exception\Exception;
 
 class OrderRepository extends BaseRepository implements OrderRepositoryInterface
 {
@@ -36,5 +37,18 @@ class OrderRepository extends BaseRepository implements OrderRepositoryInterface
     public function generateOrderCode($id)
     {
         return sprintf('HD' . date("ymd") . "-%'05d", $id);
+    }
+
+    public function updateStatus($data, $id)
+    {
+        $order = $this->model->where("id", $id)->first();
+        if (isset($order)) {
+            $order->order_status = $data;
+            if ($order->save()) {
+                return $order;
+            } else {
+                throw new Exception('Invalid value');
+            }
+        }
     }
 }
