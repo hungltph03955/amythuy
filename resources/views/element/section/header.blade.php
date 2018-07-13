@@ -46,7 +46,7 @@
                         </li>
                         <li class="noActive {{ request()->is('cart.html') ? 'sale-noti ' : '' }}"><a
                                     href="{{route('endUser.cart.index')}}">Cart</a></li>
-                        {{--<li><a href="{{route('endUser.sale.index')}}">Sale</a></li>--}}
+                        <li><a href="{{route('endUser.sale.index')}}">Sale</a></li>
                         <li class="noActive  {{ request()->is('blog.html') ? 'sale-noti ' : '' }}"><a
                                     href="{{route('endUser.blog.index')}}">Blog</a></li>
                         <li class="noActive {{ request()->is('about.html') ? 'sale-noti ' : '' }}"><a

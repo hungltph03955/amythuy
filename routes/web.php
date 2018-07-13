@@ -30,7 +30,7 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
-    Route::get('/', 'Admin\CategoryController@index')->name('admin.home');
+    Route::get('/', 'Admin\HomeController@index')->name('admin.home');
     Route::resource('category', 'Admin\CategoryController');
     Route::resource('product', 'Admin\ProductController');
     Route::get('delimg/{id}', ['as' => 'admin.product.getDelImg', 'uses' => 'Admin\ProductController@getDelImg']);

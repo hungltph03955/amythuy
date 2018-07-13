@@ -50,9 +50,9 @@
 <div class="wrapper">
     <header class="main-header">
         <!-- Logo -->
-        <a href="../../index2.html" class="logo">
-            <span class="logo-mini"><b>A</b>LT</span>
-            <span class="logo-lg"><b>Admin</b>LTE</span>
+        <a href="/admin" class="logo">
+            <span class="logo-mini"><b>AmyThuy</b></span>
+            <span class="logo-lg"><b>AmyThuy</b></span>
         </a>
         <nav class="navbar navbar-static-top">
             <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
@@ -67,34 +67,33 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="{{asset('public/dist/img/user2-160x160.jpg')}}" class="user-image"
                                  alt="User Image">
-                            <span class="hidden-xs">Alexander Pierce</span>
+                            <span class="hidden-xs">{{Auth::user()->name}}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <li class="user-header">
                                 <img src="{{asset('public/dist/img/user2-160x160.jpg')}}" class="img-circle"
                                      alt="User Image">
 
-                                <p>
-                                    Alexander Pierce - Web Developer
-                                    <small>Member since Nov. 2012</small>
+                                <p>{{Auth::user()->name}}
+                                    <small>Since {{Auth::user()->created_at}}</small>
                                 </p>
                             </li>
                             <li class="user-body">
                                 <div class="row">
                                     <div class="col-xs-4 text-center">
-                                        <a href="#">Followers</a>
+                                        <a href="{{url('admin/product')}}">Sản Phẩm</a>
                                     </div>
                                     <div class="col-xs-4 text-center">
-                                        <a href="#">Sales</a>
+                                        <a href="{{url('admin/sale')}}">Sales</a>
                                     </div>
                                     <div class="col-xs-4 text-center">
-                                        <a href="#">Friends</a>
+                                        <a href="{{url('admin/order')}}">Order</a>
                                     </div>
                                 </div>
                             </li>
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                    <a href="{{ url('admin/users/edit/'.Auth::user()->id) }}" class="btn btn-default btn-flat">Profile</a>
                                 </div>
                                 <div class="pull-right">
                                     <a href="{{ route('admin.logout') }}" class="btn btn-default btn-flat">Sign out</a>
@@ -102,9 +101,9 @@
                             </li>
                         </ul>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </nav>
@@ -116,7 +115,7 @@
                     <img src="{{asset('public/dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
-                    <p>Alexander Pierce</p>
+                    <p>{{Auth::user()->name}}</p>
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>
             </div>
@@ -164,7 +163,7 @@
                         </li>
                     </ul>
                 </li>
-
+                <li><a href="{{url('admin/sale')}}"><i class="fa fa-folder"></i> Sale</a></li>
 
                 <li class="treeview">
                     <a href="#">
@@ -180,19 +179,6 @@
                     </ul>
                 </li>
 
-                {{--<li class="treeview">--}}
-                {{--<a href="#">--}}
-                {{-- <i class="fa fa-folder"></i> <span>Sale</span>--}}
-                {{--<span class="pull-right-container">--}}
-                {{-- <i class="fa fa-angle-left pull-right"></i>--}}
-                {{-- </span>--}}
-                {{-- </a>--}}
-                {{--  <ul class="treeview-menu">--}}
-                {{--      <li class="treeview">--}}
-                {{--    <li><a href="{{url('admin/sale')}}"><i class="fa fa-circle-o"></i>--}}
-                {{--        Danh sách</a></li>--}}
-                {{--</ul>--}}
-                {{--</li>--}}
 
                 <li class="treeview">
                     <a href="#">
@@ -355,10 +341,9 @@
     </div>
     <footer class="main-footer">
         <div class="pull-right hidden-xs">
-            <b>Version</b> 2.4.0
+            <b>Version</b> 1.0.0
         </div>
-        <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
-        reserved.
+        <strong>Copyright &copy; 2018 <a href="{{route('homepage.index')}}">AmyThuy.</a></strong>
     </footer>
     @include('element.sidebar')
     <div class="control-sidebar-bg"></div>
