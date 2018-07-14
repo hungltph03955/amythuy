@@ -5,7 +5,8 @@
 
 namespace App\Repositories;
 
-interface ProductsRepositoryInterface extends BaseRepositoryInterface {
+interface ProductsRepositoryInterface extends BaseRepositoryInterface
+{
 
     public function orderBy($params);
 
@@ -20,4 +21,6 @@ interface ProductsRepositoryInterface extends BaseRepositoryInterface {
     public function getNameImage($id);
 
     public function getProductRelated($categoryId);
+
+    public function getTenProduct();
 }

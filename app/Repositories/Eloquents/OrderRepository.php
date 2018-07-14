@@ -51,4 +51,10 @@ class OrderRepository extends BaseRepository implements OrderRepositoryInterface
             }
         }
     }
+
+    public function getTenOrderNew()
+    {
+        return $this->model->limit(LIMIT_PAGE)->orderBy('id', 'DESC')->get();
+    }
+
 }

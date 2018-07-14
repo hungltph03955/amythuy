@@ -36,7 +36,6 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::get('delimg/{id}', ['as' => 'admin.product.getDelImg', 'uses' => 'Admin\ProductController@getDelImg']);
     Route::get('delcolor/{id}', ['as' => 'admin.product.getDelColor', 'uses' => 'Admin\ProductController@getDelColor']);
     Route::get('delete/{id}', ['as' => 'admin.product.delete', 'uses' => 'Admin\ProductController@deleteProduct']);
-
     Route::resource('sale', 'Admin\SaleController');
     Route::get('sale/create/{id}', 'Admin\SaleController@create');
     Route::resource('image', 'Admin\ImageController');
@@ -46,7 +45,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::resource('comment', 'Admin\CommentController');
     Route::resource('information', 'Admin\InformationController');
     Route::resource('order', 'Admin\OrderController');
-    Route::get('orderChangeStatus/{id}/{status}', ['as' => 'admin.order.orderChangeStatus', 'uses' => 'Admin\OrderController@changeStatus']);
+    Route::post('orderChangeStatus/{id}', 'Admin\OrderController@changeStatus')->name('admin.order.orderChangeStatus');
     Route::resource('order-detail', 'Admin\OrderDetailController');
     Route::resource('imagebanner', 'Admin\ImagebannerController');
     Route::get('deleteimagebanner/{id}', ['as' => 'admin.imagebanner.deleteimagebanner', 'uses' => 'Admin\ImagebannerController@destroy']);

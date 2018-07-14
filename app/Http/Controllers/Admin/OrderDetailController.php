@@ -59,13 +59,11 @@ class OrderDetailController extends Controller
             array_push($arrayProductOrderHaveName, $arrayProductOrderItem);
         }
 
-        $arraStatusOrder = [0, 1, 2, 3, 4];
-        $coutArraStatusOrder = count($arraStatusOrder);
+        $arraStatusOrder = ORDER_STATUS;
         return view('admin.order_detail.index',
             [
                 'orderDetails' => $orderDetails,
                 'arraStatusOrder' => $arraStatusOrder,
-                'coutArraStatusOrder' => $coutArraStatusOrder,
                 'order' => $order,
                 'arrayProductOrderHaveName' => $arrayProductOrderHaveName
             ]);

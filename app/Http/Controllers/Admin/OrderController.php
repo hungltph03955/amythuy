@@ -26,20 +26,20 @@ class OrderController extends Controller
             ]);
     }
 
-    public function changeStatus($id, $status)
+    public function changeStatus(Request $request, $id)
     {
-        if (!isset($id) && !isset($status)) {
+        if (!isset($request->all()['_token'])) {
             return redirect()->back()->with('mess', 'Đơn hàng này ko tồn tại');
         }
-
+        if (!isset($id)) {
+            return redirect()->back()->with('mess', 'Đơn hàng này ko tồn tại');
+        }
         $orders = $this->orderRepository->show($id);
-
         if (!isset($orders)) {
             return redirect()->back()->with('mess', 'Đơn hàng này ko tồn tại');
         }
-        $data = $status;
+        $data = $request->all()['statusOrder'];
         $update = $this->orderRepository->updateStatus($data, $id);
-
         if ($update == false) {
             return redirect()->back()->with('mess', 'Đơn hàng này ko tồn tại');
         } else {

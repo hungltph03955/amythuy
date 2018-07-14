@@ -27,7 +27,7 @@ class ProductsRepositoriy extends BaseRepository implements ProductsRepositoryIn
 
     public function getFeaturedProducts()
     {
-        return  $this->model->select('products.id', 'products.price', 'products.slug', 'products.name', 'products.img', 'products.updated_at')
+        return $this->model->select('products.id', 'products.price', 'products.slug', 'products.name', 'products.img', 'products.updated_at')
             ->where('status', 0)
             ->orderBy('updated_at', 'DESC')
             ->limit(LIMIT_PAGE)
@@ -162,4 +162,9 @@ class ProductsRepositoriy extends BaseRepository implements ProductsRepositoryIn
         return $this->model->where('category_id', $categoryId)->limit(10)->get();
     }
 
+
+    public function getTenProduct()
+    {
+        return $this->model->limit(LIMIT_PAGE)->orderBy('id', 'DESC')->get();
+    }
 }

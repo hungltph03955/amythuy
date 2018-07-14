@@ -78,7 +78,6 @@
                                 <th>Số điện thoại</th>
                                 <th>Email</th>
                                 <th>Trạng thái đơn hàng</th>
-                                <th>Chuyển đổi trạng thái đơn hàng</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -92,44 +91,18 @@
                                        href="mailto:{{$order->customer->email}}">Send Email</a>
                                 </td>
                                 <th>
-                                    @if($order->order_status === 0)
-                                        <span class="label label-danger">{{ 'Đơn hàng mới' }}</span>
-                                    @elseif($order->order_status === 1)
-                                        <span class="label label-warning">{{ 'Đơn hàng đang được giao' }}</span>
-                                    @elseif($order->order_status === 2)
-                                        <span class="label label-success">{{ 'Đơn hàng đã được giao' }}</span>
-                                    @elseif($order->order_status === 3)
-                                        <span class="label label-default">{{ 'Đơn hàng đã hủy' }}</span>
-                                    @elseif($order->order_status === 4)
-                                        <span class="label label-default">{{ 'Hết hàng' }}</span>
-                                    @endif
-                                </th>
-                                <th>
-                                    @foreach($arraStatusOrder as $arraStatusOrderItem)
-                                        @if($arraStatusOrderItem != $order->order_status)
-                                            @if($arraStatusOrderItem === 0)
-                                                <a href="{!! action('Admin\OrderController@changeStatus', [$order->id,$arraStatusOrderItem]) !!}"
-                                                   class="label label-danger"
-                                                   onclick="return ConfirmDelete()">{{ 'Đơn hàng mới' }}</a>
-                                            @elseif($arraStatusOrderItem === 1)
-                                                <a href="{!! action('Admin\OrderController@changeStatus', [$order->id,$arraStatusOrderItem]) !!}"
-                                                   class="label label-warning"
-                                                   onclick="return ConfirmDelete()">{{ 'Đơn hàng đang được giao' }}</a>
-                                            @elseif($arraStatusOrderItem === 2)
-                                                <a href="{!! action('Admin\OrderController@changeStatus', [$order->id,$arraStatusOrderItem]) !!}"
-                                                   class="label label-success"
-                                                   onclick="return ConfirmDelete()">{{ 'Đơn hàng đã được giao' }}</a>
-                                            @elseif($arraStatusOrderItem === 3)
-                                                <a href="{!! action('Admin\OrderController@changeStatus', [$order->id,$arraStatusOrderItem]) !!}"
-                                                   class="label label-default"
-                                                   onclick="return ConfirmDelete()">{{ 'Đơn hàng đã hủy' }}</a>
-                                            @elseif($arraStatusOrderItem === 4)
-                                                <a href="{!! action('Admin\OrderController@changeStatus', [$order->id,$arraStatusOrderItem]) !!}"
-                                                   class="label label-default"
-                                                   onclick="return ConfirmDelete()">{{ 'Hết hàng' }}</a>
-                                            @endif
-                                        @endif
-                                    @endforeach
+                                    <form role="form" method="post"
+                                          action="{{action('Admin\OrderController@changeStatus', $order->id)}}">
+                                        {{ csrf_field() }}
+                                        <select name="statusOrder" class="form-control size_id">
+                                            @foreach($arraStatusOrder as $key => $arraStatusOrderItem)
+                                                <option value="{{ $key }}" {{ $order->order_status == $key ? 'selected' : '' }}>{{ $arraStatusOrderItem }}</option>
+                                            @endforeach
+                                        </select>
+                                        <button style="margin-top: 20px;" type="submit" class="btn btn-primary">
+                                            Chuyển đổi trạng thái đơn hàng
+                                        </button>
+                                    </form>
                                 </th>
                             </tr>
                             </tbody>

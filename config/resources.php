@@ -13,3 +13,11 @@ define('LIMIT_PAGE_CATEGORY', 9);
 define('LIMIT_PAGE', 10);
 define('NEW_DATE', 7);
 define('TEXT_DESCRIPTION', 200);
+
+define("ORDER_STATUS", array(
+    '0' => 'Đơn hàng mới',
+    '1' => 'Đơn hàng đang được giao',
+    '2' => 'Đơn hàng đã giao',
+    '3' => 'Đơn hàng đã hủy',
+    '4' => 'Hết hàng',
+));

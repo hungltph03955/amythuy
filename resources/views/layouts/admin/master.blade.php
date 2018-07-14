@@ -93,7 +93,8 @@
                             </li>
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="{{ url('admin/users/edit/'.Auth::user()->id) }}" class="btn btn-default btn-flat">Profile</a>
+                                    <a href="{{ url('admin/users/edit/'.Auth::user()->id) }}"
+                                       class="btn btn-default btn-flat">Profile</a>
                                 </div>
                                 <div class="pull-right">
                                     <a href="{{ route('admin.logout') }}" class="btn btn-default btn-flat">Sign out</a>
@@ -131,6 +132,9 @@
 
 
             <ul class="sidebar-menu" data-widget="tree">
+                <li>
+                    <a href="{{url('admin/')}}"><i class="fa fa-circle-o"></i>Trảng chủ</a>
+                </li>
                 <li class="treeview">
                     <a href="#">
                         <i class="fa fa-folder"></i> <span>Danh mục sản phẩm</span>
@@ -210,7 +214,7 @@
                                         </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="{{url('admin/sizes/list')}}"><i class="fa fa-circle-o"></i>Danh
+                                <li><a href="{{url('admin/sizes/list')}}"><i class="fa fa-circle-o"></i>Danhz
                                         sách kích cỡ</a></li>
                                 <li><a href="{{url('admin/sizes/add')}}"><i class="fa fa-circle-o"></i>Thêm kích
                                         cỡ</a></li>
