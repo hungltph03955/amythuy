@@ -14,8 +14,8 @@ Contact for us
         <div class="row">
             <div class="col-md-6 p-b-30">
                 <div class="p-r-20 p-r-0-lg">
-                    <div class="contact-map size21" id="google_map" data-map-x="40.614439" data-map-y="-73.926781"
-                         data-pin="{{asset('endUser/images/icons/icon-position-map.png')}}" data-scrollwhell="0"
+                    <div class="contact-map size21" id="google_map" 
+                         data-pin="{{asset('endUser/images/icons/maphere.png')}}" data-scrollwhell="0"
                          data-draggable="1"></div>
                 </div>
             </div>
