@@ -125,7 +125,6 @@
                 </div>
             </div>
 
-
             {{--<li><a href="{{url('admin/sale')}}"><i class="fa fa-circle-o"></i> Sale</a></li>--}}
             {{--<li><a href="{{url('admin/image')}}"><i class="fa fa-circle-o"></i> Image</a></li>--}}
             {{--<li><a href="{{url('admin/customer')}}"><i class="fa fa-circle-o"></i> Customer</a></li>--}}
@@ -305,6 +304,21 @@
                                 sách</a></li>
                     </ul>
                 </li>
+
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-folder"></i> <span>giới thiệu thông tin</span>
+                        <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li class="treeview">
+                        <li><a href="{{action('Admin\AboutController@getAboutAdd')}}"><i
+                                        class="fa fa-circle-o"></i>Giới thiệu</a></li>
+                    </ul>
+                </li>
+
 
                 @if (Auth::user()->roles === 1)
                     <li class="treeview">

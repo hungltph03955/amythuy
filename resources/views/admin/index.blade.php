@@ -2,7 +2,7 @@
 
 @section('content')
     <section class="content-header content-child">
-        <h1> Home page Admin</h1>
+        <h1>Quản trị tổng</h1>
     </section>
     <section class="content">
         <div class="row">

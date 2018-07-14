@@ -104,6 +104,12 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
         Route::get('edit/{id}', ['as' => 'getUsersEdit', 'uses' => 'Admin\UserController@getUsersEdit'])->where('id', '[0-9]+');;
         Route::post('edit/{id}', ['as' => 'postUsersEdit', 'uses' => 'Admin\UserController@postUsersEdit']);
     });
+
+    Route::group(['prefix' => 'about'], function () {
+        Route::get('add', ['as' => 'getAboutAdd', 'uses' => 'Admin\AboutController@getAboutAdd']);
+        Route::post('add', ['as' => 'postAboutAdd', 'uses' => 'Admin\AboutController@postAboutAdd']);
+        Route::post('edit/{id}', ['as' => 'postAboutEdit', 'uses' => 'Admin\AboutController@postAboutEdit']);
+    });
 });
 
 
