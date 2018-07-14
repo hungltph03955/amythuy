@@ -39,15 +39,22 @@ class HomeController extends Controller
     {
         $productDasskbornd = $this->productRepository->getTenProduct();
         $orderNew = $this->orderRepository->getTenOrderNew();
+        $arrayOrderNew = [];
+        foreach ($orderNew as $key => $orderNewItem) {
+            if ($orderNewItem->order_status === 0) {
+                array_push($arrayOrderNew, $orderNewItem);
+            }
+        }
+        $countArrayOrderNew = count($arrayOrderNew);
         $blogNew = $this->newRepository->getTenBlogNew();
-
         return view('admin.index',
             [
                 'productDasskbornd' => $productDasskbornd,
                 'orderNew' => $orderNew,
+                'orderNew' => $orderNew,
+                'countArrayOrderNew' => $countArrayOrderNew,
                 'blogNew' => $blogNew
             ]);
-
-
     }
+
 }
