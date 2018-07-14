@@ -2,10 +2,8 @@
 
 @section('content')
     @extends('error')
-
-    <div class="container">
         <div class="row">
-            <div class="col-md-12 col-md-offset-0">
+            <div class="col-xs-12 col-md-offset-0">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <a class="btn btn-success" href="{{ action('Admin\SaleController@create',1)}}"> Tạo sản phầm Sale </a>
@@ -58,7 +56,6 @@
                 </div>
             </div>
         </div>
-    </div>
     <script>
 
         function ConfirmDelete()
