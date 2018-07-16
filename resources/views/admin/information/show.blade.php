@@ -36,7 +36,7 @@
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Chi tiết liên hệ:</label>
                                     <textarea name="description" id="editor1" rows="10" cols="80" disabled>
-                                        {{$information->detail}}
+                                        {{$information->message}}
                                     </textarea>
                                 </div>
                                 <div class="form-group">

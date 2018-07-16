@@ -52,7 +52,7 @@ class ProductsRepositoriy extends BaseRepository implements ProductsRepositoryIn
             ->orWhere('parent_id', '=', $categoryId)
             ->where('deleted_at', '=', null)
             ->pluck('id');
-        $query = $this->model->select('products.*')->whereIn('category_id', $arrayCategories);
+        $query = $this->model->select('products.*')->where('status', '=', 0)->whereIn('category_id', $arrayCategories);
 
         if (isset($options['searchCategory']) && !empty(trim($options['searchCategory']))) {
             $query = $query->where('category_id', trim($options['searchCategory']));
