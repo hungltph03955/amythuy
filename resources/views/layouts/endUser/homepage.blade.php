@@ -34,9 +34,8 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{asset('endUser/vendor/slick/slick.css')}}">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{asset('endUser/css/util.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('endUser/css/main.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('endUser/vendor/noui/nouislider.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('endUser/css/util.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('endUser/css/main.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('endUser/vendor/daterangepicker/daterangepicker.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('endUser/vendor/noui/nouislider.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('endUser/css/style.css')}}">
@@ -86,7 +85,7 @@
         dropdownParent: $('#dropDownSelect2')
     });</script>
 <!--===============================================================================================-->
-<script src="{{asset('endUser/js/main.js')}}"></script>
+<script src="{{asset('endUser/js/main.min.js')}}"></script>
 <script src="{{asset('endUser/js/common.js')}}"></script>
 @stack('scripts')
 @if(Session::has('message.level'))
