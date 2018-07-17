@@ -108,11 +108,12 @@
                                 @if(isset($colorCurrent))
                                     @foreach($colorCurrent as $colorCurrentItem)
                                         <option value="{{ $colorCurrentItem->colors_id }}"
-                                                id="{{ $colorCurrentItem->img }}">{{ $colorCurrentItem->colors_name }}</option>
+                                            data-color="{{ $colorCurrentItem->img }}">{{ $colorCurrentItem->colors_name }}</option>
                                     @endforeach
                                 @endif
                             </select>
                         </div>
+                        <div id="wrap-slick3-dots"></div>
                     </div>
 
                     <div class="flex-m flex-w">

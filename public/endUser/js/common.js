@@ -52,6 +52,19 @@
             }
         });
     });
+
+
+    /*[ 2. Select Color ]
+     ===========================================================*/
+    $("#colorSelect").change(function () {
+        var img = $('option:selected', this).data('color');
+        console.log(img);
+        $("ul.slick3-dots>li").each(function (key, value) {
+            var srcImg = $(this).find('img').attr('src');
+            if (srcImg.includes(img))
+                $('.slick3').slick('slickGoTo', key)
+        });
+    });
 })(jQuery);
 
 addToCart = (productId, options) => {
@@ -65,7 +78,7 @@ addToCart = (productId, options) => {
         success: function (data) {
             var nameProduct = $('.product-detail-name').text();
             swal(nameProduct, "is added to cart !", "success").then(() => {
-//                onSetCart(data);
+                //                onSetCart(data);
                 location.reload();
             });
         },
@@ -86,7 +99,7 @@ updateCart = (rowId, quantity, url, $this = null) => {
             quantity: quantity
         },
         success: function (data) {
-            swal("Cart updated !", {button: 'OK'}).then(() => {
+            swal("Cart updated !", { button: 'OK' }).then(() => {
                 onSetCart(data, $this);
             });
         },
