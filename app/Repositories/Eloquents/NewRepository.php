@@ -33,6 +33,7 @@ class NewRepository extends BaseRepository implements NewRepositoryInterface
     public function getNews()
     {
         return $this->model->select('id', 'name', 'slug', 'status', 'description', 'created_at', 'img', 'updated_at')
+            ->where('status', 0)
             ->orderBy('id', 'DESC')
             ->paginate(LIMIT_PAGE);
     }

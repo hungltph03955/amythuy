@@ -39,7 +39,7 @@ class CategoriesRepository extends BaseRepository implements CategoriesRepositor
 
     public function getCategoryChiled($id)
     {
-        return $this->model->where('parent_id', $id)->get();
+        return $this->model->where('status', 0)->where('parent_id', $id)->get();
     }
 
     public function getParentCategories()

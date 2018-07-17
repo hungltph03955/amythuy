@@ -149,7 +149,7 @@
                         <li class="treeview">
                         <li><a href="{{url('admin/category')}}"><i class="fa fa-circle-o"></i> Danh sách</a>
                         <li><a href="{{ action('Admin\CategoryController@create') }}"><i class="fa fa-circle-o"></i>Thêm
-                                Danh mục sản phẩm</a>
+                                danh mục sản phẩm</a>
                         </li>
                         </li>
                     </ul>
@@ -307,7 +307,7 @@
 
                 <li class="treeview">
                     <a href="#">
-                        <i class="fa fa-folder"></i> <span>giới thiệu thông tin</span>
+                        <i class="fa fa-folder"></i> <span>Giới thiệu thông tin</span>
                         <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                         </span>
