@@ -264,7 +264,7 @@ function readURLimageBanner(input) {
 
 $(document).ready(function () {
     $("a#del_img_demo").on('click', function () {
-        var url = "http://localhost:8000/admin/delimg/";
+        var url = "/admin/delimg/";
         var idHinh = $(this).parent().find("img").attr("idHinh");
         var img = $(this).parent().find("img").attr("src");
         var rid = $(this).parent().find("img").attr("id");
@@ -286,8 +286,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
     $("a#del_color_demo").on('click', function () {
-
-        var url = "http://localhost:8000/admin/delcolor/";
+        var url = "/admin/delcolor/";
         var idHinh = $(this).parent().find("img").attr("idHinh");
         var img = $(this).parent().find("img").attr("src");
         var rid = $(this).parent().find("img").attr("id");
