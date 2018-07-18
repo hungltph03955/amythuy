@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="topbar-child1">
-                <a href="index.html" class="logo">
+                <a href="/" class="logo">
                     <img src="{{asset('endUser/images/icons/logoAmthy.png')}}" alt="IMG-LOGO"/>
                 </a>
             </div>
