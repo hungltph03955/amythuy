@@ -260,7 +260,7 @@ function readURLimageBanner(input) {
         reader.readAsDataURL(input.files[0]);
     }
 }
-
+mo file kieu gi?
 
 $(document).ready(function () {
     $("a#del_img_demo").on('click', function () {

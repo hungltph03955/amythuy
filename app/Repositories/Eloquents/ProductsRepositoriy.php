@@ -167,4 +167,10 @@ class ProductsRepositoriy extends BaseRepository implements ProductsRepositoryIn
     {
         return $this->model->limit(LIMIT_PAGE)->orderBy('id', 'DESC')->get();
     }
+
+    public function getProductsFromName($searchname)
+    {
+        return $this->model->search($searchname)
+            ->paginate(LIMIT_PAGE);
+    }
 }
