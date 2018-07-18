@@ -15,8 +15,8 @@
                 img_pin = 'images/icons/location.png';
             }
             if (data_map_x == null || data_map_y == null) {
-                data_map_x = 21.038688;
-                data_map_y = 106.7521639;
+                data_map_x = 21.022581;
+                data_map_y = 105.8285573;
             }
             if (scrollwhell == null) {
                 scrollwhell = 0;
@@ -33,8 +33,7 @@
                 map_zoom = 14;
 
             var locations = [
-                ['<div class="infobox"><p>Now that you visited our website, how' +
-                ' <br>about checking out our office too?</p></div>'
+                ['<div class="infobox"><p>56 Tôn Đức Thắng, Đống Đa, Hà Nội.</p></div>'
                     , latitude, longitude, 2]
             ];
 
