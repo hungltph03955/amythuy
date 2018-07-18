@@ -6,10 +6,10 @@
 @endpush
 @section('content')
 <?php 
-    if(file_exists(public_path().PATH_IMAGE_CATEGORY. $category->img)):
+    if(isset($category->img) && file_exists(public_path().PATH_IMAGE_CATEGORY. $category->img)):
         $imgCat = PATH_IMAGE_CATEGORY. $category->img;
     else:
-        $imgCat = PATH_NO_IMAGE_CATEGORY;
+        $imgCat = asset('endUser/images/find-a-stylist.jpg');
     endif
 ?>
     <!-- Title Page -->

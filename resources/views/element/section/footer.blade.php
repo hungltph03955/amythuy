@@ -1,7 +1,7 @@
 <footer class="bg6" >
     <div class="t-center p-l-15 p-r-15">
         <div>
-            <a href="#">
+            <a href="/">
                 <img class="logoImagefoooter" src="{{asset('endUser/images/icons/logoAmthy.png')}}" alt="IMG-LOGO"/>
             </a>
         </div>
