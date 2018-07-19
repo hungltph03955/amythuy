@@ -76,7 +76,6 @@
 <script type="text/javascript" src="{{asset('endUser/vendor/slick/slick.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('endUser/js/slick-custom.js')}}"></script>
 <script type="text/javascript" src="{{asset('endUser/vendor/sweetalert/sweetalert.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('endUser/js/myScript.js')}}"></script>
 <script type="text/javascript">
     $(".selection-1").select2({
         minimumResultsForSearch: 20,

@@ -70,7 +70,7 @@ function cloneImageDetailSelect() {
     newHTML = newHTML.replace(/\[\d\]/gi, "[" + index + "]");
     newHTML = $(newHTML);
     newHTML.find('#blah').removeAttr('src');
-    newHTML.find('#blah').css({'width': '', 'height': ''});
+    newHTML.find('#blah').css({ 'width': '', 'height': '' });
     $lastTable.after(newHTML);
 }
 
@@ -160,7 +160,7 @@ function cloneColorSelect() {
     newHTML = newHTML.replace(/\[\d\]/gi, "[" + index + "]");
     newHTML = $(newHTML);
     newHTML.find('#blah').removeAttr('src');
-    newHTML.find('#blah').css({'width': '', 'height': ''});
+    newHTML.find('#blah').css({ 'width': '', 'height': '' });
     $lastTable.after(newHTML);
 }
 
@@ -219,7 +219,7 @@ function readURLimageMater(input) {
                 .attr('src', e.target.result)
                 .width(446)
                 .height(591)
-            ;
+                ;
         };
 
         reader.readAsDataURL(input.files[0]);
@@ -237,7 +237,7 @@ function readURLimageCategory(input) {
                 .attr('src', e.target.result)
                 .width(200)
                 .height(200)
-            ;
+                ;
         };
 
         reader.readAsDataURL(input.files[0]);
@@ -254,13 +254,12 @@ function readURLimageBanner(input) {
             // $('#blah')
             $(input).parent().find('#imageBanner')
                 .attr('src', e.target.result)
-            ;
+                ;
         };
 
         reader.readAsDataURL(input.files[0]);
     }
 }
-mo file kieu gi?
 
 $(document).ready(function () {
     $("a#del_img_demo").on('click', function () {
@@ -272,7 +271,7 @@ $(document).ready(function () {
             url: url + idHinh,
             type: 'GET',
             cache: false,
-            data: {"idHinh": idHinh, "urlHinh": img},
+            data: { "idHinh": idHinh, "urlHinh": img },
             success: function (data) {
                 if (data == "Oke") {
                     $("#" + rid).remove();
@@ -294,7 +293,7 @@ $(document).ready(function () {
             url: url + idHinh,
             type: 'GET',
             cache: false,
-            data: {"idHinh": idHinh, "urlHinh": img},
+            data: { "idHinh": idHinh, "urlHinh": img },
             success: function (data) {
                 if (data == "Oke") {
                     $("#colorImageDetail" + rid).remove();

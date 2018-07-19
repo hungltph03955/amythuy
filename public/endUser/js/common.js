@@ -2,6 +2,8 @@
  * ---------------------------------------------------
  * @author: Spainno3
  * 1. Cart Manager
+ * 2. Chonse Color Product
+ * 3. Search all product
  */
 (function ($) {
     "use strict";
@@ -58,13 +60,28 @@
      ===========================================================*/
     $("#colorSelect").change(function () {
         var img = $('option:selected', this).data('color');
-        console.log(img);
+
         $("ul.slick3-dots>li").each(function (key, value) {
             var srcImg = $(this).find('img').attr('src');
             if (srcImg.includes(img))
                 $('.slick3').slick('slickGoTo', key)
         });
     });
+
+
+    /*[ 3. Search  ]
+     ===========================================================*/
+    $('.formSearch-All').hide();
+
+    $('#searchAll').click(function () {
+        $('.formSearch-All').toggle(300);
+    });
+
+    $('#iconRemoveRecornd').click(function () {
+        $('.formSearch-All').hide(300);
+        $('.formSearch-All input').val('');
+    });
+
 })(jQuery);
 
 addToCart = (productId, options) => {
@@ -78,7 +95,7 @@ addToCart = (productId, options) => {
         success: function (data) {
             var nameProduct = $('.product-detail-name').text();
             swal(nameProduct, "is added to cart !", "success").then(() => {
-                //                onSetCart(data);
+                // onSetCart(data);
                 location.reload();
             });
         },
