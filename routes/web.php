@@ -133,5 +133,5 @@ Route::get('category/{slug}.html', 'EndUser\CategoryController@show')->name('end
 Route::get('about.html', 'EndUser\AboutMeController@aboutMe')->name('endUser.about.index');
 Route::get('contact.html', 'EndUser\ContactController@index')->name('endUser.contact.index');
 Route::post('contact', 'EndUser\ContactController@store')->name('endUser.contact.addContract');
-Route::post('searchNameAll', 'EndUser\HomeController@searchNameAll')->name('endUser.index.searchNameAll');
+Route::get('searchNameAll', 'EndUser\HomeController@searchNameAll')->name('endUser.index.searchNameAll');
 

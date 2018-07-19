@@ -1,6 +1,6 @@
 <div class="formSearch-All">
     <div class="divSearchAll">
-        {{ Form::open(['route' => 'endUser.index.searchNameAll', 'method' => 'POST']) }}
+        {{ Form::open(['route' => 'endUser.index.searchNameAll', 'method' => 'GET']) }}
         <div class="s-text16 iCon-searchAll">
             <button href="#" class="topbar-social-item fa fa-search iCon-searchAll"></button>
         </div>
@@ -8,7 +8,7 @@
             <input type="text" placeholder="WHAT IS LOOKING FOR ?" name="searchNameAll">
         </div>
         <div class="s-text16  diviconRemoveRecornd">
-            <a href="#" class="topbar-social-item fa fa-times" aria-hidden="true" id="iconRemoveRecornd"></a>
+            <span href="#" class="topbar-social-item fa fa-times" aria-hidden="true" id="iconRemoveRecornd"></span>
         </div>
         {!! Form::close() !!}
     </div>

@@ -53,19 +53,34 @@ class HomeController extends Controller
 
     public function searchNameAll(Request $request)
     {
-        if ($request->all()['_token'] != '') {
-            $color = $this->colorRepository->getColorToAddProduct();
-            $size = $this->sizeRepository->getSizeToAddProduct();
-            $material = $this->materialRepository->getMaterialToAddProduct();
-            $collection = $this->collectionRepository->getCollectionToAddProduct();
-            $searchname = $request->all()['searchNameAll'];
-            $products = $this->productsRepository->getProductsFromName($searchname);
-            $countproducts = $products->total();
-            return view('endUser.SearchAll.show')->with(
-                compact('products', 'color', 'size', 'collection'
-                    , 'material', 'countproducts')
-            );
-        }
+        $searchColorProduct = $request->input('color') ? $request->input('color') : '';
+        $searchSizeProduct = $request->input('size') ? $request->input('size') : '';
+        $searchCollectionProduct = $request->input('collection') ? $request->input('collection') : '';
+        $searchMaterialProduct = $request->input('material') ? $request->input('material') : '';
+        $searchPriceProduct = $request->input('price') ? $request->input('price') : '';
+        $color = $this->colorRepository->getColorToAddProduct();
+        $size = $this->sizeRepository->getSizeToAddProduct();
+        $material = $this->materialRepository->getMaterialToAddProduct();
+        $collection = $this->collectionRepository->getCollectionToAddProduct();
+        $options = [
+            'searchColorProduct' => $searchColorProduct,
+            'searchSizeProduct' => $searchSizeProduct,
+            'searchMaterialProduct' => $searchMaterialProduct,
+            'searchCollectionProduct' => $searchCollectionProduct,
+            'searchPriceProduct' => $searchPriceProduct];
+
+
+        $searchname = $request->input('searchNameAll') ? $request->input('searchNameAll') : '';
+
+
+        $products = $this->productsRepository->getProductsFromName($searchname, $options);
+        $countproducts = $products->total();
+        return view('endUser.SearchAll.show')->with(
+            compact('products', 'color', 'size', 'collection'
+                , 'material', 'countproducts', 'searchCategory'
+                , 'searchColorProduct', 'searchSizeProduct', 'searchMaterialProduct'
+                , 'searchCollectionProduct', 'searchPriceProduct', 'searchname')
+        );
     }
 
 }

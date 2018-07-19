@@ -17,7 +17,7 @@
                 </a>
             </div>
             <div class="topbar-social">
-                <a href="#" class="topbar-social-item fa fa-search" id="searchAll"></a>
+                <span href="#" class="topbar-social-item fa fa-search" id="searchAll"></span>
                 <a href="#" class="topbar-social-item fa fa-facebook"></a>
                 <a href="#" class="topbar-social-item fa fa-pinterest-p"></a>
                 <a href="#" class="topbar-social-item fa fa-snapchat-ghost"></a>

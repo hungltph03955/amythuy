@@ -20,7 +20,6 @@
     <section class="p-t-50 p-b-40 flex-col-c-m Women-gach">
         <div class="Women-gach-float">
             <h2 class="l-text2 t-center">
-                {{--{{$category->name}}--}}
             </h2>
         </div>
         <div class="Women-gach-float">
@@ -37,78 +36,68 @@
                 <div class="col-sm-12 col-md-12 col-lg-12 p-b-50">
                     <!--  -->
                     <div class="flex-sb-m flex-w p-b-35">
-                        {{--<form action="{{action('EndUser\CategoryController@show', $slug)}}" method="get"--}}
-                        {{--class="form-inline">--}}
-                            {{--<div class="flex-w">--}}
-                            {{--<div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10 select-search">--}}
-                            {{--<select class="selection-2" name="category">--}}
-                            {{--<option value="0">Category</option>--}}
-                            {{--@if(isset($categoryChiled))--}}
-                            {{--@foreach($categoryChiled as $categoryChiledItem)--}}
-                            {{--<option value="{{ $categoryChiledItem->id }}" {{ $searchCategory == $categoryChiledItem->id ? 'selected="selected"' : '' }}>{{ $categoryChiledItem->name }}</option>--}}
-                            {{--@endforeach--}}
-                            {{--@endif--}}
-                            {{--</select>--}}
-                            {{--</div>--}}
-                            {{--<div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10 select-search">--}}
-                            {{--<select class="selection-2" name="color">--}}
-                            {{--<option value="0">Color</option>--}}
-                            {{--@if(isset($color))--}}
-                            {{--@foreach($color as $colorItem)--}}
-                            {{--<option value="{{ $colorItem['id'] }}" {{ $searchColorProduct == $colorItem['id'] ? 'selected="selected"' : '' }}>{{ $colorItem['name'] }}</option>--}}
-                            {{--@endforeach--}}
-                            {{--@endif--}}
-                            {{--</select>--}}
-                            {{--</div>--}}
-                            {{--<div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10 select-search">--}}
-                            {{--<select class="selection-2" name="size">--}}
-                            {{--<option value="0">Size</option>--}}
-                            {{--@if(isset($size))--}}
-                            {{--@foreach($size as $sizeItem)--}}
-                            {{--<option value="{{ $sizeItem['id'] }}" {{ $searchSizeProduct == $sizeItem['id'] ? 'selected="selected"' : '' }}>{{ $sizeItem['name'] }}</option>--}}
-                            {{--@endforeach--}}
-                            {{--@endif--}}
-                            {{--</select>--}}
-                            {{--</div>--}}
-                            {{--<div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10 select-search">--}}
-                            {{--<select class="selection-2" name="collection">--}}
-                            {{--<option value="0">Collection</option>--}}
-                            {{--@if(isset($collection))--}}
-                            {{--@foreach($collection as $collectionItem)--}}
-                            {{--<option value="{{ $collectionItem['id'] }}" {{ $searchCollectionProduct == $collectionItem['id'] ? 'selected="selected"' : '' }}>{{ $collectionItem['name'] }}</option>--}}
-                            {{--@endforeach--}}
-                            {{--@endif--}}
-                            {{--</select>--}}
-                            {{--</div>--}}
-                            {{--<div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10 select-search">--}}
-                            {{--<select class="selection-2" name="material">--}}
-                            {{--<option value="0">Material</option>--}}
-                            {{--@if(isset($material))--}}
-                            {{--@foreach($material as $materialItem)--}}
-                            {{--<option value="{{ $materialItem['id'] }}" {{ $searchMaterialProduct == $materialItem['id'] ? 'selected="selected"' : '' }}>{{ $materialItem['name'] }}</option>--}}
-                            {{--@endforeach--}}
-                            {{--@endif--}}
-                            {{--</select>--}}
-                            {{--</div>--}}
-                            {{--<div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10 select-search priceOptionCategory">--}}
-                            {{--<select class="selection-2" name="price">--}}
-                            {{--<option value="0">Price</option>--}}
-                            {{--<option value="1" {{ $searchPriceProduct == 1 ? 'selected="selected"' : '' }}>--}}
-                            {{--Price low to high--}}
-                            {{--</option>--}}
-                            {{--<option value="2" {{ $searchPriceProduct == 2 ? 'selected="selected"' : '' }}>--}}
-                            {{--Price high to low--}}
-                            {{--</option>--}}
-                            {{--</select>--}}
-                            {{--</div>--}}
-                            {{--</div>--}}
-                        {{--<span class="s-text8 p-t-5 p-b-5">--}}
-                        {{--<div class="w-size2 filter-toww-size2">--}}
-                        {{--<button href="#"--}}
-                        {{--class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4 btnFilter">Filter</button>--}}
-                        {{--</div>--}}
-                        {{--</span>--}}
-                        {{--</form>--}}
+                        <form action="{{action('EndUser\HomeController@searchNameAll')}}" method="get"
+                              class="form-inline">
+                            <div class="flex-w">
+                                <div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10 select-search">
+                                    <select class="selection-2" name="color">
+                                        <option value="0">Color</option>
+                                        @if(isset($color))
+                                            @foreach($color as $colorItem)
+                                                <option value="{{ $colorItem['id'] }}" {{ $searchColorProduct == $colorItem['id'] ? 'selected="selected"' : '' }}>{{ $colorItem['name'] }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                <div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10 select-search">
+                                    <select class="selection-2" name="size">
+                                        <option value="0">Size</option>
+                                        @if(isset($size))
+                                            @foreach($size as $sizeItem)
+                                                <option value="{{ $sizeItem['id'] }}" {{ $searchSizeProduct == $sizeItem['id'] ? 'selected="selected"' : '' }}>{{ $sizeItem['name'] }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                <div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10 select-search">
+                                    <select class="selection-2" name="collection">
+                                        <option value="0">Collection</option>
+                                        @if(isset($collection))
+                                            @foreach($collection as $collectionItem)
+                                                <option value="{{ $collectionItem['id'] }}" {{ $searchCollectionProduct == $collectionItem['id'] ? 'selected="selected"' : '' }}>{{ $collectionItem['name'] }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                <div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10 select-search">
+                                    <select class="selection-2" name="material">
+                                        <option value="0">Material</option>
+                                        @if(isset($material))
+                                            @foreach($material as $materialItem)
+                                                <option value="{{ $materialItem['id'] }}" {{ $searchMaterialProduct == $materialItem['id'] ? 'selected="selected"' : '' }}>{{ $materialItem['name'] }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                <div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10 select-search priceOptionCategory">
+                                    <select class="selection-2" name="price">
+                                        <option value="0">Price</option>
+                                        <option value="1" {{ $searchPriceProduct == 1 ? 'selected="selected"' : '' }}>
+                                            Price low to high
+                                        </option>
+                                        <option value="2" {{ $searchPriceProduct == 2 ? 'selected="selected"' : '' }}>
+                                            Price high to low
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <span class="s-text8 p-t-5 p-b-5">
+                        <div class="w-size2 filter-toww-size2">
+                        <button href="#"
+                                class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4 btnFilter">Filter</button>
+                        </div>
+                        </span>
+                        </form>
                     </div>
                     <!-- Product -->
                     <div class="row">
@@ -150,15 +139,14 @@
                     </div>
                     <div class="pagination flex-m flex-w p-t-26">
                         <div class="pagination-center endUserCategory">
-                            {{--{{$products->appends([--}}
-                            {{--'category'=> $searchCategory,--}}
-                            {{--'color'=> $searchColorProduct,--}}
-                            {{--'size'=> $searchSizeProduct,--}}
-                            {{--'collection'=> $searchCollectionProduct,--}}
-                            {{--'material'=> $searchMaterialProduct,--}}
-                            {{--'price'=> $searchPriceProduct--}}
-                            {{--])--}}
-                            {{--->links()}}--}}
+                            {{$products->appends([
+                            'searchNameAll'=> $searchname,
+                            'color'=> $searchColorProduct,
+                            'size'=> $searchSizeProduct,
+                            'collection'=> $searchCollectionProduct,
+                            'material'=> $searchMaterialProduct,
+                            'price'=> $searchPriceProduct
+                            ])->links() }}
                         </div>
                     </div>
                 </div>

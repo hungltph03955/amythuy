@@ -24,5 +24,5 @@ interface ProductsRepositoryInterface extends BaseRepositoryInterface
 
     public function getTenProduct();
 
-    public function getProductsFromName($searchname);
+    public function getProductsFromName($searchname, $options = []);
 }
