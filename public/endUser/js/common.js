@@ -73,7 +73,7 @@
      ===========================================================*/
     $('.formSearch-All').hide();
 
-    $('#searchAll').click(function () {
+    $('.searchAll').click(function () {
         $('.formSearch-All').toggle(300);
     });
 

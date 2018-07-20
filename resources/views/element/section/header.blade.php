@@ -17,7 +17,7 @@
                 </a>
             </div>
             <div class="topbar-social">
-                <span href="#" class="topbar-social-item fa fa-search" id="searchAll"></span>
+                <a href="#" class="topbar-social-item fa fa-search searchAll"></a>
                 <a href="#" class="topbar-social-item fa fa-facebook"></a>
                 <a href="#" class="topbar-social-item fa fa-pinterest-p"></a>
                 <a href="#" class="topbar-social-item fa fa-snapchat-ghost"></a>
@@ -197,8 +197,7 @@
 
                 <li class="item-topbar-mobile p-l-10">
                     <div class="topbar-social-mobile">
-
-                        <a href="#" class="topbar-social-item fa fa-search"></a>
+                        <a href="#" class="topbar-social-item fa fa-search searchAll"></a>
                         <a href="#" class="topbar-social-item fa fa-facebook"></a>
                         <a href="#" class="topbar-social-item fa fa-pinterest-p"></a>
                         <a href="#" class="topbar-social-item fa fa-snapchat-ghost"></a>

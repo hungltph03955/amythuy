@@ -1,6 +1,6 @@
 @extends('layouts.endUser.homepage')
 @section('title')
-    {{--{{$category->name}}--}}
+    Search {{$searchname}}
 @endsection
 @push('styles')
 @endpush
