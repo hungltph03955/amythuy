@@ -51,8 +51,9 @@ class HomeController extends Controller
         );
     }
 
-    public function searchNameAll(Request $request)
+    public function searchAll(Request $request)
     {
+        // dd($request->all());
         $searchColorProduct = $request->input('color') ? $request->input('color') : '';
         $searchSizeProduct = $request->input('size') ? $request->input('size') : '';
         $searchCollectionProduct = $request->input('collection') ? $request->input('collection') : '';
@@ -70,12 +71,12 @@ class HomeController extends Controller
             'searchPriceProduct' => $searchPriceProduct];
 
 
-        $searchname = $request->input('searchNameAll') ? $request->input('searchNameAll') : '';
+        $searchname = $request->input('keyword') ? $request->input('keyword') : '';
 
 
         $products = $this->productsRepository->getProductsFromName($searchname, $options);
         $countproducts = $products->total();
-        return view('endUser.SearchAll.show')->with(
+        return view('endUser.home.search')->with(
             compact('products', 'color', 'size', 'collection'
                 , 'material', 'countproducts', 'searchCategory'
                 , 'searchColorProduct', 'searchSizeProduct', 'searchMaterialProduct'

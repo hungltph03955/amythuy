@@ -36,8 +36,8 @@
                 <div class="col-sm-12 col-md-12 col-lg-12 p-b-50">
                     <!--  -->
                     <div class="flex-sb-m flex-w p-b-35">
-                        <form action="{{action('EndUser\HomeController@searchNameAll')}}" method="get"
-                              class="form-inline">
+                        {{ Form::open(['route' => 'endUser.index.searchAll', 'method' => 'GET', 'class' => 'form-inline']) }}
+                            {{ Form::hidden('keyword', $searchname) }}
                             <div class="flex-w">
                                 <div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10 select-search">
                                     <select class="selection-2" name="color">
@@ -90,14 +90,14 @@
                                         </option>
                                     </select>
                                 </div>
+                                <span class="s-text8 p-t-5 p-b-5">
+                                    <div class="w-size2 filter-toww-size2">
+                                        <button href="#"
+                                        class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4 btnFilter">Filter</button>
+                                    </div>
+                                </span>
                             </div>
-                            <span class="s-text8 p-t-5 p-b-5">
-                        <div class="w-size2 filter-toww-size2">
-                        <button href="#"
-                                class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4 btnFilter">Filter</button>
-                        </div>
-                        </span>
-                        </form>
+                        {!! Form::close() !!}
                     </div>
                     <!-- Product -->
                     <div class="row">
@@ -140,7 +140,7 @@
                     <div class="pagination flex-m flex-w p-t-26">
                         <div class="pagination-center endUserCategory">
                             {{$products->appends([
-                            'searchNameAll'=> $searchname,
+                            'keyword'=> $searchname,
                             'color'=> $searchColorProduct,
                             'size'=> $searchSizeProduct,
                             'collection'=> $searchCollectionProduct,
