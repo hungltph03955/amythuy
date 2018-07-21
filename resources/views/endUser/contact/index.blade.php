@@ -1,7 +1,5 @@
 @extends('layouts.endUser.homepage')
-@section('title')
-Contact for us
-@endsection
+@section('title'){{ __('messages.contact') }}@endsection
 @section('content')
 <!-- Title Page -->
 @include('element.section.title', [
@@ -22,26 +20,26 @@ Contact for us
 
             <div class="col-md-6 p-b-30">
                 <div class="block-billing">
-                    <div class="block-title">Send us your message</div>
+                    <div class="block-title">{{ __('messages.title_contract') }}</div>
                     <div class="block-content">
                         {{ Form::open(['route' => 'endUser.contact.addContract', 'method' => 'POST']) }}
                         <div class="bo4 of-hidden size15 m-b-20">
                             <input class="sizefull s-text7 p-l-22 p-r-22 {{$errors->has('name')? 'error' : ''}}" 
-                                   value="{{ old('name') }}" type="text" name="name" placeholder="Full Name *">
+                                   value="{{ old('name') }}" type="text" name="name" placeholder="{{ __('messages.place_full_name') }} *">
                         </div>
                         <div class="bo4 of-hidden size15 m-b-20">
                             <input class="sizefull s-text7 p-l-22 p-r-22 {{$errors->has('email')? 'error' : ''}}" 
-                                   value="{{ old('email') }}" type="email" name="email" placeholder="Email Address * ">
+                                   value="{{ old('email') }}" type="email" name="email" placeholder="{{ __('messages.place_email_address') }} * ">
                         </div>
                         <div class="bo4 of-hidden size15 m-b-20">
                             <input class="sizefull s-text7 p-l-22 p-r-22" 
-                                   value="{{ old('phone_number') }}" type="number" name="phone_number" placeholder="Phone Number">
+                                   value="{{ old('phone_number') }}" type="number" name="phone_number" placeholder="{{ __('messages.place_phone_number') }}">
                         </div>
                         <textarea class="dis-block s-text7 size20 bo4 p-l-22 p-r-22 p-t-13 m-b-20 {{$errors->has('message')? 'error' : ''}}" 
-                                  value="{{ old('message') }}" name="message" placeholder="Message *"></textarea>
+                                  value="{{ old('message') }}" name="message" placeholder="{{ __('messages.place_message') }} *"></textarea>
                         <div class="w-size25">
                             <!-- Button -->
-                            <button class="flex-c-m size2 bg1 bo-rad-23 hov1 m-text3 trans-0-4">Send</button>
+                            <button class="flex-c-m size2 bg1 bo-rad-23 hov1 m-text3 trans-0-4">{{ __('messages.btn_send') }}</button>
                         </div>
                         {!! Form::close() !!}
                     </div>

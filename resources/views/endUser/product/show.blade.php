@@ -113,7 +113,7 @@
 
                             <div class="btn-addcart-product-detail size9 trans-0-4 m-t-10 m-b-10">
                                 <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4 btn-Order btn-addcart-product"
-                                        data-id="{{$product->id}}">Add to Cart
+                                        data-id="{{$product->id}}">{{ __('messages.btn_add_cart') }}
                                 </button>
                             </div>
                         </div>
@@ -175,7 +175,7 @@
                                             <div class="block2-btn-addcart w-size1 trans-0-4">
                                                 <!-- Button -->
                                                 <a href="{{route('endUser.product.detail',['slug'=> $productRelatedItem->slug,'id'=> $productRelatedItem->id])}}"
-                                                   class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">{{ __('messages.view_more') }}</a>
+                                                   class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">{{ __('messages.btn_view_more') }}</a>
                                             </div>
                                         </div>
                                     </div>
@@ -188,5 +188,4 @@
 
         </div>
     </section>
-
 @endsection

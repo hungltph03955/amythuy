@@ -1,7 +1,5 @@
 @extends('layouts.endUser.homepage')
-@section('title')
-Order Cart
-@endsection
+@section('title'){{ __('messages.title_your_order') }}@endsection
 @section('content')
 <!-- Title Page -->
 @include('element.section.title', [
@@ -17,11 +15,11 @@ Order Cart
             <div class="wrap-table-shopping-cart bgwhite">
                 <table class="table-shopping-cart">
                     <tr class="table-head">
-                        <th class="column-1">{{ __('messages.img_cart') }}</th>
-                        <th class="column-2">{{ __('messages.product') }}</th>
-                        <th class="column-3">{{ __('messages.price') }}</th>
-                        <th class="column-4 p-l-70">{{ __('messages.quantity') }}</th>
-                        <th class="column-5">{{ __('messages.total') }}</th>
+                        <th class="column-1">{{ __('messages.title_img_cart') }}</th>
+                        <th class="column-2">{{ __('messages.title_product') }}</th>
+                        <th class="column-3">{{ __('messages.title_price') }}</th>
+                        <th class="column-4 p-l-70">{{ __('messages.title_quantity') }}</th>
+                        <th class="column-5">{{ __('messages.title_total') }}</th>
                     </tr>
 
                     @foreach($carts as $cart)
@@ -64,22 +62,22 @@ Order Cart
 
         <!-- Total -->
         <div class="bo9 w-size18 p-l-40 p-r-40 p-t-30 p-b-38 m-t-30 m-r-0 m-l-auto p-lr-15-sm">
-            <h5 class="m-text20 p-b-24">{{ __('messages.cart_totals') }}</h5>
+            <h5 class="m-text20 p-b-24">{{ __('messages.title_cart_totals') }}</h5>
             <div class="flex-w flex-sb-m p-t-26 p-b-30">
-                <span class="m-text22 w-size19 w-full-sm">{{ __('messages.total') }}:</span>
+                <span class="m-text22 w-size19 w-full-sm">{{ __('messages.title_total') }}:</span>
                 <span class="m-text21 w-size20 w-full-sm cart-total">{{MONEY}}<span>{{$total}}</span></span>
             </div>
             <div class="size15 trans-0-4">
                 <!-- Button -->
                 <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
-                    <a class="rl-checkout" href="{{route('endUser.order.index')}}">{{ __('messages.checkout') }}</a>
+                    <a class="rl-checkout" href="{{route('endUser.order.index')}}">{{ __('messages.btn_checkout') }}</a>
                 </button>
             </div>
         </div>
         @else
         <div class="row">
             <div class="col-md-12 p-b-30">
-                <div class="alert alert-info center"><strong>{{ __('messages.no_cart') }}</strong></div>
+                <div class="alert alert-info center"><strong>{{ __('messages.message_no_cart') }}</strong></div>
             </div>
         </div>
         @endif

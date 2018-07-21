@@ -97,19 +97,19 @@
                                 @endforeach
                             </ul>
                             <div class="header-cart-total">
-                                {{ __('messages.total') }}: {{MONEY}}<span>{{$total}}</span>
+                                {{ __('messages.title_total') }}: {{MONEY}}<span>{{$total}}</span>
                             </div>
                         @endif
                         <div class="header-cart-buttons">
                             <div class="header-cart-wrapbtn">
                                 <!-- Button -->
                                 <a href="{{route('endUser.cart.index')}}"
-                                   class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">{{ __('messages.view_cart') }}</a>
+                                   class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">{{ __('messages.btn_view_cart') }}</a>
                             </div>
                             <div class="header-cart-wrapbtn">
                                 <!-- Button -->
                                 <a href="{{route('endUser.order.index')}}"
-                                   class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">{{ __('messages.check_out') }}</a>
+                                   class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">{{ __('messages.btn_check_out') }}</a>
                             </div>
                         </div>
                     </div>
@@ -159,7 +159,7 @@
                                 @endforeach
                             </ul>
                             <div class="header-cart-total">
-                                {{ __('messages.total') }}: {{MONEY}}<span>{{$total}}</span>
+                                {{ __('messages.title_total') }}: {{MONEY}}<span>{{$total}}</span>
                             </div>
                         @endif
 
@@ -167,13 +167,13 @@
                             <div class="header-cart-wrapbtn">
                                 <!-- Button -->
                                 <a href="{{route('endUser.cart.index')}}"
-                                   class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">{{ __('messages.view_cart') }}</a>
+                                   class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">{{ __('messages.btn_view_cart') }}</a>
                             </div>
 
                             <div class="header-cart-wrapbtn">
                                 <!-- Button -->
                                 <a href="{{route('endUser.order.index')}}"
-                                   class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">{{ __('messages.check_out') }}</a>
+                                   class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">{{ __('messages.btn_check_out') }}</a>
                             </div>
                         </div>
                     </div>

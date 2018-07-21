@@ -17,7 +17,7 @@
                     <div class="wrap-btn-slide1 w-size1 animated divCtaterory-first-aLink" data-appear="rotateIn"
                          style="width: 161px;">
                         <!-- Button -->
-                        <a href="product.html" class="flex-c-m size2 bo-rad-2 s-text2 bgwhite hov1 trans-0-4">{{ __('messages.view_more') }}</a>
+                        <a href="product.html" class="flex-c-m size2 bo-rad-2 s-text2 bgwhite hov1 trans-0-4">{{ __('messages.btn_view_more') }}</a>
                     </div>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                     </div>
                     <div class="w-size2 category-toww-size2">
                         <!-- Button -->
-                        <a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">{{ __('messages.view_more') }}</a>
+                        <a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">{{ __('messages.btn_view_more') }}</a>
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-6 col-lg-6 m-l-r-auto category-tow-macgi-media">
@@ -40,7 +40,7 @@
                     </div>
                     <div class="w-size2 category-toww-size2">
                         <!-- Button -->
-                        <a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">{{ __('messages.view_more') }}</a>
+                        <a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">{{ __('messages.btn_view_more') }}</a>
                     </div>
                 </div>
             </div>
