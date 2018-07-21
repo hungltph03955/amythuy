@@ -1,7 +1,5 @@
 @extends('layouts.endUser.homepage')
-@section('title')
-{{$category->name}}
-@endsection
+@section('title'){{$category->name}}@endsection
 @push('styles')
 @endpush
 @section('content')
@@ -25,7 +23,7 @@
         </div>
         <div class="Women-gach-float">
             <p class="m-text13 t-center">
-                ( {{ $countproducts }} product )
+                {{ __('messages.count_product', ['count' => $countproducts]) }}
             </p>
         </div>
     </section>
@@ -35,7 +33,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12 p-b-50">
-                    <!--  -->
+                    <!--Filter-->
                     <div class="flex-sb-m flex-w p-b-35">
                         <form action="{{action('EndUser\CategoryController@show', $slug)}}" method="get"
                               class="form-inline">
@@ -120,21 +118,21 @@
                                         <div class="block2-img wrap-pic-w of-hidden pos-relative {{renderClass($product->updated_at, NEW_DATE)}}">
                                             @if(file_exists( public_path().PATH_IMAGE_MASTER. $product->img))
                                                 <img src="{{PATH_IMAGE_MASTER. $product->img}}"
-                                                     alt="{{$product->name ? $product->name : ''}}">
+                                                    alt="{{$product->name ? $product->name : ''}}">
                                             @else
                                                 <img src="{{PATH_NO_IMAGE}}">
                                             @endif
-                                            <div class="block2-overlay trans-0-4">
-                                                <div class="block2-btn-addcart w-size1 trans-0-4">
-                                                    <!-- Button -->
-                                                    <a href="{{route('endUser.product.detail',['id'=> $product->id, 'slug'=> $product->slug])}}"
-                                                       class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                                                        view more
-                                                    </a>
+                                            <a href="{{route('endUser.product.detail',['id'=> $product->id, 'slug'=> $product->slug])}}">
+                                                <div class="block2-overlay trans-0-4">
+                                                        <div class="block2-btn-addcart w-size1 trans-0-4">
+                                                            <!-- Button -->
+                                                            <a href="{{route('endUser.product.detail',['id'=> $product->id, 'slug'=> $product->slug])}}"
+                                                            class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">{{ __('messages.view_more') }}</a>
+                                                        </div>
                                                 </div>
-                                            </div>
+                                            </a>
                                         </div>
-                                        <div class="block2-txt p-t-20">
+                                        <!-- <div class="block2-txt p-t-20">
                                             <a href="{{route('endUser.product.detail',['id'=> $product->id, 'slug'=> $product->slug])}}"
                                                class="block2-name dis-block s-text3 p-b-5 view-more-product">
                                                 {{$product->name ? $product->name : ''}}
@@ -142,7 +140,7 @@
                                             <span class="block2-price m-text6 p-r-5 textprice">
                                                 {{MONEY}}{{number_format($product->price)  }}
                                             </span>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             @endforeach

@@ -35,7 +35,8 @@
     <link rel="stylesheet" type="text/css" href="{{asset('endUser/vendor/slick/slick.css')}}">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{asset('endUser/css/util.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('endUser/css/main.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('endUser/css/main.css')}}">
+    <!-- <link rel="stylesheet" type="text/css" href="{{asset('endUser/css/main.min.css')}}"> -->
     <link rel="stylesheet" type="text/css" href="{{asset('endUser/vendor/daterangepicker/daterangepicker.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('endUser/vendor/noui/nouislider.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('endUser/css/style.css')}}">
@@ -50,11 +51,11 @@
 @yield('content')
 @include('element.section.footer')
 <!-- Back to top -->
-<div class="btn-back-to-top bg0-hov" id="myBtn">
+<!-- <div class="btn-back-to-top bg0-hov" id="myBtn">
             <span class="symbol-btn-back-to-top">
                 <i class="fa fa-angle-double-up" aria-hidden="true"></i>
             </span>
-</div>
+</div> -->
 
 <!-- Container Selection1 -->
 <div id="dropDownSelect1"></div>
@@ -86,7 +87,8 @@
         dropdownParent: $('#dropDownSelect2')
     });</script>
 <!--===============================================================================================-->
-<script src="{{asset('endUser/js/main.min.js')}}"></script>
+<script src="{{asset('endUser/js/main.js')}}"></script>
+<!-- <script src="{{asset('endUser/js/main.min.js')}}"></script> -->
 <script src="{{asset('endUser/js/common.js')}}"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-83777920-3"></script>
@@ -97,6 +99,7 @@
 
   gtag('config', 'UA-83777920-3');
 </script>
+<script src="https://uhchat.net/code.php?f=dc17ab"></script>
 @stack('scripts')
 @if(Session::has('message.level'))
     <script>

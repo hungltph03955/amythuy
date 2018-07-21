@@ -117,13 +117,11 @@
                                                 <div class="block2-btn-addcart w-size1 trans-0-4">
                                                     <!-- Button -->
                                                     <a href="{{route('endUser.product.detail',['id'=> $product->id, 'slug'=> $product->slug])}}"
-                                                       class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                                                        view more
-                                                    </a>
+                                                       class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">{{ __('messages.view_more') }}</a>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="block2-txt p-t-20">
+                                        <!-- <div class="block2-txt p-t-20">
                                             <a href="{{route('endUser.product.detail',['id'=> $product->id, 'slug'=> $product->slug])}}"
                                                class="block2-name dis-block s-text3 p-b-5 view-more-product">
                                                 {{$product->name ? $product->name : ''}}
@@ -131,7 +129,7 @@
                                             <span class="block2-price m-text6 p-r-5 textprice">
                                                 {{MONEY}}{{number_format($product->price)  }}
                                             </span>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             @endforeach

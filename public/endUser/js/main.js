@@ -89,11 +89,12 @@
         if ($(this).scrollTop() >= posWrapHeader) {
             $('.header1').addClass('fixed-header');
             $(header).css('top', -posWrapHeader);
-
+            $('.wrap_header>.topbar-social').show();
         } else {
             var x = -$(this).scrollTop();
             $(header).css('top', x);
             $('.header1').removeClass('fixed-header');
+            $('.wrap_header>.topbar-social').hide();
         }
 
         if ($(this).scrollTop() >= 200 && $(window).width() > 992) {

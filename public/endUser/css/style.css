@@ -227,3 +227,10 @@ button.iCon-searchAll:hover {
         width: 100%;
     }
 }
+
+.fix_tel {
+    position: fixed;
+    bottom: 15px;
+    right: 0;
+    z-index: 999;
+}

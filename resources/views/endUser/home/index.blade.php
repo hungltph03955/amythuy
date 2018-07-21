@@ -13,9 +13,7 @@
     <section class="newproduct bgwhite p-t-45">
         <div class="container">
             <div class="sec-title p-b-60">
-                <h3 class="m-text5 t-center">
-                    Featured Products
-                </h3>
+                <h3 class="m-text5 t-center">{{ __('messages.featured_products') }}</h3>
             </div>
 
             <!-- Slide2 -->
@@ -28,7 +26,7 @@
                                 <div class="block2-img wrap-pic-w of-hidden pos-relative {{renderClass($product->updated_at, NEW_DATE)}}">
                                     @if(file_exists( public_path().PATH_IMAGE_MASTER. $product->img))
                                         <img src="{{PATH_IMAGE_MASTER. $product->img}}"
-                                             alt="{{$product->name ? $product->name : ''}}">
+                                            alt="{{$product->name ? $product->name : ''}}">
                                     @else
                                         <img src="{{PATH_NO_IMAGE}}">
                                     @endif
@@ -37,18 +35,18 @@
                                             <!-- Button -->
                                             <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
                                                 <a href="{{route('endUser.product.detail',['id'=> $product->id, 'slug'=> $product->slug])}}"
-                                                   class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">View more</a>
+                                                   class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">{{ __('messages.view_more') }}</a>
                                             </button>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="block2-txt p-t-20">
-                                    <a href="{{route('endUser.product.detail',['id'=> $product->id, 'slug'=> $product->slug])}}"
-                                       class="block2-name dis-block s-text3 p-b-5">{{$product->name}}</a>
+                                <!-- <div class="block2-txt p-t-20"> -->
+                                    <!-- <a href="{{route('endUser.product.detail',['id'=> $product->id, 'slug'=> $product->slug])}}" -->
+                                       <!-- class="block2-name dis-block s-text3 p-b-5">{{$product->name}}</a> -->
                                     <!-- <span class="block2-oldprice m-text7 p-r-5">{{MONEY}}{{number_format($product->price)}}</span> -->
-                                    <span class="block2-newprice m-text8 p-r-5">{{MONEY}}{{number_format($product->price)}}</span>
-                                </div>
+                                    <!-- <span class="block2-newprice m-text8 p-r-5">{{MONEY}}{{number_format($product->price)}}</span> -->
+                                <!-- </div> -->
                             </div>
                         </div>
                     @endforeach

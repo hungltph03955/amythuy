@@ -6,8 +6,8 @@
                 <span class="topbar-email"></span>
                 <div class="topbar-language rs1-select2">
                     <select class="selection-1" name="time">
-                        <option>English</option>
-                        <option>Vietnamese</option>
+                        <option>{{ __('messages.vietnamese') }}</option>
+                        <option>{{ __('messages.english') }}</option>
                     </select>
                 </div>
             </div>
@@ -30,10 +30,10 @@
             <div class="wrap_menu">
                 <nav class="menu">
                     <ul class="main_menu" id="main_menu_active">
-                        <li class="noActive   {{ request()->is('/') ? 'sale-noti ' : '' }}"><a href="/">Home</a>
+                        <li class="noActive   {{ request()->is('/') ? 'sale-noti ' : '' }}"><a href="/">{{ __('messages.home') }}</a>
                         </li>
                         <li class="noActive {{ request()->is('category/*') ? 'sale-noti ' : '' }}">
-                            <a href="javascript:void(0)">Categories</a>
+                            <a href="javascript:void(0)">{{ __('messages.categories') }}</a>
                             @if(isset($cates))
                                 <ul class="sub_menu">
                                     @foreach($cates as $cate )
@@ -45,16 +45,24 @@
                             @endif
                         </li>
                         <li class="noActive {{ request()->is('cart.html') ? 'sale-noti ' : '' }}"><a
-                                    href="{{route('endUser.cart.index')}}">Cart</a></li>
-                        <li><a href="{{route('endUser.sale.index')}}">Sale</a></li>
-                        <li class="noActive  {{ request()->is('blog.html') ? 'sale-noti ' : '' }}"><a
-                                    href="{{route('endUser.blog.index')}}">Blog</a></li>
-                        <li class="noActive {{ request()->is('about.html') ? 'sale-noti ' : '' }}"><a
-                                    href="{{route('endUser.about.index')}}">About</a></li>
+                                    href="{{route('endUser.cart.index')}}">{{ __('messages.cart') }}</a></li>
+                        {{--<li><a href="{{route('endUser.sale.index')}}">{{ __('messages.sale') }}</a></li>--}}
+                        {{--<li class="noActive  {{ request()->is('blog.html') ? 'sale-noti ' : '' }}"><a
+                                    href="{{route('endUser.blog.index')}}">{{ __('messages.blog') }}</a></li>--}}
+                        {{--<li class="noActive {{ request()->is('about.html') ? 'sale-noti ' : '' }}"><a
+                                    href="{{route('endUser.about.index')}}">{{ __('messages.about') }}</a></li>--}}
                         <li class="noActive {{ request()->is('contact.html') ? 'sale-noti ' : '' }}"><a
-                                    href="{{route('endUser.contact.index')}}">Contact</a></li>
+                                    href="{{route('endUser.contact.index')}}">{{ __('messages.contact') }}</a></li>
                     </ul>
                 </nav>
+            </div>
+
+            <div class="topbar-social" style="display: none;">
+                <a href="#" class="topbar-social-item fa fa-search searchAll"></a>
+                <a href="#" class="topbar-social-item fa fa-facebook"></a>
+                <a href="#" class="topbar-social-item fa fa-pinterest-p"></a>
+                <a href="#" class="topbar-social-item fa fa-snapchat-ghost"></a>
+                <a href="#" class="topbar-social-item fa fa-youtube-play"></a>
             </div>
 
             <!-- Header Icon -->
@@ -89,19 +97,19 @@
                                 @endforeach
                             </ul>
                             <div class="header-cart-total">
-                                Total: {{MONEY}}<span>{{$total}}</span>
+                                {{ __('messages.total') }}: {{MONEY}}<span>{{$total}}</span>
                             </div>
                         @endif
                         <div class="header-cart-buttons">
                             <div class="header-cart-wrapbtn">
                                 <!-- Button -->
                                 <a href="{{route('endUser.cart.index')}}"
-                                   class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">View Cart</a>
+                                   class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">{{ __('messages.view_cart') }}</a>
                             </div>
                             <div class="header-cart-wrapbtn">
                                 <!-- Button -->
                                 <a href="{{route('endUser.order.index')}}"
-                                   class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">Check Out</a>
+                                   class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">{{ __('messages.check_out') }}</a>
                             </div>
                         </div>
                     </div>
@@ -151,7 +159,7 @@
                                 @endforeach
                             </ul>
                             <div class="header-cart-total">
-                                Total: {{MONEY}}<span>{{$total}}</span>
+                                {{ __('messages.total') }}: {{MONEY}}<span>{{$total}}</span>
                             </div>
                         @endif
 
@@ -159,13 +167,13 @@
                             <div class="header-cart-wrapbtn">
                                 <!-- Button -->
                                 <a href="{{route('endUser.cart.index')}}"
-                                   class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">View Cart</a>
+                                   class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">{{ __('messages.view_cart') }}</a>
                             </div>
 
                             <div class="header-cart-wrapbtn">
                                 <!-- Button -->
                                 <a href="{{route('endUser.order.index')}}"
-                                   class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">Check Out</a>
+                                   class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">{{ __('messages.check_out') }}</a>
                             </div>
                         </div>
                     </div>
@@ -188,8 +196,8 @@
                     <div class="topbar-child2-mobile">
                         <div class="topbar-language rs1-select2">
                             <select class="selection-1" name="time">
-                                <option>English</option>
-                                <option>Vietnamese</option>
+                                <option>{{ __('messages.vietnamese') }}</option>
+                                <option>{{ __('messages.english') }}</option>
                             </select>
                         </div>
                     </div>
@@ -205,9 +213,9 @@
                     </div>
                 </li>
 
-                <li class="item-menu-mobile"><a href="/">Home</a></li>
+                <li class="item-menu-mobile"><a href="/">{{ __('messages.home') }}</a></li>
                 <li class="item-menu-mobile sale-noti">
-                    <a href="javascript:void(0)">Categories</a>
+                    <a href="javascript:void(0)">{{ __('messages.categories') }}</a>
                     @if(isset($cates))
                         <ul class="sub-menu">
                             @foreach($cates as $cate )
@@ -218,11 +226,11 @@
                     @endif
                     <i class="arrow-main-menu fa fa-angle-right" aria-hidden="true"></i>
                 </li>
-                <li class="item-menu-mobile"><a href="{{route('endUser.cart.index')}}">Cart</a></li>
-                <li class="item-menu-mobile"><a href="{{route('endUser.sale.index')}}">Sale</a></li>
-                <li class="item-menu-mobile"><a href="{{route('endUser.blog.index')}}">Blog</a></li>
-                <li class="item-menu-mobile"><a href="{{route('endUser.about.index')}}">About</a></li>
-                <li class="item-menu-mobile"><a href="{{route('endUser.contact.index')}}">Contact</a></li>
+                <li class="item-menu-mobile"><a href="{{route('endUser.cart.index')}}">{{ __('messages.cart') }}</a></li>
+                {{--<li class="item-menu-mobile"><a href="{{route('endUser.sale.index')}}">{{ __('messages.sale') }}</a></li>--}}
+                {{--<li class="item-menu-mobile"><a href="{{route('endUser.blog.index')}}">{{ __('messages.blog') }}</a></li>--}}
+                {{--<li class="item-menu-mobile"><a href="{{route('endUser.about.index')}}">{{ __('messages.about') }}</a></li>--}}
+                <li class="item-menu-mobile"><a href="{{route('endUser.contact.index')}}">{{ __('messages.contact') }}</a></li>
             </ul>
         </nav>
     </div>
