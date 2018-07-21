@@ -21,22 +21,24 @@
                         <div class="item-slick2 p-l-15 p-r-15">
                             <!-- Block2 -->
                             <div class="block2 col-sm-12 col-md-12 col-lg-12 m-l-r-auto">
-                                <div class="block2-img wrap-pic-w of-hidden pos-relative {{renderClass($product->updated_at, NEW_DATE)}}">
-                                    @if(file_exists( public_path().PATH_IMAGE_MASTER. $product->img))
-                                        <img src="{{PATH_IMAGE_MASTER. $product->img}}"
-                                            alt="{{$product->name ? $product->name : ''}}">
-                                    @else
-                                        <img src="{{PATH_NO_IMAGE}}">
-                                    @endif
-                                    <div class="block2-overlay trans-0-4">
-                                        <div class="block2-btn-addcart w-size1 trans-0-4">
-                                            <!-- Button -->
-                                            <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                                                <a href="{{route('endUser.product.detail',['id'=> $product->id, 'slug'=> $product->slug])}}"
-                                                   class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">{{ __('messages.btn_view_more') }}</a>
-                                            </button>
-                                        </div>
+                                <div class="block2-img hov-img-zoom wrap-pic-w of-hidden pos-relative {{renderClass($product->updated_at, NEW_DATE)}}">
+                                    <a href="{{route('endUser.product.detail',['id'=> $product->id, 'slug'=> $product->slug])}}">
+                                        @if(file_exists( public_path().PATH_IMAGE_MASTER. $product->img))
+                                            <img src="{{PATH_IMAGE_MASTER. $product->img}}"
+                                                alt="{{$product->name ? $product->name : ''}}">
+                                        @else
+                                            <img src="{{PATH_NO_IMAGE}}">
+                                        @endif
+                                    </a>
+                                    <!-- <div class="block2-overlay trans-0-4"> -->
+                                    <div class="block2-btn-addcart w-size1 trans-0-4">
+                                        <!-- Button -->
+                                        <button class="flex-c-m size2 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+                                            <a href="{{route('endUser.product.detail',['id'=> $product->id, 'slug'=> $product->slug])}}"
+                                                class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">{{ __('messages.btn_view_more') }}</a>
+                                        </button>
                                     </div>
+                                    <!-- </div> -->
                                 </div>
 
                                 <!-- <div class="block2-txt p-t-20"> -->

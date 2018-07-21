@@ -1933,11 +1933,15 @@ li.sale-noti > a {
 }
 
 /* ------------------------------------ */
-.block2-overlay:hover {
+/* .block2-overlay:hover {
     opacity: 1;
-}
+} */
 
-.block2-overlay:hover .block2-btn-addcart {
+/* .block2-overlay:hover .block2-btn-addcart {
+    bottom: 20px;
+} */
+
+.block2-img:hover .block2-btn-addcart {
     bottom: 20px;
 }
 

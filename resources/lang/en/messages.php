@@ -37,4 +37,6 @@ return [
     'place_message' => 'Lời nhắn',
     'btn_checkout' => 'Đặt hàng',
     'btn_order' => 'Thanh Toán',
+    'title_contract' => 'Gửi thông điệp cho chúng tôi',
+    'btn_send' => 'Gửi'
 ];

@@ -1,7 +1,5 @@
 @extends('layouts.endUser.homepage')
-@section('title')
-    {{$product->name}}
-@endsection
+@section('title'){{$product->name}}@endsection
 @push('styles')
 @endpush
 @section('content')
@@ -164,20 +162,22 @@
                             <div class="p-l-15 p-r-15">
                                 <!-- Block2 -->
                                 <div class="block2">
-                                    <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-                                        @if(file_exists( public_path().PATH_IMAGE_MASTER. $productRelatedItem->img))
-                                            <img src="{{PATH_IMAGE_MASTER. $productRelatedItem->img}}"
-                                                 alt="{{$productRelatedItem->name ? $productRelatedItem->name : ''}}">
-                                        @else
-                                            <img src="{{PATH_NO_IMAGE}}">
-                                        @endif
-                                        <div class="block2-overlay trans-0-4">
-                                            <div class="block2-btn-addcart w-size1 trans-0-4">
-                                                <!-- Button -->
-                                                <a href="{{route('endUser.product.detail',['slug'=> $productRelatedItem->slug,'id'=> $productRelatedItem->id])}}"
-                                                   class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">{{ __('messages.btn_view_more') }}</a>
-                                            </div>
+                                    <div class="block2-img hov-img-zoom wrap-pic-w of-hidden pos-relative block2-labelnew">
+                                        <a href="{{route('endUser.product.detail',['slug'=> $productRelatedItem->slug,'id'=> $productRelatedItem->id])}}">
+                                            @if(file_exists( public_path().PATH_IMAGE_MASTER. $productRelatedItem->img))
+                                                <img src="{{PATH_IMAGE_MASTER. $productRelatedItem->img}}"
+                                                    alt="{{$productRelatedItem->name ? $productRelatedItem->name : ''}}">
+                                            @else
+                                                <img src="{{PATH_NO_IMAGE}}">
+                                            @endif
+                                        </a>
+                                        <!-- <div class="block2-overlay trans-0-4"> -->
+                                        <div class="block2-btn-addcart w-size1 trans-0-4">
+                                            <!-- Button -->
+                                            <a href="{{route('endUser.product.detail',['slug'=> $productRelatedItem->slug,'id'=> $productRelatedItem->id])}}"
+                                                class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">{{ __('messages.btn_view_more') }}</a>
                                         </div>
+                                        <!-- </div> -->
                                     </div>
                                 </div>
                             </div>

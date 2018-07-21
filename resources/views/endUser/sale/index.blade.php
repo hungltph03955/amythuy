@@ -23,23 +23,27 @@ Sale
                                 <div class="col-sm-6 col-md-6 col-lg-4 p-b-50">
                                     <!-- Block2 -->
                                     <div class="block2">
-                                        <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelsale">
+                                        <div class="block2-img hov-img-zoom wrap-pic-w of-hidden pos-relative block2-labelsale">
                                             <?php $img = isset($productSale->product->img)? $productSale->product->img : '' ?>
-                                            @if(file_exists( public_path().PATH_IMAGE_MASTER. $productSale->product->img))
-                                                <img src="{{PATH_IMAGE_MASTER. $img}}"
-                                                     alt="{{isset($productSale->name) ? $productSale->product->name : ''}}">
-                                            @else
-                                                <img src="{{PATH_NO_IMAGE}}">
-                                            @endif
-                                            <div class="block2-overlay trans-0-4">
-                                                <div class="block2-btn-addcart w-size1 trans-0-4">
-                                                    <!-- Button -->
-                                                    <a href="{{route('endUser.product.detail',[
+                                            <a href="{{route('endUser.product.detail',[
                                                         'id'=> isset($productSale->product->id)?$productSale->product->id:'',
-                                                        'slug'=> isset($productSale->product->slug)?$productSale->product->slug:''])}}"
-                                                       class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">{{ __('messages.btn_view_more') }}</a>
-                                                </div>
+                                                        'slug'=> isset($productSale->product->slug)?$productSale->product->slug:''])}}">
+                                                @if(file_exists( public_path().PATH_IMAGE_MASTER. $productSale->product->img))
+                                                    <img src="{{PATH_IMAGE_MASTER. $img}}"
+                                                        alt="{{isset($productSale->name) ? $productSale->product->name : ''}}">
+                                                @else
+                                                    <img src="{{PATH_NO_IMAGE}}">
+                                                @endif
+                                            </a>
+                                            <!-- <div class="block2-overlay trans-0-4"> -->
+                                            <div class="block2-btn-addcart w-size1 trans-0-4">
+                                                <!-- Button -->
+                                                <a href="{{route('endUser.product.detail',[
+                                                    'id'=> isset($productSale->product->id)?$productSale->product->id:'',
+                                                    'slug'=> isset($productSale->product->slug)?$productSale->product->slug:''])}}"
+                                                    class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">{{ __('messages.btn_view_more') }}</a>
                                             </div>
+                                            <!-- </div> -->
                                         </div>
                                         <div class="block2-txt p-t-20">
                                             <a href="{{route('endUser.product.detail',['id'=> $productSale->product->id, 'slug'=> $productSale->product->slug])}}"

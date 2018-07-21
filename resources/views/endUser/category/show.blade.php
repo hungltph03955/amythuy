@@ -123,9 +123,8 @@
                             @foreach($products as $product)
                                 <div class="col-sm-6 col-md-6 col-lg-4 p-b-50">
                                     <!-- Block2 -->
-
                                     <div class="block2">
-                                        <div class="block2-img wrap-pic-w of-hidden pos-relative {{renderClass($product->updated_at, NEW_DATE)}}">
+                                        <div class="block2-img hov-img-zoom wrap-pic-w of-hidden pos-relative {{renderClass($product->updated_at, NEW_DATE)}}">
                                             <a href="{{route('endUser.product.detail',['id'=> $product->id, 'slug'=> $product->slug])}}"
                                                style="display: block;">
                                                 @if(file_exists( public_path().PATH_IMAGE_MASTER. $product->img))
@@ -135,15 +134,13 @@
                                                     <img src="{{PATH_NO_IMAGE}}">
                                                 @endif
                                             </a>
-                                            <a href="{{route('endUser.product.detail',['id'=> $product->id, 'slug'=> $product->slug])}}">
-                                                <div class="block2-overlay trans-0-4">
-                                                    <div class="block2-btn-addcart w-size1 trans-0-4">
-                                                        <!-- Button -->
-                                                        <a href="{{route('endUser.product.detail',['id'=> $product->id, 'slug'=> $product->slug])}}"
-                                                           class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">{{ __('messages.btn_view_more') }}</a>
-                                                    </div>
-                                                </div>
-                                            </a>
+                                            <!-- <div class="block2-overlay trans-0-4"> -->
+                                            <div class="block2-btn-addcart w-size1 trans-0-4">
+                                                <!-- Button -->
+                                                <a href="{{route('endUser.product.detail',['id'=> $product->id, 'slug'=> $product->slug])}}"
+                                                    class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">{{ __('messages.btn_view_more') }}</a>
+                                            </div>
+                                            <!-- </div> -->
                                         </div>
                                     </div>
                                 </div>

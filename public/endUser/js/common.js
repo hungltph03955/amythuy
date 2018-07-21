@@ -5,6 +5,7 @@
  * 2. Chonse Color Product
  * 3. Search all product
  * 4. on click search category
+ * 5. Hover products
  */
 (function ($) {
     "use strict";
@@ -81,6 +82,21 @@
     $('#iconRemoveRecornd').click(function () {
         $('.formSearch-All').hide(300);
         $('.formSearch-All input').val('');
+    });
+
+    /*[ 5. Hover Product  ]
+     ===========================================================*/
+    $('.block2-img').mouseenter(function () {
+        $(".block2-img").each(function (e) {
+            $(this).css('opacity', '0.5');
+        })
+        $(this).animate({
+            'opacity': '1',
+        });
+    }).mouseleave(function () {
+        $(".block2-img").each(function (e) {
+            $(this).css('opacity', '1');
+        })
     });
 
 })(jQuery);
