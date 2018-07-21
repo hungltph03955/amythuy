@@ -4,6 +4,7 @@
  * 1. Cart Manager
  * 2. Chonse Color Product
  * 3. Search all product
+ * 4. on click search category
  */
 (function ($) {
     "use strict";
@@ -83,6 +84,13 @@
     });
 
 })(jQuery);
+
+/*[ 4. on click search category  ]
+     ===========================================================*/
+onSearchCategory = (id) => {
+    $("#select_category").val(id);
+    $('.frm-search-category').submit();
+}
 
 addToCart = (productId, options) => {
     $.ajax({
