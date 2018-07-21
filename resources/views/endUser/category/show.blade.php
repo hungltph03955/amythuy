@@ -34,12 +34,12 @@
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12 p-b-50">
                     <!--Filter-->
-                    <div class="flex-sb-m flex-w p-b-35">
-                        <form action="{{action('EndUser\CategoryController@show', $slug)}}" method="get"
-                              class="form-inline">
+                    <form action="{{action('EndUser\CategoryController@show', $slug)}}" method="get"
+                          class="form-inline frm-search-category">
+                        <div class="flex-sb-m flex-w p-b-35">
                             <div class="flex-w">
                                 <div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10 select-search">
-                                    <select class="selection-2" name="category">
+                                    <select class="selection-2" name="category" id="select_category">
                                         <option value="0">Category</option>
                                         @if(isset($categoryChiled))
                                             @foreach($categoryChiled as $categoryChiledItem)
@@ -101,13 +101,22 @@
                                 </div>
                             </div>
                             <span class="s-text8 p-t-5 p-b-5">
-                            <div class="w-size2 filter-toww-size2">
-                                <button href="#"
-                                        class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4 btnFilter">Filter</button>
-                            </div>
-                        </span>
-                        </form>
-                    </div>
+                                <div class="w-size2 filter-toww-size2">
+                                    <button href="#"
+                                            class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4 btnFilter">Filter</button>
+                                </div>
+                            </span>
+                        </div>
+                        <div class="p-b-30">
+                            @if(isset($categoryChiled))
+                                @foreach($categoryChiled as $categoryChiledItem)
+                                    <button type="button" class="btn-category" onclick="onSearchCategory({{$categoryChiledItem->id}})">{{ $categoryChiledItem->name }} 
+                                        <span class="{{ $searchCategory == $categoryChiledItem->id ? 'active' : 'not-active' }}"></span>
+                                    </button>
+                                @endforeach
+                            @endif
+                        </div>
+                    </form>
                     <!-- Product -->
                     <div class="row">
                         @if(isset($products))

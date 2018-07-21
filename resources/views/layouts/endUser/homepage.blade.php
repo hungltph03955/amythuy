@@ -51,11 +51,11 @@
 @yield('content')
 @include('element.section.footer')
 <!-- Back to top -->
-<!-- <div class="btn-back-to-top bg0-hov" id="myBtn">
+<div class="btn-back-to-top bg0-hov" id="myBtn">
             <span class="symbol-btn-back-to-top">
                 <i class="fa fa-angle-double-up" aria-hidden="true"></i>
             </span>
-</div> -->
+</div>
 
 <!-- Container Selection1 -->
 <div id="dropDownSelect1"></div>
@@ -99,7 +99,6 @@
 
   gtag('config', 'UA-83777920-3');
 </script>
-<script src="https://uhchat.net/code.php?f=dc17ab"></script>
 @stack('scripts')
 @if(Session::has('message.level'))
     <script>

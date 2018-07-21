@@ -228,9 +228,32 @@ button.iCon-searchAll:hover {
     }
 }
 
-.fix_tel {
-    position: fixed;
-    bottom: 15px;
-    right: 0;
-    z-index: 999;
+.btn-category{
+    display: inline-block;
+    font-weight: 500;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    padding: .5rem .75rem;
+    font-size: 1rem;
+    line-height: 1.25;
+    transition: all .15s ease-in-out;
+    border: 1px solid gray;
+    margin-bottom: .5rem;
+}
+.btn-category>input[type='checkbox']{
+    width: 1em;
+    height: 1em;
+    padding: 0px 5px;
+}
+.btn-category>span.active::after{
+    content: "\2611";
+}
+
+.btn-category>span.not-active::before{
+    content: "\2610";
 }
