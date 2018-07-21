@@ -7,10 +7,10 @@
 @section('content')
     <!-- breadcrumb -->
     <div class="bread-crumb bgwhite flex-w p-l-250 p-r-15 p-t-30 p-l-15-sm link-home-discount">
-        <a href="/" class="s-text16">Home
+        <a href="/" class="s-text16">{{ __('messages.home') }}
             <i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
         </a>
-        <a href="{{route('endUser.blog.index')}}" class="s-text16">Blog
+        <a href="{{route('endUser.blog.index')}}" class="s-text16">{{ __('messages.blog') }}
             <i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
         </a>
         <span class="s-text17">{{$newsDetail->name}}</span>

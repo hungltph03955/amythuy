@@ -18,15 +18,13 @@
             <dvi class="logoAmthy-footerAbout">
                 <ul>
                     <li class="p-b-9">
-                        <a href="#" class="s-text7">
-                            Feedback
-                        </a>
+                        <a href="#" class="s-text7">{{ __('messages.feedback') }}</a>
                     </li>
                     <li class="p-b-9">
-                        <a href="#" class="s-text7">Address</a>
+                        <a href="#" class="s-text7">{{ __('messages.address') }}</a>
                     </li>
                     <li class="p-b-9">
-                        <a href="#" class="s-text7">About us</a>
+                        <a href="#" class="s-text7">{{ __('messages.about') }}</a>
                     </li>
                 </ul>
             </dvi>

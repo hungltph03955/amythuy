@@ -8,10 +8,8 @@
 
     <!-- breadcrumb -->
     <div class="bread-crumb bgwhite flex-w p-l-250 p-r-15 p-t-30 p-l-15-sm link-home-discount">
-        <a href="index.html" class="s-text16">
-            Home
-            <i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
-        </a>
+        <a href="index.html" class="s-text16">{{ __('messages.home') }}
+            <i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i></a>
         @if(isset($catesParent->name))
             <a href="/category/{{$product->category->slug}}" class="s-text16">
                 {{$catesParent->name}}
@@ -156,12 +154,12 @@
                 </div>
 
                 <div class="p-b-45">
-                    <span class="s-text8 m-r-35">Categories: {{ isset($catesParent->name)? $catesParent->name. ',': ''  }}
+                    <span class="s-text8 m-r-35">{{ __('messages.categories') }}: {{ isset($catesParent->name)? $catesParent->name. ',': ''  }}
                         {{$product->category->name}}</span>
                 </div>
                 <div class="wrap-dropdown-content bo6 p-t-15 p-b-14 active-dropdown-content">
 					<h5 class="js-toggle-dropdown-content flex-sb-m cs-pointer m-text19 color0-hov trans-0-4">
-						Description
+                        {{ __('messages.description') }}
 						<i class="down-mark fs-12 color1 fa fa-minus dis-none" aria-hidden="true"></i>
 						<i class="up-mark fs-12 color1 fa fa-plus" aria-hidden="true"></i>
 					</h5>
@@ -208,9 +206,7 @@
     <section class="relateproduct bgwhite p-t-45 p-b-138">
         <div class="container">
             <div class="sec-title p-b-60">
-                <h3 class="m-text5 t-center">
-                    Related Products
-                </h3>
+                <h3 class="m-text5 t-center">{{ __('messages.related_products')}}</h3>
             </div>
 
             <!-- Slide2 -->
@@ -236,7 +232,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="block2-txt p-t-20">
+                                    <!-- <div class="block2-txt p-t-20">
                                         <a href="product-detail.html"
                                            class="block2-name dis-block s-text3 p-b-5 view-more-product">
                                             {{$productRelatedItem->name ? $productRelatedItem->name : ''}}
@@ -244,7 +240,7 @@
                                         <span class="block2-price m-text6 p-r-5 textprice">
                                             {{MONEY}}{{number_format($productRelatedItem->price)}}
                                         </span>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         @endforeach
