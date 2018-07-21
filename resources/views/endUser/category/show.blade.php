@@ -3,13 +3,13 @@
 @push('styles')
 @endpush
 @section('content')
-<?php 
-    if(isset($category->img) && file_exists(public_path().PATH_IMAGE_CATEGORY. $category->img)):
-        $imgCat = PATH_IMAGE_CATEGORY. $category->img;
+    <?php
+    if (isset($category->img) && file_exists(public_path() . PATH_IMAGE_CATEGORY . $category->img)):
+        $imgCat = PATH_IMAGE_CATEGORY . $category->img;
     else:
         $imgCat = asset('endUser/images/find-a-stylist.jpg');
     endif
-?>
+    ?>
     <!-- Title Page -->
     @include('element.section.title', [
         'titleCat' => $category->name,
@@ -114,33 +114,28 @@
                             @foreach($products as $product)
                                 <div class="col-sm-6 col-md-6 col-lg-4 p-b-50">
                                     <!-- Block2 -->
+
                                     <div class="block2">
                                         <div class="block2-img wrap-pic-w of-hidden pos-relative {{renderClass($product->updated_at, NEW_DATE)}}">
-                                            @if(file_exists( public_path().PATH_IMAGE_MASTER. $product->img))
-                                                <img src="{{PATH_IMAGE_MASTER. $product->img}}"
-                                                    alt="{{$product->name ? $product->name : ''}}">
-                                            @else
-                                                <img src="{{PATH_NO_IMAGE}}">
-                                            @endif
+                                            <a href="{{route('endUser.product.detail',['id'=> $product->id, 'slug'=> $product->slug])}}"
+                                               style="display: block;">
+                                                @if(file_exists( public_path().PATH_IMAGE_MASTER. $product->img))
+                                                    <img src="{{PATH_IMAGE_MASTER. $product->img}}"
+                                                         alt="{{$product->name ? $product->name : ''}}">
+                                                @else
+                                                    <img src="{{PATH_NO_IMAGE}}">
+                                                @endif
+                                            </a>
                                             <a href="{{route('endUser.product.detail',['id'=> $product->id, 'slug'=> $product->slug])}}">
                                                 <div class="block2-overlay trans-0-4">
-                                                        <div class="block2-btn-addcart w-size1 trans-0-4">
-                                                            <!-- Button -->
-                                                            <a href="{{route('endUser.product.detail',['id'=> $product->id, 'slug'=> $product->slug])}}"
-                                                            class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">{{ __('messages.view_more') }}</a>
-                                                        </div>
+                                                    <div class="block2-btn-addcart w-size1 trans-0-4">
+                                                        <!-- Button -->
+                                                        <a href="{{route('endUser.product.detail',['id'=> $product->id, 'slug'=> $product->slug])}}"
+                                                           class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">{{ __('messages.view_more') }}</a>
+                                                    </div>
                                                 </div>
                                             </a>
                                         </div>
-                                        <!-- <div class="block2-txt p-t-20">
-                                            <a href="{{route('endUser.product.detail',['id'=> $product->id, 'slug'=> $product->slug])}}"
-                                               class="block2-name dis-block s-text3 p-b-5 view-more-product">
-                                                {{$product->name ? $product->name : ''}}
-                                            </a>
-                                            <span class="block2-price m-text6 p-r-5 textprice">
-                                                {{MONEY}}{{number_format($product->price)  }}
-                                            </span>
-                                        </div> -->
                                     </div>
                                 </div>
                             @endforeach

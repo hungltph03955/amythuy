@@ -891,7 +891,7 @@ li.sale-noti > a {
     z-index: 1100;
     top: 0;
     left: 100%;
-    width: 225px;
+    width: 120px;
     background-color: #222222;
     opacity: 0;
     visibility: hidden;
