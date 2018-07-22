@@ -3,7 +3,7 @@
         <div class="slick1">
             @if(isset($imagesBanner))
                 @foreach($imagesBanner as $imagesBannerItem)
-                    <div class="item-slick1 item1-slick1"
+                    <div class="item-slick1 item1-slick1 aa"
                          style="background-image: url({{asset(PATH_IMAGE_BANNER. $imagesBannerItem->img)}});">
                     </div>
                 @endforeach

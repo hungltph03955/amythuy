@@ -34,6 +34,10 @@
             action3[0] = setTimeout(function(){
                 $(btnSlide1[0]).addClass($(btnSlide1)[0].data('appear') + ' visible-true');
             },1800);              
+            $('.item-slick1').addClass('object');
+        });
+        
+        $('.slick1').on('afterChange', function(event, slick, currentSlide) {
         });
 
 
@@ -41,12 +45,12 @@
             slidesToShow: 1,
             slidesToScroll: 1,
             fade: true,
-            dots: false,
+            dots: true,
             appendDots: $('.wrap-slick1-dots'),
             dotsClass:'slick1-dots',
             infinite: true,
             autoplay: true,
-            autoplaySpeed: 6000,
+            autoplaySpeed: 5000,
             arrows: true,
             appendArrows: $('.wrap-slick1'),
             prevArrow:'<button class="arrow-slick1 prev-slick1"><i class="fa  fa-angle-left" aria-hidden="true"></i></button>',

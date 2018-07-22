@@ -26,6 +26,13 @@
         </div>
 
         <div class="wrap_header">
+            <!-- Logo -->
+            <div class="topbar-child1" style="display: none;">
+                <a href="/" class="logo">
+                    <img src="{{asset('endUser/images/icons/logoAmthy.png')}}" alt="IMG-LOGO"/>
+                </a>
+            </div>
+
             <!-- Menu -->
             <div class="wrap_menu">
                 <nav class="menu">
