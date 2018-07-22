@@ -50,6 +50,6 @@
 </section>
 @endsection
 @push('scripts')
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKFWBqlKAGCeS1rMVoaNlwyayu0e0YRes"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA"></script>
 <script src="{{asset('endUser/js/map-custom.js')}}"></script>
 @endpush
