@@ -782,7 +782,7 @@ button.btn-Order {
     position: absolute;
     height: 100%;
     top: 0;
-    left: 327px;
+    left: 13%;
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -790,7 +790,7 @@ button.btn-Order {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    padding-right: 38px;
+    padding-right: 40px;
 }
 
 /*[ Menu ]
@@ -822,8 +822,8 @@ button.btn-Order {
 -----------------------------------------------------------*/
 .logo {
     display: block;
-    position: absolute;
-    top: 50%;
+    position: relative;
+    top: 40px;
     -webkit-transform: translateY(-50%);
     -moz-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
@@ -891,7 +891,7 @@ li.sale-noti > a {
     z-index: 1100;
     top: 0;
     left: 100%;
-    width: 120px;
+    width: 145px;
     background-color: #222222;
     opacity: 0;
     visibility: hidden;

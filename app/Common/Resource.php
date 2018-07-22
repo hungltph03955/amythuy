@@ -37,18 +37,35 @@ function listCate ($data,$parent = 0,$str="") {
     }
 }
 
-//function subMenu ($data,$id) {
-//    echo "<ul>";
-//    foreach ($data as $item) {
-//        if ($item["parent_id"] == $id) {
-//            echo '<li><a href="../../the-loai/'.$item["id"].'/'.$item["slug"].'">'.$item["name"].'</a>';
-//            subMenu($data,$item["id"]);
-//            echo '</li>';
-//        }
-//    }
-//    echo "</ul>";
-//}
+/**
+ * Render submenu
+ * 
+ * @param object $data.
+ * @param int $id
+ * @return string list
+ * @author Spainno3
+ */
+function subMenu($data, $parent = 0) {
+    echo '<ul class="sub_menu">';
+    foreach ($data as $item) {
+        if ($item->parent_id == $parent) {
+            echo '<li class="noActive '.renderClassMenuActive($item->slug).'"><a href="'.renderRoute($item).'">'.$item->name.'</a>';
+            subMenu($data, $item->id);
+            echo '</li>';
+        }
+    }
+    echo '</ul>';
+}
 
+function renderClassMenuActive($slug) {
+    return request()->is("category/".$slug.".html") ? "sale-noti" : "";
+}
+
+function renderRoute($item) {
+    return route('endUser.category.detail',[$item->slug]);
+}
+
+/* Render submenu end */
 
 /**
  * Encodes a string.

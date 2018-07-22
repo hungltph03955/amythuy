@@ -51,11 +51,40 @@
 @yield('content')
 @include('element.section.footer')
 <!-- Back to top -->
-<div class="btn-back-to-top bg0-hov" id="myBtn">
+<!-- <div class="btn-back-to-top bg0-hov" id="myBtn">
             <span class="symbol-btn-back-to-top">
                 <i class="fa fa-angle-double-up" aria-hidden="true"></i>
             </span>
+</div> -->
+
+<!--===============CHAT ON START===============-->
+<div id="small_chat">
+    <div class="layout layout-expand">
+        <div class="messenger_content">
+            <div class="messenger_header">
+                <h5 class="messenger_prompt">How can we help you?</h5>
+                <span class="chat_close_icon"><i class="fa fa-window-close" aria-hidden="true"></i></span>
+            </div>
+            <div class="messenger_content">
+                <div class="messages">
+                    <div class="messages_list">Hello</div>
+                    <div class="messages_list" style="float:right;font-weight: bold;">Ahihi</div>
+                </div>
+                <hr>
+                <div class="messenger_input">
+                    <input type="text" class="input_field" placeholder="Send a message...">
+                    <span class="chat_close_icon"><i class="fa fa-paper-plane" aria-hidden="true"></i></span>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+<!--Button togle chat-->
+<div class="chat_on">
+    <span class="chat_on_icon"><i class="fa fa-comments" aria-hidden="true"></i></span>
+</div>
+<!--===============CHAT ON END===============-->
 
 <!-- Container Selection1 -->
 <div id="dropDownSelect1"></div>

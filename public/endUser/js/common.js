@@ -6,6 +6,8 @@
  * 3. Search all product
  * 4. on click search category
  * 5. Hover products
+ * 6. Chat
+ * 5. Remove submenu empty
  */
 (function ($) {
     "use strict";
@@ -98,6 +100,29 @@
             $(this).css('opacity', '1');
         })
     });
+
+
+    /*[ 6. Chat  ]
+     ===========================================================*/
+    $(".chat_on").click(function () {
+        $(".layout").show(300);
+        $(".chat_on").hide(300);
+    });
+
+    $(".chat_close_icon").click(function () {
+        $(".layout").hide();
+        $(".chat_on").show(300);
+    });
+
+
+    /*[ 7. Remove ul submenu empty  ]
+     ===========================================================*/
+    $("ul.sub_menu").each(function () {
+        if ($(this).is(':empty')) {
+            $(this).remove();
+        }
+    })
+
 
 })(jQuery);
 

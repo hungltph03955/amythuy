@@ -30,28 +30,29 @@
             <div class="wrap_menu">
                 <nav class="menu">
                     <ul class="main_menu" id="main_menu_active">
-                        <li class="noActive   {{ request()->is('/') ? 'sale-noti ' : '' }}"><a href="/">{{ __('messages.home') }}</a>
+                        <li class="noActive {{ request()->is('/') ? 'sale-noti' : '' }}"><a href="/">{{ __('messages.home') }}</a>
                         </li>
-                        <li class="noActive {{ request()->is('category/*') ? 'sale-noti ' : '' }}">
+                        <li class="noActive {{ request()->is('category/*') ? 'sale-noti' : '' }}">
                             <a href="javascript:void(0)">{{ __('messages.categories') }}</a>
                             @if(isset($cates))
-                                <ul class="sub_menu">
-                                    @foreach($cates as $cate )
-                                        <li class="noActive {{ request()->is('category/'.$cate->slug.'.html') ? 'sale-noti ' : '' }}">
+                            {{ subMenu($cates, 0) }}
+                                <!-- <ul class="sub_menu"> -->
+                                    <!-- @foreach($cates as $cate )
+                                        <li class="noActive {{ request()->is('category/'.$cate->slug.'.html') ? 'sale-noti' : '' }}">
                                             <a href="{{route('endUser.category.detail',[$cate->slug])}}">{{$cate->name}}</a>
                                         </li>
-                                    @endforeach
-                                </ul>
+                                    @endforeach -->
+                                <!-- </ul> -->
                             @endif
                         </li>
-                        <li class="noActive {{ request()->is('cart.html') ? 'sale-noti ' : '' }}"><a
+                        <li class="noActive {{ request()->is('cart.html') ? 'sale-noti' : '' }}"><a
                                     href="{{route('endUser.cart.index')}}">{{ __('messages.cart') }}</a></li>
                         {{--<li><a href="{{route('endUser.sale.index')}}">{{ __('messages.sale') }}</a></li>--}}
-                        {{--<li class="noActive  {{ request()->is('blog.html') ? 'sale-noti ' : '' }}"><a
+                        {{--<li class="noActive  {{ request()->is('blog.html') ? 'sale-noti' : '' }}"><a
                                     href="{{route('endUser.blog.index')}}">{{ __('messages.blog') }}</a></li>--}}
-                        {{--<li class="noActive {{ request()->is('about.html') ? 'sale-noti ' : '' }}"><a
+                        {{--<li class="noActive {{ request()->is('about.html') ? 'sale-noti' : '' }}"><a
                                     href="{{route('endUser.about.index')}}">{{ __('messages.about') }}</a></li>--}}
-                        <li class="noActive {{ request()->is('contact.html') ? 'sale-noti ' : '' }}"><a
+                        <li class="noActive {{ request()->is('contact.html') ? 'sale-noti' : '' }}"><a
                                     href="{{route('endUser.contact.index')}}">{{ __('messages.contact') }}</a></li>
                     </ul>
                 </nav>
