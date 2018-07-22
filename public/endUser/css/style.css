@@ -228,7 +228,7 @@ button.iCon-searchAll:hover {
     }
 }
 
-.btn-category{
+.btn-category {
     display: inline-block;
     font-weight: 500;
     text-align: center;
@@ -245,16 +245,18 @@ button.iCon-searchAll:hover {
     border: 1px solid gray;
     margin-bottom: .5rem;
 }
-.btn-category>input[type='checkbox']{
+
+.btn-category > input[type='checkbox'] {
     width: 1em;
     height: 1em;
     padding: 0px 5px;
 }
-.btn-category>span.active::after{
+
+.btn-category > span.active::after {
     content: "\2611";
 }
 
-.btn-category>span.not-active::before{
+.btn-category > span.not-active::before {
     content: "\2610";
 }
 
@@ -270,92 +272,93 @@ button.iCon-searchAll:hover {
     border-radius: 4px 4px 0 0;
 }
 
-
-
-
 /*===========================
      CHAT BOOT MESSENGER
    ===========================*/
 .chat_close_icon {
-    cursor:pointer;
-    font-size:16px;
+    cursor: pointer;
+    font-size: 16px;
     position: absolute;
     right: 15px;
     z-index: 9;
 }
+
 .chat_on {
     position: fixed;
     z-index: 10;
     width: 45px;
     height: 45px;
     right: 30px;
-    bottom:30px;
+    bottom: 30px;
     background-color: #b4b9bd;
     color: #fff;
     border-radius: 3px;
     text-align: center;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
     cursor: pointer;
 }
-.chat_on_icon{
-    color:#fff;
-    font-size:30px;
-    text-align:center;
+
+.chat_on_icon {
+    color: #fff;
+    font-size: 30px;
+    text-align: center;
 }
 
-#small_chat .layout { 
-    box-sizing:content-box!important;
-    z-index:999999999;
-    position:fixed;
-    bottom:30px;
-    right:30px;
+#small_chat .layout {
+    box-sizing: content-box !important;
+    z-index: 999999999;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
     border-radius: 5px;
-    min-width:50px;
-    max-width:300px;
-    max-height:30px;
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-end;
-    box-shadow:5px 0 20px 5px rgba(0,0,0,.1);
+    min-width: 50px;
+    max-width: 300px;
+    max-height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    box-shadow: 5px 0 20px 5px rgba(0, 0, 0, .1);
 }
 
 #small_chat .layout-expand {
-    height:350px;
-    min-height:350px;
-    display:none;
+    height: 350px;
+    min-height: 350px;
+    display: none;
 }
 
 #small_chat .messenger_content {
-    position:relative;
+    position: relative;
     padding: 5px 5px;
     height: 100%;
     width: 100%;
 }
-#small_chat .messenger_header{
-    display:-webkit-box;
-    display:-webkit-flex;
-    display:-ms-flexbox;
-    display:flex
-}
+
 #small_chat .messenger_header {
-    -webkit-box-align:center;
-    -webkit-align-items:center;
-    -ms-flex-align:center;
-    align-items:center;
-    padding-left:10px;
-    padding-right:40px;
-    height:40px;
-    -webkit-flex-shrink:0;
-    -ms-flex-negative:0;
-    flex-shrink:0;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex
+}
+
+#small_chat .messenger_header {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 40px;
+    height: 40px;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
     background-color: gainsboro;
 }
 
 #small_chat .messenger_prompt {
-    margin:0;
-    font-size:16px;
-    line-height:18px;
-    font-weight:400;
+    margin: 0;
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: 400;
 }
 
 #small_chat .messenger_content {
@@ -364,6 +367,7 @@ button.iCon-searchAll:hover {
     flex-direction: column;
     background-color: #fff;
 }
+
 #small_chat .messages {
     position: relative;
     overflow-x: hidden;
@@ -378,7 +382,7 @@ button.iCon-searchAll:hover {
     width: 60px;
     display: block;
     position: absolute;
-    left: 2%;
+    left: 19%;
     -webkit-transform: translateY(-50%);
     -moz-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
@@ -389,21 +393,21 @@ button.iCon-searchAll:hover {
 .object {
     animation: skew 10s infinite;
     transform: skew();
-    transition-duration:1s;
-    -webkit-transition-duration:1s;
+    transition-duration: 1s;
+    -webkit-transition-duration: 1s;
 }
 
-.object:hover{
+.object:hover {
     transform: rotate(10deg);
     -ms-transform: rotate(10deg); /* IE 9 */
-    -webkit-transform: rotate(10deg); /* Safari and Chrome */  
+    -webkit-transform: rotate(10deg); /* Safari and Chrome */
 }
 
 @keyframes skew {
     0% {
         transform: scale(1, 1) translate(10px, 30px) matrix(1, 0, 0, 1, 200, 30);
         -ms-transform: scale(1, 1) translate(10px, 30px) matrix(1, 0, 0, 1, 200, 30); /* prefix for IE 9 */
-        -webkit-transform: scale(1, 1) translate(10px, 30px)matrix(1, 0, 0, 1, 200, 30); /* prefix for Safari and Chrome */;
+        -webkit-transform: scale(1, 1) translate(10px, 30px) matrix(1, 0, 0, 1, 200, 30); /* prefix for Safari and Chrome */;
     }
     50% {
         transform: scale(1.2, 1.2);
@@ -415,4 +419,4 @@ button.iCon-searchAll:hover {
         -ms-transform: scale(1, 1) translate(0px, 0px);
         -webkit-transform: scale(1, 1) translate(0px, 0px);
     }
-  }
+}

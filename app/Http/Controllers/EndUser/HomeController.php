@@ -10,6 +10,7 @@ use App\Repositories\ImagesBannerRepositoryInterface;
 use App\Repositories\ColorRepositoryInterface;
 use App\Repositories\SizeRepositoryInterface;
 use App\Repositories\CollectionRepositoryInterface;
+use App\Repositories\CategoriesRepositoryInterface;
 use App\Repositories\MaterialRepositoryInterface;
 
 class HomeController extends Controller
@@ -21,6 +22,7 @@ class HomeController extends Controller
     protected $sizeRepository;
     protected $collectionRepository;
     protected $materialRepository;
+    protected $categories;
 
     public function __construct(
         ColorRepositoryInterface $colorRepository,
@@ -29,6 +31,7 @@ class HomeController extends Controller
         MaterialRepositoryInterface $materialRepository,
         ProductsRepositoryInterface $productsRepository,
         NewRepositoryInterface $newRepository,
+        CategoriesRepositoryInterface $category,
         ImagesBannerRepositoryInterface $imagesBannerRepository
     )
     {
@@ -36,6 +39,7 @@ class HomeController extends Controller
         $this->newRepository = $newRepository;
         $this->imageBannerRepository = $imagesBannerRepository;
         $this->colorRepository = $colorRepository;
+        $this->categories = $category;
         $this->sizeRepository = $sizeRepository;
         $this->collectionRepository = $collectionRepository;
         $this->materialRepository = $materialRepository;
@@ -46,8 +50,11 @@ class HomeController extends Controller
         $products = $this->productsRepository->getFeaturedProducts(LIMIT_PAGE);
         $news = $this->newRepository->getNews();
         $imagesBanner = $this->imageBannerRepository->gets();
+
+        $category = $this->categories->getParentCategories();
+
         return view('endUser.home.index')->with(
-            compact('products', 'news', 'imagesBanner')
+            compact('products', 'news', 'imagesBanner', 'category')
         );
     }
 
