@@ -3,7 +3,7 @@
 @section('content')
 <!-- Title Page -->
 @include('element.section.title', [
-        'titleCat' => 'Cart',
+        'titleCat' => __('messages.title_your_order'),
         'descriptionCat' => '',
         'imgCat' => asset('endUser/images/find-a-stylist.jpg')])
 <!-- Cart -->

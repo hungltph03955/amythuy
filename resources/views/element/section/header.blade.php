@@ -35,14 +35,7 @@
                         <li class="noActive {{ request()->is('category/*') ? 'sale-noti' : '' }}">
                             <a href="javascript:void(0)">{{ __('messages.categories') }}</a>
                             @if(isset($cates))
-                            {{ subMenu($cates, 0) }}
-                                <!-- <ul class="sub_menu"> -->
-                                    <!-- @foreach($cates as $cate )
-                                        <li class="noActive {{ request()->is('category/'.$cate->slug.'.html') ? 'sale-noti' : '' }}">
-                                            <a href="{{route('endUser.category.detail',[$cate->slug])}}">{{$cate->name}}</a>
-                                        </li>
-                                    @endforeach -->
-                                <!-- </ul> -->
+                                {{ subMenu($cates, 0) }}
                             @endif
                         </li>
                         <li class="noActive {{ request()->is('cart.html') ? 'sale-noti' : '' }}"><a

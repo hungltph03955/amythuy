@@ -68,7 +68,7 @@
             </div>
             @else
             <div class="col-md-12 p-b-30">
-                <div class="alert alert-info center"><strong>You do not have any products yet</strong></div>
+                <div class="alert alert-info center"><strong>{{ __('messages.message_no_cart') }}</strong></div>
             </div>
             @endif
         </div>

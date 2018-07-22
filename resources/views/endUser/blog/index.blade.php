@@ -1,7 +1,5 @@
 @extends('layouts.endUser.homepage')
-@section('title')
-Blog
-@endsection
+@section('title'){{ __('messages.blog') }}@endsection
 @push('styles')
 @endpush
 @section('content')
@@ -25,7 +23,7 @@ Blog
                         <p class="p-b-28">{{strEntitie($new->description, TEXT_DESCRIPTION)}}</p>
 
                         <div class="bo13 p-l-29 m-l-9 p-b-10">
-                            <a href="{{route('endUser.blog.detail',['id'=> $new->id, 'slug'=> $new->slug])}}" class="s-text20">Continue Reading
+                            <a href="{{route('endUser.blog.detail',['id'=> $new->id, 'slug'=> $new->slug])}}" class="s-text20">{{ __('messages.btn_read_blog') }}
                                 <i class="fa fa-long-arrow-right m-l-8" aria-hidden="true"></i>
                             </a>
                         </div>

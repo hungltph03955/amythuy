@@ -38,5 +38,6 @@ return [
     'btn_checkout' => 'Đặt hàng',
     'btn_order' => 'Thanh Toán',
     'title_contract' => 'Gửi thông điệp cho chúng tôi',
-    'btn_send' => 'Gửi'
+    'btn_send' => 'Gửi',
+    'title_billing_address' => 'Thông tin thanh toán'
 ];

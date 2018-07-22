@@ -1,13 +1,11 @@
 @extends('layouts.endUser.homepage')
-@section('title')
-    About US
-@endsection
+@section('title'){{ __('messages.about') }}@endsection
 @push('styles')
 @endpush
 @section('content')
     <!-- Title Page -->
     @include('element.section.title', [
-            'titleCat' => 'About',
+            'titleCat' => __('messages.about'),
             'descriptionCat' => '',
             'imgCat' => asset('endUser/images/find-a-stylist.jpg')])
 

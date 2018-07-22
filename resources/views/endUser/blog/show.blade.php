@@ -1,7 +1,5 @@
 @extends('layouts.endUser.homepage')
-@section('title')
-{{$newsDetail->name}}
-@endsection
+@section('title'){{$newsDetail->name}}@endsection
 @push('styles')
 @endpush
 @section('content')
@@ -39,7 +37,7 @@
                                     <span>{{$newsDetail->created_at}}</span>
                                 </div>
 
-                                <?php echo $newsDetail->description ?>
+                                {!! $newsDetail->description !!}
                             </div>
                         </div>
                     </div>

@@ -1,7 +1,5 @@
 @extends('layouts.endUser.homepage')
-@section('title')
-Sale
-@endsection
+@section('title'){{ __('messages.sale') }}@endsection
 @push('styles')
 @endpush
 @section('content')
