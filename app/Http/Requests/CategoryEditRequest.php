@@ -33,7 +33,7 @@ class CategoryEditRequest extends FormRequest
                 'max:255',
             ],
             'description' => 'required|max:1000',
-            'imageCategory' => 'image',
+            'imageCategory' => 'image|size:500000',
             'parent_id' => new CategoryCannotParentItSelf($id)
         ];
     }

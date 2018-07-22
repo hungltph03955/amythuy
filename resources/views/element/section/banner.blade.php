@@ -4,9 +4,12 @@
             @if(isset($category))
                 @foreach($category as $categoryItem)
                     <div class="col-sm-12 col-md-12 col-lg-12 m-l-r-auto">
-                        <div class="item-slick2 item1-slick1"
-                             style="background-image: url({{asset('endUser/images/ribbon-2929380_1920.png')}});">
-                        </div>
+                        @if(file_exists( public_path().PATH_IMAGE_CATEGORY. $categoryItem->img))
+                            <div class="item-slick2 item1-slick1"
+                                 style="background-image: url({{asset(PATH_IMAGE_CATEGORY. $categoryItem->img)}});">
+                            </div>
+                        @endif
+
                         <div class="divCtaterory-first">
                             <div class="wrap-btn-slide1 w-size1 animated divCtaterory-first-aLink"
                                  data-appear="rotateIn"
