@@ -84,9 +84,9 @@ class ProductsRepositoriy extends BaseRepository implements ProductsRepositoryIn
             if (trim($options['searchPriceProduct']) == 2) {
                 $order = 'DESC';
             }
-            return $query->orderBy('price', $order)->paginate(LIMIT_PAGE_CATEGORY);
+            return $query->orderBy('price', $order)->with('photo')->paginate(LIMIT_PAGE_CATEGORY);
         }
-        return $query->orderBy('id', 'DESC')->paginate(LIMIT_PAGE_CATEGORY);
+        return $query->orderBy('id', 'DESC')->with('photo')->paginate(LIMIT_PAGE_CATEGORY);
     }
 
     public function orderBy($params)
@@ -202,8 +202,8 @@ class ProductsRepositoriy extends BaseRepository implements ProductsRepositoryIn
             if (trim($options['searchPriceProduct']) == 2) {
                 $order = 'DESC';
             }
-            return $query->orderBy('price', $order)->paginate(LIMIT_PAGE_CATEGORY);
+            return $query->orderBy('price', $order)->with('photo')->paginate(LIMIT_PAGE_CATEGORY);
         }
-        return $query->orderBy('id', 'DESC')->paginate(LIMIT_PAGE_CATEGORY);
+        return $query->orderBy('id', 'DESC')->with('photo')->paginate(LIMIT_PAGE_CATEGORY);
     }
 }

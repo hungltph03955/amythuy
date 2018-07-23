@@ -60,6 +60,7 @@ class CategoryController extends Controller
             'searchCollectionProduct' => $searchCollectionProduct,
             'searchPriceProduct' => $searchPriceProduct];
         $products = $this->productRepository->getProductByFilter($category->id, $options);
+        // dd($products);
         $countproducts = $products->total();
         return view('endUser.category.show', compact(
             'slug', 'category', 'products', 'color', 'size', 'collection'

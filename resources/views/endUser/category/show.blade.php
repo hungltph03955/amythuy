@@ -119,19 +119,26 @@
                     </form>
                     <!-- Product -->
                     <div class="row">
-                        @if(isset($products))
+                        @if(!$products->isEmpty())
                             @foreach($products as $product)
                                 <div class="col-sm-6 col-md-6 col-lg-4 p-b-50">
                                     <!-- Block2 -->
                                     <div class="block2">
                                         <div class="block2-img hov-img-zoom wrap-pic-w of-hidden pos-relative {{renderClass($product->updated_at, NEW_DATE)}}">
-                                            <a href="{{route('endUser.product.detail',['id'=> $product->id, 'slug'=> $product->slug])}}"
-                                               style="display: block;">
+                                            <a href="{{route('endUser.product.detail',['id'=> $product->id, 'slug'=> $product->slug])}}">
                                                 @if(file_exists( public_path().PATH_IMAGE_MASTER. $product->img))
                                                     <img src="{{PATH_IMAGE_MASTER. $product->img}}"
-                                                         alt="{{$product->name ? $product->name : ''}}">
+                                                         alt="{{$product->name ? $product->name : ''}}" class="img-product-first">
                                                 @else
-                                                    <img src="{{PATH_NO_IMAGE}}">
+                                                    <img src="{{PATH_NO_IMAGE}}" class="img-product-first">
+                                                @endif
+                                                @if(!$product->photo->isEmpty())
+                                                    @if(file_exists( public_path().PATH_IMAGE_DETAIL. $product->photo[0]['name']))
+                                                        <img src="{{PATH_IMAGE_DETAIL. $product->photo[0]['name']}}"
+                                                            alt="{{$product->name ? $product->name : ''}}" class="img-product-second" style="display: none;">
+                                                    @else
+                                                        <img src="{{PATH_NO_IMAGE}}" class="img-product-second">
+                                                    @endif
                                                 @endif
                                             </a>
                                             <!-- <div class="block2-overlay trans-0-4"> -->

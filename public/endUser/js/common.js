@@ -88,18 +88,17 @@
 
     /*[ 5. Hover Product  ]
      ===========================================================*/
-    $('.block2-img').mouseenter(function () {
-        $(".block2-img").each(function (e) {
-            $(this).css('opacity', '0.5');
-        })
-        $(this).animate({
-            'opacity': '1',
-        });
-    }).mouseleave(function () {
-        $(".block2-img").each(function (e) {
-            $(this).css('opacity', '1');
-        })
-    });
+    // $('.block2-img').hover(function () {
+    //     if ($(this).children().find('img.img-product-second')) {
+    //         $(this).children().find('img.img-product-first').hide();
+    //         $(this).children().find('img.img-product-second').show();
+    //     }
+    // }, function () {
+    //     if ($(this).children().find('img.img-product-second')) {
+    //         $(this).children().find('img.img-product-second').hide();
+    //         $(this).children().find('img.img-product-first').show();
+    //     }
+    // });
 
 
     /*[ 6. Chat  ]

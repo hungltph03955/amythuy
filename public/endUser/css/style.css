@@ -393,8 +393,8 @@ button.iCon-searchAll:hover {
 .object {
     animation: skew 10s infinite;
     transform: skew();
-    transition-duration: 1s;
-    -webkit-transition-duration: 1s;
+    transition-duration: 10s;
+    -webkit-transition-duration: 10s;
 }
 
 .object:hover {
