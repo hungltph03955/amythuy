@@ -218,12 +218,7 @@
                 <li class="item-menu-mobile sale-noti">
                     <a href="javascript:void(0)">{{ __('messages.categories') }}</a>
                     @if(isset($cates))
-                        <ul class="sub-menu">
-                            @foreach($cates as $cate )
-                                <li><a href="{{route('endUser.category.detail',[$cate->slug])}}">{{$cate->name}}</a>
-                                </li>
-                            @endforeach
-                        </ul>
+                        {{ subMenuMobile($cates, 0) }}
                     @endif
                     <i class="arrow-main-menu fa fa-angle-right" aria-hidden="true"></i>
                 </li>
