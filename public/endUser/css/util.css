@@ -9201,7 +9201,7 @@
     -webkit-transition: all 0.6s;
     -o-transition: all 0.6s;
     -moz-transition: all 0.6s;
-    transition: all 0.6s;
+    transition: all 4.6s;
 }
 
 .hov-img-zoom:hover img {
@@ -9263,7 +9263,7 @@
     -webkit-transition: all 0.4s;
     -o-transition: all 0.4s;
     -moz-transition: all 0.4s;
-    transition: all 0.4s;
+    transition: all 2.4s;
 }
 
 .trans-0-5 {

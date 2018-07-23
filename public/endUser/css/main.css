@@ -823,7 +823,7 @@ button.btn-Order {
 .logo {
     display: block;
     position: relative;
-    top: 40px;
+    top: 43px;
     -webkit-transform: translateY(-50%);
     -moz-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
@@ -1569,16 +1569,31 @@ li.sale-noti > a {
     background-position: center center;
 }
 
+.item-slick3 {
+    width: 100%;
+    height: 942px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
 
 @media (max-width: 992px) {
     .item-slick2 {
         height: 375px;
+    }
+
+    .item-slick3 {
+        height: 284px;
     }
 }
 
 @media (max-width: 576px) {
     .item-slick2 {
         height: 190px;
+    }
+
+    .item-slick3 {
+        height: 166px;
     }
 }
 
@@ -2121,6 +2136,7 @@ li.sale-noti > a {
         height: 200px;
         min-height: 200px;
     }
+
     .bg-title-page .l-text2 {
         font-size: 35px;
     }
