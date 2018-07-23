@@ -66,12 +66,14 @@ function subMenu($data, $parent = 0) {
  * @author Spainno3
  */
 function subMenuMobile($data, $parent = 0) {
-    echo '<ul class="sub_menu">';
+    echo '<ul class="cd-accordion-menu">';
     foreach ($data as $item) {
         if ($item->parent_id == $parent) {
-            echo '<li class="noActive '.renderClassMenuActive($item->slug).'"><a href="'.renderRoute($item).'">'.$item->name.'</a>';
-            subMenu($data, $item->id);
-            echo '<i class="arrow-main-menu fa fa-angle-right turn-arrow" aria-hidden="true"></i>';
+            echo '<li class="has-children '.renderClassMenuActive($item->slug).'">'
+                .'<a href="'.renderRoute($item).'">'
+                .'<label for="group-'.$item->id.'">'.$item->name.'</label></a>'
+                .'<i class="arrow-main-menu-li fa fa-angle-right" aria-hidden="true"></i><input type="checkbox" name ="group-'.$item->id.'" id="group-'.$item->id.'">';
+            subMenuMobile($data, $item->id);
             echo '</li>';
         }
     }
