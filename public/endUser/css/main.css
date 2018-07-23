@@ -2108,7 +2108,7 @@ li.sale-noti > a {
 */
 .bg-title-page {
     width: 100%;
-    min-height: 476px;
+    min-height: 520px;
     padding-left: 15px;
     padding-right: 15px;
     background-repeat: no-repeat;
@@ -2117,6 +2117,10 @@ li.sale-noti > a {
 }
 
 @media (max-width: 576px) {
+    .bg-title-page {
+        height: 200px;
+        min-height: 200px;
+    }
     .bg-title-page .l-text2 {
         font-size: 35px;
     }
