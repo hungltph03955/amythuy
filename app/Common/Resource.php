@@ -57,6 +57,27 @@ function subMenu($data, $parent = 0) {
     echo '</ul>';
 }
 
+/**
+ * Render subMenuMobile
+ * 
+ * @param object $data.
+ * @param int $id
+ * @return string list
+ * @author Spainno3
+ */
+function subMenuMobile($data, $parent = 0) {
+    echo '<ul class="sub_menu">';
+    foreach ($data as $item) {
+        if ($item->parent_id == $parent) {
+            echo '<li class="noActive '.renderClassMenuActive($item->slug).'"><a href="'.renderRoute($item).'">'.$item->name.'</a>';
+            subMenu($data, $item->id);
+            echo '<i class="arrow-main-menu fa fa-angle-right turn-arrow" aria-hidden="true"></i>';
+            echo '</li>';
+        }
+    }
+    echo '</ul>';
+}
+
 function renderClassMenuActive($slug) {
     return request()->is("category/".$slug.".html") ? "sale-noti" : "";
 }
