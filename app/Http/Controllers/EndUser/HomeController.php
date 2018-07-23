@@ -50,6 +50,7 @@ class HomeController extends Controller
         // $products = $this->productsRepository->getFeaturedProducts(LIMIT_PAGE);
         // $news = $this->newRepository->getNews();
         $news = $products = [];
+
         $imagesBanner = $this->imageBannerRepository->gets();
 
         $category = $this->categories->getParentCategories();

@@ -8,7 +8,8 @@
     <!-- Banner -->
     @include('element.section.banner')
     <!-- New Product -->
-    @if(!empty($product))
+    {{-- @if(!$products->isEmpty()) --}}
+    @if(!empty($products))
         <section class="newproduct bgwhite p-t-45">
             <div class="container">
                 <div class="sec-title p-b-60">
@@ -57,7 +58,10 @@
         </section>
     @endif
 
-    {{--@include('element.section.blog', ['news' => $news])--}}
+    {{-- @if(!$news->isEmpty()) --}}
+    @if(!empty($news))
+        @include('element.section.blog', ['news' => $news])
+    @endif
     <!-- Blog -->
 
 @endsection

@@ -124,7 +124,7 @@
                                 <div class="col-sm-6 col-md-6 col-lg-4 p-b-50">
                                     <!-- Block2 -->
                                     <div class="block2">
-                                        <div class="block2-img hov-img-zoom wrap-pic-w of-hidden pos-relative {{renderClass($product->updated_at, NEW_DATE)}}">
+                                        <div class="block2-img hov-img-zoom wrap-pic-w of-hidden pos-relative parent-hover-img {{renderClass($product->updated_at, NEW_DATE)}}">
                                             <a href="{{route('endUser.product.detail',['id'=> $product->id, 'slug'=> $product->slug])}}">
                                                 @if(file_exists( public_path().PATH_IMAGE_MASTER. $product->img))
                                                     <img src="{{PATH_IMAGE_MASTER. $product->img}}"
@@ -135,9 +135,7 @@
                                                 @if(!$product->photo->isEmpty())
                                                     @if(file_exists( public_path().PATH_IMAGE_DETAIL. $product->photo[0]['name']))
                                                         <img src="{{PATH_IMAGE_DETAIL. $product->photo[0]['name']}}"
-                                                            alt="{{$product->name ? $product->name : ''}}" class="img-product-second" style="display: none;">
-                                                    @else
-                                                        <img src="{{PATH_NO_IMAGE}}" class="img-product-second">
+                                                            alt="{{$product->name ? $product->name : ''}}" class="hover-img">
                                                     @endif
                                                 @endif
                                             </a>

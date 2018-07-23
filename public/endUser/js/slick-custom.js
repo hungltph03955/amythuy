@@ -50,7 +50,7 @@
             dotsClass:'slick1-dots',
             infinite: true,
             autoplay: true,
-            autoplaySpeed: 5000,
+            autoplaySpeed: 6000,
             arrows: true,
             appendArrows: $('.wrap-slick1'),
             prevArrow:'<button class="arrow-slick1 prev-slick1"><i class="fa  fa-angle-left" aria-hidden="true"></i></button>',

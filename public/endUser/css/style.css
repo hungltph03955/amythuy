@@ -391,10 +391,10 @@ button.iCon-searchAll:hover {
 }
 
 .object {
-    animation: skew 10s infinite;
+    animation: skew 20s infinite;
     transform: skew();
-    transition-duration: 10s;
-    -webkit-transition-duration: 10s;
+    transition-duration: 20s;
+    -webkit-transition-duration: 20s;
 }
 
 .object:hover {
@@ -419,4 +419,28 @@ button.iCon-searchAll:hover {
         -ms-transform: scale(1, 1) translate(0px, 0px);
         -webkit-transform: scale(1, 1) translate(0px, 0px);
     }
+}
+
+.parent-hover-img{
+    position: relative;
+    z-index: 1;
+    margin-bottom: 50px;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+.parent-hover-img:hover .hover-img {
+    opacity: 1;
+    visibility: visible;
+}
+
+.hover-img{
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
 }
