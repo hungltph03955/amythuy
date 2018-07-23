@@ -47,8 +47,9 @@ class HomeController extends Controller
 
     public function index()
     {
-        $products = $this->productsRepository->getFeaturedProducts(LIMIT_PAGE);
-        $news = $this->newRepository->getNews();
+        // $products = $this->productsRepository->getFeaturedProducts(LIMIT_PAGE);
+        // $news = $this->newRepository->getNews();
+        $news = $products = [];
         $imagesBanner = $this->imageBannerRepository->gets();
 
         $category = $this->categories->getParentCategories();

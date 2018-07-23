@@ -27,9 +27,9 @@
 
         <div class="wrap_header">
             <!-- Logo -->
-            <div class="topbar-child1" style="display: none;">
-                <a href="/" class="logo">
-                    <img src="{{asset('endUser/images/icons/logoAmthy.png')}}" alt="IMG-LOGO"/>
+            <div class="topbar-child1" style="display: none;top: 40px;">
+                <a href="/" class="logo" style="top: 40px;">
+                    <img src="{{asset('endUser/images/icons/logoAmthy.png')}}" alt="IMG-LOGO" style="width: 100px;"/>
                 </a>
             </div>
 
