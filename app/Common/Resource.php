@@ -71,7 +71,7 @@ function subMenuMobile($data, $parent = 0) {
         if ($item->parent_id == $parent) {
             echo '<li class="has-children '.renderClassMenuActive($item->slug).'">'
                 .'<a href="'.renderRoute($item).'">'
-                .'<label for="group-'.$item->id.'">'.$item->name.'</label></a>'
+                .'<label>'.$item->name.'</label></a>'
                 .'<i class="arrow-main-menu-li fa fa-angle-right" aria-hidden="true"></i><input type="checkbox" name ="group-'.$item->id.'" id="group-'.$item->id.'">';
             subMenuMobile($data, $item->id);
             echo '</li>';
