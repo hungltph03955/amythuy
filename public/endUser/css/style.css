@@ -497,3 +497,8 @@ button.iCon-searchAll:hover {
     transform: scale(0.9);
     transition: all 11.4s;
 }
+
+.categoryItemText {
+    color: #824f4f;
+    background-color: #dcdcdc
+}

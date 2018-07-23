@@ -16,7 +16,7 @@
                                  style="width: 161px;">
                                 <!-- Button -->
                                 <a href="{{renderRoute($categoryItem)}}"
-                                   class="flex-c-m size2 bo-rad-2 s-text2 bgwhite hov1 trans-0-4">{{ __('messages.btn_view_more') }}</a>
+                                   class="flex-c-m size2 bo-rad-2 s-text2 bgwhite hov1 trans-0-4 categoryItemText">{{ $categoryItem->name }}</a>
                             </div>
                         </div>
                     </div>
