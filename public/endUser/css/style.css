@@ -393,7 +393,7 @@ button.iCon-searchAll:hover {
 .object {
     animation: skew 18s infinite;
     transform: skew();
-    transition-duration: 18s;
+    transition-duration: 27s;
     -webkit-transition-duration: 18s;
 }
 
@@ -421,19 +421,20 @@ button.iCon-searchAll:hover {
     }
 }
 
-.parent-hover-img{
+.parent-hover-img {
     position: relative;
     z-index: 1;
     margin-bottom: 50px;
     overflow: hidden;
     background-color: #ffffff;
 }
+
 .parent-hover-img:hover .hover-img {
     opacity: 1;
     visibility: visible;
 }
 
-.hover-img{
+.hover-img {
     -webkit-transition-duration: 500ms;
     transition-duration: 500ms;
     position: absolute;
@@ -443,4 +444,13 @@ button.iCon-searchAll:hover {
     z-index: 10;
     opacity: 0;
     visibility: hidden;
+}
+
+.category-image {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.div-categoryImage {
+    height: 945px;
 }
