@@ -226,25 +226,58 @@ button.iCon-searchAll:hover {
     .divSearchAll {
         width: 100%;
     }
-    .header1{
+
+    .header1 {
         height: 90px !important;
     }
-    footer.bg6 img{
+
+    footer.bg6 img {
         width: 200px;
     }
-    .formSearch-All{
+
+    .formSearch-All {
         position: relative;
         top: 77px;
         z-index: 1100;
     }
+
     .wrap-slick3-dots {
         height: 565px;
     }
-    .item-category-home{
-        height: 200px !important;
+
+    .item-category-home {
+        height: 165px !important;
+    }
+
+    .chat_on {
+        position: fixed !important;
+        right: 10px !important;
+    }
+
+    .divCtaterory-first-aLink {
+        margin-left: 0px;
+    }
+
+    .divCtaterory-first-aLink a {
+        font-size: 22px;
+        justify-content: unset;
+    }
+
+}
+
+@media (min-width: 350px) and (max-width: 500px) {
+    .item-category-home {
+        height: 165px !important;
     }
 }
-.item-category-home{
+
+@media (min-width: 550px) and (max-width: 670px) {
+    .item-category-home {
+        height: 300px !important;
+    }
+}
+
+.item-category-home {
     width: 100%;
     height: 942px;
     background-size: cover;
@@ -478,6 +511,7 @@ button.iCon-searchAll:hover {
 .div-categoryImage {
     height: 945px;
 }
+
 .cd-accordion-menu input[type=checkbox] {
     /* hide native checkbox */
     position: absolute;
@@ -513,9 +547,6 @@ button.iCon-searchAll:hover {
     -o-transition: all 0.4s !important;
     -moz-transition: all 0.4s !important;
     transition: all 0.4s !important;
-<<<<<<< HEAD
->>>>>>> master
-=======
 }
 
 .categoryImage {
@@ -535,6 +566,4 @@ button.iCon-searchAll:hover {
 
 .categoryItemText {
     color: #824f4f;
-    background-color: #dcdcdc
->>>>>>> master
 }

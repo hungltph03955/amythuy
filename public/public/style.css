@@ -187,3 +187,9 @@ span.colors_name_search {
     height: 384px;
 }
 
+@media (max-width: 992px) {
+    body {
+        width: 1091px;
+        overflow: scroll;
+    }
+}

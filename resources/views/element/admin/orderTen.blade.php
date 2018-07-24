@@ -6,6 +6,7 @@
             <th>Tên khách hàng</th>
             <th>Mã đơn hàng</th>
             <th>Trạng thái</th>
+            <th>Ngày đặt hàng</th>
             <th>Tổng tiền</th>
             <th>Mô tả</th>
             <th>Thao tác</th>
@@ -31,6 +32,7 @@
                         {{ 'Hết hàng' }}
                     @endif
                 </td>
+                <td>{{ $orderDate = date("d-m-Y", strtotime($order->updated_at)) }}</td>
                 <td>{{MONEY}} {{ $order->total }}</td>
                 <td>{{$order->cancel_description}}</td>
                 <td>

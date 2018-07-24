@@ -224,6 +224,10 @@ h2.categoy-first {
     margin-bottom: 30px;
 }
 
+.divCtaterory-first-aLink a {
+    font-size: 35px;
+}
+
 .divCtaterory-firstSpan {
 
 }
@@ -1685,7 +1689,7 @@ li.sale-noti > a {
     }
 
     .item-slick1 {
-        height: 470px;
+        height: 306px;
     }
 }
 
@@ -1702,7 +1706,7 @@ li.sale-noti > a {
     }
 
     .item-slick1 {
-        height: 370px;
+        height: 200px;
     }
 }
 

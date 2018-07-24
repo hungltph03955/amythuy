@@ -36,7 +36,7 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{asset('endUser/css/util.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('endUser/css/main.css')}}">
-    <!-- <link rel="stylesheet" type="text/css" href="{{asset('endUser/css/main.min.css')}}"> -->
+<!-- <link rel="stylesheet" type="text/css" href="{{asset('endUser/css/main.min.css')}}"> -->
     <link rel="stylesheet" type="text/css" href="{{asset('endUser/vendor/daterangepicker/daterangepicker.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('endUser/vendor/noui/nouislider.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('endUser/css/style.css')}}">
@@ -81,9 +81,9 @@
 </div>
 
 <!--Button togle chat-->
-<div class="chat_on">
-    <span class="chat_on_icon"><i class="fa fa-comments" aria-hidden="true"></i></span>
-</div>
+{{--<div class="chat_on">--}}
+{{--<span class="chat_on_icon"><i class="fa fa-comments" aria-hidden="true"></i></span>--}}
+{{--</div>--}}
 <!--===============CHAT ON END===============-->
 
 <!-- Container Selection1 -->
@@ -122,11 +122,15 @@
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-83777920-3"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'UA-83777920-3');
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'UA-83777920-3');
 </script>
 @stack('scripts')
 @if(Session::has('message.level'))
