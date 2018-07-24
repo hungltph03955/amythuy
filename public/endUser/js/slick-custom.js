@@ -137,8 +137,8 @@
         appendDots: $('.wrap-slick3-dots'),
         dotsClass: 'slick3-dots',
         infinite: true,
-        autoplay: false,
-        autoplaySpeed: 6000,
+        autoplay: true,
+        autoplaySpeed: 2000,
         arrows: false,
         customPaging: function (slick, index) {
             var portrait = $(slick.$slides[index]).data('thumb');
