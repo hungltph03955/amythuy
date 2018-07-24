@@ -29,7 +29,7 @@
             <!-- Logo -->
             <div class="topbar-child1" style="display: none;">
                 <a href="/" class="logo">
-                    <img src="{{asset('endUser/images/icons/logoAmthy.png')}}" alt="IMG-LOGO"/>
+                    <img src="{{asset('endUser/images/icons/logoAmthy.png')}}" alt="IMG-LOGO" style="width: 100px;"/>
                 </a>
             </div>
 
@@ -122,7 +122,7 @@
     <!-- Header Mobile -->
     <div class="wrap_header_mobile">
         <!-- Logo moblie -->
-        <a href="index.html" class="logo-mobile">
+        <a href="/" class="logo-mobile">
             <img src="{{asset('endUser/images/icons/logoAmthy.png')}}" alt="IMG-LOGO"/>
         </a>
 

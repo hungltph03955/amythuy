@@ -122,6 +122,7 @@
     for (var i = 0; i < arrowMainMenu.length; i++) {
         $(arrowMainMenu[i]).on('click', function () {
             $(this).parent().find('.cd-accordion-menu').slideToggle();
+            $(this).parent().find('.cd-accordion-menu').find('.cd-accordion-menu').hide();
             $(this).toggleClass('turn-arrow');
         })
     }

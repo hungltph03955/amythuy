@@ -1,4 +1,4 @@
-<footer class="bg6" >
+<footer class="bg6">
     <div class="t-center p-l-15 p-r-15">
         <div>
             <a href="/">
