@@ -5,7 +5,7 @@
                 @foreach($category as $categoryItem)
                     <div class="col-sm-12 col-md-12 col-lg-12 m-l-r-auto">
                         @if(file_exists( public_path().PATH_IMAGE_CATEGORY. $categoryItem->img))
-                            <div class="item-slick3 item1-slick1 hov-categoryItem-zoom"
+                            <div class="item-category-home item1-slick1 hov-categoryItem-zoom"
                                  style="background-image: url({{asset(PATH_IMAGE_CATEGORY. $categoryItem->img)}});">
                             </div>
                         @endif

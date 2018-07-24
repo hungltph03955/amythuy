@@ -240,6 +240,16 @@ button.iCon-searchAll:hover {
     .wrap-slick3-dots {
         height: 565px;
     }
+    .item-category-home{
+        height: 270px !important;
+    }
+}
+.item-category-home{
+    width: 100%;
+    height: 942px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
 .btn-category {
@@ -403,8 +413,6 @@ button.iCon-searchAll:hover {
     -o-transform: translateY(-50%);
     transform: translateY(-50%);
 }
-
-@media
 
 .object {
     animation: skew 27s infinite;
