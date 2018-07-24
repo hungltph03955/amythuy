@@ -823,7 +823,7 @@ button.btn-Order {
 .logo {
     display: block;
     position: relative;
-    top: 43px;
+    top: 60px;
     -webkit-transform: translateY(-50%);
     -moz-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
@@ -832,7 +832,7 @@ button.btn-Order {
 }
 
 .logo img {
-    width: 100%;
+    width: 210px;
 }
 
 /*[ Menu ]
@@ -1231,6 +1231,9 @@ li.sale-noti > a {
 /*[ Menu mobile ]
 -----------------------------------------------------------*/
 .wrap-side-menu {
+    position: fixed;
+    z-index: 1100;
+    top: 90px;
     width: 100%;
     background-color: white;
     display: none;
@@ -1512,6 +1515,10 @@ li.sale-noti > a {
 
 @media (max-width: 992px) {
     .wrap_header_mobile {
+        position: fixed;
+        z-index: 1100;
+        width: 100%;
+        height: 90px;
         display: -webkit-box;
         display: -webkit-flex;
         display: -moz-box;
@@ -1583,7 +1590,7 @@ li.sale-noti > a {
     }
 
     .item-slick3 {
-        height: 284px;
+        height: 565px;
     }
 }
 
@@ -1593,7 +1600,7 @@ li.sale-noti > a {
     }
 
     .item-slick3 {
-        height: 166px;
+        height: 565px;
     }
 }
 

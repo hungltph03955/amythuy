@@ -226,6 +226,20 @@ button.iCon-searchAll:hover {
     .divSearchAll {
         width: 100%;
     }
+    .header1{
+        height: 90px !important;
+    }
+    footer.bg6 img{
+        width: 200px;
+    }
+    .formSearch-All{
+        position: relative;
+        top: 77px;
+        z-index: 1100;
+    }
+    .wrap-slick3-dots {
+        height: 565px;
+    }
 }
 
 .btn-category {
@@ -379,7 +393,7 @@ button.iCon-searchAll:hover {
 }
 
 .wrap_header .logo {
-    width: 60px;
+    top: 30px;
     display: block;
     position: absolute;
     left: 19%;
@@ -389,6 +403,8 @@ button.iCon-searchAll:hover {
     -o-transform: translateY(-50%);
     transform: translateY(-50%);
 }
+
+@media
 
 .object {
     animation: skew 27s infinite;

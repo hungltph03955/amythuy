@@ -29,7 +29,7 @@
             <!-- Logo -->
             <div class="topbar-child1" style="display: none;">
                 <a href="/" class="logo">
-                    <img src="{{asset('endUser/images/icons/logoAmthy.png')}}" alt="IMG-LOGO"/>
+                    <img src="{{asset('endUser/images/icons/logoAmthy.png')}}" alt="IMG-LOGO" style="width: 100px;"/>
                 </a>
             </div>
 

@@ -7,7 +7,7 @@
  * 4. on click search category
  * 5. Hover products
  * 6. Chat
- * 5. Remove submenu empty
+ * 7. Remove submenu empty
  */
 (function ($) {
     "use strict";
