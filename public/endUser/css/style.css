@@ -296,7 +296,7 @@ button.iCon-searchAll:hover {
     -ms-user-select: none;
     user-select: none;
     padding: .5rem .75rem;
-    font-size: 15px;
+    font-size: 13px;
     line-height: 1.25;
     transition: all .15s ease-in-out;
     border: 1px solid gray;
