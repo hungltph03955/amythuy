@@ -1,4 +1,4 @@
-<section class="banner bgwhite p-t-40 p-b-40">
+<section class="banner bgwhite p-t-10 p-b-20">
     <div class="container-full">
         <div class="row categoryImage">
             @if(isset($category))

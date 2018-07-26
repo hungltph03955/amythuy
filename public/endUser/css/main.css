@@ -220,8 +220,6 @@ h2.categoy-first {
 .divCtaterory-first-aLink {
     margin-left: auto;
     margin-right: auto;
-    margin-top: 30px;
-    margin-bottom: 30px;
 }
 
 .divCtaterory-first-aLink a {
@@ -957,7 +955,7 @@ li.sale-noti > a {
 
 .header-wrapicon1,
 .header-wrapicon2 {
-    height: 27px;
+    height: 18px;
     position: relative;
 }
 
@@ -1163,10 +1161,8 @@ li.sale-noti > a {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    min-height: 80px;
-    padding-left: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    min-height: 50px;
+    padding-left: 10px;
     background-color: white;
     display: none;
 }
@@ -1200,7 +1196,7 @@ li.sale-noti > a {
     -ms-transform: scale(0.8);
     -o-transform: scale(0.8);
     transform: scale(0.8);
-    margin-top: 5px;
+    margin-top: 11px;
 }
 
 /*[ Header icon mobile ]
@@ -1212,7 +1208,7 @@ li.sale-noti > a {
     display: -ms-flexbox;
     display: flex;
     align-items: center;
-    margin-right: 15px;
+    margin-right: 9px;
 }
 
 .linedivide2 {
@@ -1237,7 +1233,7 @@ li.sale-noti > a {
 .wrap-side-menu {
     position: fixed;
     z-index: 1100;
-    top: 90px;
+    top: 56px;
     width: 100%;
     background-color: white;
     display: none;
@@ -1522,7 +1518,7 @@ li.sale-noti > a {
         position: fixed;
         z-index: 1100;
         width: 100%;
-        height: 90px;
+        height: 55px;
         display: -webkit-box;
         display: -webkit-flex;
         display: -moz-box;
@@ -1706,7 +1702,7 @@ li.sale-noti > a {
     }
 
     .item-slick1 {
-        height: 200px;
+        height: 230px;
     }
 }
 
