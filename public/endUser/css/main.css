@@ -1196,7 +1196,7 @@ li.sale-noti > a {
     -ms-transform: scale(0.8);
     -o-transform: scale(0.8);
     transform: scale(0.8);
-    margin-top: 11px;
+    margin-top: 15px;
 }
 
 /*[ Header icon mobile ]
@@ -1223,7 +1223,7 @@ li.sale-noti > a {
 .header-icons-mobile .header-cart {
     width: 300px;
     top: 190%;
-    right: -80px;
+    right: -33px;
     z-index: 1100;
     transform-origin: top right;
 }

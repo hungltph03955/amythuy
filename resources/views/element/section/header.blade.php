@@ -37,7 +37,8 @@
             <div class="wrap_menu">
                 <nav class="menu">
                     <ul class="main_menu" id="main_menu_active">
-                        <li class="noActive {{ request()->is('/') ? 'sale-noti' : '' }}"><a href="/">{{ __('messages.home') }}</a>
+                        <li class="noActive {{ request()->is('/') ? 'sale-noti' : '' }}"><a
+                                    href="/">{{ __('messages.home') }}</a>
                         </li>
                         <li class="noActive {{ request()->is('category/*') ? 'sale-noti' : '' }}">
                             <a href="javascript:void(0)">{{ __('messages.categories') }}</a>
@@ -168,13 +169,13 @@
                             <div class="header-cart-wrapbtn">
                                 <!-- Button -->
                                 <a href="{{route('endUser.cart.index')}}"
-                                   class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">{{ __('messages.btn_view_cart') }}</a>
+                                   class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4 cart-medium">{{ __('messages.btn_view_cart') }}</a>
                             </div>
 
                             <div class="header-cart-wrapbtn">
                                 <!-- Button -->
                                 <a href="{{route('endUser.order.index')}}"
-                                   class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">{{ __('messages.btn_check_out') }}</a>
+                                   class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4 cart-medium">{{ __('messages.btn_check_out') }}</a>
                             </div>
                         </div>
                     </div>
@@ -222,11 +223,13 @@
                     @endif
                     <i class="arrow-main-menu fa fa-angle-right" aria-hidden="true"></i>
                 </li>
-                <li class="item-menu-mobile"><a href="{{route('endUser.cart.index')}}">{{ __('messages.cart') }}</a></li>
+                <li class="item-menu-mobile"><a href="{{route('endUser.cart.index')}}">{{ __('messages.cart') }}</a>
+                </li>
                 {{--<li class="item-menu-mobile"><a href="{{route('endUser.sale.index')}}">{{ __('messages.sale') }}</a></li>--}}
                 {{--<li class="item-menu-mobile"><a href="{{route('endUser.blog.index')}}">{{ __('messages.blog') }}</a></li>--}}
                 {{--<li class="item-menu-mobile"><a href="{{route('endUser.about.index')}}">{{ __('messages.about') }}</a></li>--}}
-                <li class="item-menu-mobile"><a href="{{route('endUser.contact.index')}}">{{ __('messages.contact') }}</a></li>
+                <li class="item-menu-mobile"><a
+                            href="{{route('endUser.contact.index')}}">{{ __('messages.contact') }}</a></li>
             </ul>
         </nav>
     </div>

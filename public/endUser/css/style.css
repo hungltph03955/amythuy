@@ -263,6 +263,17 @@ button.iCon-searchAll:hover {
         justify-content: unset;
     }
 
+    .header-icons-mobile .header-cart {
+        width: 180px;
+    }
+
+    .header-cart-wrapbtn .cart-medium {
+        height: 23px;
+    }
+
+    .header-cart-wrapbtn a.size1 {
+        font-size: 7px;
+    }
 }
 
 @media (min-width: 350px) and (max-width: 500px) {
@@ -274,6 +285,10 @@ button.iCon-searchAll:hover {
 @media (min-width: 550px) and (max-width: 670px) {
     .item-category-home {
         height: 300px !important;
+    }
+
+    .bg-title-page {
+        min-height: 333px;
     }
 }
 
