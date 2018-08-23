@@ -17,8 +17,8 @@
             <form role="form" method="POST" action="{{action('Admin\ProductController@update', $product->id)}}"
                   enctype="multipart/form-data">
                 <div class="col-md-12">
-                    <div class="box">
-                        <div class="box-header">
+                    <div class="col-md-12 color-fixpading">
+                            <div class="box box-primary">
                             <h3 class="box-title">Chỉnh sửa</h3>
                         </div>
                         <div class="box-body table-responsive no-padding">
@@ -118,8 +118,10 @@
                             </div>
                         </div>
                     </div>
+
+                    <!--Sửa ảnh chi tiết sp-->
                     <div class="col-md-12 color-fixpading">
-                        <div class="box box-danger">
+                        <div class="box box-primary">
                             <div class="box-header">
                                 <h3 class="box-title">Các ảnh chi tiết hiện có của sản phẩm</h3>
                             </div>
@@ -169,6 +171,8 @@
                             </div>
                         </div>
                     </div>
+
+                    <!--Sửa màu sắc sp-->
                     <div class="col-md-12 color-fixpading">
                         <div class="box box-primary">
                             <div class="box-header">
@@ -226,8 +230,10 @@
                             </div>
                         </div>
                     </div>
+
+                    <!--Sửa kích cỡ sp-->
                     <div class="col-md-12 color-fixpading">
-                        <div class="box box-success">
+                        <div class="box box-primary">
                             <div class="box-header">
                                 <h3 class="box-title">Thêm kích cỡ</h3>
                             </div>
@@ -269,8 +275,10 @@
                             </div>
                         </div>
                     </div>
+
+                    <!--Sửa chất liệu sp-->
                     <div class="col-md-12 color-fixpading">
-                        <div class="box box-info">
+                        <div class="box box-primary">
                             <div class="box-header">
                                 <h3 class="box-title">Thêm chất liệu</h3>
                             </div>
@@ -312,8 +320,10 @@
                             </div>
                         </div>
                     </div>
+
+                    <!--Sửa bộ sưu tập sp-->
                     <div class="col-md-12 color-fixpading">
-                        <div class="box box-warning">
+                        <div class="box box-primary">
                             <div class="box-header">
                                 <h3 class="box-title">Thuộc bộ sưu tập</h3>
                             </div>
@@ -355,17 +365,19 @@
                             </div>
                         </div>
                     </div>
+
+                    <!--Button submit-->
                     <div class="col-md-12 color-fixpading">
                         <div class="box box-danger">
                             <div class="box-body table-responsive no-padding">
                                 <div class="box-footer">
-                                    <button type="submit" class="btn btn-primary">Sửa sản phẩm</button>
+                                    <button type="submit" class="btn btn-danger">Sửa sản phẩm</button>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
             </form>
-        </div>
         </div>
     </section>
 @endsection

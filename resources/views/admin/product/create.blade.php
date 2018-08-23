@@ -1,9 +1,7 @@
 @extends('layouts.admin.master')
 
 @section('content')
-
-
-    <section class="content-header content-child">
+    <section class="content-header">
         <h1>Thêm mới Sản phẩm
             <small>(Thêm mới)</small>
         </h1>
@@ -17,111 +15,112 @@
 
     <section class="content">
         <div class="row">
-            <form role="form" method="POST" action="{{action('Admin\ProductController@store')}}"
+            <div class="col-md-12">
+                <form role="form" method="POST" action="{{action('Admin\ProductController@store')}}"
                   enctype="multipart/form-data">
-                <div class="col-md-12">
-                    <div class="box">
-                        <div class="box-header">
-                            <h3 class="box-title">Thêm mới</h3>
-                        </div>
-                        <div class="box-body table-responsive no-padding">
-
-                            {{ csrf_field() }}
-                            <div class="box-body">
-
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Tên sản phẩm :</label>
-                                    <input id="name" type="text" class="form-control" name="name"
-                                           value="{{ old('name') }}">
-                                    @if ($errors->has('name'))
-                                        <span class="help-block categoryAdd">
-                                                <strong>{{ $errors->first('name') }}</strong>
-                                            </span>
-                                    @endif
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Danh mục lớn:</label>
-                                    <select class="form-control" name="category_id">
-                                        @foreach ($categories as $category)
-                                            <option value="{{ $category->id }}"
-                                                    {{ $category->id==$product->category_id ? 'selected' : '' }}>{{$category->name}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Mô tả sản phẩm:</label>
-                                    <textarea name="description" id="editor1" rows="10" cols="80">
-                                    </textarea>
-                                    @if ($errors->has('description'))
-                                        <span class="help-block categoryAdd">
-                                                <strong>{{ $errors->first('description') }}</strong>
-                                            </span>
-                                    @endif
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Số lượng :</label>
-                                    <input id="quantity" type="text" class="form-control" name="quantity"
-                                           value="{{ old('quantity') }}">
-                                    @if ($errors->has('quantity'))
-                                        <span class="help-block categoryAdd">
-                                            <strong>{{ $errors->first('quantity') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Trị giá :</label>
-                                    <input id="price" type="text" class="form-control" name="price"
-                                           value="{{ old('price') }}">
-                                    @if ($errors->has('price'))
-                                        <span class="help-block categoryAdd">
-                                            <strong>{{ $errors->first('price') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-
-
-                                <div class="form-group">
-                                    <label for="exampleInputFile">Ảnh đại diện sản phẩm :</label>
-                                    <input type="file" id="exampleInputFile" name="imageMater"
-                                           onchange="readURLimageMater(this);">
-                                    <div class="imageMaterShowFoloat"><img id="imageMaterShow" src=""/></div>
-                                    <p class="help-block">(Ảnh đại diện cho sản phẩm)</p>
-                                    @if ($errors->has('imageMater'))
-                                        <span class="help-block categoryAdd">
-                                            <strong>{{ $errors->first('imageMater') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-
-
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Trạng thái sản phẩm :</label>
-                                    <div class="radio">
-                                        <label>
-                                            <input type="radio" name="status" id="optionsRadios1" value="0"
-                                                   checked="">
-                                            Hiện
-                                        </label>
+                {{ csrf_field() }}
+                    <!--Thêm sp-->
+                    <div class="color-fixpading">
+                        <div class="box box-primary">
+                            <div class="box-header">
+                                <h3 class="box-title">Thêm mới</h3>
+                            </div>
+                            <div class="box-body table-responsive">
+                                <div class="box-body">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Tên sản phẩm :</label>
+                                        <input id="name" type="text" class="form-control" name="name"
+                                            value="{{ old('name') }}">
+                                        @if ($errors->has('name'))
+                                            <span class="help-block categoryAdd">
+                                                    <strong>{{ $errors->first('name') }}</strong>
+                                                </span>
+                                        @endif
                                     </div>
-                                    <div class="radio">
-                                        <label>
-                                            <input type="radio" name="status" id="optionsRadios2"
-                                                   value="1">
-                                            Ẩn
-                                        </label>
+
+                                    <div class="form-group">
+                                        <label>Danh mục lớn:</label>
+                                        <select class="form-control" name="category_id">
+                                            @foreach ($categories as $category)
+                                                <option value="{{ $category->id }}"
+                                                        {{ $category->id==$product->category_id ? 'selected' : '' }}>{{$category->name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Mô tả sản phẩm:</label>
+                                        <textarea name="description" id="editor1" rows="10" cols="80">
+                                        </textarea>
+                                        @if ($errors->has('description'))
+                                            <span class="help-block categoryAdd">
+                                                    <strong>{{ $errors->first('description') }}</strong>
+                                                </span>
+                                        @endif
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Số lượng :</label>
+                                        <input id="quantity" type="text" class="form-control" name="quantity"
+                                            value="{{ old('quantity') }}">
+                                        @if ($errors->has('quantity'))
+                                            <span class="help-block categoryAdd">
+                                                <strong>{{ $errors->first('quantity') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Trị giá :</label>
+                                        <input id="price" type="text" class="form-control" name="price"
+                                            value="{{ old('price') }}">
+                                        @if ($errors->has('price'))
+                                            <span class="help-block categoryAdd">
+                                                <strong>{{ $errors->first('price') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label for="exampleInputFile">Ảnh đại diện sản phẩm :</label>
+                                        <input type="file" id="exampleInputFile" name="imageMater"
+                                            onchange="readURLimageMater(this);">
+                                        <div class="imageMaterShowFoloat"><img id="imageMaterShow" src=""/></div>
+                                        <p class="help-block">(Ảnh đại diện cho sản phẩm)</p>
+                                        @if ($errors->has('imageMater'))
+                                            <span class="help-block categoryAdd">
+                                                <strong>{{ $errors->first('imageMater') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Trạng thái sản phẩm :</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="status" id="optionsRadios1" value="0"
+                                                    checked="">
+                                                Hiện
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="status" id="optionsRadios2"
+                                                    value="1">
+                                                Ẩn
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-
-                    <div class="col-md-12 color-fixpading">
-                        <div class="box box-danger">
+                    <!--Thêm ảnh chi tiết sp-->
+                    <div class="color-fixpading">
+                        <div class="box box-primary">
                             <div class="box-header">
                                 <h3 class="box-title">Thêm ảnh chi tiết sản phẩm</h3>
                             </div>
@@ -140,13 +139,14 @@
                                     </div>
                                 </div>
                                 <div class="box-footer">
-                                    <div class="btn btn-primary imageDetail-clone">Thêm ảnh chi tiết</div>
+                                    <div class="btn btn-primary imageDetail-clone">Thêm</div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-12 color-fixpading">
+                    <!--Thêm màu sắc sp-->
+                    <div class="col-md-12 col-sm-6 color-fixpading">
                         <div class="box box-primary">
                             <div class="box-header">
                                 <h3 class="box-title">Thêm màu sắc</h3>
@@ -175,14 +175,15 @@
 
                                 </div>
                                 <div class="box-footer">
-                                    <div class="btn btn-primary color-clone">Thêm màu sắc</div>
+                                    <div class="btn btn-primary color-clone">Thêm</div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-12 color-fixpading">
-                        <div class="box box-success">
+                    <!--Thêm size sp-->
+                    <div class="col-md-12 col-sm-6 color-fixpading">
+                        <div class="box box-primary">
                             <div class="box-header">
                                 <h3 class="box-title">Thêm kích cỡ</h3>
                             </div>
@@ -202,15 +203,15 @@
                                     </div>
                                 </div>
                                 <div class="box-footer">
-                                    <div class="btn btn-primary size-clone">Thêm kích cỡ</div>
+                                    <div class="btn btn-primary size-clone">Thêm</div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-
-                    <div class="col-md-12 color-fixpading">
-                        <div class="box box-info">
+                    <!--Thêm chất liệu sp-->
+                    <div class="col-md-12 col-sm-6 color-fixpading">
+                        <div class="box box-primary">
                             <div class="box-header">
                                 <h3 class="box-title">Thêm chất liệu</h3>
                             </div>
@@ -230,15 +231,15 @@
                                     </div>
                                 </div>
                                 <div class="box-footer">
-                                    <div class="btn btn-primary material-clone">Thêm chất liệu</div>
+                                    <div class="btn btn-primary material-clone">Thêm</div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-
-                    <div class="col-md-12 color-fixpading">
-                        <div class="box box-warning">
+                    <!--Thêm bộ sưu tập sp-->
+                    <div class="col-md-12 col-sm-6 color-fixpading">
+                        <div class="box box-primary">
                             <div class="box-header">
                                 <h3 class="box-title">Thuộc bộ sưu tập</h3>
                             </div>
@@ -258,26 +259,24 @@
                                     </div>
                                 </div>
                                 <div class="box-footer">
-                                    <div class="btn btn-primary collection-clone">Thêm bộ sưu tập</div>
+                                    <div class="btn btn-primary collection-clone">Thêm</div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
+                    <!--Button submit-->
                     <div class="col-md-12 color-fixpading">
                         <div class="box box-danger">
                             <div class="box-body table-responsive no-padding">
                                 <div class="box-footer">
-                                    <button type="submit" class="btn btn-primary">Thêm sản phẩm</button>
+                                    <button type="submit" class="btn btn-danger">Thêm sản phẩm</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-
-            </form>
-
-        </div>
+                </form>
+            </div>
         </div>
     </section>
 @endsection
