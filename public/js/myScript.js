@@ -55,7 +55,13 @@ $(document).ready(function () {
         removeImageSelect(that);
     });
 
-
+    $('#select-multi-category').multiselect({
+        maxHeight: 600,
+        buttonWidth: '250px',
+        nonSelectedText: 'Chưa chọn danh mục',
+        nSelectedText: ' danh mục đã được chọn',
+        numberDisplayed: 1
+    });
 });
 
 

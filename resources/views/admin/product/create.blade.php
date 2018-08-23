@@ -28,7 +28,7 @@
                             <div class="box-body table-responsive">
                                 <div class="box-body">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Tên sản phẩm :</label>
+                                        <label for="exampleInputEmail1">Tên sản phẩm <i class="fa fa-bell-o"></i></label>
                                         <input id="name" type="text" class="form-control" name="name"
                                             value="{{ old('name') }}">
                                         @if ($errors->has('name'))
@@ -39,12 +39,9 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Danh mục lớn:</label>
-                                        <select class="form-control" name="category_id">
-                                            @foreach ($categories as $category)
-                                                <option value="{{ $category->id }}"
-                                                        {{ $category->id==$product->category_id ? 'selected' : '' }}>{{$category->name}}</option>
-                                            @endforeach
+                                        <label>Chọn danh mục</label>
+                                        <select class="form-control" id="select-multi-category" name="category_id[]" multiple="multiple">
+                                            <?php menuMulti($categories, 0, $str = "---|", old('category_id')) ?>
                                         </select>
                                     </div>
 
@@ -60,7 +57,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Số lượng :</label>
+                                        <label for="exampleInputEmail1">Số lượng <i class="fa fa-bell-o"></i></label>
                                         <input id="quantity" type="text" class="form-control" name="quantity"
                                             value="{{ old('quantity') }}">
                                         @if ($errors->has('quantity'))
@@ -71,7 +68,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Trị giá :</label>
+                                        <label for="exampleInputEmail1">Trị giá <i class="fa fa-bell-o"></i></label>
                                         <input id="price" type="text" class="form-control" name="price"
                                             value="{{ old('price') }}">
                                         @if ($errors->has('price'))
@@ -83,7 +80,7 @@
 
 
                                     <div class="form-group">
-                                        <label for="exampleInputFile">Ảnh đại diện sản phẩm :</label>
+                                        <label for="exampleInputFile">Ảnh đại diện sản phẩm <i class="fa fa-bell-o"></i></label>
                                         <input type="file" id="exampleInputFile" name="imageMater"
                                             onchange="readURLimageMater(this);">
                                         <div class="imageMaterShowFoloat"><img id="imageMaterShow" src=""/></div>
@@ -146,7 +143,7 @@
                     </div>
 
                     <!--Thêm màu sắc sp-->
-                    <div class="col-md-12 col-sm-6 color-fixpading">
+                    <div class="color-fixpading">
                         <div class="box box-primary">
                             <div class="box-header">
                                 <h3 class="box-title">Thêm màu sắc</h3>
@@ -156,7 +153,7 @@
 
                                     <div class="form-group color-element">
                                         <select name='color_id[]' class="form-control color_id">
-                                            <option value="0">chưa có màu sắc</option>
+                                            <option value="0">Chưa có màu sắc</option>
                                             @if(isset($color))
                                                 @foreach ($color as $itemColor)
                                                     <option value="{{ $itemColor['id'] }}">{{ $itemColor['name'] }}</option>
@@ -182,7 +179,7 @@
                     </div>
 
                     <!--Thêm size sp-->
-                    <div class="col-md-12 col-sm-6 color-fixpading">
+                    <div class="color-fixpading">
                         <div class="box box-primary">
                             <div class="box-header">
                                 <h3 class="box-title">Thêm kích cỡ</h3>
@@ -191,14 +188,14 @@
                                 <div class="box-body">
                                     <div class="form-group size-element">
                                         <select name="size_id[]" class="form-control size_id">
-                                            <option value="0">chưa có kích cỡ</option>
+                                            <option value="0">Chưa có kích cỡ</option>
                                             @if(isset($size))
                                                 @foreach ($size as $itemSize)
                                                     <option value="{{ $itemSize['id'] }}">{{ $itemSize['name'] }}</option>
                                                 @endforeach
                                             @endif
                                         </select>
-                                        <div class="btn btn-danger  size-x">X</div>
+                                        <div class="btn btn-danger size-x">X</div>
                                         <p></p>
                                     </div>
                                 </div>
@@ -210,7 +207,7 @@
                     </div>
 
                     <!--Thêm chất liệu sp-->
-                    <div class="col-md-12 col-sm-6 color-fixpading">
+                    <div class="color-fixpading">
                         <div class="box box-primary">
                             <div class="box-header">
                                 <h3 class="box-title">Thêm chất liệu</h3>
@@ -219,7 +216,7 @@
                                 <div class="box-body">
                                     <div class="form-group material-element">
                                         <select name="material_id[]" class="form-control material_id">
-                                            <option value="0">chưa có chất liệu</option>
+                                            <option value="0">Chưa có chất liệu</option>
                                             @if(isset($material))
                                                 @foreach ($material as $itemMaterial)
                                                     <option value="{{ $itemMaterial['id'] }}">{{ $itemMaterial['name'] }}</option>
@@ -238,7 +235,7 @@
                     </div>
 
                     <!--Thêm bộ sưu tập sp-->
-                    <div class="col-md-12 col-sm-6 color-fixpading">
+                    <div class="color-fixpading">
                         <div class="box box-primary">
                             <div class="box-header">
                                 <h3 class="box-title">Thuộc bộ sưu tập</h3>
@@ -247,7 +244,7 @@
                                 <div class="box-body">
                                     <div class="form-group collection-element">
                                         <select name="collection_id[]" class="form-control collection_id">
-                                            <option value="0">chưa có bộ sưu tập</option>
+                                            <option value="0">Chưa có bộ sưu tập</option>
                                             @if(isset($collection))
                                                 @foreach ($collection as $itemCollection)
                                                     <option value="{{ $itemCollection['id'] }}">{{ $itemCollection['name'] }}</option>
@@ -266,7 +263,7 @@
                     </div>
 
                     <!--Button submit-->
-                    <div class="col-md-12 color-fixpading">
+                    <div class="color-fixpading">
                         <div class="box box-danger">
                             <div class="box-body table-responsive no-padding">
                                 <div class="box-footer">

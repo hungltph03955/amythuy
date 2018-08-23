@@ -20,7 +20,9 @@
                 <td>{{ $stt }}</td>
                 <td>{{ $product->name}}</td>
                 <td>
-                    <a href="category/{{$product->category_id}}/edit">{{ $product->category->name}}</a>
+                    @if(isset($product->category->name))
+                        {{ $product->category->name}}
+                    @endif
                 </td>
                 <td>
                     @if($product->status === 1)

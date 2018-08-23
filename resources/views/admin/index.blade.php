@@ -17,7 +17,6 @@
                                 thêm</a></li>
                         <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
                     </ul>
-                    <input type="hidden" id="countArrayOrderNew" value="{{ $countArrayOrderNew }}">
                     <div class="tab-content">
                         <div class="tab-pane active" id="tab_1">
                             <b>Danh sách đơn hàng mới nhất:</b>
@@ -44,9 +43,9 @@
     </section>
     <script>
         $(document).ready(function () {
-            var checkCountOrderStatus = $('#countArrayOrderNew').val();
+            var checkCountOrderStatus = "<?php echo $countArrayOrderNew ?>";
             if (checkCountOrderStatus > 0) {
-                bootbox.alert("Có Đơn hàng mới hãy kiểm tra đơn hàng");
+                alert("Có Đơn hàng mới hãy kiểm tra đơn hàng");
             }
         });
     </script>

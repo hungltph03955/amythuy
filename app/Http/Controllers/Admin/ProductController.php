@@ -147,6 +147,7 @@ class ProductController extends Controller
         $data['img'] = isset($fileName) ? $fileName : 'No Image';;
         $data['author'] = Auth::user()->id;
         $data['slug'] = str_slug($data['name']);
+        $data['category_id'] = isset($data['category_id']) ? implode(",",$data['category_id']) : null;
         $store = $this->productRepository->store($data);
         $productId = $store->id;
         if (empty($store)) {
@@ -303,6 +304,7 @@ class ProductController extends Controller
             $data['img'] = isset($fileName) ? $fileName : $check->img;
             $data['author'] = Auth::user()->id;
             $data['slug'] = str_slug($data['name']);
+            $data['category_id'] = isset($data['category_id'])?implode(",",$data['category_id']):null;
             $update = $this->productRepository->update($data, $id);
             if ($update == false) {
                 return redirect()->back();

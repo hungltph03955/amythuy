@@ -22,7 +22,7 @@
                     </div>
                     <div class="box-body">
                         <a class="btn btn-success" href="{{ action('Admin\ProductController@create') }}">
-                            thêm Sản phẩm </a>
+                            Thêm Sản phẩm </a>
                     </div>
                     <div class="box-body">
                         <form action="{{route('product.index')}}" method="get" class="form-inline">
@@ -145,7 +145,9 @@
                                     <td>{{ $stt }}</td>
                                     <td>{{ $product->name}}</td>
                                     <td>
-                                        <a href="category/{{$product->category_id}}/edit">{{ $product->category->name}}</a>
+                                        @if(isset($product->category->name))
+                                            {{ $product->category->name}}
+                                        @endif
                                     </td>
 
                                     @if(isset($product->colors_id) && $product->colors_id != '')
