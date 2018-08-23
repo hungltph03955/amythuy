@@ -28,7 +28,7 @@
                             <div class="box-body table-responsive">
                                 <div class="box-body">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Tên sản phẩm <i class="fa fa-bell-o"></i></label>
+                                        <label for="exampleInputEmail1">Tên sản phẩm *</label>
                                         <input id="name" type="text" class="form-control" name="name"
                                             value="{{ old('name') }}">
                                         @if ($errors->has('name'))
@@ -39,10 +39,15 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Chọn danh mục</label>
+                                        <label>Chọn danh mục *</label>
                                         <select class="form-control" id="select-multi-category" name="category_id[]" multiple="multiple">
                                             <?php menuMulti($categories, 0, $str = "---|", old('category_id')) ?>
                                         </select>
+                                        @if ($errors->has('category_id'))
+                                            <span class="help-block categoryAdd">
+                                                    <strong>{{ $errors->first('category_id') }}</strong>
+                                                </span>
+                                        @endif
                                     </div>
 
                                     <div class="form-group">
@@ -57,7 +62,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Số lượng <i class="fa fa-bell-o"></i></label>
+                                        <label for="exampleInputEmail1">Số lượng *</label>
                                         <input id="quantity" type="text" class="form-control" name="quantity"
                                             value="{{ old('quantity') }}">
                                         @if ($errors->has('quantity'))
@@ -68,7 +73,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Trị giá <i class="fa fa-bell-o"></i></label>
+                                        <label for="exampleInputEmail1">Trị giá *</label>
                                         <input id="price" type="text" class="form-control" name="price"
                                             value="{{ old('price') }}">
                                         @if ($errors->has('price'))
@@ -80,7 +85,7 @@
 
 
                                     <div class="form-group">
-                                        <label for="exampleInputFile">Ảnh đại diện sản phẩm <i class="fa fa-bell-o"></i></label>
+                                        <label for="exampleInputFile">Ảnh đại diện sản phẩm *</label>
                                         <input type="file" id="exampleInputFile" name="imageMater"
                                             onchange="readURLimageMater(this);">
                                         <div class="imageMaterShowFoloat"><img id="imageMaterShow" src=""/></div>

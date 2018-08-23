@@ -201,10 +201,10 @@
                                 </li>
                             </ul>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="{{url('admin/sale')}}">
                                 <i class="fa fa-folder"></i> Sale</a>
-                        </li>
+                        </li> --}}
 
                         <li class="treeview">
                             <a href="#">
