@@ -7,7 +7,7 @@
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i>Quản trị hệ thống</a></li>
-            <li><a href="#">Danh sách sản phẩm</a></li>
+            <li><a href="#">Sản phẩm</a></li>
             <li class="active"><a href="#">Danh sách</a></li>
         </ol>
         <p></p>

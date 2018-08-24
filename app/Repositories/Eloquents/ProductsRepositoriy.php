@@ -13,7 +13,7 @@ use App\Models\Admin\Sales;
 class ProductsRepositoriy extends BaseRepository implements ProductsRepositoryInterface
 {
 
-    protected $p = 10;
+    protected $p = LIMIT_PAGE;
 
     public function getBlankModel()
     {
@@ -52,8 +52,14 @@ class ProductsRepositoriy extends BaseRepository implements ProductsRepositoryIn
             ->orWhere('parent_id', '=', $categoryId)
             ->where('deleted_at', '=', null)
             ->pluck('id');
+        $arrayCategoryProduct = DB::table('dtb_product_categories')->where('category_id', '=', $categoryId)
+            ->where('deleted_at', '=', null)
+            ->pluck('product_id');
 
-        $query = $this->model->select('products.*')->where('status', '=', 0)->whereIn('category_id', $arrayCategories);
+        $query = $this->model->select('products.*')
+            ->where('status', '=', 0)
+            ->whereIn('id', $arrayCategoryProduct)
+            ->orWhere('category_id', $arrayCategories);
 
         if (isset($options['searchCategory']) && !empty(trim($options['searchCategory']))) {
             $query = $query->where('category_id', trim($options['searchCategory']));

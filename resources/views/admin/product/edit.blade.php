@@ -1,34 +1,33 @@
 @extends('layouts.admin.master')
 @section('content')
-    <section class="content-header content-child">
-        <h1>Chỉnh sửa sản phẩm phẩm
-            <small>(Chinh Sản)</small>
+    <section class="content-header">
+        <h1>Chỉnh sửa sản phẩm
+            <small>(Chỉnh Sửa)</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i>Quản trị hệ thống</a></li>
-            <li><a href="#">Chinh sửa sản phẩm phẩm</a></li>
-            <li class="active"><a href="#">Chinh sửa</a></li>
+            <li><a href="#">Sản phẩm</a></li>
+            <li class="active"><a href="#">Chỉnh sửa</a></li>
         </ol>
         <p></p>
     </section>
 
     <section class="content">
         <div class="row">
-            <form role="form" method="POST" action="{{action('Admin\ProductController@update', $product->id)}}"
-                  enctype="multipart/form-data">
-                <div class="col-md-12">
-                    <div class="col-md-12 color-fixpading">
-                            <div class="box box-primary">
-                            <h3 class="box-title">Chỉnh sửa</h3>
-                        </div>
-                        <div class="box-body table-responsive no-padding">
-                            {{ csrf_field() }}
-                            <input name="_method" type="hidden" value="PATCH">
-                            <div class="box-body">
+            <div class="col-md-12">
+                <form role="form" method="POST" action="{{action('Admin\ProductController@update', $product->id)}}" enctype="multipart/form-data">
+                    {{ csrf_field() }}
+                    <div class="color-fixpading">
+                        <div class="box box-primary">
+                            <div class="box-header">
+                                <h3 class="box-title">Chỉnh sửa</h3>
+                            </div>
+                            <div class="box-body table-responsive">
+                                <input name="_method" type="hidden" value="PATCH">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Tên sản phẩm :</label>
                                     <input id="name" type="text" class="form-control" name="name"
-                                           value="{!! old('name',isset($product->name) ? $product->name : null) !!}">
+                                        value="{!! old('name',isset($product->name) ? $product->name : null) !!}">
                                     @if ($errors->has('name'))
                                         <span class="help-block categoryAdd">
                                                 <strong>{{ $errors->first('name') }}</strong>
@@ -37,13 +36,15 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Danh mục lớn:</label>
-                                    <select class="form-control" name="category_id">
-                                        @foreach ($categories as $category)
-                                            <option value="{{ $category->id }}"
-                                                    {{ $category->id==$product->category_id ? 'selected' : '' }}>{{$category->name}}</option>
-                                        @endforeach
+                                    <label>Chọn danh mục *</label>
+                                    <select class="form-control" id="select-multi-category" name="category_id[]" multiple="multiple">
+                                        <?php menuMultiSelectBox($categories, 0, $str = "---|", $categoryCurrent) ?>
                                     </select>
+                                    @if ($errors->has('category_id'))
+                                        <span class="help-block categoryAdd">
+                                                <strong>{{ $errors->first('category_id') }}</strong>
+                                            </span>
+                                    @endif
                                 </div>
 
                                 <div class="form-group">
@@ -61,7 +62,7 @@
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Số lượng :</label>
                                     <input id="quantity" type="text" class="form-control" name="quantity"
-                                           value="{!! old('quantity',isset($product->quantity) ? $product->quantity : null) !!}">
+                                        value="{!! old('quantity',isset($product->quantity) ? $product->quantity : null) !!}">
                                     @if ($errors->has('quantity'))
                                         <span class="help-block categoryAdd">
                                             <strong>{{ $errors->first('quantity') }}</strong>
@@ -72,7 +73,7 @@
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Trị giá :</label>
                                     <input id="price" type="text" class="form-control" name="price"
-                                           value="{!! old('price',isset($product->price) ? $product->price : null) !!}">
+                                        value="{!! old('price',isset($product->price) ? $product->price : null) !!}">
                                     @if ($errors->has('price'))
                                         <span class="help-block categoryAdd">
                                             <strong>{{ $errors->first('price') }}</strong>
@@ -82,11 +83,11 @@
                                 <div class="form-group">
                                     <label for="exampleInputFile">Ảnh đại diện sản phẩm :</label>
                                     <input type="file" id="exampleInputFile" name="imageMater"
-                                           onchange="readURLimageMater(this);">
+                                        onchange="readURLimageMater(this);">
                                     <div class="imageMaterShowFoloat">
                                         @if(file_exists( public_path().PATH_IMAGE_MASTER. $product->img))
                                             <img id="imageMaterShow" class="imageMaterShowEdit"
-                                                 src="{{PATH_IMAGE_MASTER. $product->img}}">
+                                                src="{{PATH_IMAGE_MASTER. $product->img}}">
                                         @else
                                             <img id="imageMaterShow" class="imageMaterShowEdit" src="{{PATH_NO_IMAGE}}">
                                         @endif
@@ -110,7 +111,7 @@
                                     <div class="radio">
                                         <label>
                                             <input type="radio" name="status" id="optionsRadios2"
-                                                   value="1" {{ $product->status == 1 ?  'checked="checked"' : ''}}>
+                                                value="1" {{ $product->status == 1 ?  'checked="checked"' : ''}}>
                                             Ẩn
                                         </label>
                                     </div>
@@ -120,7 +121,7 @@
                     </div>
 
                     <!--Sửa ảnh chi tiết sp-->
-                    <div class="col-md-12 color-fixpading">
+                    <div class="color-fixpading">
                         <div class="box box-primary">
                             <div class="box-header">
                                 <h3 class="box-title">Các ảnh chi tiết hiện có của sản phẩm</h3>
@@ -173,7 +174,7 @@
                     </div>
 
                     <!--Sửa màu sắc sp-->
-                    <div class="col-md-12 color-fixpading">
+                    <div class="color-fixpading">
                         <div class="box box-primary">
                             <div class="box-header">
                                 <h3 class="box-title">Màu sắc hiện có của sản phẩm : </h3>
@@ -232,7 +233,7 @@
                     </div>
 
                     <!--Sửa kích cỡ sp-->
-                    <div class="col-md-12 color-fixpading">
+                    <div class="color-fixpading">
                         <div class="box box-primary">
                             <div class="box-header">
                                 <h3 class="box-title">Thêm kích cỡ</h3>
@@ -277,7 +278,7 @@
                     </div>
 
                     <!--Sửa chất liệu sp-->
-                    <div class="col-md-12 color-fixpading">
+                    <div class="color-fixpading">
                         <div class="box box-primary">
                             <div class="box-header">
                                 <h3 class="box-title">Thêm chất liệu</h3>
@@ -322,7 +323,7 @@
                     </div>
 
                     <!--Sửa bộ sưu tập sp-->
-                    <div class="col-md-12 color-fixpading">
+                    <div class="color-fixpading">
                         <div class="box box-primary">
                             <div class="box-header">
                                 <h3 class="box-title">Thuộc bộ sưu tập</h3>
@@ -367,7 +368,7 @@
                     </div>
 
                     <!--Button submit-->
-                    <div class="col-md-12 color-fixpading">
+                    <div class="color-fixpading">
                         <div class="box box-danger">
                             <div class="box-body table-responsive no-padding">
                                 <div class="box-footer">

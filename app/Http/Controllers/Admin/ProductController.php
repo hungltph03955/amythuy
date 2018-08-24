@@ -13,6 +13,7 @@ use App\Repositories\ColorRepositoryInterface;
 use App\Repositories\SizeRepositoryInterface;
 use App\Repositories\CollectionRepositoryInterface;
 use App\Repositories\MaterialRepositoryInterface;
+use App\Repositories\Dtb_product_categoryRepositoryInterface;
 use App\Repositories\Dtb_product_colorRepositoryInterface;
 use App\Repositories\Dtb_product_sizeRepositoryInterface;
 use App\Repositories\Dtb_product_matterialRepositoryInterface;
@@ -37,6 +38,7 @@ class ProductController extends Controller
     protected $sizeRepository;
     protected $collectionRepository;
     protected $materialRepository;
+    protected $dtb_product_categoryRepository;
     protected $dtb_product_colorRepository;
     protected $dtb_product_sizeRepository;
     protected $dtb_product_materialRepository;
@@ -53,6 +55,7 @@ class ProductController extends Controller
         SizeRepositoryInterface $sizeRepository,
         CollectionRepositoryInterface $collectionRepository,
         MaterialRepositoryInterface $materialRepository,
+        Dtb_product_categoryRepositoryInterface $dtb_product_categoryRepository,
         Dtb_product_colorRepositoryInterface $dtb_product_colorRepository,
         Dtb_product_sizeRepositoryInterface $dtb_product_sizeRepository,
         Dtb_product_matterialRepositoryInterface $dtb_product_materialRepository,
@@ -69,6 +72,7 @@ class ProductController extends Controller
         $this->sizeRepository = $sizeRepository;
         $this->collectionRepository = $collectionRepository;
         $this->materialRepository = $materialRepository;
+        $this->dtb_product_categoryRepository = $dtb_product_categoryRepository;
         $this->dtb_product_colorRepository = $dtb_product_colorRepository;
         $this->dtb_product_sizeRepository = $dtb_product_sizeRepository;
         $this->dtb_product_materialRepository = $dtb_product_materialRepository;
@@ -131,6 +135,7 @@ class ProductController extends Controller
         $requestDataSizeId = isset($requestDatatas['size_id']) ? $requestDatatas['size_id'] : null;
         $requestDataMaterialId = isset($requestDatatas['material_id']) ? $requestDatatas['material_id'] : null;
         $requestDataCollectionId = isset($requestDatatas['collection_id']) ? $requestDatatas['collection_id'] : null;
+        $requestDataCategoryId = isset($requestDatatas['category_id']) ? $requestDatatas['category_id'] : null;
         if ($request->file('imageMater')) {
             $fileExtension = $request->file('imageMater')->getClientOriginalExtension(); // Lấy . của file
             $fileName = time() . "_" . rand(0, 9999999) . "_" . md5(rand(0, 9999999)) . "." . $fileExtension;
@@ -147,7 +152,7 @@ class ProductController extends Controller
         $data['img'] = isset($fileName) ? $fileName : 'No Image';;
         $data['author'] = Auth::user()->id;
         $data['slug'] = str_slug($data['name']);
-        //$data['category_id'] = isset($data['category_id']) ? implode(",",$data['category_id']) : null;
+        $data['category_id'] = isset($data['category_id']) ? $data['category_id'][0] : null;
         $store = $this->productRepository->store($data);
         $productId = $store->id;
         if (empty($store)) {
@@ -168,6 +173,10 @@ class ProductController extends Controller
                 }
                 try {
                     DB::beginTransaction();
+                    //insert Category
+                    if ($requestDataCategoryId != null) {
+                        $this->dtb_product_categoryRepository->saveCategoryIdAndProductId($productId, $requestDataCategoryId);
+                    }
                     //insert collor
                     if ($requestDataColorId != null) {
                         $imageColor = $request->file('imageColor');
@@ -222,8 +231,7 @@ class ProductController extends Controller
         }
     }
 
-    public function show($id)
-    {
+    public function show($id) {
         if (empty($id)) {
             abort(404);
         }
@@ -247,6 +255,7 @@ class ProductController extends Controller
         $categories = $this->categoryRepository->getAll();
         $product = $this->productRepository->show($id);
         $imageDetail = $this->imagesRepository->getFileName($id);
+        $categoryCurrent = $this->dtb_product_categoryRepository->getCategoryToEditProduct($id);
         $colorCurrent = $this->dtb_product_colorRepository->getColorToEditProduct($id);
         $sizeCurrent = $this->dtb_product_sizeRepository->getSizeToEditProduct($id);
         $materialCurrent = $this->dtb_product_materialRepository->getMaterialToEditProduct($id);
@@ -258,19 +267,9 @@ class ProductController extends Controller
         if (empty($product)) {
             abort(404);
         }
-        return view('admin.product.edit', [
-            'product' => $product,
-            'categories' => $categories,
-            'imageDetail' => $imageDetail,
-            'colorCurrent' => $colorCurrent,
-            'color' => $color,
-            'size' => $size,
-            'collection' => $collection,
-            'material' => $material,
-            'sizeCurrent' => $sizeCurrent,
-            'materialCurrent' => $materialCurrent,
-            'collectionCurrent' => $collectionCurrent
-        ]);
+        return view('admin.product.edit', compact('product', 'categories', 'imageDetail', 'categoryCurrent', 'colorCurrent',
+            'color', 'size', 'collection', 'material', 'sizeCurrent', 'materialCurrent', 'collectionCurrent')
+        );
     }
 
     public function update(EditProductRequest $request, $id)
@@ -284,6 +283,7 @@ class ProductController extends Controller
             $requestDataSizeId = isset($requestDatatas['size_id']) ? $requestDatatas['size_id'] : null;
             $requestDataMaterialId = isset($requestDatatas['material_id']) ? $requestDatatas['material_id'] : null;
             $requestDataCollectionId = isset($requestDatatas['collection_id']) ? $requestDatatas['collection_id'] : null;
+            $requestDataCategoryId = isset($requestDatatas['category_id']) ? $requestDatatas['category_id'] : null;
             if ($request->file('imageMater')) {
                 $fileExtension = $request->file('imageMater')->getClientOriginalExtension(); // Lấy . của file
                 $fileName = time() . "_" . rand(0, 9999999) . "_" . md5(rand(0, 9999999)) . "." . $fileExtension;
@@ -304,7 +304,7 @@ class ProductController extends Controller
             $data['img'] = isset($fileName) ? $fileName : $check->img;
             $data['author'] = Auth::user()->id;
             $data['slug'] = str_slug($data['name']);
-            //$data['category_id'] = isset($data['category_id'])?implode(",",$data['category_id']):null;
+            $data['category_id'] = isset($data['category_id']) ? $data['category_id'][0] : null;
             $update = $this->productRepository->update($data, $id);
             if ($update == false) {
                 return redirect()->back();
@@ -344,6 +344,11 @@ class ProductController extends Controller
                         }
                     }
                 }
+                //insert Category
+                if ($requestDataCategoryId != null) {
+                        $this->dtb_product_categoryRepository->deleteCategoryIdEditProduct($productId);
+                        $this->dtb_product_categoryRepository->saveCategoryIdAndProductId($productId, $requestDataCategoryId);
+                    }
                 //insert size
                 if ($requestDataSizeId != null) {
                     $this->dtb_product_sizeRepository->deleteSizeIdEditProduct($productId);

@@ -314,7 +314,7 @@ button.iCon-searchAll:hover {
     font-size: 13px;
     line-height: 1.25;
     transition: all .15s ease-in-out;
-    border: 1px solid gray;
+    border: 1px solid #d2d0d0;
     margin-bottom: .5rem;
 }
 

@@ -5,7 +5,7 @@
 @section('content')
 
     <!-- breadcrumb -->
-    <div class="bread-crumb bgwhite flex-w p-l-250 p-r-15 p-t-30 p-l-15-sm link-home-discount">
+    {{-- <div class="bread-crumb bgwhite flex-w p-l-250 p-r-15 p-t-30 p-l-15-sm link-home-discount">
         <a href="index.html" class="s-text16">{{ __('messages.home') }}
             <i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i></a>
         @if(isset($catesParent->name))
@@ -21,7 +21,7 @@
         <a href="/product/{{$product->id}}/{{$product->slug}}.html" class="s-text16">
             {{$product->name}}
         </a>
-    </div>
+    </div> --}}
 
     <!-- Product Detail -->
     <div class="container bgwhite p-t-35 p-b-80 div-order">
@@ -121,7 +121,9 @@
                 <div class="p-b-45">
                     <span class="s-text8 m-r-35">{{ __('messages.categories') }}
                         : {{ isset($catesParent->name)? $catesParent->name. ',': ''  }}
-                        {{$product->category->name}}</span>
+                        @if(isset($categoryCurrent))
+                            {{ $a = implode(', ', $categoryCurrent ) }}
+                        @endif</span>
                 </div>
             </div>
         </div>

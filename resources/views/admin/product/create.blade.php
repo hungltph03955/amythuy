@@ -7,7 +7,7 @@
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i>Quản trị hệ thống</a></li>
-            <li><a href="#">Thêm mới sản phẩm</a></li>
+            <li><a href="#">Sản phẩm</a></li>
             <li class="active"><a href="#">Thêm mới sản phẩm</a></li>
         </ol>
         <p></p>
@@ -41,7 +41,7 @@
                                     <div class="form-group">
                                         <label>Chọn danh mục *</label>
                                         <select class="form-control" id="select-multi-category" name="category_id[]" multiple="multiple">
-                                            <?php menuMulti($categories, 0, $str = "---|", old('category_id')) ?>
+                                            <?php menuMultiSelectBox($categories, 0, $str = "---|", old('category_id')) ?>
                                         </select>
                                         @if ($errors->has('category_id'))
                                             <span class="help-block categoryAdd">

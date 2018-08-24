@@ -33,8 +33,7 @@
                     </div>
                 </div>
             </form>
-            <a href="{{ route('password.request') }}">Forgot my password</a><br>
-            <a href="{{ route('register') }}" class="text-center">Register a new membership</a>
+            <a href="{{ route('password.request') }}">Forgot password</a><br>
         </div>
     </div>
 @endsection

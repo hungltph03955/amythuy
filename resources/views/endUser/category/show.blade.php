@@ -31,6 +31,14 @@
                     <!--Filter-->
                     <form action="{{action('EndUser\CategoryController@show', $slug)}}" method="get"
                           class="form-inline frm-search-category">
+                        <select name="category" id="select_category" style="display: none;">
+                            <option value="0">Category</option>
+                            @if(isset($categoryChiled))
+                                @foreach($categoryChiled as $categoryChiledItem)
+                                    <option value="{{ $categoryChiledItem->id }}" {{ $searchCategory == $categoryChiledItem->id ? 'selected="selected"' : '' }}>{{ $categoryChiledItem->name }}</option>
+                                @endforeach
+                            @endif
+                        </select>
                         <div class="p-b-30">
                             @if(isset($categoryChiled))
                                 @foreach($categoryChiled as $categoryChiledItem)

@@ -74,6 +74,9 @@ class RepositoryServiceProvider extends ServiceProvider
             \App\Repositories\ImagesBannerRepositoryInterface::class, \App\Repositories\Eloquents\ImageBannerRepository::class
         );
         $this->app->singleton(
+            \App\Repositories\Dtb_product_categoryRepositoryInterface::class, \App\Repositories\Eloquents\Dtb_product_categoryRepository::class
+        );
+        $this->app->singleton(
             \App\Repositories\Dtb_product_colorRepositoryInterface::class, \App\Repositories\Eloquents\Dtb_product_colorRepository::class
         );
         $this->app->singleton(

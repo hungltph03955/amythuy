@@ -88,7 +88,7 @@
                                             <a href="{{url('admin/product')}}">Sản Phẩm</a>
                                         </div>
                                         <div class="col-xs-4 text-center">
-                                            <a href="{{url('admin/sale')}}">Sales</a>
+                                            <a href="{{url('admin/category')}}">Danh mục</a>
                                         </div>
                                         <div class="col-xs-4 text-center">
                                             <a href="{{url('admin/order')}}">Order</a>
