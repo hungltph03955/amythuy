@@ -30,11 +30,17 @@ class Categories extends Model
         return $this->hasMany(\App\Models\Admin\Categories::class, 'parent_id', 'id');
     }
 
+//    public function product()
+//    {
+//        return $this->hasMany(\App\Models\Admin\Products::class, 'category_id', 'id');
+//
+//    }
+
     public function product()
     {
-        return $this->hasMany(\App\Models\Admin\Products::class, 'category_id', 'id');
-
+        return $this->belongsToMany(Product::class, 'dtb_product_categories', 'category_id', 'product_id');
     }
+
 
     public function scopeSearch($query, $s)
     {

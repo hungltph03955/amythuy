@@ -31,9 +31,10 @@ class Products extends Model
         return $this->hasMany(\App\Models\Admin\Sales::class, 'product_id', 'id');
     }
 
+
     public function category()
     {
-        return $this->belongsTo(\App\Models\Admin\Categories::class, 'category_id', 'id');
+        return $this->belongsToMany(Categories::class, 'dtb_product_categories', 'product_id', 'category_id', 'id', 'id');
     }
 
     public function photo()

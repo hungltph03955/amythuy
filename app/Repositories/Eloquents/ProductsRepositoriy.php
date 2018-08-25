@@ -102,7 +102,7 @@ class ProductsRepositoriy extends BaseRepository implements ProductsRepositoryIn
 
     public function searchCategory($searchCategory, $searchNameProduct, $searchColorProduct, $searchSizeProduct, $searchMaterialProduct, $searchCollectionProduct)
     {
-        $query = $this->model->select('products.*');
+        $query = $this->model::with('category')->select('products.*');
 
         if (!empty($searchNameProduct) && !empty(trim($searchNameProduct))) {
             $searchNameProductTrim = trim($searchNameProduct);

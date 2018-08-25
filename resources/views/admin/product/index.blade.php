@@ -139,17 +139,23 @@
                             </thead>
                             <tbody>
                             <?php $stt = 0 ?>
+
                             @foreach($products as $product)
+
                                 <?php $stt++ ?>
                                 <tr>
                                     <td>{{ $stt }}</td>
                                     <td>{{ $product->name}}</td>
                                     <td>
-                                        @if(isset($product->category->name))
-                                            {{ $product->category->name}}
+                                        @if(isset($product['category']))
+                                            @if(count(isset($product['category'])) >0)
+                                                @foreach($product['category'] as $productCategoryName)
+                                                    <span class="productCategoryName">{{ $productCategoryName->name }}
+                                                        {{ ' ' }}</span>
+                                                @endforeach
+                                            @endif
                                         @endif
                                     </td>
-
                                     @if(isset($product->colors_id) && $product->colors_id != '')
                                         <td>
                                             <span class="colors_name_search">  {{ $product->colors_name}}</span>

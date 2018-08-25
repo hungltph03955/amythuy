@@ -231,7 +231,8 @@ class ProductController extends Controller
         }
     }
 
-    public function show($id) {
+    public function show($id)
+    {
         if (empty($id)) {
             abort(404);
         }
@@ -268,7 +269,7 @@ class ProductController extends Controller
             abort(404);
         }
         return view('admin.product.edit', compact('product', 'categories', 'imageDetail', 'categoryCurrent', 'colorCurrent',
-            'color', 'size', 'collection', 'material', 'sizeCurrent', 'materialCurrent', 'collectionCurrent')
+                'color', 'size', 'collection', 'material', 'sizeCurrent', 'materialCurrent', 'collectionCurrent')
         );
     }
 
@@ -346,9 +347,9 @@ class ProductController extends Controller
                 }
                 //insert Category
                 if ($requestDataCategoryId != null) {
-                        $this->dtb_product_categoryRepository->deleteCategoryIdEditProduct($productId);
-                        $this->dtb_product_categoryRepository->saveCategoryIdAndProductId($productId, $requestDataCategoryId);
-                    }
+                    $this->dtb_product_categoryRepository->deleteCategoryIdEditProduct($productId);
+                    $this->dtb_product_categoryRepository->saveCategoryIdAndProductId($productId, $requestDataCategoryId);
+                }
                 //insert size
                 if ($requestDataSizeId != null) {
                     $this->dtb_product_sizeRepository->deleteSizeIdEditProduct($productId);
