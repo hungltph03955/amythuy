@@ -59,16 +59,16 @@
                                     @endif
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Số lượng :</label>
-                                    <input id="quantity" type="text" class="form-control" name="quantity"
-                                        value="{!! old('quantity',isset($product->quantity) ? $product->quantity : null) !!}">
-                                    @if ($errors->has('quantity'))
-                                        <span class="help-block categoryAdd">
-                                            <strong>{{ $errors->first('quantity') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
+                                {{--<div class="form-group">--}}
+                                {{--<label for="exampleInputEmail1">Số lượng :</label>--}}
+                                {{--<input id="quantity" type="text" class="form-control" name="quantity"--}}
+                                {{--value="{!! old('quantity',isset($product->quantity) ? $product->quantity : null) !!}">--}}
+                                {{--@if ($errors->has('quantity'))--}}
+                                {{--<span class="help-block categoryAdd">--}}
+                                {{--<strong>{{ $errors->first('quantity') }}</strong>--}}
+                                {{--</span>--}}
+                                {{--@endif--}}
+                                {{--</div>--}}
 
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Trị giá :</label>

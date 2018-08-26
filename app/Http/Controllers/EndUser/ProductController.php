@@ -54,7 +54,7 @@ class ProductController extends Controller
         $colorCurrent = $this->dtb_product_colorRepository->getColorToEditProduct($id);
         $materialCurrent = $this->dtb_product_materialRepository->getMaterialToEditProduct($id);
         $imageProductDetail = $this->imagesRepository->getFileName($id);
-        $catesParent = $product->category->parent()->first();
+//        $catesParent = $product->category->parent()->first();
         $productRelated = $this->product->getProductRelated($product->category_id);
         return view('endUser.product.show')->with([
             'product' => $product,
@@ -64,7 +64,7 @@ class ProductController extends Controller
             'materialCurrent' => $materialCurrent,
             'sizeCurrent' => $sizeCurrent,
             'productRelated' => $productRelated,
-            'catesParent' => $catesParent,
+//            'catesParent' => $catesParent,
         ]);
     }
 

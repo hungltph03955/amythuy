@@ -143,14 +143,14 @@ class ProductController extends Controller
             $request->file('imageMater')->move($uploadPath, $fileName);
         }
         $data = $request->only(
-            'name',
+            'code',
             'category_id',
             'description',
-            'quantity',
             'price',
             'status');
         $data['img'] = isset($fileName) ? $fileName : 'No Image';;
         $data['author'] = Auth::user()->id;
+        $data['name'] = $data['code'];
         $data['slug'] = str_slug($data['name']);
         $data['category_id'] = isset($data['category_id']) ? $data['category_id'][0] : null;
         $store = $this->productRepository->store($data);
@@ -296,14 +296,14 @@ class ProductController extends Controller
                 }
             }
             $data = $request->only(
-                'name',
+                'code',
                 'category_id',
                 'description',
-                'quantity',
                 'price',
                 'status');
             $data['img'] = isset($fileName) ? $fileName : $check->img;
             $data['author'] = Auth::user()->id;
+            $data['name'] = $data['code'];
             $data['slug'] = str_slug($data['name']);
             $data['category_id'] = isset($data['category_id']) ? $data['category_id'][0] : null;
             $update = $this->productRepository->update($data, $id);

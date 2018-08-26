@@ -120,7 +120,8 @@
 
                 <div class="p-b-45">
                     <span class="s-text8 m-r-35">{{ __('messages.categories') }}
-                        : {{ isset($catesParent->name)? $catesParent->name. ',': ''  }}
+                        :
+                        {{--{{ isset($catesParent->name)? $catesParent->name. ',': ''  }}--}}
                         @if(isset($categoryCurrent))
                             {{ $a = implode(', ', $categoryCurrent ) }}
                         @endif</span>
@@ -168,7 +169,7 @@
                                         <a href="{{route('endUser.product.detail',['slug'=> $productRelatedItem->slug,'id'=> $productRelatedItem->id])}}">
                                             @if(file_exists( public_path().PATH_IMAGE_MASTER. $productRelatedItem->img))
                                                 <img src="{{PATH_IMAGE_MASTER. $productRelatedItem->img}}"
-                                                    alt="{{$productRelatedItem->name ? $productRelatedItem->name : ''}}">
+                                                     alt="{{$productRelatedItem->name ? $productRelatedItem->name : ''}}">
                                             @else
                                                 <img src="{{PATH_NO_IMAGE}}">
                                             @endif
@@ -177,7 +178,7 @@
                                         <div class="block2-btn-addcart w-size1 trans-0-4">
                                             <!-- Button -->
                                             <a href="{{route('endUser.product.detail',['slug'=> $productRelatedItem->slug,'id'=> $productRelatedItem->id])}}"
-                                                class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">{{ __('messages.btn_view_more') }}</a>
+                                               class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">{{ __('messages.btn_view_more') }}</a>
                                         </div>
                                         <!-- </div> -->
                                     </div>

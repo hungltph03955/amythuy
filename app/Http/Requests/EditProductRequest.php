@@ -31,7 +31,8 @@ class EditProductRequest extends FormRequest
                 'max:255',
             ],
             'category_id' => 'required',
-            'quantity' => 'numeric',
+            'code' => 'required',
+//            'quantity' => 'numeric',
             'price' => 'required|numeric',
             'imageMater' => 'image',
         ];
@@ -43,6 +44,7 @@ class EditProductRequest extends FormRequest
             'name.required' => 'Tên sản phẩm không được để trống',
             'name.min' => 'Tên sản phẩm ít nhất có 5 kí tự trở lên',
             'name.max' => 'Tên sản phẩm có tối đa 255 kí tự',
+            'code.required' => 'Vui lòng nhập mã sản phẩm',
             'category_id.required' => 'Vui lòng chọn danh mục sản phẩm',
             'quantity.numeric' => 'Số lượng cần nhập giá trị số ',
             'price.required' => 'Giá sản phẩm không được để trống',

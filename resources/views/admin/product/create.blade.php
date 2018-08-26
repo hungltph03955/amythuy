@@ -17,9 +17,9 @@
         <div class="row">
             <div class="col-md-12">
                 <form role="form" method="POST" action="{{action('Admin\ProductController@store')}}"
-                  enctype="multipart/form-data">
+                      enctype="multipart/form-data">
                 {{ csrf_field() }}
-                    <!--Thêm sp-->
+                <!--Thêm sp-->
                     <div class="color-fixpading">
                         <div class="box box-primary">
                             <div class="box-header">
@@ -30,7 +30,7 @@
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Tên sản phẩm *</label>
                                         <input id="name" type="text" class="form-control" name="name"
-                                            value="{{ old('name') }}">
+                                               value="{{ old('name') }}">
                                         @if ($errors->has('name'))
                                             <span class="help-block categoryAdd">
                                                     <strong>{{ $errors->first('name') }}</strong>
@@ -38,9 +38,23 @@
                                         @endif
                                     </div>
 
+
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Mã sản phẩm *</label>
+                                        <input id="name" type="text" class="form-control" name="code"
+                                               value="{{ old('code') }}">
+                                        @if ($errors->has('name'))
+                                            <span class="help-block categoryAdd">
+                                                    <strong>{{ $errors->first('code') }}</strong>
+                                                </span>
+                                        @endif
+                                    </div>
+
+
                                     <div class="form-group">
                                         <label>Chọn danh mục *</label>
-                                        <select class="form-control" id="select-multi-category" name="category_id[]" multiple="multiple">
+                                        <select class="form-control" id="select-multi-category" name="category_id[]"
+                                                multiple="multiple">
                                             <?php menuMultiSelectBox($categories, 0, $str = "---|", old('category_id')) ?>
                                         </select>
                                         @if ($errors->has('category_id'))
@@ -61,21 +75,21 @@
                                         @endif
                                     </div>
 
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Số lượng *</label>
-                                        <input id="quantity" type="text" class="form-control" name="quantity"
-                                            value="{{ old('quantity') }}">
-                                        @if ($errors->has('quantity'))
-                                            <span class="help-block categoryAdd">
-                                                <strong>{{ $errors->first('quantity') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
+                                    {{--<div class="form-group">--}}
+                                    {{--<label for="exampleInputEmail1">Số lượng *</label>--}}
+                                    {{--<input id="quantity" type="text" class="form-control" name="quantity"--}}
+                                    {{--value="{{ old('quantity') }}">--}}
+                                    {{--@if ($errors->has('quantity'))--}}
+                                    {{--<span class="help-block categoryAdd">--}}
+                                    {{--<strong>{{ $errors->first('quantity') }}</strong>--}}
+                                    {{--</span>--}}
+                                    {{--@endif--}}
+                                    {{--</div>--}}
 
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Trị giá *</label>
                                         <input id="price" type="text" class="form-control" name="price"
-                                            value="{{ old('price') }}">
+                                               value="{{ old('price') }}">
                                         @if ($errors->has('price'))
                                             <span class="help-block categoryAdd">
                                                 <strong>{{ $errors->first('price') }}</strong>
@@ -87,7 +101,7 @@
                                     <div class="form-group">
                                         <label for="exampleInputFile">Ảnh đại diện sản phẩm *</label>
                                         <input type="file" id="exampleInputFile" name="imageMater"
-                                            onchange="readURLimageMater(this);">
+                                               onchange="readURLimageMater(this);">
                                         <div class="imageMaterShowFoloat"><img id="imageMaterShow" src=""/></div>
                                         <p class="help-block">(Ảnh đại diện cho sản phẩm)</p>
                                         @if ($errors->has('imageMater'))
@@ -103,14 +117,14 @@
                                         <div class="radio">
                                             <label>
                                                 <input type="radio" name="status" id="optionsRadios1" value="0"
-                                                    checked="">
+                                                       checked="">
                                                 Hiện
                                             </label>
                                         </div>
                                         <div class="radio">
                                             <label>
                                                 <input type="radio" name="status" id="optionsRadios2"
-                                                    value="1">
+                                                       value="1">
                                                 Ẩn
                                             </label>
                                         </div>
