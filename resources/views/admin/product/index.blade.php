@@ -148,7 +148,7 @@
                                     <td>{{ $product->name}}</td>
                                     <td>
                                         @if(isset($product['category']))
-                                            @if(count(isset($product['category'])) >0)
+                                            @if(count($product['category']) >0)
                                                 @foreach($product['category'] as $productCategoryName)
                                                     <span class="productCategoryName">{{ $productCategoryName->name }}
                                                         {{ ' ' }}</span>

@@ -5,7 +5,7 @@
 
 namespace App\Repositories\Eloquents;
 
-use App\Models\Admin\Dtb_product_categories;
+use App\Models\Admin\dtb_product_categories;
 use App\Repositories\Dtb_product_categoryRepositoryInterface;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
