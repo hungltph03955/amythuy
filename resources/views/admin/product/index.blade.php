@@ -147,13 +147,11 @@
                                     <td>{{ $stt }}</td>
                                     <td>{{ $product->name}}</td>
                                     <td>
-                                        @if(isset($product['category']))
-                                            @if(count($product['category']) >0)
-                                                @foreach($product['category'] as $productCategoryName)
-                                                    <span class="productCategoryName">{{ $productCategoryName->name }}
-                                                        {{ ' ' }}</span>
-                                                @endforeach
-                                            @endif
+                                        @if(isset($product['category']) && count($product['category']) >0)
+                                            @foreach($product['category'] as $productCategoryName)
+                                                <span class="productCategoryName">{{ $productCategoryName->name }}
+                                                    {{ ' ' }}</span>
+                                            @endforeach
                                         @endif
                                     </td>
                                     @if(isset($product->colors_id) && $product->colors_id != '')
