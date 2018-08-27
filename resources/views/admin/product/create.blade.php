@@ -41,9 +41,9 @@
 
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Mã sản phẩm *</label>
-                                        <input id="name" type="text" class="form-control" name="code"
+                                        <input id="code" type="text" class="form-control" name="code"
                                                value="{{ old('code') }}">
-                                        @if ($errors->has('name'))
+                                        @if ($errors->has('code'))
                                             <span class="help-block categoryAdd">
                                                     <strong>{{ $errors->first('code') }}</strong>
                                                 </span>

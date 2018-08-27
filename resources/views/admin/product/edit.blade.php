@@ -25,12 +25,23 @@
                             <div class="box-body table-responsive">
                                 <input name="_method" type="hidden" value="PATCH">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Tên sản phẩm :</label>
+                                    <label for="name">Tên sản phẩm :</label>
                                     <input id="name" type="text" class="form-control" name="name"
                                         value="{!! old('name',isset($product->name) ? $product->name : null) !!}">
                                     @if ($errors->has('name'))
                                         <span class="help-block categoryAdd">
                                                 <strong>{{ $errors->first('name') }}</strong>
+                                            </span>
+                                    @endif
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="code">Mã sản phẩm *</label>
+                                    <input id="code" type="text" class="form-control" name="code"
+                                           value="{{ old('code', isset($product->code) ? $product->code : null) }}">
+                                    @if ($errors->has('code'))
+                                        <span class="help-block categoryAdd">
+                                                <strong>{{ $errors->first('code') }}</strong>
                                             </span>
                                     @endif
                                 </div>
